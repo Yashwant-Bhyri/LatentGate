@@ -1,0 +1,56 @@
+{
+  "screen_id": "M0_X0_PROXY_SCREEN_2026-10-02",
+  "source_run": "m0/runs/wan_t4_2026-10-02_retry5/run_001",
+  "source_artifact": "predicted_clean_previews/step_{004,014,024}/frames",
+  "evaluator": "research/evaluate_trajectory_frames.py",
+  "mask_proxy": {
+    "r_gt": 150,
+    "g_lt": 125,
+    "b_lt": 125,
+    "minimum_pixels": 300
+  },
+  "results": {
+    "step_004": {
+      "valid_frame_coverage": 1.0,
+      "mean_center_error_frame_diagonals_valid_only": 0.1537920583,
+      "mean_bbox_iou_valid_only": 0.1564127149,
+      "red_mask_area_cv": 0.1572418484,
+      "bbox_width_cv": 0.1149400059,
+      "bbox_height_cv": 0.0293183959,
+      "center_x_monotonic_step_fraction_valid_sequence": 1.0
+    },
+    "step_014": {
+      "valid_frame_coverage": 1.0,
+      "mean_center_error_frame_diagonals_valid_only": 0.1478573267,
+      "mean_bbox_iou_valid_only": 0.1898383693,
+      "red_mask_area_cv": 0.0785666559,
+      "bbox_width_cv": 0.0318192636,
+      "bbox_height_cv": 0.0551445636,
+      "center_x_monotonic_step_fraction_valid_sequence": 1.0
+    },
+    "step_024": {
+      "valid_frame_coverage": 1.0,
+      "mean_center_error_frame_diagonals_valid_only": 0.1482388486,
+      "mean_bbox_iou_valid_only": 0.1847265606,
+      "red_mask_area_cv": 0.0682911539,
+      "bbox_width_cv": 0.0324782363,
+      "bbox_height_cv": 0.0565274466,
+      "center_x_monotonic_step_fraction_valid_sequence": 1.0
+    },
+    "final_frames": {
+      "valid_frame_coverage": 1.0,
+      "mean_center_error_frame_diagonals_valid_only": 0.1482464293,
+      "mean_bbox_iou_valid_only": 0.1856521101,
+      "red_mask_area_cv": 0.0720964272,
+      "bbox_width_cv": 0.0320272291,
+      "bbox_height_cv": 0.0461063235,
+      "center_x_monotonic_step_fraction_valid_sequence": 1.0
+    }
+  },
+  "interpretation": [
+    "The red threshold isolates a plausible ball region in the saved predicted-clean previews at steps 4, 14, and 24, making decoded x0_hat a feasible observer candidate for this controlled red-ball fixture.",
+    "Step 4 has substantially higher area and width variation than steps 14/24, so a mid-denoising observation is the safer first point to test.",
+    "These measurements use the same color-specific proxy as the prompt and are not independent ground truth; they do not validate a trained observer, a causal path controller, or a policy gain.",
+    "The underlying prompt is direction-specific and the target trajectory is not a matched mirrored intervention; this is only an instrumentation-feasibility screen."
+  ]
+}

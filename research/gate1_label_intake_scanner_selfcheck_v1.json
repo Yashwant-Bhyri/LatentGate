@@ -1,0 +1,24 @@
+{
+  "synthetic_input_only": true,
+  "complete_csv_exact_map_classified_candidate": true,
+  "complete_zip_exact_map_classified_candidate": true,
+  "blank_exact_map_classified_blank_template": true,
+  "shared_wrong_filename_rejected_for_both_submissions": true,
+  "duplicate_frame_key_rejected": true,
+  "archive_with_private_key_member_skipped": true,
+  "unblind_key_read": false,
+  "aliases_or_annotation_values_emitted": false,
+  "scanner_sha256": "957db7e6be873ece8e472c488901df8577addd3cc7f9d701aea4ad2b9b13de8e",
+  "validator_sha256": "0ea4a78124775a594d25a1e5f28ae51559da1c22ccc1f08d8caecc01e6b4bd49",
+  "compute": {
+    "runtime_seconds": 0.003596,
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.3",
+    "gpu_used": false,
+    "peak_vram_mb": null,
+    "model_inference": false
+  },
+  "created_utc": "2026-10-16T05:29:32.182284+00:00",
+  "selfcheck_passed": true
+}

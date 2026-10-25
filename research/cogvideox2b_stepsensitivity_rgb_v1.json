@@ -1,0 +1,5797 @@
+{
+  "experiment_id": "EXP-COGVIDEOX2B-STEP-SENSITIVITY-RGB-001",
+  "created_utc": "2026-10-12T06:09:44+00:00",
+  "protocol": "research/2026-10-12_cogvideox2b_stepsensitivity_rgb_protocol.md",
+  "protocol_sha256": "5149c9c8771abbac355085d355da7f6dc430f5878e2795ef456d3ee33700a0e2",
+  "inputs_manifest": "research/cogvideox2b_stepsensitivity_inputs_v1.json",
+  "inputs_manifest_sha256": "b412f4f31d051d31f40060d17b34e47443ea5c8c23e857e996409cc7453dbcdd",
+  "runner": "research/run_cogvideox2b_stepsensitivity_rgb.py",
+  "runner_sha256": "4d771de0916d213a3a482021aad403d79a323fd781cfbc2110b1b2203f6ac40b",
+  "compute": "CPU-only thresholding on archived RGB PNGs; no model, inference, GPU, or human labels",
+  "matched_manifest_comparison": {
+    "fields_matched_by_manifest": [
+      "model",
+      "prompt",
+      "seed",
+      "width",
+      "height",
+      "guidance_scale"
+    ],
+    "nominally_matched_on_recorded_frame_count_and_dimensions": true,
+    "recorded_step_counts": [
+      8,
+      30
+    ],
+    "threshold_cases_fully_covered_in_both_runs": 0,
+    "paired_endpoint_dx_difference_range_30_minus_8": null,
+    "causal_step_count_interpretation_allowed": false
+  },
+  "measurement_spec": {
+    "minimum_mask_pixels": 300,
+    "red_greater_than": [
+      130,
+      150,
+      170,
+      190
+    ],
+    "green_less_than": [
+      100,
+      125,
+      150
+    ],
+    "blue_less_than": [
+      100,
+      125,
+      150
+    ],
+    "threshold_case_count_per_run": 36,
+    "normalization": "endpoint x displacement divided by frame width; endpoint y displacement divided by frame height",
+    "low_coverage_policy": "do not infer direction from partial detections; preserve missing frames"
+  },
+  "runs": [
+    {
+      "run_id": "cogvideox_2b_pilot",
+      "manifest_fields": {
+        "model": "zai-org/CogVideoX-2b",
+        "prompt": "A single bright red ball rolling slowly from left to right across a smooth white tabletop, fixed camera, soft daylight, simple clean background.",
+        "seed": 2026,
+        "width": 480,
+        "height": 320,
+        "guidance_scale": 6.0,
+        "denoising_steps": 8
+      },
+      "manifest_sha256": "08cb21bb8f69a725ed06dbcedf18a3db65af892356ae9f33520ed7d7ee104eb6",
+      "frame_count": 9,
+      "frame_size_px": [
+        480,
+        320
+      ],
+      "frame_sha256": {
+        "frame_00.png": "61eb6ba7ce411f7610a7c63915b6cef8aa7cafb43e38a5e57fc11381527e8872",
+        "frame_01.png": "5920cc64d730e3f0acd68aa66f42b19200b038b524bebd273a53962a1bee6587",
+        "frame_02.png": "5455571415df24321f11d6186e973e794ed1870c08289fdb9ecb12d6cabcec61",
+        "frame_03.png": "9991e91e785c071b6182f211bc8da9cd50ea66f8ad1ba75563a7a3d551b17931",
+        "frame_04.png": "7c289336edee46b7b66b73d7f0316a7eae64d9ee6c125e7d66ff378a2709280c",
+        "frame_05.png": "3710a50e2e4084f78373476932bbb8d77e3e66b368b03926128aa8e0e6eb4d57",
+        "frame_06.png": "bc042015810596d38092883320820c8b309191b7591a056224ab2523d77edee3",
+        "frame_07.png": "6b55b51d7378b5661c5112574bacc722dab703e6d2401b3fa94d6f05848ba713",
+        "frame_08.png": "5dcabd627b844a63b57d853a39be55a3f95f70e96d15b84cbb2bbb7936ea9ea7"
+      },
+      "measurement": {
+        "threshold_case_count": 36,
+        "fully_covered_case_count": 0,
+        "threshold_cases_with_any_missing_frame": 36,
+        "threshold_cases_with_any_valid_centroid": 0,
+        "valid_frame_observations": 0,
+        "valid_frame_observation_count_total": 324,
+        "maximum_valid_frames_in_any_threshold_case": 0,
+        "maximum_raw_mask_pixels_any_threshold_frame": 0,
+        "maximum_raw_mask_pixels_by_frame_across_thresholds": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "endpoint_direction_counts": {
+          "left": 0,
+          "right": 0,
+          "stationary": 0
+        },
+        "endpoint_dx_normalized_range_when_fully_covered": null,
+        "endpoint_dx_normalized_median_when_fully_covered": null,
+        "exact_duplicate_adjacent_transitions_any_threshold": []
+      },
+      "cases": [
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 100,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 100,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 100,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 125,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 125,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 125,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 150,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 150,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 150,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 100,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 100,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 100,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 125,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 125,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 125,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 150,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 150,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 150,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 100,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 100,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 100,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 125,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 125,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 125,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 150,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 150,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 150,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 100,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 100,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 100,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 125,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 125,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 125,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 150,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 150,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 150,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0,
+          "mask_area_fraction_cv": null,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "cogvideox_2b_pilot_30steps",
+      "manifest_fields": {
+        "model": "zai-org/CogVideoX-2b",
+        "prompt": "A single bright red ball rolling slowly from left to right across a smooth white tabletop, fixed camera, soft daylight, simple clean background.",
+        "seed": 2026,
+        "width": 480,
+        "height": 320,
+        "guidance_scale": 6.0,
+        "denoising_steps": 30
+      },
+      "manifest_sha256": "5ba9d3735fe511b5c0dee48fb92b9b103148b41ba463a194a419540eac3864be",
+      "frame_count": 9,
+      "frame_size_px": [
+        480,
+        320
+      ],
+      "frame_sha256": {
+        "frame_00.png": "28f1730325bc89e4fd48c32dc0ba3ab7edb8e3c8464785bf6db069fde9bdbaff",
+        "frame_01.png": "314f1760e8523c01632e279b2cbcc1f0924695d5dd99d0c77d3a76845b900bce",
+        "frame_02.png": "63bd3a8243b13c58afb9cc34010a985039e2e3d6b784b8bb6b9fb96ab5ab6d5f",
+        "frame_03.png": "320c67d8675eefd3df17abf21a8a33ef152e23dc63a43ea612c4e6188cccbcc1",
+        "frame_04.png": "414d1b0f02e9c2719f6b6057f2886fe50c7b6f354fc1a94d44e8536b98ee197d",
+        "frame_05.png": "19f11a88d1c44929628bb16f9179ca1eed332a4acd2e39aaf8f85c73fdbde564",
+        "frame_06.png": "d213eb04bac55749862688e6443b056cfd2337bf04b205bc8eb1e4cfe37035a1",
+        "frame_07.png": "5cf218b50739640d980997c801b5bd46958306994dabc469a0d48524138cd713",
+        "frame_08.png": "e978ad4003581bd710f553336ce53090291a60dfdca55378901aeb6d78a1f627"
+      },
+      "measurement": {
+        "threshold_case_count": 36,
+        "fully_covered_case_count": 0,
+        "threshold_cases_with_any_missing_frame": 36,
+        "threshold_cases_with_any_valid_centroid": 0,
+        "valid_frame_observations": 0,
+        "valid_frame_observation_count_total": 324,
+        "maximum_valid_frames_in_any_threshold_case": 0,
+        "maximum_raw_mask_pixels_any_threshold_frame": 203,
+        "maximum_raw_mask_pixels_by_frame_across_thresholds": [
+          203,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "endpoint_direction_counts": {
+          "left": 0,
+          "right": 0,
+          "stationary": 0
+        },
+        "endpoint_dx_normalized_range_when_fully_covered": null,
+        "endpoint_dx_normalized_median_when_fully_covered": null,
+        "exact_duplicate_adjacent_transitions_any_threshold": []
+      },
+      "cases": [
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 100,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00010995370370370372,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 152,
+              "mask_area_fraction": 0.0009895833333333334,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 100,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00010995370370370372,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 152,
+              "mask_area_fraction": 0.0009895833333333334,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 100,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00010995370370370372,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 152,
+              "mask_area_fraction": 0.0009895833333333334,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 125,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00011718750000000001,
+          "mask_area_fraction_cv": 2.82842712474619,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 162,
+              "mask_area_fraction": 0.0010546875,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 125,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00013961226851851851,
+          "mask_area_fraction_cv": 2.82842712474619,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 193,
+              "mask_area_fraction": 0.0012565104166666666,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 125,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00013961226851851851,
+          "mask_area_fraction_cv": 2.82842712474619,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 193,
+              "mask_area_fraction": 0.0012565104166666666,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 150,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00011718750000000001,
+          "mask_area_fraction_cv": 2.82842712474619,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 162,
+              "mask_area_fraction": 0.0010546875,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 150,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0001439525462962963,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 199,
+              "mask_area_fraction": 0.0012955729166666667,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 130,
+            "g_lt": 150,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00014684606481481482,
+          "mask_area_fraction_cv": 2.82842712474619,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 203,
+              "mask_area_fraction": 0.0013216145833333333,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 100,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00010778356481481481,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 149,
+              "mask_area_fraction": 0.0009700520833333333,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 100,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00010778356481481481,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 149,
+              "mask_area_fraction": 0.0009700520833333333,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 100,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00010778356481481481,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 149,
+              "mask_area_fraction": 0.0009700520833333333,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 125,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00011501736111111112,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 159,
+              "mask_area_fraction": 0.00103515625,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 125,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0001374421296296296,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 190,
+              "mask_area_fraction": 0.0012369791666666666,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 125,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0001374421296296296,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 190,
+              "mask_area_fraction": 0.0012369791666666666,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 150,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00011501736111111112,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 159,
+              "mask_area_fraction": 0.00103515625,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 150,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00014178240740740742,
+          "mask_area_fraction_cv": 2.82842712474619,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 196,
+              "mask_area_fraction": 0.0012760416666666666,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 150,
+            "g_lt": 150,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00014467592592592592,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 200,
+              "mask_area_fraction": 0.0013020833333333333,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 100,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 9.548611111111112e-05,
+          "mask_area_fraction_cv": 2.82842712474619,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 132,
+              "mask_area_fraction": 0.000859375,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 100,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 9.548611111111112e-05,
+          "mask_area_fraction_cv": 2.82842712474619,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 132,
+              "mask_area_fraction": 0.000859375,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 100,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 9.548611111111112e-05,
+          "mask_area_fraction_cv": 2.82842712474619,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 132,
+              "mask_area_fraction": 0.000859375,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 125,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00010271990740740741,
+          "mask_area_fraction_cv": 2.82842712474619,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 142,
+              "mask_area_fraction": 0.0009244791666666667,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 125,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00012514467592592593,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 173,
+              "mask_area_fraction": 0.0011263020833333333,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 125,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00012514467592592593,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 173,
+              "mask_area_fraction": 0.0011263020833333333,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 150,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00010271990740740741,
+          "mask_area_fraction_cv": 2.82842712474619,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 142,
+              "mask_area_fraction": 0.0009244791666666667,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 150,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0001294849537037037,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 179,
+              "mask_area_fraction": 0.0011653645833333334,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 170,
+            "g_lt": 150,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.0001323784722222222,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 183,
+              "mask_area_fraction": 0.00119140625,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 100,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 7.957175925925925e-05,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 110,
+              "mask_area_fraction": 0.0007161458333333333,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 100,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 7.957175925925925e-05,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 110,
+              "mask_area_fraction": 0.0007161458333333333,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 100,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 7.957175925925925e-05,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 110,
+              "mask_area_fraction": 0.0007161458333333333,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 125,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 8.608217592592592e-05,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 119,
+              "mask_area_fraction": 0.0007747395833333333,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 125,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00010271990740740741,
+          "mask_area_fraction_cv": 2.82842712474619,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 142,
+              "mask_area_fraction": 0.0009244791666666667,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 125,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00010271990740740741,
+          "mask_area_fraction_cv": 2.82842712474619,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 142,
+              "mask_area_fraction": 0.0009244791666666667,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 150,
+            "b_lt": 100
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 8.608217592592592e-05,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 119,
+              "mask_area_fraction": 0.0007747395833333333,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 150,
+            "b_lt": 125
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00010561342592592594,
+          "mask_area_fraction_cv": 2.82842712474619,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 146,
+              "mask_area_fraction": 0.0009505208333333334,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        },
+        {
+          "threshold": {
+            "r_gt": 190,
+            "g_lt": 150,
+            "b_lt": 150
+          },
+          "valid_frame_count": 0,
+          "coverage_fraction": 0.0,
+          "fully_covered": false,
+          "endpoint_dx_normalized_by_width": null,
+          "endpoint_dy_normalized_by_height": null,
+          "endpoint_direction": null,
+          "valid_adjacent_step_count": 0,
+          "right_step_fraction": null,
+          "left_step_fraction": null,
+          "still_step_fraction": null,
+          "normalized_centroid_path_length": 0.0,
+          "endpoint_area_ratio": null,
+          "mask_area_fraction_mean": 0.00010706018518518519,
+          "mask_area_fraction_cv": 2.8284271247461903,
+          "exact_duplicate_adjacent_transitions": [],
+          "per_frame": [
+            {
+              "frame": 0,
+              "raw_red_mask_pixels": 148,
+              "mask_area_fraction": 0.0009635416666666667,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 1,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 2,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 3,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 4,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 5,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 6,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 7,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            },
+            {
+              "frame": 8,
+              "raw_red_mask_pixels": 0,
+              "mask_area_fraction": 0.0,
+              "centroid_xy_px": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "One saved output per recorded setting; no independent seed replication.",
+    "Matching manifest fields do not establish identical code, checkpoint revision, environment, or effective initial noise.",
+    "Both clips use 480x320, below the model's documented 720x480 output resolution.",
+    "A 300-pixel absolute mask floor is only comparable within this matched-resolution pair.",
+    "RGB threshold masks are not ground-truth segmentation or an independent tracker.",
+    "No latent semantics, latent-to-frame alignment, causal intervention, policy efficacy, or downstream robotics claim follows."
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "packet_version": "gate1_manual_annotation_packets_v5",
+  "created_utc": "2026-10-11T13:12:41.942090+00:00",
+  "build_wall_seconds": 0.346,
+  "build_host": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.3"
+  },
+  "purpose": "annotation packet generation only; no diffusion or vision inference",
+  "gpu_used": false,
+  "peak_vram_mb": null,
+  "browser_interaction_verified": false,
+  "browser_interaction_verification_scope": "at packet build time only; later QA is recorded separately",
+  "source": {
+    "builder": "research/build_blinded_box_packets.py",
+    "builder_sha256": "d8e1de9a4122ce14ba6e540fea2b5974d342c5fa88ebe86cdbef5a349ccd3091",
+    "annotation_independence_rule": "box drawing changes box coordinates only; categorical state labels require explicit independent entry",
+    "display_scaling_rule": "display width is min(960, max(640, source_width)) CSS pixels subject to viewport max-width; SVG coordinate mapping remains in source pixels",
+    "kubric_fixture": "research/kubric_gate0_fixture_v1/{left,right}/frames; one paired mirror fixture",
+    "generated_sample_package_sha256": "af7ce93e7b6d339fba05b50649f708edfeebb59d2eccb45444d6978040771fa5"
+  },
+  "archives": [
+    {
+      "path": "generated_sample_observer_check/rater_01.zip",
+      "bytes": 3325061,
+      "sha256": "0767073623db4625d83f37e0c9a1a9415af861d29794d399eaa723af4a68f536"
+    },
+    {
+      "path": "generated_sample_observer_check/rater_02.zip",
+      "bytes": 3325061,
+      "sha256": "ffa9bfd3009ce286b5c21bbf2fdc1ff17ef620d7a33b37cbbe77c80f8e1cc227"
+    },
+    {
+      "path": "synthetic_reliability/rater_01.zip",
+      "bytes": 359442,
+      "sha256": "0ab9ebeebc24e9badd58c53b1d9076522e926d69dc47067b6f957450a56533d8"
+    },
+    {
+      "path": "synthetic_reliability/rater_02.zip",
+      "bytes": 359434,
+      "sha256": "8a660acb5bd77855b82c13b27cc951f8d2e4d6131e38e0144e83638e2f92e7ff"
+    }
+  ],
+  "label_fields_populated": 0,
+  "limitations": [
+    "Synthetic packet contains one left/right mirror pair, not the two seed blocks required by the full reliability gate.",
+    "Low-resolution images are enlarged for display only; nearest-neighbor display does not add source-image detail or change scoring coordinates.",
+    "v3 is superseded because its UI coupled box drawing/visibility actions to categorical state fields; see the Gate 1 annotation-independence audit.",
+    "The v4 display-size issue is corrected here; this v5 build has not yet received a browser round-trip smoke and has no human-rater reliability evidence."
+  ]
+}

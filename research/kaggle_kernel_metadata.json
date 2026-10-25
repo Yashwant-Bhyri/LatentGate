@@ -1,0 +1,14 @@
+{
+  "id": "bvyashwantkumar/ditraj-wan-1-3b-pilot-research",
+  "title": "DiTraj Wan 1.3B Pilot \u2014 Research",
+  "code_file": "ditraj_kaggle_pilot.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

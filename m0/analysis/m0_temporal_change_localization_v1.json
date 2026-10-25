@@ -1,0 +1,1443 @@
+{
+  "analysis_code": "research/run_m0_temporal_change_localization.py",
+  "analysis_spec": {
+    "cross_validation": "leave one of four adjacent latent-time pairs out; train on all spatial tokens from the other three pairs",
+    "direct_energy": "mean absolute value of the 64 signed-difference features",
+    "feature": "signed adjacent-time latent difference; flattened 2x2 spatial block across 16 channels into 64 values",
+    "positive_patch_rule": "red-XOR occupancy greater than zero",
+    "primary_target": "fractional red-proxy XOR occupancy in corresponding 16x16 RGB patches",
+    "readout": "train-fold standardized ridge regression, intercept, alpha=1.0",
+    "sample_count_boundary": "one generated clip; four correlated transition pairs; denoising snapshots are repeated views of the same generation",
+    "secondary_target": "mean absolute RGB difference per pixel in corresponding 16x16 patches",
+    "spatial_baseline": "training-pair mean red-XOR occupancy at each spatial token"
+  },
+  "created_utc": "2026-10-12T05:46:29+00:00",
+  "execution": {
+    "device": "cpu",
+    "human_labels_used": false,
+    "model_weights_loaded": false,
+    "new_inference_or_generation": false,
+    "ridge_alpha": 1.0
+  },
+  "experiment_id": "EXP-LATENTGATE-M0-TEMPORAL-CHANGE-LOCALIZATION-001",
+  "input_file_sha256": {
+    "m0/analysis/wan_t4_retry5_frame_motion_audit.json": "362977927487aab396ff4e042796f32515b1f222db0ea1dd0973440dad476b65",
+    "m0/runs/wan_t4_2026-10-02_retry5/config_snapshot.yaml": "cfa478b48ee91da3c1867bc81a8a2d11d68ddf5eccee7300c1f65efc35c0d5a8",
+    "m0/runs/wan_t4_2026-10-02_retry5/manifest.json": "a190ba398f7db0bca7ae0e7b4471050bfd3af581dd38cdfb67c59ee6dcffbfd8",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_000.png": "71dc7f04299e24b0f74f6b6f4abcae5bcfe0edca0fa2d4a47bd4250d73ff1c31",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_004.png": "1c92c3e51b9e085ec08f8a1ad97a810037ce1048dd65ec5f1e51b9ecf4a28813",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_008.png": "b36a3ba051bcc2c0131d9c780e509d63f43ac6223b703211d78c5b981817fe6b",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_012.png": "cdab0da0d1ec906641ff0012878c5ed609f3ada28a5f295734cd7a363b61de64",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_016.png": "8a0ee45f1b44dfa3781d882bd79d251c58ae74436e469f1c34ffe11123f97306",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/latents/post_step_000.pt": "be4b585a952b3837072a9c604e3cb388fb124c386830082337af2fe72ad0fa5c",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/latents/post_step_004.pt": "816558f4d9555ce3447f2c666f1a03fe5f40aa41351dadb4c1e3c871003be509",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/latents/post_step_009.pt": "efb801d7bd8e82729f1fb957830ae76b1851015a3dc60a4e75713c14091160c6",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/latents/post_step_014.pt": "e1cfc7792e48db1460909c6f3975bba4fbe6d56cc0df898deadeba9bcef62bc5",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/latents/post_step_019.pt": "ab5bfca74e3e312c6140740772f26b1b12c6482ff9b25868c6194b3e6286fea8",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/latents/post_step_024.pt": "36b1d0b3935fef71ea20512209d019b899de91ec72a32543beb672baa7b65237",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/latents/post_step_029.pt": "b1df3c486fc8940ccb4356f5ea03df9770b713c75713181069575250ba077d79",
+    "research/m0_temporal_sampling_audit_v1.json": "157b3ce5e74970a547b992fe33a3bd5a3ddee0d613e66211be6041912d7089a1"
+  },
+  "limitations": [
+    "Single generated clip, prompt, and seed; four transition folds are correlated and are not independent samples.",
+    "The red RGB threshold and RGB differences are same-output proxies, not human labels or ground truth.",
+    "Red-mask XOR can include threshold shimmer; RGB change also includes lighting and appearance changes.",
+    "The nominal latent/RGB anchor mapping does not define exact VAE temporal receptive fields.",
+    "This readout does not establish object understanding, forecasting, geometry/contact, causal control, policy efficacy, generalization, or M1/M2/M3 completion."
+  ],
+  "protocol": "research/2026-10-12_m0_temporal_change_localization.md",
+  "proxy_frame_records": [
+    {
+      "decoded_frame_index": 0,
+      "red_mask_centroid_xy_pixels": [
+        209.00572482049293,
+        301.14418785173683
+      ],
+      "red_mask_pixel_count": 10306,
+      "sha256": "71dc7f04299e24b0f74f6b6f4abcae5bcfe0edca0fa2d4a47bd4250d73ff1c31"
+    },
+    {
+      "decoded_frame_index": 4,
+      "red_mask_centroid_xy_pixels": [
+        220.28192265596496,
+        299.9771068952937
+      ],
+      "red_mask_pixel_count": 10964,
+      "sha256": "1c92c3e51b9e085ec08f8a1ad97a810037ce1048dd65ec5f1e51b9ecf4a28813"
+    },
+    {
+      "decoded_frame_index": 8,
+      "red_mask_centroid_xy_pixels": [
+        233.05713322659477,
+        298.94775427656526
+      ],
+      "red_mask_pixel_count": 11867,
+      "sha256": "b36a3ba051bcc2c0131d9c780e509d63f43ac6223b703211d78c5b981817fe6b"
+    },
+    {
+      "decoded_frame_index": 12,
+      "red_mask_centroid_xy_pixels": [
+        239.7654005745292,
+        303.3230928822215
+      ],
+      "red_mask_pixel_count": 12532,
+      "sha256": "cdab0da0d1ec906641ff0012878c5ed609f3ada28a5f295734cd7a363b61de64"
+    },
+    {
+      "decoded_frame_index": 16,
+      "red_mask_centroid_xy_pixels": [
+        241.5665973345659,
+        307.4036668977737
+      ],
+      "red_mask_pixel_count": 12981,
+      "sha256": "8a0ee45f1b44dfa3781d882bd79d251c58ae74436e469f1c34ffe11123f97306"
+    }
+  ],
+  "snapshots": [
+    {
+      "folds": [
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.007131197307737,
+              "mean_energy_inside": 1.1266525470976747,
+              "mean_energy_outside": 1.1186750545603612
+            },
+            "red_xor_average_precision": 0.04080369865414734,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.035698351135977,
+              "mean_energy_inside": 1.1584895256054744,
+              "mean_energy_outside": 1.1185588200800138
+            },
+            "spearman_with_patch_rgb_change": 0.004470257851559987
+          },
+          "changed_red_patch_count": 48,
+          "changed_red_patch_fraction": 0.03076923076923077,
+          "decoded_frame_pair": [
+            0,
+            4
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.024661372766238476,
+            "red_xor_fraction_rmse": 0.06477248904825372
+          },
+          "latent_time_pair": [
+            0,
+            1
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 2.490307092666626,
+            "red_swept_pixel_count": 12461,
+            "red_xor_changed_pixel_count": 3652
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.42649962178628775,
+            "red_xor_fraction_rmse": 0.05773026611471735
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0145613387847168,
+              "mean_energy_inside": 1.1287627889030327,
+              "mean_energy_outside": 1.1125623910084246
+            },
+            "red_xor_average_precision": 0.04632573053882719,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0062657072778378,
+              "mean_energy_inside": 1.120010960799827,
+              "mean_energy_outside": 1.1130369967885463
+            },
+            "spearman_with_patch_rgb_change": -0.02223725748942616
+          },
+          "changed_red_patch_count": 49,
+          "changed_red_patch_fraction": 0.03141025641025641,
+          "decoded_frame_pair": [
+            4,
+            8
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.023428436737569332,
+            "red_xor_fraction_rmse": 0.07024201039474919
+          },
+          "latent_time_pair": [
+            1,
+            2
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 2.5730812549591064,
+            "red_swept_pixel_count": 13459,
+            "red_xor_changed_pixel_count": 4087
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.8983891290945104,
+            "red_xor_fraction_rmse": 0.05039837366782937
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 0.9925822365080331,
+              "mean_energy_inside": 1.1084158545370675,
+              "mean_energy_outside": 1.116699265580799
+            },
+            "red_xor_average_precision": 0.029131642540500637,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 0.9776062508764003,
+              "mean_energy_inside": 1.09158367222526,
+              "mean_energy_outside": 1.1165882698138252
+            },
+            "spearman_with_patch_rgb_change": 0.04231759215147655
+          },
+          "changed_red_patch_count": 47,
+          "changed_red_patch_fraction": 0.03012820512820513,
+          "decoded_frame_pair": [
+            8,
+            12
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.0249831561179604,
+            "red_xor_fraction_rmse": 0.04899997702985521
+          },
+          "latent_time_pair": [
+            2,
+            3
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 1.4734867811203003,
+            "red_swept_pixel_count": 13559,
+            "red_xor_changed_pixel_count": 2719
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.7437345335056337,
+            "red_xor_fraction_rmse": 0.04172832133404328
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 0.9957074316625537,
+              "mean_energy_inside": 1.1155302035817571,
+              "mean_energy_outside": 1.120339336745868
+            },
+            "red_xor_average_precision": 0.027100498725951078,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 0.9891273879610872,
+              "mean_energy_inside": 1.1080441219036063,
+              "mean_energy_outside": 1.120223881564583
+            },
+            "spearman_with_patch_rgb_change": 0.021777272151401333
+          },
+          "changed_red_patch_count": 41,
+          "changed_red_patch_fraction": 0.026282051282051282,
+          "decoded_frame_pair": [
+            12,
+            16
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.02554842756421775,
+            "red_xor_fraction_rmse": 0.03359900840361904
+          },
+          "latent_time_pair": [
+            3,
+            4
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 1.6274023056030273,
+            "red_swept_pixel_count": 13536,
+            "red_xor_changed_pixel_count": 1559
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.6158309432217141,
+            "red_xor_fraction_rmse": 0.04376233695088455
+          }
+        }
+      ],
+      "snapshot": "post_step_000",
+      "source_file": "run_001/latents/post_step_000.pt",
+      "source_sha256": "be4b585a952b3837072a9c604e3cb388fb124c386830082337af2fe72ad0fa5c",
+      "tensor_dtype": "torch.float32",
+      "tensor_shape": [
+        1,
+        16,
+        5,
+        60,
+        104
+      ],
+      "within_clip_summary": {
+        "latent_readout_wins_vs_prior_transition_count": 0,
+        "mean_ap_difference_latent_minus_prior": -0.6464582086055399,
+        "mean_latent_readout_red_xor_ap": 0.02465534829649649,
+        "mean_latent_readout_red_xor_rmse": 0.05440337121911929,
+        "mean_spatial_site_prior_red_xor_ap": 0.6711135569020364,
+        "mean_spatial_site_prior_red_xor_rmse": 0.04840482451686864,
+        "transition_pair_count": 4
+      }
+    },
+    {
+      "folds": [
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0066110093620173,
+              "mean_energy_inside": 1.0688094509096806,
+              "mean_energy_outside": 1.061789947625433
+            },
+            "red_xor_average_precision": 0.040539466139860474,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0354224499291687,
+              "mean_energy_inside": 1.0992718509105832,
+              "mean_energy_outside": 1.0616650730199857
+            },
+            "spearman_with_patch_rgb_change": 0.0026863514089983274
+          },
+          "changed_red_patch_count": 48,
+          "changed_red_patch_fraction": 0.03076923076923077,
+          "decoded_frame_pair": [
+            0,
+            4
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.0249037436839923,
+            "red_xor_fraction_rmse": 0.0647492964429545
+          },
+          "latent_time_pair": [
+            0,
+            1
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 2.490307092666626,
+            "red_swept_pixel_count": 12461,
+            "red_xor_changed_pixel_count": 3652
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.42649962178628775,
+            "red_xor_fraction_rmse": 0.05773026611471735
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0155911601611425,
+              "mean_energy_inside": 1.071851789243997,
+              "mean_energy_outside": 1.055396926725837
+            },
+            "red_xor_average_precision": 0.04670271393725768,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0076598790470537,
+              "mean_energy_inside": 1.0639565357980736,
+              "mean_energy_outside": 1.055868709196063
+            },
+            "spearman_with_patch_rgb_change": -0.02096117570945054
+          },
+          "changed_red_patch_count": 49,
+          "changed_red_patch_fraction": 0.03141025641025641,
+          "decoded_frame_pair": [
+            4,
+            8
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.023726463311027644,
+            "red_xor_fraction_rmse": 0.07022804286273746
+          },
+          "latent_time_pair": [
+            1,
+            2
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 2.5730812549591064,
+            "red_swept_pixel_count": 13459,
+            "red_xor_changed_pixel_count": 4087
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.8983891290945104,
+            "red_xor_fraction_rmse": 0.05039837366782937
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 0.9927206083398443,
+              "mean_energy_inside": 1.0502588001658455,
+              "mean_energy_outside": 1.057960106139253
+            },
+            "red_xor_average_precision": 0.029347057817190103,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 0.9786570184886567,
+              "mean_energy_inside": 1.0352746276201348,
+              "mean_energy_outside": 1.0578523507846629
+            },
+            "spearman_with_patch_rgb_change": 0.04325253601500996
+          },
+          "changed_red_patch_count": 47,
+          "changed_red_patch_fraction": 0.03012820512820513,
+          "decoded_frame_pair": [
+            8,
+            12
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.025060492186915955,
+            "red_xor_fraction_rmse": 0.04901177183011096
+          },
+          "latent_time_pair": [
+            2,
+            3
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 1.4734867811203003,
+            "red_swept_pixel_count": 13559,
+            "red_xor_changed_pixel_count": 2719
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.7437345335056337,
+            "red_xor_fraction_rmse": 0.04172832133404328
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 0.9965809399414077,
+              "mean_energy_inside": 1.0566808702290302,
+              "mean_energy_outside": 1.0603061205356346
+            },
+            "red_xor_average_precision": 0.027392196113609428,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 0.990740942741717,
+              "mean_energy_inside": 1.0504049149848276,
+              "mean_energy_outside": 1.0602215671818307
+            },
+            "spearman_with_patch_rgb_change": 0.022766429489509646
+          },
+          "changed_red_patch_count": 41,
+          "changed_red_patch_fraction": 0.026282051282051282,
+          "decoded_frame_pair": [
+            12,
+            16
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.024740258103890883,
+            "red_xor_fraction_rmse": 0.033621332862388734
+          },
+          "latent_time_pair": [
+            3,
+            4
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 1.6274023056030273,
+            "red_swept_pixel_count": 13536,
+            "red_xor_changed_pixel_count": 1559
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.6158309432217141,
+            "red_xor_fraction_rmse": 0.04376233695088455
+          }
+        }
+      ],
+      "snapshot": "post_step_004",
+      "source_file": "run_001/latents/post_step_004.pt",
+      "source_sha256": "816558f4d9555ce3447f2c666f1a03fe5f40aa41351dadb4c1e3c871003be509",
+      "tensor_dtype": "torch.float32",
+      "tensor_shape": [
+        1,
+        16,
+        5,
+        60,
+        104
+      ],
+      "within_clip_summary": {
+        "latent_readout_wins_vs_prior_transition_count": 0,
+        "mean_ap_difference_latent_minus_prior": -0.6465058175805798,
+        "mean_latent_readout_red_xor_ap": 0.024607739321456695,
+        "mean_latent_readout_red_xor_rmse": 0.05440261099954791,
+        "mean_spatial_site_prior_red_xor_ap": 0.6711135569020364,
+        "mean_spatial_site_prior_red_xor_rmse": 0.04840482451686864,
+        "transition_pair_count": 4
+      }
+    },
+    {
+      "folds": [
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0061827880263878,
+              "mean_energy_inside": 0.9795134015224085,
+              "mean_energy_outside": 0.9734944914369973
+            },
+            "red_xor_average_precision": 0.04071378140910698,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.035308092495236,
+              "mean_energy_inside": 1.007735783372171,
+              "mean_energy_outside": 0.9733680154507323
+            },
+            "spearman_with_patch_rgb_change": -0.0018442902803516871
+          },
+          "changed_red_patch_count": 48,
+          "changed_red_patch_fraction": 0.03076923076923077,
+          "decoded_frame_pair": [
+            0,
+            4
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.026362205766966847,
+            "red_xor_fraction_rmse": 0.06472770117582409
+          },
+          "latent_time_pair": [
+            0,
+            1
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 2.490307092666626,
+            "red_swept_pixel_count": 12461,
+            "red_xor_changed_pixel_count": 3652
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.42649962178628775,
+            "red_xor_fraction_rmse": 0.05773026611471735
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0179340136948112,
+              "mean_energy_inside": 0.9835917804826194,
+              "mean_energy_outside": 0.9662628100150233
+            },
+            "red_xor_average_precision": 0.04888657290603705,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.012481091506852,
+              "mean_energy_inside": 0.9787891039576622,
+              "mean_energy_outside": 0.9667233414709534
+            },
+            "spearman_with_patch_rgb_change": -0.01977280517170647
+          },
+          "changed_red_patch_count": 49,
+          "changed_red_patch_fraction": 0.03141025641025641,
+          "decoded_frame_pair": [
+            4,
+            8
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.02457044742673415,
+            "red_xor_fraction_rmse": 0.07021015452811814
+          },
+          "latent_time_pair": [
+            1,
+            2
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 2.5730812549591064,
+            "red_swept_pixel_count": 13459,
+            "red_xor_changed_pixel_count": 4087
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.8983891290945104,
+            "red_xor_fraction_rmse": 0.05039837366782937
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 0.9947646937372581,
+              "mean_energy_inside": 0.9622184936830669,
+              "mean_energy_outside": 0.9672825138858543
+            },
+            "red_xor_average_precision": 0.029598502708776595,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 0.982605123103156,
+              "mean_energy_inside": 0.9504003686870413,
+              "mean_energy_outside": 0.9672251307682895
+            },
+            "spearman_with_patch_rgb_change": 0.045888733111105945
+          },
+          "changed_red_patch_count": 47,
+          "changed_red_patch_fraction": 0.03012820512820513,
+          "decoded_frame_pair": [
+            8,
+            12
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.025553633020526892,
+            "red_xor_fraction_rmse": 0.04902926901855445
+          },
+          "latent_time_pair": [
+            2,
+            3
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 1.4734867811203003,
+            "red_swept_pixel_count": 13559,
+            "red_xor_changed_pixel_count": 2719
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.7437345335056337,
+            "red_xor_fraction_rmse": 0.04172832133404328
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 0.9985640234630933,
+              "mean_energy_inside": 0.967206556405014,
+              "mean_energy_outside": 0.9685974396019904
+            },
+            "red_xor_average_precision": 0.028476938560087352,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 0.9946632250188995,
+              "mean_energy_inside": 0.9634014326354953,
+              "mean_energy_outside": 0.9685704753155921
+            },
+            "spearman_with_patch_rgb_change": 0.025235587466905657
+          },
+          "changed_red_patch_count": 41,
+          "changed_red_patch_fraction": 0.026282051282051282,
+          "decoded_frame_pair": [
+            12,
+            16
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.02333752163250116,
+            "red_xor_fraction_rmse": 0.033659493077898735
+          },
+          "latent_time_pair": [
+            3,
+            4
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 1.6274023056030273,
+            "red_swept_pixel_count": 13536,
+            "red_xor_changed_pixel_count": 1559
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.6158309432217141,
+            "red_xor_fraction_rmse": 0.04376233695088455
+          }
+        }
+      ],
+      "snapshot": "post_step_009",
+      "source_file": "run_001/latents/post_step_009.pt",
+      "source_sha256": "efb801d7bd8e82729f1fb957830ae76b1851015a3dc60a4e75713c14091160c6",
+      "tensor_dtype": "torch.float32",
+      "tensor_shape": [
+        1,
+        16,
+        5,
+        60,
+        104
+      ],
+      "within_clip_summary": {
+        "latent_readout_wins_vs_prior_transition_count": 0,
+        "mean_ap_difference_latent_minus_prior": -0.6461576049403542,
+        "mean_latent_readout_red_xor_ap": 0.024955951961682262,
+        "mean_latent_readout_red_xor_rmse": 0.05440665445009885,
+        "mean_spatial_site_prior_red_xor_ap": 0.6711135569020364,
+        "mean_spatial_site_prior_red_xor_rmse": 0.04840482451686864,
+        "transition_pair_count": 4
+      }
+    },
+    {
+      "folds": [
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0056666978352873,
+              "mean_energy_inside": 0.8634334762695653,
+              "mean_energy_outside": 0.8585682295417745
+            },
+            "red_xor_average_precision": 0.042556484274782945,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0370471162825503,
+              "mean_energy_inside": 0.8902315434770671,
+              "mean_energy_outside": 0.8584292164740157
+            },
+            "spearman_with_patch_rgb_change": -0.010373286501824825
+          },
+          "changed_red_patch_count": 48,
+          "changed_red_patch_fraction": 0.03076923076923077,
+          "decoded_frame_pair": [
+            0,
+            4
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.03473817221926771,
+            "red_xor_fraction_rmse": 0.06464091898359424
+          },
+          "latent_time_pair": [
+            0,
+            1
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 2.490307092666626,
+            "red_swept_pixel_count": 12461,
+            "red_xor_changed_pixel_count": 3652
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.42649962178628775,
+            "red_xor_fraction_rmse": 0.05773026611471735
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0249761924579752,
+              "mean_energy_inside": 0.8697600447998779,
+              "mean_energy_outside": 0.8485660947052083
+            },
+            "red_xor_average_precision": 0.05883915378604493,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0270114280100224,
+              "mean_energy_inside": 0.8719795936216006,
+              "mean_energy_outside": 0.8490456579545395
+            },
+            "spearman_with_patch_rgb_change": -0.013924217390308352
+          },
+          "changed_red_patch_count": 49,
+          "changed_red_patch_fraction": 0.03141025641025641,
+          "decoded_frame_pair": [
+            4,
+            8
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.02851051897225515,
+            "red_xor_fraction_rmse": 0.07011193572362179
+          },
+          "latent_time_pair": [
+            1,
+            2
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 2.5730812549591064,
+            "red_swept_pixel_count": 13459,
+            "red_xor_changed_pixel_count": 4087
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.8983891290945104,
+            "red_xor_fraction_rmse": 0.05039837366782937
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 0.9986950114788467,
+              "mean_energy_inside": 0.8465429065974109,
+              "mean_energy_outside": 0.8476490789153617
+            },
+            "red_xor_average_precision": 0.031642713033297604,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 0.9906993217753959,
+              "mean_energy_inside": 0.8397813375218537,
+              "mean_energy_outside": 0.8476651987778818
+            },
+            "spearman_with_patch_rgb_change": 0.05260428841403852
+          },
+          "changed_red_patch_count": 47,
+          "changed_red_patch_fraction": 0.03012820512820513,
+          "decoded_frame_pair": [
+            8,
+            12
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.026628165814158212,
+            "red_xor_fraction_rmse": 0.04908443070603536
+          },
+          "latent_time_pair": [
+            2,
+            3
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 1.4734867811203003,
+            "red_swept_pixel_count": 13559,
+            "red_xor_changed_pixel_count": 2719
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.7437345335056337,
+            "red_xor_fraction_rmse": 0.04172832133404328
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0004912798596521,
+              "mean_energy_inside": 0.8487188940316263,
+              "mean_energy_outside": 0.8483021402752093
+            },
+            "red_xor_average_precision": 0.030129141806131274,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.001490466442734,
+              "mean_energy_inside": 0.849575709576887,
+              "mean_energy_outside": 0.8483113300065211
+            },
+            "spearman_with_patch_rgb_change": 0.030906740401002056
+          },
+          "changed_red_patch_count": 41,
+          "changed_red_patch_fraction": 0.026282051282051282,
+          "decoded_frame_pair": [
+            12,
+            16
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.024207962632444503,
+            "red_xor_fraction_rmse": 0.03386229375576757
+          },
+          "latent_time_pair": [
+            3,
+            4
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 1.6274023056030273,
+            "red_swept_pixel_count": 13536,
+            "red_xor_changed_pixel_count": 1559
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.6158309432217141,
+            "red_xor_fraction_rmse": 0.04376233695088455
+          }
+        }
+      ],
+      "snapshot": "post_step_014",
+      "source_file": "run_001/latents/post_step_014.pt",
+      "source_sha256": "e1cfc7792e48db1460909c6f3975bba4fbe6d56cc0df898deadeba9bcef62bc5",
+      "tensor_dtype": "torch.float32",
+      "tensor_shape": [
+        1,
+        16,
+        5,
+        60,
+        104
+      ],
+      "within_clip_summary": {
+        "latent_readout_wins_vs_prior_transition_count": 0,
+        "mean_ap_difference_latent_minus_prior": -0.6425923519925051,
+        "mean_latent_readout_red_xor_ap": 0.028521204909531393,
+        "mean_latent_readout_red_xor_rmse": 0.05442489479225474,
+        "mean_spatial_site_prior_red_xor_ap": 0.6711135569020364,
+        "mean_spatial_site_prior_red_xor_rmse": 0.04840482451686864,
+        "transition_pair_count": 4
+      }
+    },
+    {
+      "folds": [
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.002079129031254,
+              "mean_energy_inside": 0.7073274626273445,
+              "mean_energy_outside": 0.7058598888404586
+            },
+            "red_xor_average_precision": 0.042998486176482664,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0400044832768949,
+              "mean_energy_inside": 0.7338766013702348,
+              "mean_energy_outside": 0.7056475363047494
+            },
+            "spearman_with_patch_rgb_change": -0.036779944633315534
+          },
+          "changed_red_patch_count": 48,
+          "changed_red_patch_fraction": 0.03076923076923077,
+          "decoded_frame_pair": [
+            0,
+            4
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.09334739439658968,
+            "red_xor_fraction_rmse": 0.06455625869643584
+          },
+          "latent_time_pair": [
+            0,
+            1
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 2.490307092666626,
+            "red_swept_pixel_count": 12461,
+            "red_xor_changed_pixel_count": 3652
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.42649962178628775,
+            "red_xor_fraction_rmse": 0.05773026611471735
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0479960666828247,
+              "mean_energy_inside": 0.7199897033463241,
+              "mean_energy_outside": 0.6870156541954164
+            },
+            "red_xor_average_precision": 0.11511545730937826,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.080255194960106,
+              "mean_energy_inside": 0.7427426566334362,
+              "mean_energy_outside": 0.6875622168712326
+            },
+            "spearman_with_patch_rgb_change": 0.0070202167214457115
+          },
+          "changed_red_patch_count": 49,
+          "changed_red_patch_fraction": 0.03141025641025641,
+          "decoded_frame_pair": [
+            4,
+            8
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.0518884528951072,
+            "red_xor_fraction_rmse": 0.06984434816046256
+          },
+          "latent_time_pair": [
+            1,
+            2
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 2.5730812549591064,
+            "red_swept_pixel_count": 13459,
+            "red_xor_changed_pixel_count": 4087
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.8983891290945104,
+            "red_xor_fraction_rmse": 0.05039837366782937
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0121138682970567,
+              "mean_energy_inside": 0.6904413732621404,
+              "mean_energy_outside": 0.6821775640954808
+            },
+            "red_xor_average_precision": 0.041601179408605124,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0200080096523594,
+              "mean_energy_inside": 0.6960179512061894,
+              "mean_energy_outside": 0.6823651820571558
+            },
+            "spearman_with_patch_rgb_change": 0.07855935305272349
+          },
+          "changed_red_patch_count": 47,
+          "changed_red_patch_fraction": 0.03012820512820513,
+          "decoded_frame_pair": [
+            8,
+            12
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.034264862414143615,
+            "red_xor_fraction_rmse": 0.04907286989369577
+          },
+          "latent_time_pair": [
+            2,
+            3
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 1.4734867811203003,
+            "red_swept_pixel_count": 13559,
+            "red_xor_changed_pixel_count": 2719
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.7437345335056337,
+            "red_xor_fraction_rmse": 0.04172832133404328
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0073389736637697,
+              "mean_energy_inside": 0.6870746196842838,
+              "mean_energy_outside": 0.682068933742671
+            },
+            "red_xor_average_precision": 0.03693475317255792,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0198336026974582,
+              "mean_energy_inside": 0.6957159808558645,
+              "mean_energy_outside": 0.6821857791464185
+            },
+            "spearman_with_patch_rgb_change": 0.04699496430608107
+          },
+          "changed_red_patch_count": 41,
+          "changed_red_patch_fraction": 0.026282051282051282,
+          "decoded_frame_pair": [
+            12,
+            16
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.026188478814820802,
+            "red_xor_fraction_rmse": 0.03454632597075851
+          },
+          "latent_time_pair": [
+            3,
+            4
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 1.6274023056030273,
+            "red_swept_pixel_count": 13536,
+            "red_xor_changed_pixel_count": 1559
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.6158309432217141,
+            "red_xor_fraction_rmse": 0.04376233695088455
+          }
+        }
+      ],
+      "snapshot": "post_step_019",
+      "source_file": "run_001/latents/post_step_019.pt",
+      "source_sha256": "ab5bfca74e3e312c6140740772f26b1b12c6482ff9b25868c6194b3e6286fea8",
+      "tensor_dtype": "torch.float32",
+      "tensor_shape": [
+        1,
+        16,
+        5,
+        60,
+        104
+      ],
+      "within_clip_summary": {
+        "latent_readout_wins_vs_prior_transition_count": 0,
+        "mean_ap_difference_latent_minus_prior": -0.6196912597718711,
+        "mean_latent_readout_red_xor_ap": 0.05142229713016532,
+        "mean_latent_readout_red_xor_rmse": 0.05450495068033818,
+        "mean_spatial_site_prior_red_xor_ap": 0.6711135569020364,
+        "mean_spatial_site_prior_red_xor_rmse": 0.04840482451686864,
+        "transition_pair_count": 4
+      }
+    },
+    {
+      "folds": [
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 0.9761382851808604,
+              "mean_energy_inside": 0.5003338875980057,
+              "mean_energy_outside": 0.5125645568806914
+            },
+            "red_xor_average_precision": 0.05673386871266659,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0547463790760978,
+              "mean_energy_inside": 0.539952771711853,
+              "mean_energy_outside": 0.5119266417248316
+            },
+            "spearman_with_patch_rgb_change": -0.1597548188286485
+          },
+          "changed_red_patch_count": 48,
+          "changed_red_patch_fraction": 0.03076923076923077,
+          "decoded_frame_pair": [
+            0,
+            4
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.408068275089821,
+            "red_xor_fraction_rmse": 0.06740241767457349
+          },
+          "latent_time_pair": [
+            0,
+            1
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 2.490307092666626,
+            "red_swept_pixel_count": 12461,
+            "red_xor_changed_pixel_count": 3652
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.42649962178628775,
+            "red_xor_fraction_rmse": 0.05773026611471735
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.1542702495795725,
+              "mean_energy_inside": 0.5280597351227603,
+              "mean_energy_outside": 0.45748362250096886
+            },
+            "red_xor_average_precision": 0.6097173961309189,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.3270468726044762,
+              "mean_energy_inside": 0.6082229162221277,
+              "mean_energy_outside": 0.4583281335258512
+            },
+            "spearman_with_patch_rgb_change": 0.05452049930209874
+          },
+          "changed_red_patch_count": 49,
+          "changed_red_patch_fraction": 0.03141025641025641,
+          "decoded_frame_pair": [
+            4,
+            8
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.32424046905776727,
+            "red_xor_fraction_rmse": 0.06920096943909926
+          },
+          "latent_time_pair": [
+            1,
+            2
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 2.5730812549591064,
+            "red_swept_pixel_count": 13459,
+            "red_xor_changed_pixel_count": 4087
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.8983891290945104,
+            "red_xor_fraction_rmse": 0.05039837366782937
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0964009651414783,
+              "mean_energy_inside": 0.4823513574396719,
+              "mean_energy_outside": 0.4399406538076422
+            },
+            "red_xor_average_precision": 0.36770760331857527,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.2017501950799436,
+              "mean_energy_inside": 0.5297015962119339,
+              "mean_energy_outside": 0.44077512812610503
+            },
+            "spearman_with_patch_rgb_change": 0.21290460293026378
+          },
+          "changed_red_patch_count": 47,
+          "changed_red_patch_fraction": 0.03012820512820513,
+          "decoded_frame_pair": [
+            8,
+            12
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.1933403442868336,
+            "red_xor_fraction_rmse": 0.04897927154362817
+          },
+          "latent_time_pair": [
+            2,
+            3
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 1.4734867811203003,
+            "red_swept_pixel_count": 13559,
+            "red_xor_changed_pixel_count": 2719
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.7437345335056337,
+            "red_xor_fraction_rmse": 0.04172832133404328
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.0506876221385073,
+              "mean_energy_inside": 0.46346057212611896,
+              "mean_energy_outside": 0.44110215287662646
+            },
+            "red_xor_average_precision": 0.2006116468640936,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 1.131763964800384,
+              "mean_energy_inside": 0.4998241003516384,
+              "mean_energy_outside": 0.4416328102828361
+            },
+            "spearman_with_patch_rgb_change": 0.15348372620844766
+          },
+          "changed_red_patch_count": 41,
+          "changed_red_patch_fraction": 0.026282051282051282,
+          "decoded_frame_pair": [
+            12,
+            16
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.034889826690635006,
+            "red_xor_fraction_rmse": 0.036120774322722676
+          },
+          "latent_time_pair": [
+            3,
+            4
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 1.6274023056030273,
+            "red_swept_pixel_count": 13536,
+            "red_xor_changed_pixel_count": 1559
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.6158309432217141,
+            "red_xor_fraction_rmse": 0.04376233695088455
+          }
+        }
+      ],
+      "snapshot": "post_step_024",
+      "source_file": "run_001/latents/post_step_024.pt",
+      "source_sha256": "36b1d0b3935fef71ea20512209d019b899de91ec72a32543beb672baa7b65237",
+      "tensor_dtype": "torch.float32",
+      "tensor_shape": [
+        1,
+        16,
+        5,
+        60,
+        104
+      ],
+      "within_clip_summary": {
+        "latent_readout_wins_vs_prior_transition_count": 0,
+        "mean_ap_difference_latent_minus_prior": -0.4309788281207722,
+        "mean_latent_readout_red_xor_ap": 0.24013472878126424,
+        "mean_latent_readout_red_xor_rmse": 0.0554258582450059,
+        "mean_spatial_site_prior_red_xor_ap": 0.6711135569020364,
+        "mean_spatial_site_prior_red_xor_rmse": 0.04840482451686864,
+        "transition_pair_count": 4
+      }
+    },
+    {
+      "folds": [
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 0.7531665602026745,
+              "mean_energy_inside": 0.3770498960902644,
+              "mean_energy_outside": 0.500619538908899
+            },
+            "red_xor_average_precision": 0.07633601185492715,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 0.9725088429888729,
+              "mean_energy_inside": 0.4832287350945113,
+              "mean_energy_outside": 0.49688878263499786
+            },
+            "spearman_with_patch_rgb_change": -0.4852913188637001
+          },
+          "changed_red_patch_count": 48,
+          "changed_red_patch_fraction": 0.03076923076923077,
+          "decoded_frame_pair": [
+            0,
+            4
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.5188929187918524,
+            "red_xor_fraction_rmse": 0.09869315354189048
+          },
+          "latent_time_pair": [
+            0,
+            1
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 2.490307092666626,
+            "red_swept_pixel_count": 12461,
+            "red_xor_changed_pixel_count": 3652
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.42649962178628775,
+            "red_xor_fraction_rmse": 0.05773026611471735
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.535630351118156,
+              "mean_energy_inside": 0.4246587564666749,
+              "mean_energy_outside": 0.2765370951137188
+            },
+            "red_xor_average_precision": 0.7926426046916862,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 2.363984402746396,
+              "mean_energy_inside": 0.6563680389845362,
+              "mean_energy_outside": 0.27765328663843564
+            },
+            "spearman_with_patch_rgb_change": 0.08133865334729183
+          },
+          "changed_red_patch_count": 49,
+          "changed_red_patch_fraction": 0.03141025641025641,
+          "decoded_frame_pair": [
+            4,
+            8
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.40571907627977144,
+            "red_xor_fraction_rmse": 0.07006380653234218
+          },
+          "latent_time_pair": [
+            1,
+            2
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 2.5730812549591064,
+            "red_swept_pixel_count": 13459,
+            "red_xor_changed_pixel_count": 4087
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.8983891290945104,
+            "red_xor_fraction_rmse": 0.05039837366782937
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 2.1988681474053027,
+              "mean_energy_inside": 0.326836652539087,
+              "mean_energy_outside": 0.14863858614021908
+            },
+            "red_xor_average_precision": 0.780714960788474,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 3.3420691842251764,
+              "mean_energy_inside": 0.5088662130603774,
+              "mean_energy_outside": 0.15226082555749146
+            },
+            "spearman_with_patch_rgb_change": 0.6668136691565812
+          },
+          "changed_red_patch_count": 47,
+          "changed_red_patch_fraction": 0.03012820512820513,
+          "decoded_frame_pair": [
+            8,
+            12
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.27926351819990597,
+            "red_xor_fraction_rmse": 0.04757981765304144
+          },
+          "latent_time_pair": [
+            2,
+            3
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 1.4734867811203003,
+            "red_swept_pixel_count": 13559,
+            "red_xor_changed_pixel_count": 2719
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.7437345335056337,
+            "red_xor_fraction_rmse": 0.04172832133404328
+          }
+        },
+        {
+          "absolute_latent_delta_energy": {
+            "red_swept_energy_enrichment": {
+              "inside_to_outside_ratio": 1.50792556078978,
+              "mean_energy_inside": 0.2611911346768818,
+              "mean_energy_outside": 0.17321222046271453
+            },
+            "red_xor_average_precision": 0.53460344150669,
+            "red_xor_energy_enrichment": {
+              "inside_to_outside_ratio": 2.3413239008762265,
+              "mean_energy_inside": 0.4103788663545054,
+              "mean_energy_outside": 0.17527641784245382
+            },
+            "spearman_with_patch_rgb_change": 0.5955168323385333
+          },
+          "changed_red_patch_count": 41,
+          "changed_red_patch_fraction": 0.026282051282051282,
+          "decoded_frame_pair": [
+            12,
+            16
+          ],
+          "latent_readout": {
+            "red_xor_average_precision": 0.024586275624184795,
+            "red_xor_fraction_rmse": 0.07818280876296216
+          },
+          "latent_time_pair": [
+            3,
+            4
+          ],
+          "rgb_change_summary": {
+            "mean_absolute_difference_per_pixel": 1.6274023056030273,
+            "red_swept_pixel_count": 13536,
+            "red_xor_changed_pixel_count": 1559
+          },
+          "spatial_site_prior": {
+            "red_xor_average_precision": 0.6158309432217141,
+            "red_xor_fraction_rmse": 0.04376233695088455
+          }
+        }
+      ],
+      "snapshot": "post_step_029",
+      "source_file": "run_001/latents/post_step_029.pt",
+      "source_sha256": "b1df3c486fc8940ccb4356f5ea03df9770b713c75713181069575250ba077d79",
+      "tensor_dtype": "torch.float32",
+      "tensor_shape": [
+        1,
+        16,
+        5,
+        60,
+        104
+      ],
+      "within_clip_summary": {
+        "latent_readout_wins_vs_prior_transition_count": 1,
+        "mean_ap_difference_latent_minus_prior": -0.3639981096781078,
+        "mean_latent_readout_red_xor_ap": 0.30711544722392864,
+        "mean_latent_readout_red_xor_rmse": 0.07362989662255906,
+        "mean_spatial_site_prior_red_xor_ap": 0.6711135569020364,
+        "mean_spatial_site_prior_red_xor_rmse": 0.04840482451686864,
+        "transition_pair_count": 4
+      }
+    }
+  ],
+  "source_run": {
+    "control_grid_wh": [
+      52,
+      30
+    ],
+    "decoded_frame_shape_hwc": [
+      480,
+      832,
+      3
+    ],
+    "frame_motion_audit_sha256": "362977927487aab396ff4e042796f32515b1f222db0ea1dd0973440dad476b65",
+    "frame_pair_stride": 4,
+    "frame_to_latent_time_indices": [
+      0,
+      4,
+      8,
+      12,
+      16
+    ],
+    "latent_shape_bcthw": [
+      1,
+      16,
+      5,
+      60,
+      104
+    ],
+    "manifest_sha256": "a190ba398f7db0bca7ae0e7b4471050bfd3af581dd38cdfb67c59ee6dcffbfd8",
+    "nominal_rgb_anchor_mapping_verified": true,
+    "path": "m0/runs/wan_t4_2026-10-02_retry5",
+    "temporal_sampling_audit_sha256": "157b3ce5e74970a547b992fe33a3bd5a3ddee0d613e66211be6041912d7089a1"
+  },
+  "transition_records": [
+    {
+      "decoded_frame_pair": [
+        0,
+        4
+      ],
+      "latent_time_pair": [
+        0,
+        1
+      ],
+      "red_swept_pixel_count": 12461,
+      "red_xor_changed_pixel_count": 3652,
+      "rgb_mean_absolute_difference_per_pixel": 2.490307092666626
+    },
+    {
+      "decoded_frame_pair": [
+        4,
+        8
+      ],
+      "latent_time_pair": [
+        1,
+        2
+      ],
+      "red_swept_pixel_count": 13459,
+      "red_xor_changed_pixel_count": 4087,
+      "rgb_mean_absolute_difference_per_pixel": 2.5730812549591064
+    },
+    {
+      "decoded_frame_pair": [
+        8,
+        12
+      ],
+      "latent_time_pair": [
+        2,
+        3
+      ],
+      "red_swept_pixel_count": 13559,
+      "red_xor_changed_pixel_count": 2719,
+      "rgb_mean_absolute_difference_per_pixel": 1.4734867811203003
+    },
+    {
+      "decoded_frame_pair": [
+        12,
+        16
+      ],
+      "latent_time_pair": [
+        3,
+        4
+      ],
+      "red_swept_pixel_count": 13536,
+      "red_xor_changed_pixel_count": 1559,
+      "rgb_mean_absolute_difference_per_pixel": 1.6274023056030273
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "audit_id": "EXP-M0-WAN-VAE-TEMPORAL-SUPPORT-AUDIT-001",
+  "status": "completed_primary_source_temporal_support_audit",
+  "created_date": "2026-10-16",
+  "scope": "CPU/source and saved-run metadata inspection. Fetched and hashed the exact pinned VAE config and matching Diffusers v0.40.0 source text from official primary-source pages. No model weights fetched or loaded; no inference, generation, GPU, or cloud runtime.",
+  "pinned_run": {
+    "model_repo_id": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+    "model_revision": "0fad780a534b6463e45facd96134c9f345acfa5b",
+    "runtime_diffusers_version": "0.40.0",
+    "saved_vae_class": "AutoencoderKLWan",
+    "rgb_frame_count": 17,
+    "saved_latent_shape_bcthw": [1, 16, 5, 60, 104],
+    "saved_vae_temporal_compression_ratio": 4
+  },
+  "nominal_mapping": {
+    "formula": "latent_time_positions = (rgb_frames - 1) / temporal_compression_ratio + 1",
+    "interpretation": "Nominal stride-grid anchors only; not exact receptive-field centers or isolated input-frame assignments.",
+    "positions": [
+      {"latent_time_index": 0, "nominal_rgb_frame_index": 0},
+      {"latent_time_index": 1, "nominal_rgb_frame_index": 4},
+      {"latent_time_index": 2, "nominal_rgb_frame_index": 8},
+      {"latent_time_index": 3, "nominal_rgb_frame_index": 12},
+      {"latent_time_index": 4, "nominal_rgb_frame_index": 16}
+    ]
+  },
+  "exact_support": {
+    "determined": true,
+    "type": "structural_architecture_support_not_guaranteed_numerical_influence",
+    "maximum_causal_past_reach_rgb_frames": 112,
+    "formula": "At anchor a, possible valid input support is [max(0, a - 112), a].",
+    "per_position": [
+      {"latent_time_index": 0, "nominal_rgb_anchor": 0, "valid_rgb_frame_support_inclusive": [0, 0]},
+      {"latent_time_index": 1, "nominal_rgb_anchor": 4, "valid_rgb_frame_support_inclusive": [0, 4]},
+      {"latent_time_index": 2, "nominal_rgb_anchor": 8, "valid_rgb_frame_support_inclusive": [0, 8]},
+      {"latent_time_index": 3, "nominal_rgb_anchor": 12, "valid_rgb_frame_support_inclusive": [0, 12]},
+      {"latent_time_index": 4, "nominal_rgb_anchor": 16, "valid_rgb_frame_support_inclusive": [0, 16]}
+    ],
+    "temporal_overlap_between_positions": "Every position after index 0 has structural support overlapping all earlier positions; because the run is only 17 frames, each support is clipped by the sequence start.",
+    "boundary_behavior": {
+      "initial": "Causal convolutions left-pad with zeros. The first temporal-downsample cache call preserves the first feature position. Latent position 0 has structural support only from RGB frame 0.",
+      "final": "Causal encoder adds no future/right temporal padding. The 17-frame input ends on a complete 1+4*k grouping, so the last latent position is anchored at frame 16 and has support from frames 0 through 16; there are no future input frames."
+    },
+    "derivation": [
+      {"component": "conv_in", "current_temporal_stride_rgb_frames": 1, "additional_past_reach_rgb_frames": 2},
+      {"component": "stage_0_two_residual_blocks", "current_temporal_stride_rgb_frames": 1, "additional_past_reach_rgb_frames": 8},
+      {"component": "stage_1_two_residual_blocks", "current_temporal_stride_rgb_frames": 1, "additional_past_reach_rgb_frames": 8},
+      {"component": "temporal_downsample_1", "current_temporal_stride_rgb_frames": 1, "additional_past_reach_rgb_frames": 2},
+      {"component": "stage_2_two_residual_blocks", "current_temporal_stride_rgb_frames": 2, "additional_past_reach_rgb_frames": 16},
+      {"component": "temporal_downsample_2", "current_temporal_stride_rgb_frames": 2, "additional_past_reach_rgb_frames": 4},
+      {"component": "stage_3_two_residual_blocks", "current_temporal_stride_rgb_frames": 4, "additional_past_reach_rgb_frames": 32},
+      {"component": "middle_two_residual_blocks", "current_temporal_stride_rgb_frames": 4, "additional_past_reach_rgb_frames": 32},
+      {"component": "conv_out", "current_temporal_stride_rgb_frames": 4, "additional_past_reach_rgb_frames": 8}
+    ],
+    "qualifier": "The support is the encoder graph's possible input dependency set from kernel geometry and causal cache alignment. It does not establish nonzero numerical influence from every listed frame for these learned weights and inputs."
+  },
+  "primary_source_provenance": {
+    "vae_config": {
+      "url": "https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/blob/0fad780a534b6463e45facd96134c9f345acfa5b/vae/config.json",
+      "sha256": "f0c1cc1d7decb5badc384f54691746a27a9aeff49f7ebca974e583389342d527",
+      "key_values": {"_class_name": "AutoencoderKLWan", "temperal_downsample": [false, true, true], "num_res_blocks": 2, "attn_scales": []}
+    },
+    "diffusers_implementation": {
+      "url": "https://github.com/huggingface/diffusers/blob/v0.40.0/src/diffusers/models/autoencoders/autoencoder_kl_wan.py",
+      "sha256": "a38de0c53adcb81887a0b48d44e3fb59737d7b1e4779a666febe83be666e8fa8",
+      "runtime_version": "0.40.0"
+    }
+  },
+  "local_alternatives_not_used_as_exact_source": {
+    "non_diffusers_cached_vae": {
+      "repo_id": "Wan-AI/Wan2.1-T2V-1.3B",
+      "snapshot_revision": "37ec512624d61f7aa208f7ea8140a131f93afc9a",
+      "file": "/Users/yash/Documents/Resume/video-diffusion-lab/hf-cache/hub/models--Wan-AI--Wan2.1-T2V-1.3B/snapshots/37ec512624d61f7aa208f7ea8140a131f93afc9a/Wan2.1_VAE.pth",
+      "matching_config_or_source_available": false,
+      "weights_loaded": false
+    },
+    "separate_mlx_implementation": "/Users/yash/Documents/Resume/video-diffusion-lab/mlx-examples/video/wan2.1/wan/vae.py",
+    "local_python_diffusers_package_available": false
+  },
+  "decision": "Keep the full jointly denoised sequence and score every decoded RGB frame. Use the five nominal latent-time anchors for secondary internal-state summaries only. Do not infer exact VAE support or edge behavior from these anchors; chunk only if measured resource/control-horizon pressure justifies it.",
+  "inputs_sha256": {
+    "m0/run_config.yaml": "c2a5afcfbc1ef990180c3c63bc3e00985fe5309973ff65b3015d0157df343f7a",
+    "m0/runs/wan_t4_2026-10-02_retry5/config_snapshot.yaml": "cfa478b48ee91da3c1867bc81a8a2d11d68ddf5eccee7300c1f65efc35c0d5a8",
+    "m0/runs/wan_t4_2026-10-02_retry5/manifest.json": "a190ba398f7db0bca7ae0e7b4471050bfd3af581dd38cdfb67c59ee6dcffbfd8",
+    "m0/runs/wan_t4_2026-10-02_retry5/generation_packet.json": "7cf41fed61e26112adf6803ab983d6a1ba4b4ffaa38029c6786123c0a427b1e5",
+    "research/m0_temporal_sampling_audit_v1.json": "157b3ce5e74970a547b992fe33a3bd5a3ddee0d613e66211be6041912d7089a1"
+  }
+}

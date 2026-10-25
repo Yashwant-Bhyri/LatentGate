@@ -1,0 +1,432 @@
+{
+  "capture_status": {
+    "attention_limitation_or_failure": null,
+    "attention_summary_count": 18,
+    "attention_summary_expected": 18,
+    "attention_summary_status": "captured",
+    "hidden_state_shape_notes": {
+      "post_step_latent": {
+        "dtype": "torch.float32",
+        "shape": [
+          1,
+          16,
+          5,
+          60,
+          104
+        ]
+      }
+    },
+    "hidden_state_summary_count": 18,
+    "hidden_state_summary_expected": 18,
+    "post_step_latent_steps_captured": [
+      0,
+      4,
+      9,
+      14,
+      19,
+      24,
+      29
+    ],
+    "post_step_latent_steps_expected": [
+      0,
+      4,
+      9,
+      14,
+      19,
+      24,
+      29
+    ],
+    "predicted_clean_limitation_or_failure": "Predicted-clean estimate omitted: expected FlowMatchEulerDiscreteScheduler, found UniPCMultistepScheduler",
+    "predicted_clean_preview_count": 0,
+    "predicted_clean_preview_status": "no_predicted_clean_snapshots",
+    "predicted_clean_steps_captured": [],
+    "predicted_clean_steps_expected": [
+      4,
+      14,
+      24,
+      29
+    ]
+  },
+  "dtype_check": {
+    "matches": false,
+    "transformer": {
+      "expected": "float16",
+      "matches": false,
+      "observed": "torch.float32"
+    },
+    "vae": {
+      "expected": "float32",
+      "matches": true,
+      "observed": "torch.float32"
+    }
+  },
+  "experiment_id": "M0_WAN21_T2V13B_T4_001",
+  "files_sha256": {
+    "autopsy_report.md": "1cbfbd29fd432fcb42090870440be5fff023e01299e984c2b21a12db54783e1e",
+    "config_snapshot.yaml": "cfa478b48ee91da3c1867bc81a8a2d11d68ddf5eccee7300c1f65efc35c0d5a8",
+    "generation_packet.json": "ad803ee89645eea03f86f94fb54b89757f616f983f34f1a2f45b61bf6b7aad70",
+    "run_001/attention_summaries.json": "23301f713b8e92465aa3a29429dc3ba1a44590bd12ff401d0b4bce3f2c08c8f0",
+    "run_001/capture_status.json": "279d0138f475daf4ed420fc5300172ce874a4e33d26a23534d710152c6bf572c",
+    "run_001/frames/frame_000.png": "71dc7f04299e24b0f74f6b6f4abcae5bcfe0edca0fa2d4a47bd4250d73ff1c31",
+    "run_001/frames/frame_001.png": "64b571c5b150e5994ecfc8b4886c292c130853a3f0bea03d4719d0aa2155ae8e",
+    "run_001/frames/frame_002.png": "12acca218de855c8d7fab1d345b6492ede65a16a4dcc62889c3b9dc99d87a86c",
+    "run_001/frames/frame_003.png": "412f7881ddeb7eb1bd11df504b9f7677503afc10917c1abae95ce77b5ba2470b",
+    "run_001/frames/frame_004.png": "1c92c3e51b9e085ec08f8a1ad97a810037ce1048dd65ec5f1e51b9ecf4a28813",
+    "run_001/frames/frame_005.png": "601207ea3b91d64e131e34ead1ad19dd0c07ebe62dc8c7f708374af9626dc39e",
+    "run_001/frames/frame_006.png": "d6d5b4208859f234eb0d0a6708282bf1bc3f2d02b8fbad10695db9b2e4628308",
+    "run_001/frames/frame_007.png": "0074526d5be6a910cd0735e29c2acebf2b02551dd8f78b79d9a7d0feb8be38a2",
+    "run_001/frames/frame_008.png": "b36a3ba051bcc2c0131d9c780e509d63f43ac6223b703211d78c5b981817fe6b",
+    "run_001/frames/frame_009.png": "fcc471d5663e2d419ef4303a88014176fc7ccc3eae1c8e065a6e197d84f55de2",
+    "run_001/frames/frame_010.png": "96fe291e4982675ce990ea31597da4a9359ba80324759c806b5f1bca45630d38",
+    "run_001/frames/frame_011.png": "6d569d4f436bc498ec4ecaab4ef08de76a5ebc4a522d213487c1e2c8c8276bef",
+    "run_001/frames/frame_012.png": "cdab0da0d1ec906641ff0012878c5ed609f3ada28a5f295734cd7a363b61de64",
+    "run_001/frames/frame_013.png": "4a78c5d5160525f4d211b2a9fd73bb9b14e20270d7cf0eb34b9ee788d0366a5c",
+    "run_001/frames/frame_014.png": "da9895e232affcaa63930c401cb132bdc1b9157ee51a5668cb9589087ba7d53f",
+    "run_001/frames/frame_015.png": "b705c5a775d011049268e081e7e06a3edf41afe0041df47ef7902d1782771372",
+    "run_001/frames/frame_016.png": "8a0ee45f1b44dfa3781d882bd79d251c58ae74436e469f1c34ffe11123f97306",
+    "run_001/frames_contact_sheet.png": "f47ef24f6d8e17e48206b5c26b8f10aee0f5985406456f362d1c4a4d55e403b3",
+    "run_001/initial_noise.pt": "56a3a32ef4bd09e28e755a8185cd75d84da5029e583a2fb40869fae44461a528",
+    "run_001/latents/post_step_000.pt": "be4b585a952b3837072a9c604e3cb388fb124c386830082337af2fe72ad0fa5c",
+    "run_001/latents/post_step_004.pt": "816558f4d9555ce3447f2c666f1a03fe5f40aa41351dadb4c1e3c871003be509",
+    "run_001/latents/post_step_009.pt": "efb801d7bd8e82729f1fb957830ae76b1851015a3dc60a4e75713c14091160c6",
+    "run_001/latents/post_step_014.pt": "e1cfc7792e48db1460909c6f3975bba4fbe6d56cc0df898deadeba9bcef62bc5",
+    "run_001/latents/post_step_019.pt": "ab5bfca74e3e312c6140740772f26b1b12c6482ff9b25868c6194b3e6286fea8",
+    "run_001/latents/post_step_024.pt": "36b1d0b3935fef71ea20512209d019b899de91ec72a32543beb672baa7b65237",
+    "run_001/latents/post_step_029.pt": "b1df3c486fc8940ccb4356f5ea03df9770b713c75713181069575250ba077d79",
+    "run_001/prompt_conditioning.pt": "9c469a0e48d877a7e65bbdee37e8105cca1b6192603d36d12726ac68fc68dcce",
+    "run_001/transformer_summaries.pt": "8501ac873e59d6d1b4c1b6d37bc0c153909fd840a71ce81fa41ea83983001de5",
+    "run_001/vae_roundtrip_frames/frame_000.png": "d9b3d1b741f83d86cf9f344bcd2244663ba52dd657d18ba67df445d3fa4428b8",
+    "run_001/vae_roundtrip_frames/frame_001.png": "dcd35580d9d908b35d34af024034f109dba27bbb45a53836f119282a37308fae",
+    "run_001/vae_roundtrip_frames/frame_002.png": "7d401be9dd91bc638eda1ca0c8bed646daf2c598991ecb24e4d3a53712ae5685",
+    "run_001/vae_roundtrip_frames/frame_003.png": "b8ec7e60bd30676672ac43aba723ad1cb83458bfa92f3988a03932ecd892ae23",
+    "run_001/vae_roundtrip_frames/frame_004.png": "6286b6fe2b16be94b873ae6ce56fa19e60de64639efb0026ffaf6b86fb4d844e",
+    "run_001/vae_roundtrip_frames/frame_005.png": "b3bc3ad48fa36b98c1914d43e7db308a1b3fcfab91264729c75316a1e8b4c752",
+    "run_001/vae_roundtrip_frames/frame_006.png": "4b34c297ed0197312c352b638f1ec3d57d3521ba3bc899a3a707ddf1ba50b458",
+    "run_001/vae_roundtrip_frames/frame_007.png": "a8e8a45e2b8db272e2b5c441fccb713b27efd9cd23fb5f21c77eeacf830e1744",
+    "run_001/vae_roundtrip_frames/frame_008.png": "44ad5974308916f1047d8e7fd52c0bddd508e63dd7a5286cf06d492c1eeab3a1",
+    "run_001/vae_roundtrip_frames/frame_009.png": "708cd11e2ff5318ee2144d0a0df39ed386eeb522d6cf8640aa9c36a67f6cfe4d",
+    "run_001/vae_roundtrip_frames/frame_010.png": "4951668e26af6659ad025fa66bed3463af4145e0c683a0fc22ef63d04e63d486",
+    "run_001/vae_roundtrip_frames/frame_011.png": "5099520c3b9cc886f2432b8c625b11eae1ab9905454c1f450b77a5ff07c6e621",
+    "run_001/vae_roundtrip_frames/frame_012.png": "d77dcb4c8de64d79091b3366886b1aebbab6ea0acec477a0a2f5aa37b8f53630",
+    "run_001/vae_roundtrip_frames/frame_013.png": "7db824d529a101ac1a1f3cb4b17c363da94be012fd2769440a44a31a53912051",
+    "run_001/vae_roundtrip_frames/frame_014.png": "27233c9ca9ffe00ab9f750fcd90ce14be90655ee0b118b8f96da2fc4f5d4ccf4",
+    "run_001/vae_roundtrip_frames/frame_015.png": "f7075f0375b92c44cac9178af4d4f9392d7275d44dda8ab8b056c2441e98b70f",
+    "run_001/vae_roundtrip_frames/frame_016.png": "2fc71cabbbe4fd54b1e0a8d6162b63b183a01b72e9cdc0b221d2fca574ba1ebe",
+    "run_001/vae_roundtrip_frames_contact_sheet.png": "20d239e0de8e14bda69f6df02630c486c66e732b0ae5b03900a66f59efe174fc",
+    "run_001/vae_roundtrip_report.json": "4dc860b505bfc6977dcfc41fad7c62a377ce6729c6b7a0e8e46a8ec3ade019f3"
+  },
+  "generation_packet_sha256": "ad803ee89645eea03f86f94fb54b89757f616f983f34f1a2f45b61bf6b7aad70",
+  "generation_seconds": 161.34507492199918,
+  "limitations": [
+    "A same-seed replay checks selected latents; the full capture set is written only for run_001.",
+    "Attention metrics are sampled-query self-attention statistics, not a full attention map and not cross-attention.",
+    "Transformer summaries are spatially pooled channel vectors per latent frame, not token-level activations."
+  ],
+  "m0_completion_assessment": {
+    "gates": {
+      "attention_summaries_complete": true,
+      "hidden_state_summaries_complete": true,
+      "post_step_latents_complete": true,
+      "predicted_clean_latents_complete": false,
+      "predicted_clean_previews_complete": false,
+      "runtime_dtypes_match": false,
+      "runtime_matches_config": true,
+      "same_seed_replay_exact": true,
+      "transformer_architecture_matches": true,
+      "vae_roundtrip_complete": true
+    },
+    "status": "incomplete"
+  },
+  "manifest_schema_version": 1,
+  "model_config_check": {
+    "checks": {
+      "attention_head_dim": {
+        "expected": 128,
+        "matches": true,
+        "observed": 128
+      },
+      "block_count": {
+        "expected": 30,
+        "matches": true,
+        "observed": 30
+      },
+      "num_attention_heads": {
+        "expected": 12,
+        "matches": true,
+        "observed": 12
+      },
+      "patch_size": {
+        "expected": [
+          1,
+          2,
+          2
+        ],
+        "matches": true,
+        "observed": [
+          1,
+          2,
+          2
+        ]
+      }
+    },
+    "matches": true
+  },
+  "model_revision": "0fad780a534b6463e45facd96134c9f345acfa5b",
+  "observed_transformer_inputs": {
+    "encoder_hidden_states": {
+      "dtype": "torch.float16",
+      "shape": [
+        1,
+        226,
+        4096
+      ]
+    },
+    "hidden_states": {
+      "dtype": "torch.float16",
+      "shape": [
+        1,
+        16,
+        5,
+        60,
+        104
+      ]
+    },
+    "timestep": {
+      "dtype": "torch.int64",
+      "shape": [
+        1
+      ]
+    }
+  },
+  "peak_cuda_allocated_bytes": 8495847424,
+  "predicted_clean_previews": {
+    "status": "no_predicted_clean_snapshots",
+    "steps": {}
+  },
+  "repeat": {
+    "comparisons": {
+      "final_latent": {
+        "exact_equal": true,
+        "max_absolute_difference": 0.0,
+        "mean_absolute_difference": 0.0,
+        "rmse": 0.0,
+        "shape_match": true
+      },
+      "initial_noise": {
+        "exact_equal": true,
+        "max_absolute_difference": 0.0,
+        "mean_absolute_difference": 0.0,
+        "rmse": 0.0,
+        "shape_match": true
+      },
+      "post_step_latents": {
+        "0": {
+          "exact_equal": true,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "rmse": 0.0,
+          "shape_match": true
+        },
+        "14": {
+          "exact_equal": true,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "rmse": 0.0,
+          "shape_match": true
+        },
+        "19": {
+          "exact_equal": true,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "rmse": 0.0,
+          "shape_match": true
+        },
+        "24": {
+          "exact_equal": true,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "rmse": 0.0,
+          "shape_match": true
+        },
+        "29": {
+          "exact_equal": true,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "rmse": 0.0,
+          "shape_match": true
+        },
+        "4": {
+          "exact_equal": true,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "rmse": 0.0,
+          "shape_match": true
+        },
+        "9": {
+          "exact_equal": true,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "rmse": 0.0,
+          "shape_match": true
+        }
+      }
+    },
+    "duration_seconds": 141.85035464300017,
+    "instrumentation_on_repeat": "selected post-step latents and initial noise only; full baseline captures are in run_001",
+    "note": "Bitwise equality is reported; CUDA kernels may be nondeterministic even with fixed seeds and deterministic flags.",
+    "peak_cuda_allocated_bytes": 3790932480,
+    "requested": true,
+    "same_model_revision_and_generation_parameters": true,
+    "status": "completed"
+  },
+  "runtime": {
+    "accelerate": "1.14.0",
+    "compute_capability": [
+      7,
+      5
+    ],
+    "cuda_available": true,
+    "cuda_runtime": "12.8",
+    "determinism_flags": {
+      "cublas_workspace_config": ":4096:8",
+      "cuda_matmul_allow_tf32": false,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "deterministic_algorithms_enabled": false
+    },
+    "device_name": "Tesla T4",
+    "device_total_memory_bytes": 15637086208,
+    "diffusers": "0.40.0",
+    "huggingface_hub": "1.29.0",
+    "numpy": "2.1.3",
+    "pillow": "11.3.0",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "python_version": "3.13.15",
+    "pyyaml": "6.0.3",
+    "safetensors": "0.8.0",
+    "sentencepiece": "0.2.2",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.16.1"
+  },
+  "runtime_differences_from_config": {},
+  "status": "run_completed_with_capture_gaps",
+  "tensor_map": {
+    "initial_latents": {
+      "dtype": "torch.float32",
+      "meaning": "initial Gaussian noise / first flow state",
+      "shape": [
+        1,
+        16,
+        5,
+        60,
+        104
+      ]
+    },
+    "scheduler": {
+      "class": "UniPCMultistepScheduler",
+      "config": {
+        "_class_name": "UniPCMultistepScheduler",
+        "_diffusers_version": "0.33.0.dev0",
+        "_use_default_values": [
+          "sigma_max",
+          "use_dynamic_shifting",
+          "time_shift_type",
+          "shift_terminal",
+          "sigma_min"
+        ],
+        "beta_end": 0.02,
+        "beta_schedule": "linear",
+        "beta_start": 0.0001,
+        "disable_corrector": [],
+        "dynamic_thresholding_ratio": 0.995,
+        "final_sigmas_type": "zero",
+        "flow_shift": 3.0,
+        "lower_order_final": true,
+        "num_train_timesteps": 1000,
+        "predict_x0": true,
+        "prediction_type": "flow_prediction",
+        "rescale_betas_zero_snr": false,
+        "sample_max_value": 1.0,
+        "shift_terminal": null,
+        "sigma_max": null,
+        "sigma_min": null,
+        "solver_order": 2,
+        "solver_p": null,
+        "solver_type": "bh2",
+        "steps_offset": 0,
+        "thresholding": false,
+        "time_shift_type": "exponential",
+        "timestep_spacing": "linspace",
+        "trained_betas": null,
+        "use_beta_sigmas": false,
+        "use_dynamic_shifting": false,
+        "use_exponential_sigmas": false,
+        "use_flow_sigmas": true,
+        "use_karras_sigmas": false
+      },
+      "order": 1
+    },
+    "transformer": {
+      "attention_head_dim": 128,
+      "block_count": 30,
+      "blocks_attribute": "blocks",
+      "class": "WanTransformer3DModel",
+      "in_channels": 16,
+      "num_attention_heads": 12,
+      "out_channels": 16,
+      "parameter_dtype": "torch.float32",
+      "patch_size": [
+        1,
+        2,
+        2
+      ],
+      "text_dim": 4096
+    },
+    "vae": {
+      "class": "AutoencoderKLWan",
+      "in_channels": 3,
+      "latents_mean": [
+        -0.7571,
+        -0.7089,
+        -0.9113,
+        0.1075,
+        -0.1745,
+        0.9653,
+        -0.1517,
+        1.5508,
+        0.4134,
+        -0.0715,
+        0.5517,
+        -0.3632,
+        -0.1922,
+        -0.9497,
+        0.2503,
+        -0.2921
+      ],
+      "latents_std": [
+        2.8184,
+        1.4541,
+        2.3275,
+        2.6558,
+        1.2196,
+        1.7708,
+        2.6052,
+        2.0743,
+        3.2687,
+        2.1526,
+        2.8652,
+        1.5579,
+        1.6382,
+        1.1253,
+        2.8251,
+        1.916
+      ],
+      "out_channels": 3,
+      "parameter_dtype": "torch.float32",
+      "spatial_compression_ratio": 8,
+      "temporal_compression_ratio": 4,
+      "z_dim": 16
+    }
+  }
+}

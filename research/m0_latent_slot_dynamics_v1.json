@@ -1,0 +1,1241 @@
+{
+  "audit_id": "EXP-M0-LATENT-SLOT-DYNAMICS-001",
+  "status": "completed_cpu_safe_tensor_diagnostics",
+  "created_date": "2026-10-16",
+  "scope": "Exploratory arithmetic on existing serialized latent tensors only. No weights, inference, VAE decode, image inspection, RGB proxy scoring, GPU, or cloud runtime.",
+  "runtime": {
+    "python": "3.12.3",
+    "torch": "2.9.1",
+    "device": "cpu",
+    "loader": "torch.load(map_location='cpu', weights_only=True)",
+    "pickle_fallback": false
+  },
+  "inputs": {
+    "run_manifests": {
+      "retry4": {
+        "path": "m0/runs/wan_t4_2026-10-02_retry4/manifest.json",
+        "sha256": "3f735cf94cf4899e39abcb3c672eba841409f57bfd5085d56e2ea67dbbd7545d"
+      },
+      "retry5": {
+        "path": "m0/runs/wan_t4_2026-10-02_retry5/manifest.json",
+        "sha256": "a190ba398f7db0bca7ae0e7b4471050bfd3af581dd38cdfb67c59ee6dcffbfd8"
+      }
+    },
+    "source_temporal_support_audit": {
+      "path": "research/m0_wan_vae_temporal_support_audit_v1.json",
+      "sha256": "6acb174f9b79990d07812c01574a7f3d2489788508cec12c8dd64cc11761edcb"
+    }
+  },
+  "temporal_slot_mapping": [
+    {
+      "latent_time_index": 0,
+      "nominal_rgb_anchor": 0,
+      "structural_causal_prefix_support_inclusive": [
+        0,
+        0
+      ]
+    },
+    {
+      "latent_time_index": 1,
+      "nominal_rgb_anchor": 4,
+      "structural_causal_prefix_support_inclusive": [
+        0,
+        4
+      ]
+    },
+    {
+      "latent_time_index": 2,
+      "nominal_rgb_anchor": 8,
+      "structural_causal_prefix_support_inclusive": [
+        0,
+        8
+      ]
+    },
+    {
+      "latent_time_index": 3,
+      "nominal_rgb_anchor": 12,
+      "structural_causal_prefix_support_inclusive": [
+        0,
+        12
+      ]
+    },
+    {
+      "latent_time_index": 4,
+      "nominal_rgb_anchor": 16,
+      "structural_causal_prefix_support_inclusive": [
+        0,
+        16
+      ]
+    }
+  ],
+  "artifact_count": 20,
+  "artifacts": [
+    {
+      "run": "retry4",
+      "path": "m0/runs/wan_t4_2026-10-02_retry4/run_001/latents/post_step_000.pt",
+      "sha256": "be4b585a952b3837072a9c604e3cb388fb124c386830082337af2fe72ad0fa5c",
+      "manifest_sha256": "be4b585a952b3837072a9c604e3cb388fb124c386830082337af2fe72ad0fa5c",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "latent_after_scheduler_step"
+      ],
+      "tensors": {
+        "root.latent_after_scheduler_step": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry4",
+      "path": "m0/runs/wan_t4_2026-10-02_retry4/run_001/latents/post_step_004.pt",
+      "sha256": "816558f4d9555ce3447f2c666f1a03fe5f40aa41351dadb4c1e3c871003be509",
+      "manifest_sha256": "816558f4d9555ce3447f2c666f1a03fe5f40aa41351dadb4c1e3c871003be509",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "latent_after_scheduler_step"
+      ],
+      "tensors": {
+        "root.latent_after_scheduler_step": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry4",
+      "path": "m0/runs/wan_t4_2026-10-02_retry4/run_001/latents/post_step_009.pt",
+      "sha256": "efb801d7bd8e82729f1fb957830ae76b1851015a3dc60a4e75713c14091160c6",
+      "manifest_sha256": "efb801d7bd8e82729f1fb957830ae76b1851015a3dc60a4e75713c14091160c6",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "latent_after_scheduler_step"
+      ],
+      "tensors": {
+        "root.latent_after_scheduler_step": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry4",
+      "path": "m0/runs/wan_t4_2026-10-02_retry4/run_001/latents/post_step_014.pt",
+      "sha256": "e1cfc7792e48db1460909c6f3975bba4fbe6d56cc0df898deadeba9bcef62bc5",
+      "manifest_sha256": "e1cfc7792e48db1460909c6f3975bba4fbe6d56cc0df898deadeba9bcef62bc5",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "latent_after_scheduler_step"
+      ],
+      "tensors": {
+        "root.latent_after_scheduler_step": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry4",
+      "path": "m0/runs/wan_t4_2026-10-02_retry4/run_001/latents/post_step_019.pt",
+      "sha256": "ab5bfca74e3e312c6140740772f26b1b12c6482ff9b25868c6194b3e6286fea8",
+      "manifest_sha256": "ab5bfca74e3e312c6140740772f26b1b12c6482ff9b25868c6194b3e6286fea8",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "latent_after_scheduler_step"
+      ],
+      "tensors": {
+        "root.latent_after_scheduler_step": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry4",
+      "path": "m0/runs/wan_t4_2026-10-02_retry4/run_001/latents/post_step_024.pt",
+      "sha256": "36b1d0b3935fef71ea20512209d019b899de91ec72a32543beb672baa7b65237",
+      "manifest_sha256": "36b1d0b3935fef71ea20512209d019b899de91ec72a32543beb672baa7b65237",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "latent_after_scheduler_step"
+      ],
+      "tensors": {
+        "root.latent_after_scheduler_step": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry4",
+      "path": "m0/runs/wan_t4_2026-10-02_retry4/run_001/latents/post_step_029.pt",
+      "sha256": "b1df3c486fc8940ccb4356f5ea03df9770b713c75713181069575250ba077d79",
+      "manifest_sha256": "b1df3c486fc8940ccb4356f5ea03df9770b713c75713181069575250ba077d79",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "latent_after_scheduler_step"
+      ],
+      "tensors": {
+        "root.latent_after_scheduler_step": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry4",
+      "path": "m0/runs/wan_t4_2026-10-02_retry4/run_001/initial_noise.pt",
+      "sha256": "56a3a32ef4bd09e28e755a8185cd75d84da5029e583a2fb40869fae44461a528",
+      "manifest_sha256": "56a3a32ef4bd09e28e755a8185cd75d84da5029e583a2fb40869fae44461a528",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "latents",
+        "seed"
+      ],
+      "tensors": {
+        "root.latents": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry5",
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/latents/post_step_000.pt",
+      "sha256": "be4b585a952b3837072a9c604e3cb388fb124c386830082337af2fe72ad0fa5c",
+      "manifest_sha256": "be4b585a952b3837072a9c604e3cb388fb124c386830082337af2fe72ad0fa5c",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "latent_after_scheduler_step"
+      ],
+      "tensors": {
+        "root.latent_after_scheduler_step": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry5",
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/latents/post_step_004.pt",
+      "sha256": "816558f4d9555ce3447f2c666f1a03fe5f40aa41351dadb4c1e3c871003be509",
+      "manifest_sha256": "816558f4d9555ce3447f2c666f1a03fe5f40aa41351dadb4c1e3c871003be509",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "latent_after_scheduler_step"
+      ],
+      "tensors": {
+        "root.latent_after_scheduler_step": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry5",
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/latents/post_step_009.pt",
+      "sha256": "efb801d7bd8e82729f1fb957830ae76b1851015a3dc60a4e75713c14091160c6",
+      "manifest_sha256": "efb801d7bd8e82729f1fb957830ae76b1851015a3dc60a4e75713c14091160c6",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "latent_after_scheduler_step"
+      ],
+      "tensors": {
+        "root.latent_after_scheduler_step": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry5",
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/latents/post_step_014.pt",
+      "sha256": "e1cfc7792e48db1460909c6f3975bba4fbe6d56cc0df898deadeba9bcef62bc5",
+      "manifest_sha256": "e1cfc7792e48db1460909c6f3975bba4fbe6d56cc0df898deadeba9bcef62bc5",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "latent_after_scheduler_step"
+      ],
+      "tensors": {
+        "root.latent_after_scheduler_step": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry5",
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/latents/post_step_019.pt",
+      "sha256": "ab5bfca74e3e312c6140740772f26b1b12c6482ff9b25868c6194b3e6286fea8",
+      "manifest_sha256": "ab5bfca74e3e312c6140740772f26b1b12c6482ff9b25868c6194b3e6286fea8",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "latent_after_scheduler_step"
+      ],
+      "tensors": {
+        "root.latent_after_scheduler_step": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry5",
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/latents/post_step_024.pt",
+      "sha256": "36b1d0b3935fef71ea20512209d019b899de91ec72a32543beb672baa7b65237",
+      "manifest_sha256": "36b1d0b3935fef71ea20512209d019b899de91ec72a32543beb672baa7b65237",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "latent_after_scheduler_step"
+      ],
+      "tensors": {
+        "root.latent_after_scheduler_step": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry5",
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/latents/post_step_029.pt",
+      "sha256": "b1df3c486fc8940ccb4356f5ea03df9770b713c75713181069575250ba077d79",
+      "manifest_sha256": "b1df3c486fc8940ccb4356f5ea03df9770b713c75713181069575250ba077d79",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "latent_after_scheduler_step"
+      ],
+      "tensors": {
+        "root.latent_after_scheduler_step": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry5",
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/initial_noise.pt",
+      "sha256": "56a3a32ef4bd09e28e755a8185cd75d84da5029e583a2fb40869fae44461a528",
+      "manifest_sha256": "56a3a32ef4bd09e28e755a8185cd75d84da5029e583a2fb40869fae44461a528",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "latents",
+        "seed"
+      ],
+      "tensors": {
+        "root.latents": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry5",
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean/pre_step_004.pt",
+      "sha256": "1cdbe782200fb9d51ec2dfec0461ad79aab7c00a06d822c1a64e410946d658b6",
+      "manifest_sha256": "1cdbe782200fb9d51ec2dfec0461ad79aab7c00a06d822c1a64e410946d658b6",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "timestep",
+        "sigma",
+        "x_i",
+        "guided_velocity",
+        "x0_hat",
+        "formula",
+        "scheduler_step_index",
+        "scheduler_thresholding"
+      ],
+      "tensors": {
+        "root.x_i": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        },
+        "root.guided_velocity": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "numel": 499200
+        },
+        "root.x0_hat": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry5",
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean/pre_step_014.pt",
+      "sha256": "39227d9909ca728699a7d40b7d8005a13c0d49dfea81f1a12c0c44953a4860f0",
+      "manifest_sha256": "39227d9909ca728699a7d40b7d8005a13c0d49dfea81f1a12c0c44953a4860f0",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "timestep",
+        "sigma",
+        "x_i",
+        "guided_velocity",
+        "x0_hat",
+        "formula",
+        "scheduler_step_index",
+        "scheduler_thresholding"
+      ],
+      "tensors": {
+        "root.x_i": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        },
+        "root.guided_velocity": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "numel": 499200
+        },
+        "root.x0_hat": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry5",
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean/pre_step_024.pt",
+      "sha256": "07508b5a0c12e32b510088310f87d1a395a77bf8c0de93480e30f21ae9c44390",
+      "manifest_sha256": "07508b5a0c12e32b510088310f87d1a395a77bf8c0de93480e30f21ae9c44390",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "timestep",
+        "sigma",
+        "x_i",
+        "guided_velocity",
+        "x0_hat",
+        "formula",
+        "scheduler_step_index",
+        "scheduler_thresholding"
+      ],
+      "tensors": {
+        "root.x_i": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        },
+        "root.guided_velocity": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "numel": 499200
+        },
+        "root.x0_hat": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    },
+    {
+      "run": "retry5",
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean/pre_step_029.pt",
+      "sha256": "3f95f8f842678dd4155b0142f7717ce78c3db1f62a24f9072673446123981c1a",
+      "manifest_sha256": "3f95f8f842678dd4155b0142f7717ce78c3db1f62a24f9072673446123981c1a",
+      "manifest_hash_matches": true,
+      "top_level_keys": [
+        "step_zero_based",
+        "timestep",
+        "sigma",
+        "x_i",
+        "guided_velocity",
+        "x0_hat",
+        "formula",
+        "scheduler_step_index",
+        "scheduler_thresholding"
+      ],
+      "tensors": {
+        "root.x_i": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        },
+        "root.guided_velocity": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float16",
+          "device": "cpu",
+          "numel": 499200
+        },
+        "root.x0_hat": {
+          "shape": [
+            1,
+            16,
+            5,
+            60,
+            104
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu",
+          "numel": 499200
+        }
+      }
+    }
+  ],
+  "retry4_retry5_exact_tensor_comparison": [
+    {
+      "path_suffix": "run_001/latents/post_step_000.pt",
+      "tensor_key": "latent_after_scheduler_step",
+      "torch_equal": true,
+      "retry4_sha256": "be4b585a952b3837072a9c604e3cb388fb124c386830082337af2fe72ad0fa5c",
+      "retry5_sha256": "be4b585a952b3837072a9c604e3cb388fb124c386830082337af2fe72ad0fa5c"
+    },
+    {
+      "path_suffix": "run_001/latents/post_step_004.pt",
+      "tensor_key": "latent_after_scheduler_step",
+      "torch_equal": true,
+      "retry4_sha256": "816558f4d9555ce3447f2c666f1a03fe5f40aa41351dadb4c1e3c871003be509",
+      "retry5_sha256": "816558f4d9555ce3447f2c666f1a03fe5f40aa41351dadb4c1e3c871003be509"
+    },
+    {
+      "path_suffix": "run_001/latents/post_step_009.pt",
+      "tensor_key": "latent_after_scheduler_step",
+      "torch_equal": true,
+      "retry4_sha256": "efb801d7bd8e82729f1fb957830ae76b1851015a3dc60a4e75713c14091160c6",
+      "retry5_sha256": "efb801d7bd8e82729f1fb957830ae76b1851015a3dc60a4e75713c14091160c6"
+    },
+    {
+      "path_suffix": "run_001/latents/post_step_014.pt",
+      "tensor_key": "latent_after_scheduler_step",
+      "torch_equal": true,
+      "retry4_sha256": "e1cfc7792e48db1460909c6f3975bba4fbe6d56cc0df898deadeba9bcef62bc5",
+      "retry5_sha256": "e1cfc7792e48db1460909c6f3975bba4fbe6d56cc0df898deadeba9bcef62bc5"
+    },
+    {
+      "path_suffix": "run_001/latents/post_step_019.pt",
+      "tensor_key": "latent_after_scheduler_step",
+      "torch_equal": true,
+      "retry4_sha256": "ab5bfca74e3e312c6140740772f26b1b12c6482ff9b25868c6194b3e6286fea8",
+      "retry5_sha256": "ab5bfca74e3e312c6140740772f26b1b12c6482ff9b25868c6194b3e6286fea8"
+    },
+    {
+      "path_suffix": "run_001/latents/post_step_024.pt",
+      "tensor_key": "latent_after_scheduler_step",
+      "torch_equal": true,
+      "retry4_sha256": "36b1d0b3935fef71ea20512209d019b899de91ec72a32543beb672baa7b65237",
+      "retry5_sha256": "36b1d0b3935fef71ea20512209d019b899de91ec72a32543beb672baa7b65237"
+    },
+    {
+      "path_suffix": "run_001/latents/post_step_029.pt",
+      "tensor_key": "latent_after_scheduler_step",
+      "torch_equal": true,
+      "retry4_sha256": "b1df3c486fc8940ccb4356f5ea03df9770b713c75713181069575250ba077d79",
+      "retry5_sha256": "b1df3c486fc8940ccb4356f5ea03df9770b713c75713181069575250ba077d79"
+    },
+    {
+      "path_suffix": "run_001/initial_noise.pt",
+      "tensor_key": "latents",
+      "torch_equal": true,
+      "retry4_sha256": "56a3a32ef4bd09e28e755a8185cd75d84da5029e583a2fb40869fae44461a528",
+      "retry5_sha256": "56a3a32ef4bd09e28e755a8185cd75d84da5029e583a2fb40869fae44461a528"
+    }
+  ],
+  "post_step_adjacent_snapshot_changes": [
+    {
+      "from_step": 0,
+      "to_step": 4,
+      "tensor_key": "latent_after_scheduler_step",
+      "per_temporal_slot": [
+        {
+          "latent_time_index": 0,
+          "nominal_rgb_anchor": 0,
+          "mean_abs_delta": 0.0452986065833918,
+          "rms_delta": 0.05673788657860893,
+          "max_abs_delta": 0.25030016899108887,
+          "previous_rms": 0.991749739646343,
+          "relative_rms_delta": 0.05720988300822908
+        },
+        {
+          "latent_time_index": 1,
+          "nominal_rgb_anchor": 4,
+          "mean_abs_delta": 0.05297753026105301,
+          "rms_delta": 0.06588002165887566,
+          "max_abs_delta": 0.3040351867675781,
+          "previous_rms": 0.9892606171354433,
+          "relative_rms_delta": 0.06659521314983853
+        },
+        {
+          "latent_time_index": 2,
+          "nominal_rgb_anchor": 8,
+          "mean_abs_delta": 0.05772010652123713,
+          "rms_delta": 0.07098052423648762,
+          "max_abs_delta": 0.28975868225097656,
+          "previous_rms": 0.9905769498938579,
+          "relative_rms_delta": 0.07165573986361515
+        },
+        {
+          "latent_time_index": 3,
+          "nominal_rgb_anchor": 12,
+          "mean_abs_delta": 0.05948135429221053,
+          "rms_delta": 0.07329559027923163,
+          "max_abs_delta": 0.30510425567626953,
+          "previous_rms": 0.9916176943621895,
+          "relative_rms_delta": 0.07391516982396679
+        },
+        {
+          "latent_time_index": 4,
+          "nominal_rgb_anchor": 16,
+          "mean_abs_delta": 0.05956820037781275,
+          "rms_delta": 0.07331360048509392,
+          "max_abs_delta": 0.3144712448120117,
+          "previous_rms": 0.9903777340316904,
+          "relative_rms_delta": 0.07402589735801553
+        }
+      ]
+    },
+    {
+      "from_step": 4,
+      "to_step": 9,
+      "tensor_key": "latent_after_scheduler_step",
+      "per_temporal_slot": [
+        {
+          "latent_time_index": 0,
+          "nominal_rgb_anchor": 0,
+          "mean_abs_delta": 0.07703510012558036,
+          "rms_delta": 0.09588359948484285,
+          "max_abs_delta": 0.40810465812683105,
+          "previous_rms": 0.9419884752707074,
+          "relative_rms_delta": 0.10178850591275859
+        },
+        {
+          "latent_time_index": 1,
+          "nominal_rgb_anchor": 4,
+          "mean_abs_delta": 0.09784772392128972,
+          "rms_delta": 0.11932120837084821,
+          "max_abs_delta": 0.44969964027404785,
+          "previous_rms": 0.9409521887073029,
+          "relative_rms_delta": 0.126809002415706
+        },
+        {
+          "latent_time_index": 2,
+          "nominal_rgb_anchor": 8,
+          "mean_abs_delta": 0.1117541922413946,
+          "rms_delta": 0.13386197857408277,
+          "max_abs_delta": 0.4956371784210205,
+          "previous_rms": 0.9427795435947802,
+          "relative_rms_delta": 0.14198651156947303
+        },
+        {
+          "latent_time_index": 3,
+          "nominal_rgb_anchor": 12,
+          "mean_abs_delta": 0.11787430893484689,
+          "rms_delta": 0.14104680483249837,
+          "max_abs_delta": 0.483331561088562,
+          "previous_rms": 0.941579637886494,
+          "relative_rms_delta": 0.1497980618496567
+        },
+        {
+          "latent_time_index": 4,
+          "nominal_rgb_anchor": 16,
+          "mean_abs_delta": 0.12024042922053152,
+          "rms_delta": 0.14315771704498279,
+          "max_abs_delta": 0.5395898818969727,
+          "previous_rms": 0.9405329938674647,
+          "relative_rms_delta": 0.15220913883767045
+        }
+      ]
+    },
+    {
+      "from_step": 9,
+      "to_step": 14,
+      "tensor_key": "latent_after_scheduler_step",
+      "per_temporal_slot": [
+        {
+          "latent_time_index": 0,
+          "nominal_rgb_anchor": 0,
+          "mean_abs_delta": 0.1026445662673113,
+          "rms_delta": 0.12775454419464452,
+          "max_abs_delta": 0.546574592590332,
+          "previous_rms": 0.8666319994466234,
+          "relative_rms_delta": 0.14741498614893117
+        },
+        {
+          "latent_time_index": 1,
+          "nominal_rgb_anchor": 4,
+          "mean_abs_delta": 0.13073822609264316,
+          "rms_delta": 0.1593139140630455,
+          "max_abs_delta": 0.5903787612915039,
+          "previous_rms": 0.8739992214972918,
+          "relative_rms_delta": 0.18228152856946125
+        },
+        {
+          "latent_time_index": 2,
+          "nominal_rgb_anchor": 8,
+          "mean_abs_delta": 0.14830349262621204,
+          "rms_delta": 0.177650419288849,
+          "max_abs_delta": 0.6632871627807617,
+          "previous_rms": 0.8809625623965637,
+          "relative_rms_delta": 0.2016549021170323
+        },
+        {
+          "latent_time_index": 3,
+          "nominal_rgb_anchor": 12,
+          "mean_abs_delta": 0.15578726290665795,
+          "rms_delta": 0.1863436237084635,
+          "max_abs_delta": 0.6247639656066895,
+          "previous_rms": 0.8793352290638121,
+          "relative_rms_delta": 0.21191420239907255
+        },
+        {
+          "latent_time_index": 4,
+          "nominal_rgb_anchor": 16,
+          "mean_abs_delta": 0.15796242107504463,
+          "rms_delta": 0.18812873484597217,
+          "max_abs_delta": 0.7099239826202393,
+          "previous_rms": 0.8794606193892892,
+          "relative_rms_delta": 0.2139137679372291
+        }
+      ]
+    },
+    {
+      "from_step": 14,
+      "to_step": 19,
+      "tensor_key": "latent_after_scheduler_step",
+      "per_temporal_slot": [
+        {
+          "latent_time_index": 0,
+          "nominal_rgb_anchor": 0,
+          "mean_abs_delta": 0.14385283451467296,
+          "rms_delta": 0.1790005476228688,
+          "max_abs_delta": 0.7632303237915039,
+          "previous_rms": 0.7736184768571569,
+          "relative_rms_delta": 0.231380910587946
+        },
+        {
+          "latent_time_index": 1,
+          "nominal_rgb_anchor": 4,
+          "mean_abs_delta": 0.18307731627441817,
+          "rms_delta": 0.2230357205301252,
+          "max_abs_delta": 0.8370795249938965,
+          "previous_rms": 0.8044652847099174,
+          "relative_rms_delta": 0.2772471662472667
+        },
+        {
+          "latent_time_index": 2,
+          "nominal_rgb_anchor": 8,
+          "mean_abs_delta": 0.20702608914871226,
+          "rms_delta": 0.247876885404195,
+          "max_abs_delta": 0.9283591508865356,
+          "previous_rms": 0.8258408597679736,
+          "relative_rms_delta": 0.3001509097937318
+        },
+        {
+          "latent_time_index": 3,
+          "nominal_rgb_anchor": 12,
+          "mean_abs_delta": 0.21739173234952594,
+          "rms_delta": 0.2597260923950408,
+          "max_abs_delta": 0.8702886998653412,
+          "previous_rms": 0.8285193840019803,
+          "relative_rms_delta": 0.31348221587827085
+        },
+        {
+          "latent_time_index": 4,
+          "nominal_rgb_anchor": 16,
+          "mean_abs_delta": 0.21924328392631073,
+          "rms_delta": 0.26083172055850945,
+          "max_abs_delta": 0.9702935218811035,
+          "previous_rms": 0.8311555937051036,
+          "relative_rms_delta": 0.313818161766536
+        }
+      ]
+    },
+    {
+      "from_step": 19,
+      "to_step": 24,
+      "tensor_key": "latent_after_scheduler_step",
+      "per_temporal_slot": [
+        {
+          "latent_time_index": 0,
+          "nominal_rgb_anchor": 0,
+          "mean_abs_delta": 0.21564564560640612,
+          "rms_delta": 0.2683281218325207,
+          "max_abs_delta": 1.148164987564087,
+          "previous_rms": 0.6642860586116506,
+          "relative_rms_delta": 0.4039345976842011
+        },
+        {
+          "latent_time_index": 1,
+          "nominal_rgb_anchor": 4,
+          "mean_abs_delta": 0.272013513735358,
+          "rms_delta": 0.33189877791312544,
+          "max_abs_delta": 1.1906444430351257,
+          "previous_rms": 0.7558701241467083,
+          "relative_rms_delta": 0.43909498114878076
+        },
+        {
+          "latent_time_index": 2,
+          "nominal_rgb_anchor": 8,
+          "mean_abs_delta": 0.3076565918517463,
+          "rms_delta": 0.3686127778034556,
+          "max_abs_delta": 1.3986516445875168,
+          "previous_rms": 0.811231035706795,
+          "relative_rms_delta": 0.4543869274950719
+        },
+        {
+          "latent_time_index": 3,
+          "nominal_rgb_anchor": 12,
+          "mean_abs_delta": 0.32187716242057945,
+          "rms_delta": 0.3848226070236186,
+          "max_abs_delta": 1.2960082981735468,
+          "previous_rms": 0.8272873800252877,
+          "relative_rms_delta": 0.4651619453107767
+        },
+        {
+          "latent_time_index": 4,
+          "nominal_rgb_anchor": 16,
+          "mean_abs_delta": 0.32105215818607186,
+          "rms_delta": 0.3819075223183827,
+          "max_abs_delta": 1.4306750297546387,
+          "previous_rms": 0.8345552489884418,
+          "relative_rms_delta": 0.45761802203184265
+        }
+      ]
+    },
+    {
+      "from_step": 24,
+      "to_step": 29,
+      "tensor_key": "latent_after_scheduler_step",
+      "per_temporal_slot": [
+        {
+          "latent_time_index": 0,
+          "nominal_rgb_anchor": 0,
+          "mean_abs_delta": 0.34749282824110234,
+          "rms_delta": 0.43261436168910733,
+          "max_abs_delta": 1.9184038043022156,
+          "previous_rms": 0.5725732091567624,
+          "relative_rms_delta": 0.7555616552968403
+        },
+        {
+          "latent_time_index": 1,
+          "nominal_rgb_anchor": 4,
+          "mean_abs_delta": 0.4474850759336967,
+          "rms_delta": 0.5459630974791853,
+          "max_abs_delta": 2.007994592189789,
+          "previous_rms": 0.8025272762000908,
+          "relative_rms_delta": 0.6803047244254194
+        },
+        {
+          "latent_time_index": 2,
+          "nominal_rgb_anchor": 8,
+          "mean_abs_delta": 0.5040871354519338,
+          "rms_delta": 0.6031550271215445,
+          "max_abs_delta": 2.2729719430208206,
+          "previous_rms": 0.92289799631582,
+          "relative_rms_delta": 0.653544627390373
+        },
+        {
+          "latent_time_index": 3,
+          "nominal_rgb_anchor": 12,
+          "mean_abs_delta": 0.5259464049310231,
+          "rms_delta": 0.6281783965617569,
+          "max_abs_delta": 2.168115556240082,
+          "previous_rms": 0.9654659334943557,
+          "relative_rms_delta": 0.6506479149276263
+        },
+        {
+          "latent_time_index": 4,
+          "nominal_rgb_anchor": 16,
+          "mean_abs_delta": 0.5235846286768898,
+          "rms_delta": 0.617823038316109,
+          "max_abs_delta": 2.323166012763977,
+          "previous_rms": 0.980249225120843,
+          "relative_rms_delta": 0.63027138658533
+        }
+      ]
+    }
+  ],
+  "predicted_clean_adjacent_x0_hat_changes": [
+    {
+      "from_snapshot_step": 4,
+      "to_snapshot_step": 14,
+      "tensor_key": "x0_hat",
+      "per_temporal_slot": [
+        {
+          "latent_time_index": 0,
+          "nominal_rgb_anchor": 0,
+          "mean_abs_delta": 0.12187932875551316,
+          "rms_delta": 0.2431560980944176,
+          "max_abs_delta": 3.206401824951172,
+          "previous_rms": 0.6823690377666165,
+          "relative_rms_delta": 0.356341048079004
+        },
+        {
+          "latent_time_index": 1,
+          "nominal_rgb_anchor": 4,
+          "mean_abs_delta": 0.1866558245365258,
+          "rms_delta": 0.37763669283329965,
+          "max_abs_delta": 4.698014855384827,
+          "previous_rms": 1.1347266956830708,
+          "relative_rms_delta": 0.33279969024256884
+        },
+        {
+          "latent_time_index": 2,
+          "nominal_rgb_anchor": 8,
+          "mean_abs_delta": 0.20206473203657552,
+          "rms_delta": 0.3474479557637693,
+          "max_abs_delta": 4.689242362976074,
+          "previous_rms": 1.3526594336816558,
+          "relative_rms_delta": 0.2568628489272342
+        },
+        {
+          "latent_time_index": 3,
+          "nominal_rgb_anchor": 12,
+          "mean_abs_delta": 0.2141168821420228,
+          "rms_delta": 0.3361076130023811,
+          "max_abs_delta": 3.9778122901916504,
+          "previous_rms": 1.412341975185094,
+          "relative_rms_delta": 0.23797891651441758
+        },
+        {
+          "latent_time_index": 4,
+          "nominal_rgb_anchor": 16,
+          "mean_abs_delta": 0.21137119124692758,
+          "rms_delta": 0.3184497355641432,
+          "max_abs_delta": 3.1886239647865295,
+          "previous_rms": 1.4299782040977076,
+          "relative_rms_delta": 0.22269551707263935
+        }
+      ]
+    },
+    {
+      "from_snapshot_step": 14,
+      "to_snapshot_step": 24,
+      "tensor_key": "x0_hat",
+      "per_temporal_slot": [
+        {
+          "latent_time_index": 0,
+          "nominal_rgb_anchor": 0,
+          "mean_abs_delta": 0.04928882588253076,
+          "rms_delta": 0.06852878042761919,
+          "max_abs_delta": 0.709061861038208,
+          "previous_rms": 0.6687057947071254,
+          "relative_rms_delta": 0.10247971674543795
+        },
+        {
+          "latent_time_index": 1,
+          "nominal_rgb_anchor": 4,
+          "mean_abs_delta": 0.07697480136726205,
+          "rms_delta": 0.10747091379636485,
+          "max_abs_delta": 1.2707974314689636,
+          "previous_rms": 1.1239556248724814,
+          "relative_rms_delta": 0.09561846697333623
+        },
+        {
+          "latent_time_index": 2,
+          "nominal_rgb_anchor": 8,
+          "mean_abs_delta": 0.08254180962059576,
+          "rms_delta": 0.11561061007321562,
+          "max_abs_delta": 1.1428539156913757,
+          "previous_rms": 1.3415496553257138,
+          "relative_rms_delta": 0.08617691459593914
+        },
+        {
+          "latent_time_index": 3,
+          "nominal_rgb_anchor": 12,
+          "mean_abs_delta": 0.09125313894290182,
+          "rms_delta": 0.12727065679017854,
+          "max_abs_delta": 1.2704748213291168,
+          "previous_rms": 1.4262960359873649,
+          "relative_rms_delta": 0.08923158557478175
+        },
+        {
+          "latent_time_index": 4,
+          "nominal_rgb_anchor": 16,
+          "mean_abs_delta": 0.12445089886668238,
+          "rms_delta": 0.18012761017724768,
+          "max_abs_delta": 1.5829708576202393,
+          "previous_rms": 1.4506728861653844,
+          "relative_rms_delta": 0.12416831657575503
+        }
+      ]
+    },
+    {
+      "from_snapshot_step": 24,
+      "to_snapshot_step": 29,
+      "tensor_key": "x0_hat",
+      "per_temporal_slot": [
+        {
+          "latent_time_index": 0,
+          "nominal_rgb_anchor": 0,
+          "mean_abs_delta": 0.04264377892131728,
+          "rms_delta": 0.06443241473781375,
+          "max_abs_delta": 1.0741203427314758,
+          "previous_rms": 0.677099867065436,
+          "relative_rms_delta": 0.09515939652604731
+        },
+        {
+          "latent_time_index": 1,
+          "nominal_rgb_anchor": 4,
+          "mean_abs_delta": 0.04931045564266102,
+          "rms_delta": 0.06750411593389091,
+          "max_abs_delta": 0.6051821857690811,
+          "previous_rms": 1.1213843853838859,
+          "relative_rms_delta": 0.06019712492321006
+        },
+        {
+          "latent_time_index": 2,
+          "nominal_rgb_anchor": 8,
+          "mean_abs_delta": 0.05200907629057558,
+          "rms_delta": 0.07171313040300549,
+          "max_abs_delta": 0.5781722068786621,
+          "previous_rms": 1.3353626767611586,
+          "relative_rms_delta": 0.05370311126033667
+        },
+        {
+          "latent_time_index": 3,
+          "nominal_rgb_anchor": 12,
+          "mean_abs_delta": 0.05561318274253725,
+          "rms_delta": 0.07615652883371819,
+          "max_abs_delta": 0.6350092440843582,
+          "previous_rms": 1.417465375299218,
+          "relative_rms_delta": 0.053727258641250435
+        },
+        {
+          "latent_time_index": 4,
+          "nominal_rgb_anchor": 16,
+          "mean_abs_delta": 0.08756365924664118,
+          "rms_delta": 0.11927105388846591,
+          "max_abs_delta": 0.8915066719055176,
+          "previous_rms": 1.436779189345796,
+          "relative_rms_delta": 0.08301279331779103
+        }
+      ]
+    }
+  ],
+  "metric_definitions": {
+    "per_slot_population": "C\u00d7H\u00d7W elements for one latent temporal index; tensors cast to float64 only for metric arithmetic.",
+    "mean_abs_delta": "mean(abs(current - previous))",
+    "rms_delta": "sqrt(mean((current - previous)^2))",
+    "relative_rms_delta": "rms_delta / RMS(previous) when previous RMS is nonzero",
+    "max_abs_delta": "max(abs(current - previous))"
+  },
+  "limitations": [
+    "Latent-time indices map to nominal RGB anchors [0,4,8,12,16], but the VAE source audit shows causal-prefix structural support; a slot is not an isolated RGB frame.",
+    "Tensor changes are exploratory latent-space diagnostics. They are not decoded-frame evidence, object/path influence, semantics, controllability, or policy efficacy.",
+    "Retry4 has no saved predicted-clean snapshots, so predicted-clean dynamics are computed only within retry5.",
+    "The measurements describe this one saved run and do not establish generality across prompts, seeds, or models."
+  ]
+}

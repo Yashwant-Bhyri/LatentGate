@@ -1,0 +1,88 @@
+{
+  "id": "EXP-M1-COGVIDEOX5B-I2V-SMOKE-001",
+  "status": "prepared_not_run_designated_colab_profile_free_t4_and_drive_refresh_unresolved",
+  "current_blockers": [
+    "On 2026-10-15, the refreshed notebook was uploaded to the designated y Colab profile as Drive notebook 1QctKinHmdeFM7Rdj5oDke_UsqdCjxFBb and visually checked against the then-current local notebook and bundle hashes. The stale Oct 13 notebook remains untouched. The local notebook and bundle have since been updated with a baseline checkpoint handoff; the designated Drive copy still needs refreshing and hash verification.",
+    "The designated account previously showed not subscribed and offered T4 with premium GPUs disabled; an earlier Resources view showed zero compute units, but the latest quota fetch errored. Two free-T4 connection attempts ended with the runtime disconnected, and Chrome switched away from the designated profile. Do not treat these allocation failures as a model run or as proof of current billing or quota state; no paid accelerator or checkout was selected.",
+    "Before installing packages, uploading project files, or loading weights, restore the designated profile, verify a clear no-paid path, connect a free T4, refresh the Drive notebook from the latest local source, verify the bundle hash, and pass the notebook's guarded T4/CC7.5/package preflight.",
+    "The local package-stack decision LG-M1-STACK-2026-10-15-01 pins torch==2.11.0+cu130 and torchvision==0.26.0+cu130. The guarded preflight must verify all configured package pins before model weights load.",
+    "The full baseline-plus-exact-replay duration remains unmeasured. The local runner now creates and hashes a baseline-only checkpoint before replay, and the notebook asks the operator to confirm it appears in Downloads before acknowledging it. A free-runtime cutoff before the checkpoint is saved can still lose the baseline; after the checkpoint is saved, a replay cutoff leaves an incomplete, non-passing baseline artifact. Record runtime and peak memory before considering any larger batch."
+  ],
+  "hypothesis": "The pinned CogVideoX-5B-I2V pipeline can produce the frozen mug-and-holder scene on a free Tesla T4 while exposing correctly indexed post-step latents and selected transformer summaries with exact same-runtime replay.",
+  "background_evidence": [
+    "M0 is complete on Wan2.1 T2V 1.3B and demonstrates the local packet, capture, and replay workflow.",
+    "A separate CogVideoX-2B T2V pilot ran on a free T4, but does not establish 5B I2V memory or capture compatibility.",
+    "M0's red-ball mask area grew 25.96% in one clip; this is an image-space screening signal, not ground-truth geometry.",
+    "The official CogVideoX-5B-I2V model card documents 720x480, 49-frame generation and offload features, but published memory results do not establish T4 viability."
+  ],
+  "model": {
+    "repo_id": "zai-org/CogVideoX-5b-I2V",
+    "revision": "a6f0f4858a8395e7429d82493864ce92bf73af11",
+    "pipeline": "CogVideoXImageToVideoPipeline",
+    "scheduler": "pinned pretrained scheduler configuration"
+  },
+  "scene": {
+    "fixture": "m1/scene_fixture_v1.json",
+    "image": "m1/assets/mug_holder_start_v1_720x480.png",
+    "image_sha256": "69cf5a5b1385ee0efdb525b4e164b35624c5d6d3db4d7a2da00fe2a5e27d69ea",
+    "prompt_source": "m1/scene_fixture_v1.json"
+  },
+  "independent_variable": "None: this is an instrumented, unsteered baseline feasibility run.",
+  "controls": [
+    "Freeze model revision, input image, prompt, resolution, frame count, scheduler, package pins, and seed.",
+    "Repeat the full generation with the same seed in the same runtime.",
+    "The operator must confirm the free Tesla T4 option in Colab before connecting. The runtime hardware API cannot identify whether a T4 allocation is free or paid; the notebook never selects a runtime."
+  ],
+  "metrics": [
+    "Runtime identity, package versions, free and peak GPU memory, generation time, output frame count, and artifact hashes.",
+    "Post-step latent coverage at zero-based steps 0, 9, 19, 29, 39, and 49; each snapshot labels the scheduler timestep whose transition produced that state.",
+    "Pooled transformer summaries for six evenly spaced blocks at the same six denoising steps, retaining the guidance batch without branch aggregation.",
+    "Low-resolution 8×12 spatial transformer summaries for three evenly spaced blocks at zero-based steps 0, 29, and 49, testing whether selected block states retain local mug/holder layout after spatial pooling.",
+    "Scheduler-returned predicted-clean x0 latents at zero-based steps 0, 9, 19, 29, 39, and 49, testing whether cleaner intermediate samples contain information useful for later object-state probes.",
+    "Same-seed equality for all captured post-step latents, predicted-clean latents, pooled hidden summaries, spatial maps, and decoded RGB frames.",
+    "Dense decoded-frame scoring for all frame indices 0–48: a blinded reviewer records object visibility, scene identity/continuity, task stage, mug-to-holder relation, and gripper-to-mug proximity/apparent contact; post-run evaluators record visible mug/holder/gripper masks or boxes, centers, apparent area, CoTracker point tracks, and background-landmark motion. Save one ordered row per frame, including uncertainty and missingness reasons. These are image-space proxies; do not report metric 3D scale or physical contact."
+  ],
+  "held_out_evaluator": "After generation, a reviewer who did not inspect teacher outputs scores all 49 decoded RGB frames for object visibility, scene identity/continuity, task-stage plausibility, mug-to-holder relation, and gripper-to-mug proximity/apparent contact. The original eight preselected temporal samples remain a sentinel subset only; they never replace full-frame review. If baseline and replay frames are bitwise equal, the same 49 reviewed frame rows map to both passes; any divergence is recorded by frame index and reviewed separately. This n=1 smoke review is not a seed-held-out evaluation and does not validate physical geometry.",
+  "post_run_review_artifact": {
+    "path": "m1/runs/cogvideox_5b_i2v_t4_smoke/frame_score_table.jsonl",
+    "format": "JSON Lines; one ordered record for each frame_index 0–48",
+    "required_links": "Each record links baseline and replay PNG paths and SHA-256 values, plus pixel equality; if the pair is equal, one review payload may be shared, and if it differs, retain separate review payloads for that index.",
+    "required_measurements": "Reviewer labels, all-frame mask/track/background proxies, confidence, uncertainty, and explicit missingness/occlusion reasons as specified by metrics.",
+    "archive_update": "After the result ZIP is downloaded and extracted, write this post-run file, add its SHA-256 to manifest.json artifact_sha256, and repackage the reviewed run. Leave the pre-replay baseline checkpoint unchanged and baseline-only.",
+    "sentinel_indices": null,
+    "sentinel_note": "The local source records do not preserve the legacy eight sentinel indices. Do not infer them from latent anchors or another schedule. Tag the legacy subset only if its exact prior index list is recovered; the all-49 review remains required either way."
+  },
+  "success_threshold": "The smoke gate passes only if the runtime is a Tesla T4 at compute capability 7.5; all configured post-step latent, pooled hidden-summary, spatial-map, and predicted-clean keys are captured exactly once; 49 frames are returned; a complete ordered frame-score table covers indices 0–48 with explicit uncertainty/missingness; all captured tensors and decoded frames are bitwise equal in the same-seed replay; and the human review confirms that the condition and intended mug/holder action are scoreable. Attention capture remains deferred and explicitly labeled in the packet.",
+  "falsification_condition": "The feasibility hypothesis fails for this pinned route if the free T4 cannot load or finish generation, callback or hook indexing is incomplete or ambiguous, spatial tokens do not match the pinned latent patch grid, predicted-clean scheduler semantics differ from the pinned DDIM/v-prediction route, requested output length is not returned, any replay tensor or frame diverges within the same runtime, the frame-score table omits a decoded frame, or the scene is not scoreable by the blinded review. Any such result triggers a documented adapter/configuration revision or candidate-model review; it does not justify a geometry-policy claim.",
+  "compute_budget": "At most one baseline plus one exact replay on a free Tesla T4. Added spatial maps are about 131.6 MiB per pass; six predicted-clean snapshots are about 12.9 MiB per pass in FP16 or 25.7 MiB in FP32 for the configured latent shape, preserving native scheduler output dtype. Combined added tensor storage is about 144.5–157.3 MiB per pass. This is an artifact-size estimate, not a measured runtime or GPU-peak estimate. Record elapsed time and peak memory before authorizing any multi-seed batch. A notebook-cell preflight on 2026-10-15 allocated a Tesla T4 and confirmed PyTorch CUDA on the designated account, but the UI provided no billing receipt; this confirms hardware access at that time, not free billing. The ticket remains prepared and unrun until Colab explicitly confirms a no-paid T4 path and the guarded preflight passes. No paid accelerator is authorized; Colab must independently confirm the free billing option because the notebook cannot inspect billing class.",
+  "artifacts": [
+    "m1/run_config.yaml",
+    "m1/run_m1.py",
+    "m1/colab/LatentGate_M1_CogVideoX5B_I2V.ipynb",
+    "m1/colab/latentgate_m1_bundle.zip",
+    "runtime_preflight.json",
+    "notebook_runner.log",
+    "notebook_invocation.json",
+    "failure.json",
+    "generation_packet.json",
+    "capture_status.json",
+    "manifest.json",
+    "frame_score_table.jsonl",
+    "frames_contact_sheet.png",
+    "output.mp4",
+    "post_step_latents.pt",
+    "predicted_clean_latents.pt",
+    "transformer_hidden_summaries.pt",
+    "transformer_spatial_summaries.pt"
+  ],
+  "package_stack_decision_memo": "research/2026-10-15_m1_package_stack_decision.md",
+  "package_stack_decision_id": "LG-M1-STACK-2026-10-15-01",
+  "result_persistence": {
+    "status": "baseline_checkpoint_handoff_prepared_not_experiment_evidence",
+    "checkpoint_status": "baseline_complete_replay_pending",
+    "checkpoint_gate": "machine_gate_result=incomplete; smoke_gate_status=not_passed",
+    "sequence": "After baseline artifacts are written, create a SHA-256-manifested baseline-only ZIP; notebook validates its path and digest, calls files.download, asks the operator to confirm the filename is visible in local Downloads, and sends the digest ACK before replay starts.",
+    "acknowledgement_limit": "Operator confirmation is not independently verified by Colab; the notebook does not hash or inspect the local downloaded copy, and browser save completion is not observable.",
+    "drive_copy_refreshed_to_these_hashes": false
+  }
+}

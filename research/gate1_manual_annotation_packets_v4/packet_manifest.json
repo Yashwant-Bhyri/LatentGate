@@ -1,0 +1,93 @@
+{
+  "packet_version": "gate1_manual_annotation_packets_v4",
+  "created_utc": "2026-10-11T12:21:21.374771+00:00",
+  "build_wall_seconds": 0.528,
+  "build_host": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.3"
+  },
+  "purpose": "annotation packet generation only; no diffusion or vision inference",
+  "gpu_used": false,
+  "peak_vram_mb": null,
+  "browser_interaction_verified": false,
+  "browser_interaction_verification_scope": "at packet build time only; later QA is recorded separately",
+  "source": {
+    "builder": "research/build_blinded_box_packets.py",
+    "builder_sha256": "58a0cb7c2729d59c438d384af1cc3e88e869caf5747500425a591ae3c2419825",
+    "annotation_independence_rule": "box drawing changes box coordinates only; categorical state labels require explicit independent entry",
+    "kubric_fixture": "research/kubric_gate0_fixture_v1/{left,right}/frames; one paired mirror fixture",
+    "generated_sample_package_sha256": "af7ce93e7b6d339fba05b50649f708edfeebb59d2eccb45444d6978040771fa5"
+  },
+  "archives": [
+    {
+      "path": "generated_sample_observer_check/rater_01.zip",
+      "bytes": 3325003,
+      "sha256": "019a83031d56d80d2d8e8e4e9a77b33589ec5825a0167fcb0cf2253707cc05d6"
+    },
+    {
+      "path": "generated_sample_observer_check/rater_02.zip",
+      "bytes": 3325003,
+      "sha256": "ef3b9a6a28034546eb727d0a441b28bdf137e4ee6e8e1fbd013ba93444282948"
+    },
+    {
+      "path": "synthetic_reliability/rater_01.zip",
+      "bytes": 359384,
+      "sha256": "b04a6ff2cd063d2812609885894eafc6fc376ec68c71df8664049909673bec6b"
+    },
+    {
+      "path": "synthetic_reliability/rater_02.zip",
+      "bytes": 359378,
+      "sha256": "647b1ca8d83c0e391757eb49b4de243e6f8a496709fa2cc609b7500fe727dbee"
+    }
+  ],
+  "label_fields_populated": 0,
+  "limitations": [
+    "Synthetic packet contains one left/right mirror pair, not the two seed blocks required by the full reliability gate.",
+    "v3 is superseded because its UI coupled box drawing/visibility actions to categorical state fields; see the Gate 1 annotation-independence audit.",
+    "At packet build time browser drawing and CSV round-trip were not tested; any later smoke is recorded separately and does not establish human-rater reliability."
+  ],
+  "status": "ready_for_independent_rater_distribution",
+  "post_build_qa": {
+    "status": "synthetic_browser_independence_and_csv_export_smoke_passed",
+    "checked_utc": "2026-10-11T12:39:30Z",
+    "memo": "research/2026-10-11_gate1_annotation_independence_audit.md",
+    "report": "research/qa/gate1_v4_ui_roundtrip/report.json",
+    "report_sha256": "f4b43449996c2799a8a98dda3e9f1446a018877a9bd2a670ac23b7fd193be9dc",
+    "source": "isolated extracted HTML copy with a unique synthetic localStorage key; source ZIP not modified",
+    "verified": [
+      "Initial frame had blank visibility, count, identity, and box fields.",
+      "Setting visibility to No left count and identity blank.",
+      "Drawing a box left visibility, count, and identity unchanged; the frame remained incomplete.",
+      "Changing visibility to Yes left count and identity blank; the frame remained incomplete.",
+      "Manually entering count 1 and identity Yes completed the drawn frame (1/17).",
+      "Reload preserved the explicit labels, box, and 1/17 completion state.",
+      "Changing visibility back to No left count 1, identity Yes, and the box unchanged and marked the row incomplete.",
+      "In standard Chrome, a fresh packetKey exported a 34-row CSV with exactly one explicitly entered synthetic absent-frame row (visible=false, count=0, identity=false, no box); all other annotation fields remained blank.",
+      "An earlier scratch-key export included two extra smoke rows from browser-local state; the final clean-key CSV was re-exported and retained as the QA artifact. No packet ZIP or human-return CSV was modified.",
+      "The synthetic absent-frame value deliberately did not describe the visible object in that frame; it tested CSV serialization only and is invalid as an annotation of the image."
+    ],
+    "not_verified": [
+      "CSV import/resume could not be exercised through the automation file chooser because the ChatGPT Chrome extension lacks local-file access; no extension permission was changed. The blank CSV fallback remains available."
+    ],
+    "device": "Codex in-app Chromium (independence check); standard Chrome (CSV export check)",
+    "gpu_used": false,
+    "peak_vram_mb": null,
+    "model_inference": false,
+    "limitations": [
+      "Agent-entered synthetic UI smoke only; not human usability or agreement evidence.",
+      "Does not validate generated-video observer accuracy or policy efficacy.",
+      "The retained smoke CSV deliberately mislabels one displayed frame as absent; never include it in a reliability score or treat it as ground truth."
+    ],
+    "csv_export": {
+      "status": "verified",
+      "browser": "standard Chrome on local Mac",
+      "rows": 34,
+      "nonblank_annotation_rows": 1,
+      "synthetic_row": "visible=false; instance_count=0; identity_consistent=false; no box; deliberately entered as a serialization test, not a visual judgment or valid label for the depicted frame",
+      "artifact": "research/qa/gate1_v4_ui_roundtrip/smoke_export_intentionally_invalid_not_for_scoring.csv",
+      "sha256": "85987434275b8ff399482edd02833deb983d86db4d4351cc2916baa9cef4b43b",
+      "valid_annotation_of_image": false
+    }
+  }
+}

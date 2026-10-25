@@ -1,0 +1,528 @@
+{
+  "artifacts": {
+    "analyzer": "research/analyze_sam2_red_observer_fusion.py",
+    "analyzer_sha256": "5f8c6f040815af93260794f519141acaee9cbe4466b2576360c95c452e3737e3"
+  },
+  "cases": [
+    {
+      "accepted_fusion_only_error": {
+        "max_absolute_axis_error_cells": [
+          0.14603456127586617,
+          0.07794824660633415
+        ],
+        "mean_absolute_xy_cells": [
+          0.14603456127586617,
+          0.07794824660633415
+        ],
+        "mean_radial_error_cells": 0.1655355618471046
+      },
+      "agreement_accepted_count": 1,
+      "anchors": [
+        {
+          "frame_index": 4,
+          "fusion_accepted": false,
+          "observer_disagreement_cells_l2": 0.5444718937753203,
+          "red_anchored_error_cells_xy": [
+            -0.03176005084340403,
+            -0.007512019230768718
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": true,
+          "sam2_anchored_error_cells_xy": [
+            0.4875006198883057,
+            0.15625
+          ],
+          "selected_error_cells_xy": [
+            0.4875006198883057,
+            0.15625
+          ]
+        },
+        {
+          "frame_index": 8,
+          "fusion_accepted": false,
+          "observer_disagreement_cells_l2": 1.035412000104829,
+          "red_anchored_error_cells_xy": [
+            0.8616455233891784,
+            0.15232636681500322
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": true,
+          "sam2_anchored_error_cells_xy": [
+            -0.16250030994415285,
+            0.0
+          ],
+          "selected_error_cells_xy": [
+            -0.16250030994415285,
+            0.0
+          ]
+        },
+        {
+          "frame_index": 12,
+          "fusion_accepted": false,
+          "observer_disagreement_cells_l2": 1.197826264341387,
+          "red_anchored_error_cells_xy": [
+            -1.154437190055847,
+            -0.16322115384615365
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": true,
+          "sam2_anchored_error_cells_xy": [
+            3.0994415283203126e-07,
+            0.15625
+          ],
+          "selected_error_cells_xy": [
+            3.0994415283203126e-07,
+            0.15625
+          ]
+        },
+        {
+          "frame_index": 16,
+          "fusion_accepted": true,
+          "observer_disagreement_cells_l2": 0.16002869331155278,
+          "red_anchored_error_cells_xy": [
+            -0.1295685026634267,
+            -0.00035350678733170326
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": true,
+          "sam2_anchored_error_cells_xy": [
+            -0.16250061988830566,
+            0.15625
+          ],
+          "selected_error_cells_xy": [
+            -0.14603456127586617,
+            0.07794824660633415
+          ]
+        }
+      ],
+      "case": "left_fixed_pole_occlusion",
+      "disagreement_gated_fusion_error": {
+        "max_absolute_axis_error_cells": [
+          0.4875006198883057,
+          0.15625
+        ],
+        "mean_absolute_xy_cells": [
+          0.19900895026311938,
+          0.09761206165158354
+        ],
+        "mean_radial_error_cells": 0.24905362414834617
+      },
+      "fallback_to_sam2_count": 3,
+      "n_future_controller_anchors": 4,
+      "red_eligible_count": 4,
+      "red_error_diagnostic_only": {
+        "max_absolute_axis_error_cells": [
+          1.154437190055847,
+          0.16322115384615365
+        ],
+        "mean_absolute_xy_cells": [
+          0.5443528167379641,
+          0.08085326166981432
+        ],
+        "mean_radial_error_cells": 0.5507826222557249
+      },
+      "sam2_error": {
+        "max_absolute_axis_error_cells": [
+          0.4875006198883057,
+          0.15625
+        ],
+        "mean_absolute_xy_cells": [
+          0.20312546491622926,
+          0.1171875
+        ],
+        "mean_radial_error_cells": 0.2640282478858924
+      }
+    },
+    {
+      "accepted_fusion_only_error": null,
+      "agreement_accepted_count": 0,
+      "anchors": [
+        {
+          "frame_index": 4,
+          "fusion_accepted": false,
+          "observer_disagreement_cells_l2": 1.283337357912386,
+          "red_anchored_error_cells_xy": [
+            1.2833233823971135,
+            0.006120575161274733
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": false,
+          "sam2_anchored_error_cells_xy": [
+            6.198883056640625e-07,
+            0.0
+          ],
+          "selected_error_cells_xy": [
+            6.198883056640625e-07,
+            0.0
+          ]
+        },
+        {
+          "frame_index": 8,
+          "fusion_accepted": false,
+          "observer_disagreement_cells_l2": 2.687121310855537,
+          "red_anchored_error_cells_xy": [
+            2.687120902177051,
+            0.0007284382284389324
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": false,
+          "sam2_anchored_error_cells_xy": [
+            -3.0994415283203126e-07,
+            0.0
+          ],
+          "selected_error_cells_xy": [
+            -3.0994415283203126e-07,
+            0.0
+          ]
+        },
+        {
+          "frame_index": 12,
+          "fusion_accepted": false,
+          "observer_disagreement_cells_l2": 3.9917480869961275,
+          "red_anchored_error_cells_xy": [
+            3.9916669766108157,
+            -0.025495337995338208
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": false,
+          "sam2_anchored_error_cells_xy": [
+            3.0994415283203126e-07,
+            0.0
+          ],
+          "selected_error_cells_xy": [
+            3.0994415283203126e-07,
+            0.0
+          ]
+        },
+        {
+          "frame_index": 16,
+          "fusion_accepted": false,
+          "observer_disagreement_cells_l2": 5.174616301307565,
+          "red_anchored_error_cells_xy": [
+            5.174294171341968,
+            0.05768257280354128
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": false,
+          "sam2_anchored_error_cells_xy": [
+            -6.198883056640625e-07,
+            0.0
+          ],
+          "selected_error_cells_xy": [
+            -6.198883056640625e-07,
+            0.0
+          ]
+        }
+      ],
+      "case": "left_static_red_distractor",
+      "disagreement_gated_fusion_error": {
+        "max_absolute_axis_error_cells": [
+          6.198883056640625e-07,
+          0.0
+        ],
+        "mean_absolute_xy_cells": [
+          4.649162292480469e-07,
+          0.0
+        ],
+        "mean_radial_error_cells": 4.649162292480469e-07
+      },
+      "fallback_to_sam2_count": 4,
+      "n_future_controller_anchors": 4,
+      "red_eligible_count": 0,
+      "red_error_diagnostic_only": {
+        "max_absolute_axis_error_cells": [
+          5.174294171341968,
+          0.05768257280354128
+        ],
+        "mean_absolute_xy_cells": [
+          3.284101358131737,
+          0.022506731047148287
+        ],
+        "mean_radial_error_cells": 3.2842057642741924
+      },
+      "sam2_error": {
+        "max_absolute_axis_error_cells": [
+          6.198883056640625e-07,
+          0.0
+        ],
+        "mean_absolute_xy_cells": [
+          4.649162292480469e-07,
+          0.0
+        ],
+        "mean_radial_error_cells": 4.649162292480469e-07
+      }
+    },
+    {
+      "accepted_fusion_only_error": {
+        "max_absolute_axis_error_cells": [
+          0.2511946057373615,
+          0.0472631209935892
+        ],
+        "mean_absolute_xy_cells": [
+          0.18985542531283378,
+          0.024822144676765467
+        ],
+        "mean_radial_error_cells": 0.19406868134232597
+      },
+      "agreement_accepted_count": 2,
+      "anchors": [
+        {
+          "frame_index": 4,
+          "fusion_accepted": true,
+          "observer_disagreement_cells_l2": 0.2283250099283793,
+          "red_anchored_error_cells_xy": [
+            -0.09453186988830638,
+            -0.061723758012821595
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": true,
+          "sam2_anchored_error_cells_xy": [
+            -0.16250061988830566,
+            0.15625
+          ],
+          "selected_error_cells_xy": [
+            -0.128516244888306,
+            0.0472631209935892
+          ]
+        },
+        {
+          "frame_index": 8,
+          "fusion_accepted": false,
+          "observer_disagreement_cells_l2": 1.1083958827487124,
+          "red_anchored_error_cells_xy": [
+            -1.0631071071235547,
+            -0.15735380690737877
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": false,
+          "sam2_anchored_error_cells_xy": [
+            -1.239776611328125e-06,
+            0.15625
+          ],
+          "selected_error_cells_xy": [
+            -1.239776611328125e-06,
+            0.15625
+          ]
+        },
+        {
+          "frame_index": 12,
+          "fusion_accepted": false,
+          "observer_disagreement_cells_l2": 0.9144079609541595,
+          "red_anchored_error_cells_xy": [
+            0.9002479503029249,
+            0.16030526891807284
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": true,
+          "sam2_anchored_error_cells_xy": [
+            1.239776611328125e-06,
+            0.0
+          ],
+          "selected_error_cells_xy": [
+            1.239776611328125e-06,
+            0.0
+          ]
+        },
+        {
+          "frame_index": 16,
+          "fusion_accepted": true,
+          "observer_disagreement_cells_l2": 0.4726360218462601,
+          "red_anchored_error_cells_xy": [
+            0.014888591586417378,
+            0.004762336719883464
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": true,
+          "sam2_anchored_error_cells_xy": [
+            0.4875006198883057,
+            0.0
+          ],
+          "selected_error_cells_xy": [
+            0.2511946057373615,
+            0.002381168359941732
+          ]
+        }
+      ],
+      "case": "right_fixed_pole_occlusion",
+      "disagreement_gated_fusion_error": {
+        "max_absolute_axis_error_cells": [
+          0.2511946057373615,
+          0.15625
+        ],
+        "mean_absolute_xy_cells": [
+          0.09492833254472255,
+          0.051473572338382734
+        ],
+        "mean_radial_error_cells": 0.13609715061654545
+      },
+      "fallback_to_sam2_count": 2,
+      "n_future_controller_anchors": 4,
+      "red_eligible_count": 3,
+      "red_error_diagnostic_only": {
+        "max_absolute_axis_error_cells": [
+          1.0631071071235547,
+          0.16030526891807284
+        ],
+        "mean_absolute_xy_cells": [
+          0.5181938797253008,
+          0.09603629263953917
+        ],
+        "mean_radial_error_cells": 0.5294071808381177
+      },
+      "sam2_error": {
+        "max_absolute_axis_error_cells": [
+          0.4875006198883057,
+          0.15625
+        ],
+        "mean_absolute_xy_cells": [
+          0.1625009298324585,
+          0.078125
+        ],
+        "mean_radial_error_cells": 0.2172964791167813
+      }
+    },
+    {
+      "accepted_fusion_only_error": null,
+      "agreement_accepted_count": 0,
+      "anchors": [
+        {
+          "frame_index": 4,
+          "fusion_accepted": false,
+          "observer_disagreement_cells_l2": 1.608322315670139,
+          "red_anchored_error_cells_xy": [
+            -1.5861369835246706,
+            -0.10996815684315653
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": false,
+          "sam2_anchored_error_cells_xy": [
+            -6.198883056640625e-07,
+            0.15625
+          ],
+          "selected_error_cells_xy": [
+            -6.198883056640625e-07,
+            0.15625
+          ]
+        },
+        {
+          "frame_index": 8,
+          "fusion_accepted": false,
+          "observer_disagreement_cells_l2": 2.519980360210912,
+          "red_anchored_error_cells_xy": [
+            -2.678031542806916,
+            0.00655594405594595
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": false,
+          "sam2_anchored_error_cells_xy": [
+            -0.16250123977661132,
+            0.15625
+          ],
+          "selected_error_cells_xy": [
+            -0.16250123977661132,
+            0.15625
+          ]
+        },
+        {
+          "frame_index": 12,
+          "fusion_accepted": false,
+          "observer_disagreement_cells_l2": 3.753425341073298,
+          "red_anchored_error_cells_xy": [
+            -3.752727419817034,
+            0.08393542003381826
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": false,
+          "sam2_anchored_error_cells_xy": [
+            1.239776611328125e-06,
+            0.15625
+          ],
+          "selected_error_cells_xy": [
+            1.239776611328125e-06,
+            0.15625
+          ]
+        },
+        {
+          "frame_index": 16,
+          "fusion_accepted": false,
+          "observer_disagreement_cells_l2": 5.18031802707668,
+          "red_anchored_error_cells_xy": [
+            -5.179207940368639,
+            0.04904201980814982
+          ],
+          "red_eligible_from_saved_scoreability_and_stability": false,
+          "sam2_anchored_error_cells_xy": [
+            6.198883056640625e-07,
+            0.15625
+          ],
+          "selected_error_cells_xy": [
+            6.198883056640625e-07,
+            0.15625
+          ]
+        }
+      ],
+      "case": "right_static_red_distractor",
+      "disagreement_gated_fusion_error": {
+        "max_absolute_axis_error_cells": [
+          0.16250123977661132,
+          0.15625
+        ],
+        "mean_absolute_xy_cells": [
+          0.040625929832458496,
+          0.15625
+        ],
+        "mean_radial_error_cells": 0.17354612591047075
+      },
+      "fallback_to_sam2_count": 4,
+      "n_future_controller_anchors": 4,
+      "red_eligible_count": 0,
+      "red_error_diagnostic_only": {
+        "max_absolute_axis_error_cells": [
+          5.179207940368639,
+          0.10996815684315653
+        ],
+        "mean_absolute_xy_cells": [
+          3.299025971629315,
+          0.06237538518526764
+        ],
+        "mean_radial_error_cells": 3.3002725425700543
+      },
+      "sam2_error": {
+        "max_absolute_axis_error_cells": [
+          0.16250123977661132,
+          0.15625
+        ],
+        "mean_absolute_xy_cells": [
+          0.040625929832458496,
+          0.15625
+        ],
+        "mean_radial_error_cells": 0.17354612591047075
+      }
+    }
+  ],
+  "claim_boundary": [
+    "Six cases are only two correlated paths crossed with two hand-designed nuisance factors.",
+    "Known synthetic geometry scores this frozen rule; it is not an independent human observer validation.",
+    "SAM2 is a noisy proposal, not ground truth. Its systematic vertical localization bias remains.",
+    "No generated video, diffusion inference, actuator, policy efficacy, generalization, or human-label reliability was tested.",
+    "Framewise anchors within each clip are correlated; counts are descriptive only."
+  ],
+  "experiment_id": "EXP-SAM2-RED-START-ANCHORED-FUSION-DIAGNOSTIC-001",
+  "inputs": {
+    "kubric_ground_truth": "research/kubric_gate0_fixture_v1/ground_truth.json",
+    "kubric_ground_truth_sha256": "0dd6d5518de3c82d2e73d912c44fc712978d65dd93c38f8eb24d37500f8ad56b",
+    "sam2_visibility_stress_report": "research/sam2_visibility_stress_v1/report.json",
+    "sam2_visibility_stress_report_sha256": "001c3f4d14be2c92e62c52edb3e62fc6c4e7c00b4e316c536dab364912aa69a6"
+  },
+  "protocol": {
+    "anchor_frame_indices": [
+      0,
+      4,
+      8,
+      12,
+      16
+    ],
+    "fixed_grid_cells_per_pixel_xy": [
+      0.325,
+      0.3125
+    ],
+    "fusion_rule": "average the SAM2 and red start-relative residuals only if their L2 disagreement <= 0.5 latent-grid cell; otherwise use SAM2 residual",
+    "red_eligibility": "saved scoreable flag and saved registered stability >= 0.65 at both frame 0 and the current anchor",
+    "score_future_anchors_only": true,
+    "start_anchored_error_definition": "((observer_i-observer_0)-(truth_i-truth_0)) * [52/160,30/96]",
+    "threshold_origin": "The red stability limit 0.65 is the existing in-sample heuristic. The 0.5-cell residual-agreement limit was fixed for this diagnostic before scoring and was not fit on these outcomes; it is not a previously registered or production threshold."
+  },
+  "runtime": {
+    "compute": "CPU-only Python JSON arithmetic",
+    "device": "macOS-27.0-arm64-arm-64bit",
+    "elapsed_seconds": 0.025159790995530784,
+    "peak_vram_bytes": null,
+    "python": "3.12.3"
+  },
+  "status": "completed_cpu_known_truth_development_diagnostic_only"
+}

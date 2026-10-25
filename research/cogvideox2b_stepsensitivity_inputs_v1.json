@@ -1,0 +1,186 @@
+{
+  "analysis_id": "EXP-COGVIDEOX2B-STEP-SENSITIVITY-RGB-001",
+  "input_root": "/Users/yash/Documents/Resume/video-diffusion-lab/run",
+  "runs": [
+    {
+      "run_id": "cogvideox_2b_pilot",
+      "denoising_steps_expected": 8,
+      "manifest_path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot/manifest.json",
+      "manifest_sha256": "08cb21bb8f69a725ed06dbcedf18a3db65af892356ae9f33520ed7d7ee104eb6",
+      "manifest_fields": {
+        "model": "zai-org/CogVideoX-2b",
+        "prompt": "A single bright red ball rolling slowly from left to right across a smooth white tabletop, fixed camera, soft daylight, simple clean background.",
+        "seed": 2026,
+        "width": 480,
+        "height": 320,
+        "guidance_scale": 6.0,
+        "denoising_steps": 8
+      },
+      "frame_count": 9,
+      "frames": [
+        {
+          "name": "frame_00.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "61eb6ba7ce411f7610a7c63915b6cef8aa7cafb43e38a5e57fc11381527e8872"
+        },
+        {
+          "name": "frame_01.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "5920cc64d730e3f0acd68aa66f42b19200b038b524bebd273a53962a1bee6587"
+        },
+        {
+          "name": "frame_02.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "5455571415df24321f11d6186e973e794ed1870c08289fdb9ecb12d6cabcec61"
+        },
+        {
+          "name": "frame_03.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "9991e91e785c071b6182f211bc8da9cd50ea66f8ad1ba75563a7a3d551b17931"
+        },
+        {
+          "name": "frame_04.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "7c289336edee46b7b66b73d7f0316a7eae64d9ee6c125e7d66ff378a2709280c"
+        },
+        {
+          "name": "frame_05.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "3710a50e2e4084f78373476932bbb8d77e3e66b368b03926128aa8e0e6eb4d57"
+        },
+        {
+          "name": "frame_06.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "bc042015810596d38092883320820c8b309191b7591a056224ab2523d77edee3"
+        },
+        {
+          "name": "frame_07.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "6b55b51d7378b5661c5112574bacc722dab703e6d2401b3fa94d6f05848ba713"
+        },
+        {
+          "name": "frame_08.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "5dcabd627b844a63b57d853a39be55a3f95f70e96d15b84cbb2bbb7936ea9ea7"
+        }
+      ]
+    },
+    {
+      "run_id": "cogvideox_2b_pilot_30steps",
+      "denoising_steps_expected": 30,
+      "manifest_path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot_30steps/manifest.json",
+      "manifest_sha256": "5ba9d3735fe511b5c0dee48fb92b9b103148b41ba463a194a419540eac3864be",
+      "manifest_fields": {
+        "model": "zai-org/CogVideoX-2b",
+        "prompt": "A single bright red ball rolling slowly from left to right across a smooth white tabletop, fixed camera, soft daylight, simple clean background.",
+        "seed": 2026,
+        "width": 480,
+        "height": 320,
+        "guidance_scale": 6.0,
+        "denoising_steps": 30
+      },
+      "frame_count": 9,
+      "frames": [
+        {
+          "name": "frame_00.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "28f1730325bc89e4fd48c32dc0ba3ab7edb8e3c8464785bf6db069fde9bdbaff"
+        },
+        {
+          "name": "frame_01.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "314f1760e8523c01632e279b2cbcc1f0924695d5dd99d0c77d3a76845b900bce"
+        },
+        {
+          "name": "frame_02.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "63bd3a8243b13c58afb9cc34010a985039e2e3d6b784b8bb6b9fb96ab5ab6d5f"
+        },
+        {
+          "name": "frame_03.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "320c67d8675eefd3df17abf21a8a33ef152e23dc63a43ea612c4e6188cccbcc1"
+        },
+        {
+          "name": "frame_04.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "414d1b0f02e9c2719f6b6057f2886fe50c7b6f354fc1a94d44e8536b98ee197d"
+        },
+        {
+          "name": "frame_05.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "19f11a88d1c44929628bb16f9179ca1eed332a4acd2e39aaf8f85c73fdbde564"
+        },
+        {
+          "name": "frame_06.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "d213eb04bac55749862688e6443b056cfd2337bf04b205bc8eb1e4cfe37035a1"
+        },
+        {
+          "name": "frame_07.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "5cf218b50739640d980997c801b5bd46958306994dabc469a0d48524138cd713"
+        },
+        {
+          "name": "frame_08.png",
+          "size_px": [
+            480,
+            320
+          ],
+          "sha256": "e978ad4003581bd710f553336ce53090291a60dfdca55378901aeb6d78a1f627"
+        }
+      ]
+    }
+  ]
+}

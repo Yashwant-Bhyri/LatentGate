@@ -1,0 +1,54 @@
+# Evaluation audit: fixed-camera 2D object-path control
+
+**Scope.** How to tell whether a generated clip follows a commanded 2D object path under a fixed camera, while separating object drift from tracking/identity failures and camera/background motion. This is an evaluation protocol, not evidence that a steering method improves outputs.
+
+## Findings from primary work
+
+| Need | Established methods and what they measure | Fit and limitation here |
+|---|---|---|
+| **Target location over time** | Trajectory-controlled video papers use a direct error between requested and observed paths. Tora reports mean L1 trajectory error; Wan-Move reports EPE and releases point and mask labels in MoveBench. | Adopt a time-aligned object-center error. A point-path metric alone does not say whether the correct object persisted or whether the background/camera moved. [Tora](https://openaccess.thecvf.com/content/CVPR2025/papers/Zhang_Tora_Trajectory-oriented_Diffusion_Transformer_for_Video_Generation_CVPR_2025_paper.pdf), [Wan-Move](https://arxiv.org/abs/2512.08765), [official code and benchmark](https://github.com/ali-vilab/Wan-Move). |
+| **Point identity and occlusion** | TAP-Vid defines tracking a queried physical surface point through time, including a per-frame visible/occluded prediction. It includes human-annotated real videos and synthetic videos with exact point tracks. Its metrics include point-within-threshold, Jaccard-style track accuracy, and occlusion accuracy. [TAP-Vid paper](https://arxiv.org/abs/2211.03726), [DeepMind TAP repository](https://github.com/google-deepmind/tapnet), [CoTracker TAP metric implementation](https://github.com/facebookresearch/co-tracker/blob/main/cotracker/evaluation/core/eval_utils.py). | Useful for validating point trackers and preventing silent drops of lost/occluded frames. A point on a surface is not necessarily the object center: rotation/deformation can move the point relative to the object centroid. |
+| **Object mask and identity** | SAM 2 provides promptable video masks/masklets; DAVIS evaluates video segmentation with region Jaccard (J) and contour F. [SAM 2 paper](https://arxiv.org/abs/2408.00714), [official code](https://github.com/Segment-Anything/segment-anything-2), [DAVIS protocol](https://davischallenge.org/challenge2017/rulesdates.html). | Use SAM 2 as an annotation proposal, then correct it against the rendered frames. Report J/F only if mask quality is itself under evaluation; mask quality is not path accuracy. |
+| **Track identity across multiple objects** | TrackEval is the official MOTChallenge kit and includes HOTA, CLEAR, and identity metrics. [Official evaluation docs](https://github.com/JonathonLuiten/TrackEval/blob/master/docs/MOTChallenge-Official/Readme.md), [HOTA paper](https://arxiv.org/abs/2009.07736). | For a single, preselected target, record target presence and any identity switch directly. HOTA/IDF1 become useful if the benchmark has distractors or multiple controlled objects; they should not replace path error. |
+| **Known-truth synthetic cases** | Kubric/MOVi provides per-frame instance masks, object image positions/bounding boxes, visibility, camera data, and flow. MOVi variants differ in camera motion, so a fixed-camera subset or custom fixed-camera render must be enforced. [Kubric paper](https://openaccess.thecvf.com/content/CVPR2022/html/Greff_Kubric_A_Scalable_Dataset_Generator_CVPR_2022_paper.html), [official MOVi specification](https://github.com/google-research/kubric/blob/main/challenges/movi/README.md). | Use it to test metric code and the observer against exact labels, not as proof that an observer is accurate on generated Wan videos. |
+| **Background/camera stability** | RAFT estimates dense pairwise optical flow, but its paper explicitly identifies occlusion, motion blur, and textureless regions as hard cases. [RAFT paper](https://arxiv.org/abs/2003.12039), [official code](https://github.com/princeton-vl/RAFT). | Background flow is a useful diagnostic after masking the target, but a near-zero flow score does not prove a stable camera. For a tiny benchmark, manually label fixed background landmarks and measure their frame-to-frame displacement; use flow only to propose/check those tracks. |
+
+These sources cover point tracking, box/mask tracking, multi-object association, exact synthetic truth, and motion-control evaluation. The common weakness to guard against is using a single automated tracker as both the observer and the ground truth. Tracker confidence, segmentation quality, and generated motion are separate variables.
+
+## Recommended small benchmark
+
+### 1. Define a case before generating
+
+Each case contains a source frame, one named target, a fixed-camera prompt, a frame-time-stamped path in image coordinates, and a model seed. Include a compact set of path shapes: straight translation, diagonal, stop/start, reversal, and a curved path. Keep all commanded points in-frame for the initial study. Specify the target reference point in advance (for the current rigid-ball case, tight-box center; for masks or deformable targets, mask centroid plus a material-point track as a diagnostic). Do not shift or re-anchor the generated path to its observed first frame: report initial localization error separately so a bad start cannot disappear from the score.
+
+### 2. Make the labels auditable
+
+For every generated frame, label the target identity, tight box, visible/occluded/out-of-frame state, and 3 or more fixed background landmarks. At this scale, human-corrected labels are the ground truth; a point tracker or SAM 2 can propose labels, but must not silently decide them. Double-label a stratified subset and all ambiguous/failed frames. Keep the annotator blind to baseline versus policy where practical.
+
+Kubric is a good observer/metric unit test because masks and object positions are known by construction. Separately check observer performance on held-out Kubric clips, then manually audit generated clips because the synthetic-to-generated appearance gap is real. CoTracker3/TAPIR can independently track a selected surface point; it is a cross-check, not the center label. SAM 2 can propose the target mask. Do not average tracker and human estimates into one score.
+
+### 3. Report a scorecard, not one opaque number
+
+**Primary control score:** mean per-frame Euclidean distance between the annotated target center and the requested point at that exact output timestamp (ADE), in pixels and in control-grid-cell units. Report median and p95 per clip, plus final-frame error. Use the unwarped frame timeline: dynamic time warping can hide lag or early/late motion that is a control failure. A path-shape-only distance may be reported secondarily if useful, but it cannot replace the time-aligned score.
+
+**Separate validity scores:** raw start error; target visible/present fraction on frames where the commanded path is in-frame; wrong-identity/duplicate count; and mask J/F only if mask quality matters. Mark missing identity/center as a failure rather than dropping that frame from ADE. If the task deliberately includes occlusion, score visible-only ADE and occlusion/presence accuracy separately, following the TAP-Vid distinction.
+
+**Fixed-camera check:** measure each human-confirmed background landmark's displacement from its initial coordinate, report median and p95 over landmarks/frames, and report the fraction of frames with insufficient landmark visibility. Require at least three landmarks to remain labelable in at least 90% of frames; set the pass threshold to median drift ≤0.5 control cell and p95 drift ≤1 cell. A masked RAFT background-flow summary is a secondary diagnostic. Do not compensate object trajectories by an estimated camera transform in the primary fixed-camera score; that would conceal camera instability.
+
+## Experiment design and gates
+
+1. **Observer gate:** before scoring policy effects, pass a Kubric known-truth check and double-label the generated-video subset. Require at least 95% agreement on target identity/presence and human-human p95 center disagreement no larger than half a control cell per axis. Report observer coverage and false accepts for absent, duplicate, and wrong-identity targets. If the gate fails, fix annotation/observer quality before tuning a policy.
+2. **Development pilot:** use five paired case-seed blocks to debug measurement and tune thresholds only. In each pair, baseline and intervention share the same source, prompt, target path, and diffusion seed. Freeze the observer, controller, thresholds, and analysis before confirmatory generation.
+3. **Held-out confirmation:** use at least ten new paired blocks across at least five distinct source-scene/path cases (two seeds per case); retain identical seeds within each baseline/intervention pair. Include baseline and intervention, plus a small mechanism control (e.g. shuffled or sign-reversed residual) on a preregistered subset. The independent unit is the case-seed block, not frames. Report all paired deltas and a paired confidence interval resampled at the case level; do not treat 17/81 correlated frames as independent samples.
+4. **Pass/fail:** call the path-control result a pass only if (a) the observer gate holds, (b) held-out paired ADE improves by at least 20% relative to baseline and its paired 95% interval excludes zero, (c) p95 error does not worsen, (d) the target is visible in at least 90% of expected in-frame samples with zero wrong-identity/duplicate accepts, (e) the background-landmark gate above holds, and (f) the negative control does not show the same improvement. Otherwise report the result as inconclusive or failed and preserve the per-case scorecard. Lock the practical-effect and measurement thresholds before confirmatory runs; change them only in a new experiment.
+
+This design follows trajectory-error practice in video-control work but adds explicit identity, visibility, and camera-stability gates. The small pilot estimates whether this experiment is worth scaling; a pass supports a bounded claim for the tested scene/path distribution, not broad video-generation robustness.
+
+## Implementation order
+
+1. Freeze coordinate conventions, the center definition, timestamp interpolation, and CSV/JSON label schema.
+2. Validate ADE, visibility accounting, and landmark displacement on Kubric clips with exact annotations.
+3. Produce blinded human-corrected labels for generated clips; compare CoTracker/SAM 2 proposals with those labels and log coverage/failure types.
+4. Run paired baseline/intervention pilot, then only proceed to held-out confirmation if observer and mechanism gates pass.
+
+**Evidence boundary:** this audit proposes metrics and protocol from public benchmarks and official implementations. It does not assert that the current LatentGate observer is validated on generated video, that tracking masks are ground truth, or that any policy has improved a generated clip.

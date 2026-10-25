@@ -1,0 +1,39 @@
+# DiTraj pinned-source FP16/T4 compatibility audit
+
+**Checked:** 2026-10-16 06:25 UTC / 14:25 Asia/Shanghai  
+**Initial audit scope:** Static source/configuration review only. At that time, no notebook cell, test, UI, model/weight download, GPU, Kaggle session, or source patch was run or applied. A later local-only preflight edit is recorded at the end of this note.
+
+## Source and local configuration
+
+The upstream files were read from the official DiTraj repository at pinned commit `6fa8e613c9e7c40ec2db456ab2ba34367a076886`: [README](https://raw.githubusercontent.com/xduzhangjiayu/DiTraj/6fa8e613c9e7c40ec2db456ab2ba34367a076886/README.md), [requirements.txt](https://raw.githubusercontent.com/xduzhangjiayu/DiTraj/6fa8e613c9e7c40ec2db456ab2ba34367a076886/requirements.txt), [run.py](https://raw.githubusercontent.com/xduzhangjiayu/DiTraj/6fa8e613c9e7c40ec2db456ab2ba34367a076886/run.py), [custom pipeline](https://raw.githubusercontent.com/xduzhangjiayu/DiTraj/6fa8e613c9e7c40ec2db456ab2ba34367a076886/module/pipe.py), [attention processor](https://raw.githubusercontent.com/xduzhangjiayu/DiTraj/6fa8e613c9e7c40ec2db456ab2ba34367a076886/module/attention_processor.py), and [Wan transformer](https://raw.githubusercontent.com/xduzhangjiayu/DiTraj/6fa8e613c9e7c40ec2db456ab2ba34367a076886/module/transformer_wan.py). The upstream tree page was unavailable to the web reader, so commit-specific raw files were used; no local upstream checkout was found in this workspace.
+
+The README recommends Python 3.11, clones Diffusers branch `v0.33.1`, installs it editable, and replaces Diffusers' `transformer_wan.py` with DiTraj's copy. `requirements.txt` pins `torch==2.7.1`, `torchvision==0.22.1`, `accelerate==1.7.0`, `transformers==4.52.4`, `tqdm==4.67.1`, `moviepy==2.2.1`, `numpy==2.2.6`, `imageio-ffmpeg==0.6.0`, `sentencepiece==0.2.0`, `ftfy==6.3.1`, and `av==15.0.0`.
+
+At the initial audit, the local notebook hash was `2e697fb5942472a0e6dd71a6c67975345f9fb7970aae08609221cd8940583e4e`; all 12 code cells had null execution counts. Setup checked a manually confirmed free-quota flag (default `False`), checked Diffusers version `0.33.1`, and printed the Python/PyTorch/CUDA versions, device capability, and VRAM. At that point it hard-failed when CUDA was unavailable or GPU 0's name did not contain `T4`, but did not assert `(7,5)`. The embedded runner was byte-identical to `research/run_ditraj_paired_path_pilot.py`, SHA-256 `312d923f04af24a909082ca659a0d743e2066e2f970c71298eb971c594bc5a4e`.
+
+The local runner additionally checks the exact DiTraj commit and Diffusers version before its run-time patching step. Its local pilot uses the pinned Wan2.1-T2V-1.3B model revision, a 17-frame 832×480 sequence, and `--num-steps 1` for the first six-case smoke. The 30-step and feedback cells remain disabled. The notebook setup clones Diffusers by branch name and version-checks it; it does not record/assert the resolved Diffusers Git commit. The requirements file pins the Torch version but not a CUDA wheel suffix or package index.
+
+## T4 precision constraints and minimum change
+
+NVIDIA maps the Tesla T4 to compute capability 7.5. NVIDIA's CUDA guide requires compute capability 8.0 or higher for CUDA `__nv_bfloat16`; FP16 is the compatible reduced-precision route for T4, and the compute-capability table lists FP16 Tensor Core input support at 7.5. See [NVIDIA's GPU capability table](https://developer.nvidia.com/cuda/gpus), [compute-capability precision table](https://docs.nvidia.com/cuda/cuda-programming-guide/05-appendices/compute-capabilities.html), and [CUDA floating-point type requirements](https://docs.nvidia.com/cuda/archive/13.2.0/cuda-programming-guide/05-appendices/mathematical-functions.html).
+
+At the pinned upstream `run.py`, the VAE loads with `torch_dtype=torch.float32`, while the DiTraj pipeline loads with `torch_dtype=torch.bfloat16`. **The minimal FP16 T4 code change is one argument substitution at the pipeline load:** `torch.bfloat16` → `torch.float16`; retain the VAE's explicit FP32 load. The custom pipe's docstring mentions an `autocast_dtype` default, but its overridden signature has no such argument and its body contains no `torch.autocast` call, so I found no additional BF16 autocast path. Its attention processor requires PyTorch SDPA, available from PyTorch 2.0; upstream pins 2.7.1. The custom transformer also declares `time_embedder`, `scale_shift_table`, and selected norms as FP32-preserved modules, so a mixed FP16/FP32 transformer is expected rather than a blanket FP16 cast.
+
+That one-line dtype change is already present in the local runner: it passes FP32 for `AutoencoderKLWan`, FP16 for `myWanPipeline`, `low_cpu_mem_usage=True`, and model CPU offload on GPU 0. Therefore the local source needs no further precision edit for the planned one-step smoke. The minimal dtype change does not itself establish that all FP16 SDPA kernels, mask shapes, or the model's numeric behavior work on T4.
+
+The local runner has other pre-existing, non-precision source patches that will run if the runner is executed: it vectorizes DiTraj's per-pixel `find_corners` traversal using CPU `torch.nonzero`, skips mask construction when the corresponding intervention step is zero, and copies the patched custom transformer into the active Diffusers installation. These are separate pilot-runtime changes, not requirements of the BF16→FP16 conversion; they were not applied or validated in this audit.
+
+## Remaining unknowns and next gate
+
+- No run has loaded this exact DiTraj/Diffusers stack or generated even the one-step six-case smoke on a T4. FP16 SDPA dispatch, finiteness, decoded quality, runtime, and peak VRAM remain unmeasured.
+- The notebook does not enforce Python 3.11 or an explicit Torch/CUDA wheel build. The local source-only follow-up below adds an exact `(7,5)` capability gate; compatibility of the eventual installed wheel with the assigned driver/runtime remains unknown.
+- The local run-time source patches are only statically reviewed here; their behavior and timing on the pinned stack remain unverified.
+- The latest Gate 1 intake was recorded at `2026-10-16T06:19:20Z` in the registry and scan v6: zero complete or partial human returns. Gate 1 remains the earliest open blocker and still needs two independent full v5 CSVs. The current quota/admission route is also not a release signal. No thresholds or arms were changed.
+
+**Falsifiable next step:** after the human-label gates and a fresh verified free-T4 admission pass, run only the already-configured one-step six-case smoke. Before weights, require the notebook's exact `(7,5)` capability guard to pass; then record resolved package/CUDA versions, source hashes, transformer/VAE dtypes, finite decoded outputs, elapsed time, and peak VRAM. No runtime was started for either audit pass.
+
+## 2026-10-16 06:49 UTC local source-only preflight follow-up
+
+- Updated only notebook cell `gpu-preflight` to fail closed before model weights if CUDA is unavailable, GPU 0's name does not contain `T4`, or `torch.cuda.get_device_capability(0) != (7, 5)`. The capability failure diagnostic is exactly: `Expected T4 compute capability (7, 5); found {capability!r}; stop before downloading model weights.` A successful capability gate prints `T4 capability preflight: PASS (7, 5)`.
+- Current notebook SHA-256: `5f8294ed508a8ad2581ef9bf0b1754aeaa44812bb964376f993fbd4a121d9d55`. It remains 12 cells with all code execution counts null. The separate embedded/local runner remains SHA-256 `312d923f04af24a909082ca659a0d743e2066e2f970c71298eb971c594bc5a4e`.
+- The runner, model settings, dtype choices, thresholds, and arm definitions were not changed. This source edit was not executed; no tests, installs, downloads, GPU, Colab, or Kaggle session were used. Shared state and registry were intentionally left for the coordinator to update.

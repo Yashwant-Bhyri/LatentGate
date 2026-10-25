@@ -1,0 +1,66 @@
+{
+  "experiment_id": "EXP-COGVIDEOX2B-50STEP-FIVE-ANCHOR-RGB-READOUT-001",
+  "status": "preregistered_before_interpolation_metrics",
+  "registered_at_utc": "2026-10-15T06:46:21Z",
+  "question": "On the one saved scoreable 50-step CogVideoX-2B RGB sequence, how closely do five fixed frame anchors reproduce the red-mask centroid and area measured on omitted frames?",
+  "scope": "Descriptive CPU-only RGB measurement of one existing 16-frame output. No generation, inference, latent inspection, GPU, cloud runtime, or human labels.",
+  "source": {
+    "run_directory": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13",
+    "manifest_path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/manifest.json",
+    "manifest_sha256": "2727ccdc46e659effec4cbb97639a3b50a05bae8ef950e8a8a349b5ed3b0706e",
+    "prior_rgb_input_map": "research/cogvideox2b_rgb_proxy_inputs_v1.json",
+    "prior_rgb_input_map_sha256": "280f8dfd299cdb135974c824998b2ff36b884abfefdfb1a09391e4539ff36de1",
+    "expected_manifest_fields": {
+      "model": "zai-org/CogVideoX-2b",
+      "prompt": "A single bright red ball rolling slowly from left to right across a smooth white tabletop, fixed camera, soft daylight, simple clean background.",
+      "seed": 2026,
+      "width": 720,
+      "height": 480,
+      "frames": 16,
+      "denoising_steps": 50,
+      "guidance_scale": 6.0
+    },
+    "frame_names": [
+      "frame_00.png", "frame_01.png", "frame_02.png", "frame_03.png",
+      "frame_04.png", "frame_05.png", "frame_06.png", "frame_07.png",
+      "frame_08.png", "frame_09.png", "frame_10.png", "frame_11.png",
+      "frame_12.png", "frame_13.png", "frame_14.png", "frame_15.png"
+    ],
+    "frame_size_px": [720, 480]
+  },
+  "proxy": {
+    "baseline_config_path": "research/trajectory_control_v1.json",
+    "baseline_config_sha256": "b34923bd1ec5e9caaea99750a9461f163e6ffda1c8afffc1ce2e9f7b371313b5",
+    "baseline_rgb_threshold": {"r_greater_than": 150, "g_less_than": 125, "b_less_than": 125},
+    "threshold_grid_path": "research/m0_mask_threshold_sensitivity_v1.json",
+    "threshold_grid_sha256": "37765a4a1bebaab506170ae73493373afd6d85bf752a0dc9b3126be3c363b804",
+    "threshold_grid": {
+      "r_greater_than": [130, 150, 170, 190],
+      "g_less_than": [100, 125, 150],
+      "b_less_than": [100, 125, 150],
+      "case_count": 36
+    },
+    "minimum_mask_pixels": 300,
+    "mask_rule": "R > r_gt AND G < g_lt AND B < b_lt; centroid is the arithmetic mean of selected pixel coordinates; no morphology, learned detector, tracking, or threshold adjustment"
+  },
+  "method": {
+    "anchors": [0, 4, 8, 12, 15],
+    "omitted_frames": [1, 2, 3, 5, 6, 7, 9, 10, 11, 13, 14],
+    "interpolation": "Piecewise linear, independently on RGB-mask centroid x, centroid y, and mask pixel count between adjacent anchors.",
+    "center_error": "Euclidean pixel distance between measured RGB-mask centroid and interpolated centroid at each omitted frame; report mean, RMSE, and maximum.",
+    "mask_area_error": "Absolute pixel-count error and absolute relative percentage error at omitted frames; report mean and maximum.",
+    "threshold_robustness": "Repeat the fixed measurement for all 36 combinations in the existing grid; summarize the range across settings and report the registered baseline setting separately.",
+    "event_coverage": "Schedule-only enumeration of all contiguous event windows of duration 1 through 4 frames in a 16-frame sequence; a window is covered if it intersects at least one anchor. Report covered/possible placements, not an observed event rate."
+  },
+  "fail_closed_gates": {
+    "integrity": "Require the existing input-map SHA-256, manifest SHA-256, expected manifest fields, exact ordered frame names, every preregistered PNG SHA-256, and 720x480 RGB dimensions to match. Any mismatch stops analysis without substitutions.",
+    "proxy_coverage": "Before interpolation, require at least 300 selected pixels in every one of the 16 frames under the baseline threshold and every one of the 36 threshold combinations. Any miss stops interpolation; do not change thresholds or lower the floor."
+  },
+  "interpretation_limits": [
+    "This is one saved output, one prompt, one seed, and one color proxy; it is not an independent sample or a general sparse-sampling result.",
+    "Frame filename order is used for the RGB sequence; it does not establish latent-time alignment.",
+    "Schedule coverage does not say whether any such event occurred in this clip.",
+    "No chunked generation or causal comparison is performed."
+  ],
+  "forbidden_inputs": ["latent arrays or latent-derived values", "model inference", "human labels", "GPU or cloud runtime", "new generation"]
+}

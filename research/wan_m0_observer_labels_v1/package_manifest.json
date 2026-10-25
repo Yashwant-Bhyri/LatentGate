@@ -1,0 +1,27 @@
+{
+  "experiment_id": "EXP-M0-WAN-OBSERVER-HUMAN-LABEL-001",
+  "purpose": "Compare machine-proposed red-threshold and SAM2 tracks against independent tight-box labels on one saved generated Wan sample.",
+  "source_frame_count": 17,
+  "source_frames_sha256": {
+    "frame_000.png": "71dc7f04299e24b0f74f6b6f4abcae5bcfe0edca0fa2d4a47bd4250d73ff1c31",
+    "frame_001.png": "64b571c5b150e5994ecfc8b4886c292c130853a3f0bea03d4719d0aa2155ae8e",
+    "frame_002.png": "12acca218de855c8d7fab1d345b6492ede65a16a4dcc62889c3b9dc99d87a86c",
+    "frame_003.png": "412f7881ddeb7eb1bd11df504b9f7677503afc10917c1abae95ce77b5ba2470b",
+    "frame_004.png": "1c92c3e51b9e085ec08f8a1ad97a810037ce1048dd65ec5f1e51b9ecf4a28813",
+    "frame_005.png": "601207ea3b91d64e131e34ead1ad19dd0c07ebe62dc8c7f708374af9626dc39e",
+    "frame_006.png": "d6d5b4208859f234eb0d0a6708282bf1bc3f2d02b8fbad10695db9b2e4628308",
+    "frame_007.png": "0074526d5be6a910cd0735e29c2acebf2b02551dd8f78b79d9a7d0feb8be38a2",
+    "frame_008.png": "b36a3ba051bcc2c0131d9c780e509d63f43ac6223b703211d78c5b981817fe6b",
+    "frame_009.png": "fcc471d5663e2d419ef4303a88014176fc7ccc3eae1c8e065a6e197d84f55de2",
+    "frame_010.png": "96fe291e4982675ce990ea31597da4a9359ba80324759c806b5f1bca45630d38",
+    "frame_011.png": "6d569d4f436bc498ec4ecaab4ef08de76a5ebc4a522d213487c1e2c8c8276bef",
+    "frame_012.png": "cdab0da0d1ec906641ff0012878c5ed609f3ada28a5f295734cd7a363b61de64",
+    "frame_013.png": "4a78c5d5160525f4d211b2a9fd73bb9b14e20270d7cf0eb34b9ee788d0366a5c",
+    "frame_014.png": "da9895e232affcaa63930c401cb132bdc1b9157ee51a5668cb9589087ba7d53f",
+    "frame_015.png": "b705c5a775d011049268e081e7e06a3edf41afe0041df47ef7902d1782771372",
+    "frame_016.png": "8a0ee45f1b44dfa3781d882bd79d251c58ae74436e469f1c34ffe11123f97306"
+  },
+  "annotation_zip": "blinded_annotation_package.zip",
+  "private_unblind_key": "PRIVATE_UNBLIND_KEY.json",
+  "note": "The zip contains two anonymized copies of the same clip, one for each independent rater. Do not share the private key with raters. This is one convenience sample, not the held-out observer gate or policy efficacy benchmark."
+}

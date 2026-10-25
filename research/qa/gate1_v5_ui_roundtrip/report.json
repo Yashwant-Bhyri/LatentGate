@@ -1,0 +1,44 @@
+{
+  "experiment_id": "EXP-LATENTGATE-GATE1-V5-UI-ROUNDTRIP-001",
+  "status": "browser_display_coordinate_mapping_and_csv_smoke_passed",
+  "time_utc": "2026-10-11T14:18Z",
+  "scope": "Offline packet mechanics only; no human labels or agreement evaluation.",
+  "packet_version": "gate1_manual_annotation_packets_v5",
+  "packet_archive": "research/gate1_manual_annotation_packets_v5/synthetic_reliability/rater_01.zip",
+  "packet_archive_sha256": "0ab9ebeebc24e9badd58c53b1d9076522e926d69dc47067b6f957450a56533d8",
+  "builder_sha256": "d8e1de9a4122ce14ba6e540fea2b5974d342c5fa88ebe86cdbef5a349ccd3091",
+  "manifest_sha256": "1a661d35a94c98f7ec8688d81d71c5cdd2f38c90b74e3ed738952cee9ed6fca5",
+  "browser_surface": "Codex in-app browser",
+  "served_from": "127.0.0.1 only; temporary HTTP server stopped and extracted preview removed after the smoke.",
+  "frame": {
+    "natural_source_width_px": 160,
+    "natural_source_height_px": 96,
+    "display_width_css_px": 622,
+    "display_scale": 3.8875,
+    "note": "The CSS target is 640 px; the in-app browser pane constrained the rendered width to 622 px. The source-to-grid p95 gate maps to approximately 5.98 horizontal and 6.22 vertical CSS px in this viewport."
+  },
+  "overlay_coordinate_round_trip": {
+    "source_point_px": [37.25, 28.5],
+    "svg_viewbox": "0 0 160 96",
+    "screen_transform_inverse_error_px": 0.0,
+    "result": "pass"
+  },
+  "csv_export": {
+    "method": "Called the packet export function in the browser; intercepted the Blob URL and anchor click, so no file was downloaded.",
+    "row_count_including_header": 35,
+    "expected_data_frames": 34,
+    "expected_header": "blind_clip_id,frame_index,image_file,object_visible,instance_count,identity_consistent,bbox_x1_px,bbox_y1_px,bbox_x2_px,bbox_y2_px,notes",
+    "scored_fields_blank": true,
+    "result": "pass"
+  },
+  "human_annotations_used": false,
+  "label_agreement_measured": false,
+  "model_inference": false,
+  "gpu_used": false,
+  "peak_vram_mb": null,
+  "limitations": [
+    "The view was viewport-constrained; the full 640 px CSS target was not reached in this pane.",
+    "The point test validates SVG coordinate-transform round-trip, not human box-placement precision.",
+    "This does not establish human-label reliability, generated-video observer accuracy, or policy efficacy."
+  ]
+}

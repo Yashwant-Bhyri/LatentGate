@@ -1,0 +1,101 @@
+{
+  "experiment_id": "EXP-COGVIDEOX2B-FIVE-ANCHOR-RGB-READOUT-001",
+  "status": "preregistered_before_pixel_metric_computation",
+  "registered_at_utc": "2026-10-12T06:22:09Z",
+  "question": "How closely does piecewise-linear interpolation from RGB frames [0,2,4,6,8] reproduce center and red-mask-area measurements on the four omitted frames [1,3,5,7] in each of two saved 9-frame CogVideoX-2B sensitivity runs?",
+  "scope": "Descriptive RGB-only audit of saved outputs. No model inference, latent inspection, labels, GPU, or generation.",
+  "runs": [
+    {
+      "run_name": "cogvideox_2b_pilot",
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot",
+      "manifest_sha256": "08cb21bb8f69a725ed06dbcedf18a3db65af892356ae9f33520ed7d7ee104eb6",
+      "expected_manifest_fields": {
+        "model": "zai-org/CogVideoX-2b",
+        "prompt": "A single bright red ball rolling slowly from left to right across a smooth white tabletop, fixed camera, soft daylight, simple clean background.",
+        "seed": 2026,
+        "width": 480,
+        "height": 320,
+        "frames": 9,
+        "denoising_steps": 8,
+        "guidance_scale": 6.0
+      },
+      "rgb_frame_sha256": {
+        "frame_00.png": "61eb6ba7ce411f7610a7c63915b6cef8aa7cafb43e38a5e57fc11381527e8872",
+        "frame_01.png": "5920cc64d730e3f0acd68aa66f42b19200b038b524bebd273a53962a1bee6587",
+        "frame_02.png": "5455571415df24321f11d6186e973e794ed1870c08289fdb9ecb12d6cabcec61",
+        "frame_03.png": "9991e91e785c071b6182f211bc8da9cd50ea66f8ad1ba75563a7a3d551b17931",
+        "frame_04.png": "7c289336edee46b7b66b73d7f0316a7eae64d9ee6c125e7d66ff378a2709280c",
+        "frame_05.png": "3710a50e2e4084f78373476932bbb8d77e3e66b368b03926128aa8e0e6eb4d57",
+        "frame_06.png": "bc042015810596d38092883320820c8b309191b7591a056224ab2523d77edee3",
+        "frame_07.png": "6b55b51d7378b5661c5112574bacc722dab703e6d2401b3fa94d6f05848ba713",
+        "frame_08.png": "5dcabd627b844a63b57d853a39be55a3f95f70e96d15b84cbb2bbb7936ea9ea7"
+      }
+    },
+    {
+      "run_name": "cogvideox_2b_pilot_30steps",
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot_30steps",
+      "manifest_sha256": "5ba9d3735fe511b5c0dee48fb92b9b103148b41ba463a194a419540eac3864be",
+      "expected_manifest_fields": {
+        "model": "zai-org/CogVideoX-2b",
+        "prompt": "A single bright red ball rolling slowly from left to right across a smooth white tabletop, fixed camera, soft daylight, simple clean background.",
+        "seed": 2026,
+        "width": 480,
+        "height": 320,
+        "frames": 9,
+        "denoising_steps": 30,
+        "guidance_scale": 6.0
+      },
+      "rgb_frame_sha256": {
+        "frame_00.png": "28f1730325bc89e4fd48c32dc0ba3ab7edb8e3c8464785bf6db069fde9bdbaff",
+        "frame_01.png": "314f1760e8523c01632e279b2cbcc1f0924695d5dd99d0c77d3a76845b900bce",
+        "frame_02.png": "63bd3a8243b13c58afb9cc34010a985039e2e3d6b784b8bb6b9fb96ab5ab6d5f",
+        "frame_03.png": "320c67d8675eefd3df17abf21a8a33ef152e23dc63a43ea612c4e6188cccbcc1",
+        "frame_04.png": "414d1b0f02e9c2719f6b6057f2886fe50c7b6f354fc1a94d44e8536b98ee197d",
+        "frame_05.png": "19f11a88d1c44929628bb16f9179ca1eed332a4acd2e39aaf8f85c73fdbde564",
+        "frame_06.png": "d213eb04bac55749862688e6443b056cfd2337bf04b205bc8eb1e4cfe37035a1",
+        "frame_07.png": "5cf218b50739640d980997c801b5bd46958306994dabc469a0d48524138cd713",
+        "frame_08.png": "e978ad4003581bd710f553336ce53090291a60dfdca55378901aeb6d78a1f627"
+      }
+    }
+  ],
+  "proxy": {
+    "code_path": "research/evaluate_trajectory_frames.py",
+    "code_sha256": "bf14feeb273c4040f0827b5f1e319a06577bcd11fedede64654f061e85cccb62",
+    "fixed_threshold_config_path": "research/trajectory_control_v1.json",
+    "fixed_threshold_config_sha256": "b34923bd1ec5e9caaea99750a9461f163e6ffda1c8afffc1ce2e9f7b371313b5",
+    "baseline_rgb_threshold": {
+      "r_greater_than": 150,
+      "g_less_than": 125,
+      "b_less_than": 125
+    },
+    "minimum_mask_pixels": 300,
+    "threshold_grid_path": "research/m0_mask_threshold_sensitivity_v1.json",
+    "threshold_grid_sha256": "37765a4a1bebaab506170ae73493373afd6d85bf752a0dc9b3126be3c363b804",
+    "threshold_grid": {
+      "r_greater_than": [130, 150, 170, 190],
+      "g_less_than": [100, 125, 150],
+      "b_less_than": [100, 125, 150],
+      "case_count": 36
+    },
+    "mask_rule": "per RGB pixel: R > r_gt AND G < g_lt AND B < b_lt; centroid is arithmetic mean of selected pixel coordinates; mask area is selected pixel count; no morphology, proposal model, or threshold adjustment"
+  },
+  "method": {
+    "anchors": [0, 2, 4, 6, 8],
+    "omitted_frames": [1, 3, 5, 7],
+    "interpolation": "piecewise linear independently on centroid x, centroid y, and mask pixel count between adjacent anchors",
+    "center_error": "Euclidean pixel distance between measured RGB-mask centroid and interpolated centroid at omitted frames; report mean, RMSE, and max per run and threshold case",
+    "mask_area_error": "absolute pixel-count error and absolute relative percentage error at omitted frames; report mean and max per run and threshold case",
+    "event_coverage": "schedule-only enumeration of all contiguous event windows of duration 1 through 4 frames in a 9-frame sequence; a window is covered if it intersects at least one anchor; report covered/possible placements, not an observed event rate"
+  },
+  "fail_closed_gates": {
+    "integrity": "Before pixel metrics, require each manifest to match all registered run fields; exactly frame_00.png through frame_08.png; every RGB file hash to match this preregistration; and every image to be 480x320 RGB. Any mismatch stops the paired comparison and is recorded without substitutions.",
+    "proxy_coverage": "Before interpolation metrics, require at least 300 selected pixels in every frame of each run under the fixed (150,125,125) threshold and under every one of the 36 registered threshold combinations. Any miss stops the paired comparison; do not change thresholds or lower the pixel floor."
+  },
+  "comparison_limits": [
+    "The two runs share prompt, seed, model, frame count, and resolution; they differ in denoising steps (8 versus 30). Treat them as sensitivity variants, not independent samples.",
+    "Both 480x320 runs also differ from the saved 50-step 720x480 CogVideoX run; this cannot isolate a causal denoising-step effect.",
+    "The event-window result is schedule coverage only; no events are manually labeled or observed as ground truth.",
+    "The red-mask centroid/area are fixed color proxies, not object-tracking ground truth."
+  ],
+  "forbidden_inputs": ["latent arrays or latent-derived values", "model inference", "human labels", "GPU or cloud runtime", "new generation"]
+}

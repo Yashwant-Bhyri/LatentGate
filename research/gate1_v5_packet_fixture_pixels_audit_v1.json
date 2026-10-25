@@ -1,0 +1,68 @@
+{
+  "audit_id": "EXP-LATENTGATE-GATE1-V5-PACKET-FIXTURE-PIXELS-001",
+  "status": "pass",
+  "created_utc": "2026-10-15T07:55:43Z",
+  "scope": "exact image-content provenance for blinded Kubric v5 annotation packets",
+  "privacy_boundary": "PRIVATE_UNBLIND_KEY.json was not opened; results contain no blind-ID-to-direction mapping",
+  "privacy": {
+    "private_unblind_key_opened": false,
+    "no_blind_id_direction_map_emitted": true
+  },
+  "source_fixture": {
+    "ground_truth_sha256": "0dd6d5518de3c82d2e73d912c44fc712978d65dd93c38f8eb24d37500f8ad56b",
+    "frame_count": 34,
+    "unique_png_hashes": 33,
+    "hash_multiset": "omitted to avoid exposing frame-to-blind-alias correspondences"
+  },
+  "rater_packets": [
+    {
+      "archive": "rater_01.zip",
+      "archive_sha256": "0ab9ebeebc24e9badd58c53b1d9076522e926d69dc47067b6f957450a56533d8",
+      "frame_count": 34,
+      "clip_count": 2,
+      "frames_per_clip": [
+        17,
+        17
+      ],
+      "csv_rows": 34,
+      "scored_fields_blank": true,
+      "csv_keys_match_embedded_frame_manifest": true
+    },
+    {
+      "archive": "rater_02.zip",
+      "archive_sha256": "8a660acb5bd77855b82c13b27cc951f8d2e4d6131e38e0144e83638e2f92e7ff",
+      "frame_count": 34,
+      "clip_count": 2,
+      "frames_per_clip": [
+        17,
+        17
+      ],
+      "csv_rows": 34,
+      "scored_fields_blank": true,
+      "csv_keys_match_embedded_frame_manifest": true
+    }
+  ],
+  "checks": {
+    "rater_01_exact_source_frame_multiset": true,
+    "rater_02_exact_source_frame_multiset": true,
+    "rater_packets_have_same_image_multiset": true,
+    "two_blind_clips_with_17_distinct_frame_indices_each": true,
+    "csv_keys_match_embedded_frames_for_both_raters": true,
+    "all_label_fields_blank": true
+  },
+  "errors": [],
+  "limitations": [
+    "Exact packet/source equality verifies what files raters receive, not that human labels are reliable.",
+    "The comparison is deliberately unordered and does not establish direction-to-alias mapping.",
+    "Kubric fixture and generated-data distribution terms remain unresolved; packets remain local.",
+    "This does not validate generated-video observers or policy efficacy."
+  ],
+  "compute": {
+    "runtime_seconds": 0.020742,
+    "python": "3.12.3",
+    "system": "Darwin",
+    "machine": "arm64",
+    "gpu_used": false,
+    "peak_vram_mb": null
+  }
+}

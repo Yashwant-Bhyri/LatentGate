@@ -1,0 +1,40 @@
+{
+  "audit_type": "posthoc_color_mask_frame_motion_audit",
+  "audit_date": "2026-10-02",
+  "source_run": "m0/runs/wan_t4_2026-10-02_retry4/run_001",
+  "source_generation": {
+    "model": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+    "device": "Tesla T4",
+    "width": 832,
+    "height": 480,
+    "frames": 17,
+    "inference_steps": 30,
+    "seed": 2026,
+    "prompt": "A single bright red ball rolling slowly from left to right across a smooth white tabletop, fixed camera, soft daylight, simple clean background."
+  },
+  "method": {
+    "mask": "RGB pixels where R > 150, G < 125, and B < 125",
+    "summary": "Per-frame color-mask pixel count, centroid, and bounding box; frame order is 000 through 016.",
+    "limitations": [
+      "The color mask is a simple proxy, not a segmentation model or ground-truth object track.",
+      "Bounding-box and mask growth indicate apparent image-space size change; they do not establish metric 3D scale drift.",
+      "A separate geometry/depth or object-tracking measurement is needed to confirm the suspected scale inconsistency."
+    ]
+  },
+  "measurements": {
+    "mask_centroid_start_xy_pixels": [209.01, 301.14],
+    "mask_centroid_end_xy_pixels": [241.57, 307.4],
+    "centroid_endpoint_shift_xy_pixels": [32.56, 6.26],
+    "horizontal_shift_as_fraction_of_frame_width": 0.0391,
+    "vertical_shift_as_fraction_of_frame_height": 0.013,
+    "linear_centroid_slope_pixels_per_frame_xy": [2.2112, 0.414],
+    "centroid_x_increases_each_frame": true,
+    "red_mask_pixel_count_start_end": [10306, 12981],
+    "red_mask_pixel_count_endpoint_change_percent": 25.96,
+    "bounding_box_width_start_end_pixels": [120, 133],
+    "bounding_box_width_endpoint_change_percent": 10.83,
+    "bounding_box_height_start_end_pixels": [127, 144],
+    "bounding_box_height_endpoint_change_percent": 13.39
+  },
+  "interpretation": "The requested rightward motion is present in the color-mask centroid, with a small downward drift. The object also grows substantially in image space over the sequence, making scale/shape consistency a stronger candidate failure than absent motion. This is a post-hoc measurement and is not part of the original run manifest."
+}

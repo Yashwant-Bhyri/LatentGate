@@ -1,0 +1,24 @@
+{
+  "manifest_path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/manifest.json",
+  "manifest_sha256": "2727ccdc46e659effec4cbb97639a3b50a05bae8ef950e8a8a349b5ed3b0706e",
+  "frame_count": 16,
+  "frame_size_px": [720, 480],
+  "frames": {
+    "frame_00.png": "0d188cc47bfb2791465060710fb1c51431f33c9582b121f3af2f94d68e8a2abe",
+    "frame_01.png": "0d188cc47bfb2791465060710fb1c51431f33c9582b121f3af2f94d68e8a2abe",
+    "frame_02.png": "0d188cc47bfb2791465060710fb1c51431f33c9582b121f3af2f94d68e8a2abe",
+    "frame_03.png": "0d188cc47bfb2791465060710fb1c51431f33c9582b121f3af2f94d68e8a2abe",
+    "frame_04.png": "f54e1fd52238a6295f46446834dd27901be3e64a1f44dd2b34e4d25c4d4187a7",
+    "frame_05.png": "0a709ff98c37eac15d2a2d017ef156c98d806eaddf923942f6fcbb14f411bb0e",
+    "frame_06.png": "38159f89510a352d6cf1c9b6d420529090e52bdb9c3bcdb6538591905826a8a6",
+    "frame_07.png": "5d55637e8606945a66bb8ff24887b096e4b6db950da395bb45e73d41f67f74f1",
+    "frame_08.png": "3a88c6e0cb35c7742921067675ab6c7f03097918917bbac473752a81c7ec8f5f",
+    "frame_09.png": "64a091f95a8bd00bc86ff440ecf8e3c3ac2b80a250d1dec341cdc45f3e90ac91",
+    "frame_10.png": "2d644ec556f43a8e05ecd040f47d3e18cb6afd17d057e7a18609db48280afb92",
+    "frame_11.png": "4a1fe8e92c3970d30ac2866633a1b18e80b13dd1c242e7b43de7def168bfec68",
+    "frame_12.png": "e2e0d0237cc90f6d62d67b4738aae4168358f1d7382f50a855cfe3f4a4f77602",
+    "frame_13.png": "c4e20f920026e14341226b78bad196261c1813d031734e748fc09ac2b81b99e1",
+    "frame_14.png": "3f0f5084cd855dd95d45387799e2460d2816069265d99462ec40505b1bbd45f1",
+    "frame_15.png": "cbac72e6a75a6791a6f5954ad71d9cf43a82baee4167d4fc5fe59fcd15a85ae1"
+  }
+}

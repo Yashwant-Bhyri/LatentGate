@@ -1,0 +1,393 @@
+{
+  "audit_id": "EXP-COGVIDEOX2B-CHUNK13-ANCHOR-MOTION-PROXY-001",
+  "status": "completed_cpu_rgb_difference_proxy",
+  "created_date": "2026-10-16",
+  "scope": "Existing hash-pinned CogVideoX-2B chunk13 RGB PNG sequence only; no model, latent, inference, label, GPU, or cloud access.",
+  "source_run": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13",
+  "source_manifest": {
+    "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/manifest.json",
+    "sha256": "2727ccdc46e659effec4cbb97639a3b50a05bae8ef950e8a8a349b5ed3b0706e"
+  },
+  "pinned_input_map": {
+    "path": "research/cogvideox2b_rgb_proxy_inputs_v1.json",
+    "sha256": "280f8dfd299cdb135974c824998b2ff36b884abfefdfb1a09391e4539ff36de1",
+    "declared_manifest_sha256": "2727ccdc46e659effec4cbb97639a3b50a05bae8ef950e8a8a349b5ed3b0706e"
+  },
+  "frame_count": 16,
+  "frame_shape_hwc": [
+    480,
+    720,
+    3
+  ],
+  "frame_sha256": [
+    {
+      "frame": 0,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_00.png",
+      "sha256": "0d188cc47bfb2791465060710fb1c51431f33c9582b121f3af2f94d68e8a2abe"
+    },
+    {
+      "frame": 1,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_01.png",
+      "sha256": "0d188cc47bfb2791465060710fb1c51431f33c9582b121f3af2f94d68e8a2abe"
+    },
+    {
+      "frame": 2,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_02.png",
+      "sha256": "0d188cc47bfb2791465060710fb1c51431f33c9582b121f3af2f94d68e8a2abe"
+    },
+    {
+      "frame": 3,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_03.png",
+      "sha256": "0d188cc47bfb2791465060710fb1c51431f33c9582b121f3af2f94d68e8a2abe"
+    },
+    {
+      "frame": 4,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_04.png",
+      "sha256": "f54e1fd52238a6295f46446834dd27901be3e64a1f44dd2b34e4d25c4d4187a7"
+    },
+    {
+      "frame": 5,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_05.png",
+      "sha256": "0a709ff98c37eac15d2a2d017ef156c98d806eaddf923942f6fcbb14f411bb0e"
+    },
+    {
+      "frame": 6,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_06.png",
+      "sha256": "38159f89510a352d6cf1c9b6d420529090e52bdb9c3bcdb6538591905826a8a6"
+    },
+    {
+      "frame": 7,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_07.png",
+      "sha256": "5d55637e8606945a66bb8ff24887b096e4b6db950da395bb45e73d41f67f74f1"
+    },
+    {
+      "frame": 8,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_08.png",
+      "sha256": "3a88c6e0cb35c7742921067675ab6c7f03097918917bbac473752a81c7ec8f5f"
+    },
+    {
+      "frame": 9,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_09.png",
+      "sha256": "64a091f95a8bd00bc86ff440ecf8e3c3ac2b80a250d1dec341cdc45f3e90ac91"
+    },
+    {
+      "frame": 10,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_10.png",
+      "sha256": "2d644ec556f43a8e05ecd040f47d3e18cb6afd17d057e7a18609db48280afb92"
+    },
+    {
+      "frame": 11,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_11.png",
+      "sha256": "4a1fe8e92c3970d30ac2866633a1b18e80b13dd1c242e7b43de7def168bfec68"
+    },
+    {
+      "frame": 12,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_12.png",
+      "sha256": "e2e0d0237cc90f6d62d67b4738aae4168358f1d7382f50a855cfe3f4a4f77602"
+    },
+    {
+      "frame": 13,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_13.png",
+      "sha256": "c4e20f920026e14341226b78bad196261c1813d031734e748fc09ac2b81b99e1"
+    },
+    {
+      "frame": 14,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_14.png",
+      "sha256": "3f0f5084cd855dd95d45387799e2460d2816069265d99462ec40505b1bbd45f1"
+    },
+    {
+      "frame": 15,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/frames/frame_15.png",
+      "sha256": "cbac72e6a75a6791a6f5954ad71d9cf43a82baee4167d4fc5fe59fcd15a85ae1"
+    }
+  ],
+  "anchors": [
+    0,
+    4,
+    8,
+    12,
+    15
+  ],
+  "interval_lengths": [
+    4,
+    4,
+    4,
+    3
+  ],
+  "method": {
+    "name": "adjacent RGB mean absolute difference",
+    "formula": "mean(abs(uint8_RGB(frame_t) - uint8_RGB(frame_t+1))) / 255",
+    "range_per_pair": [
+      0.0,
+      1.0
+    ],
+    "aggregation": "All H\u00d7W\u00d73 channel values; full frame; no mask, optical flow, threshold, registration, or object segmentation.",
+    "interpretation": "Pixel-change proxy only; it can respond to object motion, background/camera changes, lighting, texture/flicker, and rendering effects.",
+    "same_definition_as": "research/2026-10-16_m0_retry5_anchor_motion_proxy.md"
+  },
+  "adjacent_frame_transitions": [
+    {
+      "from_frame": 0,
+      "to_frame": 1,
+      "normalized_rgb_mae": 0.0,
+      "rgb_mae_8bit_levels": 0.0
+    },
+    {
+      "from_frame": 1,
+      "to_frame": 2,
+      "normalized_rgb_mae": 0.0,
+      "rgb_mae_8bit_levels": 0.0
+    },
+    {
+      "from_frame": 2,
+      "to_frame": 3,
+      "normalized_rgb_mae": 0.0,
+      "rgb_mae_8bit_levels": 0.0
+    },
+    {
+      "from_frame": 3,
+      "to_frame": 4,
+      "normalized_rgb_mae": 0.0007067258230452674,
+      "rgb_mae_8bit_levels": 0.1802150848765432
+    },
+    {
+      "from_frame": 4,
+      "to_frame": 5,
+      "normalized_rgb_mae": 0.0006662089990317115,
+      "rgb_mae_8bit_levels": 0.16988329475308642
+    },
+    {
+      "from_frame": 5,
+      "to_frame": 6,
+      "normalized_rgb_mae": 0.0006742389857177439,
+      "rgb_mae_8bit_levels": 0.1719309413580247
+    },
+    {
+      "from_frame": 6,
+      "to_frame": 7,
+      "normalized_rgb_mae": 0.00045398359961268457,
+      "rgb_mae_8bit_levels": 0.11576581790123457
+    },
+    {
+      "from_frame": 7,
+      "to_frame": 8,
+      "normalized_rgb_mae": 0.0009162430404260469,
+      "rgb_mae_8bit_levels": 0.23364197530864197
+    },
+    {
+      "from_frame": 8,
+      "to_frame": 9,
+      "normalized_rgb_mae": 0.0012836707213749697,
+      "rgb_mae_8bit_levels": 0.3273360339506173
+    },
+    {
+      "from_frame": 9,
+      "to_frame": 10,
+      "normalized_rgb_mae": 0.0016641211268457999,
+      "rgb_mae_8bit_levels": 0.424350887345679
+    },
+    {
+      "from_frame": 10,
+      "to_frame": 11,
+      "normalized_rgb_mae": 0.0007781446683611717,
+      "rgb_mae_8bit_levels": 0.19842689043209877
+    },
+    {
+      "from_frame": 11,
+      "to_frame": 12,
+      "normalized_rgb_mae": 0.0012622738138465264,
+      "rgb_mae_8bit_levels": 0.3218798225308642
+    },
+    {
+      "from_frame": 12,
+      "to_frame": 13,
+      "normalized_rgb_mae": 0.0017950216351972888,
+      "rgb_mae_8bit_levels": 0.45773051697530864
+    },
+    {
+      "from_frame": 13,
+      "to_frame": 14,
+      "normalized_rgb_mae": 0.0012632874909222949,
+      "rgb_mae_8bit_levels": 0.3221383101851852
+    },
+    {
+      "from_frame": 14,
+      "to_frame": 15,
+      "normalized_rgb_mae": 0.0007898549080125877,
+      "rgb_mae_8bit_levels": 0.20141300154320987
+    }
+  ],
+  "anchor_interval_comparison": [
+    {
+      "start_anchor": 0,
+      "end_anchor": 4,
+      "interval_length_frames": 4,
+      "anchor_endpoint_normalized_rgb_mae": 0.0007067258230452674,
+      "adjacent_transitions": [
+        {
+          "from_frame": 0,
+          "to_frame": 1,
+          "normalized_rgb_mae": 0.0,
+          "rgb_mae_8bit_levels": 0.0
+        },
+        {
+          "from_frame": 1,
+          "to_frame": 2,
+          "normalized_rgb_mae": 0.0,
+          "rgb_mae_8bit_levels": 0.0
+        },
+        {
+          "from_frame": 2,
+          "to_frame": 3,
+          "normalized_rgb_mae": 0.0,
+          "rgb_mae_8bit_levels": 0.0
+        },
+        {
+          "from_frame": 3,
+          "to_frame": 4,
+          "normalized_rgb_mae": 0.0007067258230452674,
+          "rgb_mae_8bit_levels": 0.1802150848765432
+        }
+      ],
+      "adjacent_path_length_normalized": 0.0007067258230452674,
+      "mean_adjacent_step_normalized_rgb_mae": 0.00017668145576131685,
+      "path_change_not_visible_in_endpoint_contrast": 0.0,
+      "fraction_of_adjacent_path_length_not_represented_by_endpoint_contrast": 0.0,
+      "peak_adjacent_to_endpoint_mae_ratio": 1.0
+    },
+    {
+      "start_anchor": 4,
+      "end_anchor": 8,
+      "interval_length_frames": 4,
+      "anchor_endpoint_normalized_rgb_mae": 0.0024817122064875333,
+      "adjacent_transitions": [
+        {
+          "from_frame": 4,
+          "to_frame": 5,
+          "normalized_rgb_mae": 0.0006662089990317115,
+          "rgb_mae_8bit_levels": 0.16988329475308642
+        },
+        {
+          "from_frame": 5,
+          "to_frame": 6,
+          "normalized_rgb_mae": 0.0006742389857177439,
+          "rgb_mae_8bit_levels": 0.1719309413580247
+        },
+        {
+          "from_frame": 6,
+          "to_frame": 7,
+          "normalized_rgb_mae": 0.00045398359961268457,
+          "rgb_mae_8bit_levels": 0.11576581790123457
+        },
+        {
+          "from_frame": 7,
+          "to_frame": 8,
+          "normalized_rgb_mae": 0.0009162430404260469,
+          "rgb_mae_8bit_levels": 0.23364197530864197
+        }
+      ],
+      "adjacent_path_length_normalized": 0.002710674624788187,
+      "mean_adjacent_step_normalized_rgb_mae": 0.0006776686561970468,
+      "path_change_not_visible_in_endpoint_contrast": 0.00022896241830065375,
+      "fraction_of_adjacent_path_length_not_represented_by_endpoint_contrast": 0.08446695011155936,
+      "peak_adjacent_to_endpoint_mae_ratio": 0.36919794246523147
+    },
+    {
+      "start_anchor": 8,
+      "end_anchor": 12,
+      "interval_length_frames": 4,
+      "anchor_endpoint_normalized_rgb_mae": 0.00412178119704672,
+      "adjacent_transitions": [
+        {
+          "from_frame": 8,
+          "to_frame": 9,
+          "normalized_rgb_mae": 0.0012836707213749697,
+          "rgb_mae_8bit_levels": 0.3273360339506173
+        },
+        {
+          "from_frame": 9,
+          "to_frame": 10,
+          "normalized_rgb_mae": 0.0016641211268457999,
+          "rgb_mae_8bit_levels": 0.424350887345679
+        },
+        {
+          "from_frame": 10,
+          "to_frame": 11,
+          "normalized_rgb_mae": 0.0007781446683611717,
+          "rgb_mae_8bit_levels": 0.19842689043209877
+        },
+        {
+          "from_frame": 11,
+          "to_frame": 12,
+          "normalized_rgb_mae": 0.0012622738138465264,
+          "rgb_mae_8bit_levels": 0.3218798225308642
+        }
+      ],
+      "adjacent_path_length_normalized": 0.0049882103304284674,
+      "mean_adjacent_step_normalized_rgb_mae": 0.0012470525826071169,
+      "path_change_not_visible_in_endpoint_contrast": 0.0008664291333817476,
+      "fraction_of_adjacent_path_length_not_represented_by_endpoint_contrast": 0.17369538892465364,
+      "peak_adjacent_to_endpoint_mae_ratio": 0.40373834691617116
+    },
+    {
+      "start_anchor": 12,
+      "end_anchor": 15,
+      "interval_length_frames": 3,
+      "anchor_endpoint_normalized_rgb_mae": 0.0033381785584604214,
+      "adjacent_transitions": [
+        {
+          "from_frame": 12,
+          "to_frame": 13,
+          "normalized_rgb_mae": 0.0017950216351972888,
+          "rgb_mae_8bit_levels": 0.45773051697530864
+        },
+        {
+          "from_frame": 13,
+          "to_frame": 14,
+          "normalized_rgb_mae": 0.0012632874909222949,
+          "rgb_mae_8bit_levels": 0.3221383101851852
+        },
+        {
+          "from_frame": 14,
+          "to_frame": 15,
+          "normalized_rgb_mae": 0.0007898549080125877,
+          "rgb_mae_8bit_levels": 0.20141300154320987
+        }
+      ],
+      "adjacent_path_length_normalized": 0.0038481640341321713,
+      "mean_adjacent_step_normalized_rgb_mae": 0.0012827213447107238,
+      "path_change_not_visible_in_endpoint_contrast": 0.0005099854756717499,
+      "fraction_of_adjacent_path_length_not_represented_by_endpoint_contrast": 0.13252695860891506,
+      "peak_adjacent_to_endpoint_mae_ratio": 0.5377248711420514
+    }
+  ],
+  "summary": {
+    "adjacent_transition_count": 15,
+    "anchor_endpoint_contrast_count": 4,
+    "intermediate_frames_not_in_anchor_set": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11,
+      13,
+      14
+    ],
+    "mean_adjacent_normalized_rgb_mae": 0.000816918320826273,
+    "median_adjacent_normalized_rgb_mae": 0.0007781446683611717,
+    "max_adjacent_normalized_rgb_mae": 0.0017950216351972888,
+    "dense_adjacent_path_length_normalized": 0.012253774812394093,
+    "sum_of_anchor_endpoint_contrasts_normalized": 0.010648397785039941,
+    "fraction_of_dense_path_length_not_represented_by_anchor_endpoint_contrasts": 0.13101081519226154
+  },
+  "limitations": [
+    "One saved sequence, one prompt/seed/configuration; exploratory only.",
+    "Whole-frame RGB MAE is not optical flow or an object-motion estimate; no red-mask center/area proxy is recomputed.",
+    "Path excess compares the sum of adjacent whole-frame L1 changes with non-adjacent anchor endpoint contrasts. It is not an event count, recall, or the fraction of object motion missed.",
+    "This does not establish general sparse-sampling sufficiency or change the registered full-sequence/all-frame policy."
+  ]
+}

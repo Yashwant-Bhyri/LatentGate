@@ -1,0 +1,505 @@
+{
+  "audit_id": "EXP-M0-WAN-RETRY5-FARNEBACK-FLOW-001",
+  "status": "completed_cpu_cross_clip_classical_flow_proxy",
+  "created_date": "2026-10-17",
+  "scope": "Hash-verified decoded Wan retry5 RGB PNGs only. No model/latent access, inference, generation, GPU, cloud, or dependency installation.",
+  "source_manifest": {
+    "path": "m0/runs/wan_t4_2026-10-02_retry5/manifest.json",
+    "sha256": "a190ba398f7db0bca7ae0e7b4471050bfd3af581dd38cdfb67c59ee6dcffbfd8"
+  },
+  "rgb_mae_reference": {
+    "path": "research/m0_retry5_anchor_motion_proxy_v1.json",
+    "sha256": "09ef38b0fe988d607004acbd1b90683f69d7a8ad61148102b5d4746a01b02ae6"
+  },
+  "cogvideox_farneback_reference": {
+    "path": "research/cogvideox2b_chunk13_farneback_flow_v1.json",
+    "sha256": "216656c47c99bea09f99c419b983225330db719c1df9f546894b2b6e1ca91f3d",
+    "version": "4.11.0",
+    "parameters": {
+      "pyr_scale": 0.5,
+      "levels": 3,
+      "winsize": 15,
+      "iterations": 3,
+      "poly_n": 5,
+      "poly_sigma": 1.2,
+      "flags": 0
+    }
+  },
+  "frame_count": 17,
+  "frame_size_px": [
+    832,
+    480
+  ],
+  "frame_diagonal_px": 960.5331852674326,
+  "frame_sha256": [
+    {
+      "frame": 0,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_000.png",
+      "sha256": "71dc7f04299e24b0f74f6b6f4abcae5bcfe0edca0fa2d4a47bd4250d73ff1c31"
+    },
+    {
+      "frame": 1,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_001.png",
+      "sha256": "64b571c5b150e5994ecfc8b4886c292c130853a3f0bea03d4719d0aa2155ae8e"
+    },
+    {
+      "frame": 2,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_002.png",
+      "sha256": "12acca218de855c8d7fab1d345b6492ede65a16a4dcc62889c3b9dc99d87a86c"
+    },
+    {
+      "frame": 3,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_003.png",
+      "sha256": "412f7881ddeb7eb1bd11df504b9f7677503afc10917c1abae95ce77b5ba2470b"
+    },
+    {
+      "frame": 4,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_004.png",
+      "sha256": "1c92c3e51b9e085ec08f8a1ad97a810037ce1048dd65ec5f1e51b9ecf4a28813"
+    },
+    {
+      "frame": 5,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_005.png",
+      "sha256": "601207ea3b91d64e131e34ead1ad19dd0c07ebe62dc8c7f708374af9626dc39e"
+    },
+    {
+      "frame": 6,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_006.png",
+      "sha256": "d6d5b4208859f234eb0d0a6708282bf1bc3f2d02b8fbad10695db9b2e4628308"
+    },
+    {
+      "frame": 7,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_007.png",
+      "sha256": "0074526d5be6a910cd0735e29c2acebf2b02551dd8f78b79d9a7d0feb8be38a2"
+    },
+    {
+      "frame": 8,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_008.png",
+      "sha256": "b36a3ba051bcc2c0131d9c780e509d63f43ac6223b703211d78c5b981817fe6b"
+    },
+    {
+      "frame": 9,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_009.png",
+      "sha256": "fcc471d5663e2d419ef4303a88014176fc7ccc3eae1c8e065a6e197d84f55de2"
+    },
+    {
+      "frame": 10,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_010.png",
+      "sha256": "96fe291e4982675ce990ea31597da4a9359ba80324759c806b5f1bca45630d38"
+    },
+    {
+      "frame": 11,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_011.png",
+      "sha256": "6d569d4f436bc498ec4ecaab4ef08de76a5ebc4a522d213487c1e2c8c8276bef"
+    },
+    {
+      "frame": 12,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_012.png",
+      "sha256": "cdab0da0d1ec906641ff0012878c5ed609f3ada28a5f295734cd7a363b61de64"
+    },
+    {
+      "frame": 13,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_013.png",
+      "sha256": "4a78c5d5160525f4d211b2a9fd73bb9b14e20270d7cf0eb34b9ee788d0366a5c"
+    },
+    {
+      "frame": 14,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_014.png",
+      "sha256": "da9895e232affcaa63930c401cb132bdc1b9157ee51a5668cb9589087ba7d53f"
+    },
+    {
+      "frame": 15,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_015.png",
+      "sha256": "b705c5a775d011049268e081e7e06a3edf41afe0041df47ef7902d1782771372"
+    },
+    {
+      "frame": 16,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_016.png",
+      "sha256": "8a0ee45f1b44dfa3781d882bd79d251c58ae74436e469f1c34ffe11123f97306"
+    }
+  ],
+  "anchors": [
+    0,
+    4,
+    8,
+    12,
+    16
+  ],
+  "implementation": {
+    "library": "OpenCV Python",
+    "version": "4.11.0",
+    "function": "cv2.calcOpticalFlowFarneback",
+    "algorithm": "Farneback polynomial-expansion dense optical flow",
+    "input": "8-bit grayscale converted from decoded RGB with cv2.COLOR_RGB2GRAY",
+    "parameters": {
+      "pyr_scale": 0.5,
+      "levels": 3,
+      "winsize": 15,
+      "iterations": 3,
+      "poly_n": 5,
+      "poly_sigma": 1.2,
+      "flags": 0
+    },
+    "backend": "CPU NumPy Mat; OpenCL explicitly disabled; cv2.setNumThreads(1); no learned weights"
+  },
+  "normalization_and_metrics": {
+    "flow_vector_units": "pixels between the supplied source and target frames; adjacent pairs are per output-frame interval, anchor endpoints span 3 or 4 intervals",
+    "reported_normalization": "mean magnitude divided by frame diagonal sqrt(720^2 + 480^2); raw pixel magnitudes are also retained",
+    "field_reduction": "mean, median, p95, and maximum magnitude over every pixel; no ROI or validity mask",
+    "path_definition": "sum of mean magnitudes from independently estimated adjacent-pair flow fields; not pointwise flow composition or a tracked trajectory",
+    "endpoint_definition": "mean magnitude from a separate direct Farneback estimate between the anchor images",
+    "rgb_mae_definition": "Existing comparison only: mean(abs(uint8_RGB(a)-uint8_RGB(b)))/255; included to contextualize, not recomputed"
+  },
+  "adjacent_frame_flow": [
+    {
+      "from_frame": 0,
+      "to_frame": 1,
+      "mean_magnitude_px": 0.07752776274029666,
+      "mean_magnitude_frame_diagonal_fraction": 8.071325793778932e-05,
+      "median_magnitude_px": 0.0002512141363695264,
+      "p95_magnitude_px": 0.36443084478378296,
+      "p99_magnitude_px": 1.9446507692337036,
+      "max_magnitude_px": 5.043097496032715,
+      "rgb_mae_normalized": 0.004579503676470588,
+      "flow_mean_rank_ascending": 10.0,
+      "rgb_mae_rank_ascending": 16.0
+    },
+    {
+      "from_frame": 1,
+      "to_frame": 2,
+      "mean_magnitude_px": 0.10212251197761424,
+      "mean_magnitude_frame_diagonal_fraction": 0.00010631856717077525,
+      "median_magnitude_px": 0.00019737560069188476,
+      "p95_magnitude_px": 0.33331021666526794,
+      "p99_magnitude_px": 2.8661913871765137,
+      "max_magnitude_px": 6.343278884887695,
+      "rgb_mae_normalized": 0.0026518835365342717,
+      "flow_mean_rank_ascending": 13.0,
+      "rgb_mae_rank_ascending": 9.0
+    },
+    {
+      "from_frame": 2,
+      "to_frame": 3,
+      "mean_magnitude_px": 0.0651840217693601,
+      "mean_magnitude_frame_diagonal_fraction": 6.786233184771383e-05,
+      "median_magnitude_px": 0.00017979048425331712,
+      "p95_magnitude_px": 0.17507770657539368,
+      "p99_magnitude_px": 1.9652783870697021,
+      "max_magnitude_px": 3.6768248081207275,
+      "rgb_mae_normalized": 0.001941010846111949,
+      "flow_mean_rank_ascending": 6.0,
+      "rgb_mae_rank_ascending": 6.0
+    },
+    {
+      "from_frame": 3,
+      "to_frame": 4,
+      "mean_magnitude_px": 0.14876474859287864,
+      "mean_magnitude_frame_diagonal_fraction": 0.000154877260749153,
+      "median_magnitude_px": 0.0002003745175898075,
+      "p95_magnitude_px": 0.3841947615146637,
+      "p99_magnitude_px": 4.693717956542969,
+      "max_magnitude_px": 6.608803749084473,
+      "rgb_mae_normalized": 0.002884104763700352,
+      "flow_mean_rank_ascending": 16.0,
+      "rgb_mae_rank_ascending": 10.0
+    },
+    {
+      "from_frame": 4,
+      "to_frame": 5,
+      "mean_magnitude_px": 0.0808939399143518,
+      "mean_magnitude_frame_diagonal_fraction": 8.42177460967465e-05,
+      "median_magnitude_px": 0.0002332245057914406,
+      "p95_magnitude_px": 0.21077533066272736,
+      "p99_magnitude_px": 2.4150826930999756,
+      "max_magnitude_px": 5.318155765533447,
+      "rgb_mae_normalized": 0.003713660811546841,
+      "flow_mean_rank_ascending": 11.0,
+      "rgb_mae_rank_ascending": 15.0
+    },
+    {
+      "from_frame": 5,
+      "to_frame": 6,
+      "mean_magnitude_px": 0.1379897899615454,
+      "mean_magnitude_frame_diagonal_fraction": 0.0001436595758251977,
+      "median_magnitude_px": 0.0002560086431913078,
+      "p95_magnitude_px": 0.24491851031780243,
+      "p99_magnitude_px": 4.414957523345947,
+      "max_magnitude_px": 6.742203235626221,
+      "rgb_mae_normalized": 0.0032646384542064687,
+      "flow_mean_rank_ascending": 15.0,
+      "rgb_mae_rank_ascending": 13.0
+    },
+    {
+      "from_frame": 6,
+      "to_frame": 7,
+      "mean_magnitude_px": 0.1269762426576397,
+      "mean_magnitude_frame_diagonal_fraction": 0.0001321934989911742,
+      "median_magnitude_px": 0.00023863065871410072,
+      "p95_magnitude_px": 0.26384085416793823,
+      "p99_magnitude_px": 3.9804913997650146,
+      "max_magnitude_px": 5.871086120605469,
+      "rgb_mae_normalized": 0.0029774665608764874,
+      "flow_mean_rank_ascending": 14.0,
+      "rgb_mae_rank_ascending": 12.0
+    },
+    {
+      "from_frame": 7,
+      "to_frame": 8,
+      "mean_magnitude_px": 0.06734639347927744,
+      "mean_magnitude_frame_diagonal_fraction": 7.011355204820622e-05,
+      "median_magnitude_px": 0.0002557172265369445,
+      "p95_magnitude_px": 0.21436257660388947,
+      "p99_magnitude_px": 1.9322402477264404,
+      "max_magnitude_px": 2.6411759853363037,
+      "rgb_mae_normalized": 0.0018380487210910006,
+      "flow_mean_rank_ascending": 7.0,
+      "rgb_mae_rank_ascending": 4.0
+    },
+    {
+      "from_frame": 8,
+      "to_frame": 9,
+      "mean_magnitude_px": 0.09026543127048596,
+      "mean_magnitude_frame_diagonal_fraction": 9.397429745787926e-05,
+      "median_magnitude_px": 0.0003560154000297189,
+      "p95_magnitude_px": 0.3245805501937866,
+      "p99_magnitude_px": 2.4267191886901855,
+      "max_magnitude_px": 4.62648868560791,
+      "rgb_mae_normalized": 0.002903017376822524,
+      "flow_mean_rank_ascending": 12.0,
+      "rgb_mae_rank_ascending": 11.0
+    },
+    {
+      "from_frame": 9,
+      "to_frame": 10,
+      "mean_magnitude_px": 0.047226889044328695,
+      "mean_magnitude_frame_diagonal_fraction": 4.916736846648327e-05,
+      "median_magnitude_px": 0.0002399107615929097,
+      "p95_magnitude_px": 0.18353867530822754,
+      "p99_magnitude_px": 1.2336485385894775,
+      "max_magnitude_px": 2.4325616359710693,
+      "rgb_mae_normalized": 0.0012570799553795879,
+      "flow_mean_rank_ascending": 4.0,
+      "rgb_mae_rank_ascending": 3.0
+    },
+    {
+      "from_frame": 10,
+      "to_frame": 11,
+      "mean_magnitude_px": 0.07568033850380845,
+      "mean_magnitude_frame_diagonal_fraction": 7.87899259125935e-05,
+      "median_magnitude_px": 0.00027312530437484384,
+      "p95_magnitude_px": 0.3139253854751587,
+      "p99_magnitude_px": 1.9867862462997437,
+      "max_magnitude_px": 2.9013617038726807,
+      "rgb_mae_normalized": 0.0019461923391151333,
+      "flow_mean_rank_ascending": 8.0,
+      "rgb_mae_rank_ascending": 7.0
+    },
+    {
+      "from_frame": 11,
+      "to_frame": 12,
+      "mean_magnitude_px": 0.07663308103963712,
+      "mean_magnitude_frame_diagonal_fraction": 7.978181515748554e-05,
+      "median_magnitude_px": 0.00030144688207656145,
+      "p95_magnitude_px": 0.28205662965774536,
+      "p99_magnitude_px": 2.001100778579712,
+      "max_magnitude_px": 3.5494391918182373,
+      "rgb_mae_normalized": 0.0019317443857885036,
+      "flow_mean_rank_ascending": 9.0,
+      "rgb_mae_rank_ascending": 5.0
+    },
+    {
+      "from_frame": 12,
+      "to_frame": 13,
+      "mean_magnitude_px": 0.03995731135866253,
+      "mean_magnitude_frame_diagonal_fraction": 4.159909513957873e-05,
+      "median_magnitude_px": 0.00045012793270871043,
+      "p95_magnitude_px": 0.19167949259281158,
+      "p99_magnitude_px": 0.9386602640151978,
+      "max_magnitude_px": 2.7838404178619385,
+      "rgb_mae_normalized": 0.0034148984780878163,
+      "flow_mean_rank_ascending": 3.0,
+      "rgb_mae_rank_ascending": 14.0
+    },
+    {
+      "from_frame": 13,
+      "to_frame": 14,
+      "mean_magnitude_px": 0.05091498588453475,
+      "mean_magnitude_frame_diagonal_fraction": 5.300700347001436e-05,
+      "median_magnitude_px": 0.0005070169572718441,
+      "p95_magnitude_px": 0.19301530718803406,
+      "p99_magnitude_px": 1.313541054725647,
+      "max_magnitude_px": 3.4482674598693848,
+      "rgb_mae_normalized": 0.002040002566197419,
+      "flow_mean_rank_ascending": 5.0,
+      "rgb_mae_rank_ascending": 8.0
+    },
+    {
+      "from_frame": 14,
+      "to_frame": 15,
+      "mean_magnitude_px": 0.022571373569737853,
+      "mean_magnitude_frame_diagonal_fraction": 2.349879620603999e-05,
+      "median_magnitude_px": 0.0005454138154163957,
+      "p95_magnitude_px": 0.09499943256378174,
+      "p99_magnitude_px": 0.5223524570465088,
+      "max_magnitude_px": 1.4942734241485596,
+      "rgb_mae_normalized": 0.0012367500418971008,
+      "flow_mean_rank_ascending": 1.0,
+      "rgb_mae_rank_ascending": 2.0
+    },
+    {
+      "from_frame": 15,
+      "to_frame": 16,
+      "mean_magnitude_px": 0.027448417616164962,
+      "mean_magnitude_frame_diagonal_fraction": 2.8576230407409347e-05,
+      "median_magnitude_px": 0.0006046545458957553,
+      "p95_magnitude_px": 0.13241033256053925,
+      "p99_magnitude_px": 0.6349612474441528,
+      "max_magnitude_px": 2.6477386951446533,
+      "rgb_mae_normalized": 0.0010479806906737053,
+      "flow_mean_rank_ascending": 2.0,
+      "rgb_mae_rank_ascending": 1.0
+    }
+  ],
+  "anchor_interval_comparison": [
+    {
+      "start_anchor": 0,
+      "end_anchor": 4,
+      "interval_frames": 4,
+      "adjacent_flow_mean_magnitude_path_px": 0.39359904508014965,
+      "adjacent_flow_path_diagonal_fraction": 0.0004097714177054314,
+      "endpoint_flow": {
+        "mean_magnitude_px": 0.36643948056380204,
+        "mean_magnitude_frame_diagonal_fraction": 0.0003814959089224779,
+        "median_magnitude_px": 0.0002526401658542454,
+        "p95_magnitude_px": 1.0852504968643188,
+        "p99_magnitude_px": 11.02036190032959,
+        "max_magnitude_px": 18.039051055908203
+      },
+      "path_minus_endpoint_mean_magnitude_px": 0.0271595645163476,
+      "signed_flow_path_excess_fraction": 0.06900312603862396,
+      "flow_path_to_endpoint_ratio": 1.0741174626559344,
+      "rgb_mae_path_normalized": 0.01205650282281716,
+      "rgb_mae_endpoint_normalized": 0.00976590976935646,
+      "signed_rgb_mae_path_excess_fraction": 0.18998818207264126
+    },
+    {
+      "start_anchor": 4,
+      "end_anchor": 8,
+      "interval_frames": 4,
+      "adjacent_flow_mean_magnitude_path_px": 0.41320636601281435,
+      "adjacent_flow_path_diagonal_fraction": 0.00043018437296132465,
+      "endpoint_flow": {
+        "mean_magnitude_px": 0.3960436278660908,
+        "mean_magnitude_frame_diagonal_fraction": 0.0004123164445961583,
+        "median_magnitude_px": 0.0002909220347646624,
+        "p95_magnitude_px": 0.6668022871017456,
+        "p99_magnitude_px": 12.561835289001465,
+        "max_magnitude_px": 25.625341415405273
+      },
+      "path_minus_endpoint_mean_magnitude_px": 0.017162738146723533,
+      "signed_flow_path_excess_fraction": 0.04153551241800394,
+      "flow_path_to_endpoint_ratio": 1.0433354735163838,
+      "rgb_mae_path_normalized": 0.011793814547720797,
+      "rgb_mae_endpoint_normalized": 0.010090514103611531,
+      "signed_rgb_mae_path_excess_fraction": 0.14442320058682254
+    },
+    {
+      "start_anchor": 8,
+      "end_anchor": 12,
+      "interval_frames": 4,
+      "adjacent_flow_mean_magnitude_path_px": 0.28980573985826025,
+      "adjacent_flow_path_diagonal_fraction": 0.00030171340699444157,
+      "endpoint_flow": {
+        "mean_magnitude_px": 0.25611871853481327,
+        "mean_magnitude_frame_diagonal_fraction": 0.00026664223835588195,
+        "median_magnitude_px": 0.000406004604883492,
+        "p95_magnitude_px": 0.8464536070823669,
+        "p99_magnitude_px": 7.454388618469238,
+        "max_magnitude_px": 11.871691703796387
+      },
+      "path_minus_endpoint_mean_magnitude_px": 0.033687021323446975,
+      "signed_flow_path_excess_fraction": 0.11624000732326008,
+      "flow_path_to_endpoint_ratio": 1.1315289312556358,
+      "rgb_mae_path_normalized": 0.008038034057105748,
+      "rgb_mae_endpoint_normalized": 0.005778379393958438,
+      "signed_rgb_mae_path_excess_fraction": 0.28112031463088166
+    },
+    {
+      "start_anchor": 12,
+      "end_anchor": 16,
+      "interval_frames": 4,
+      "adjacent_flow_mean_magnitude_path_px": 0.1408920884291001,
+      "adjacent_flow_path_diagonal_fraction": 0.00014668112522304243,
+      "endpoint_flow": {
+        "mean_magnitude_px": 0.12352363289819586,
+        "mean_magnitude_frame_diagonal_fraction": 0.00012859902686631727,
+        "median_magnitude_px": 0.0007339975563809276,
+        "p95_magnitude_px": 0.47088634967803955,
+        "p99_magnitude_px": 3.358781576156616,
+        "max_magnitude_px": 7.222048759460449
+      },
+      "path_minus_endpoint_mean_magnitude_px": 0.017368455530904228,
+      "signed_flow_path_excess_fraction": 0.12327488168112723,
+      "flow_path_to_endpoint_ratio": 1.1406083607111746,
+      "rgb_mae_path_normalized": 0.007739631776856042,
+      "rgb_mae_endpoint_normalized": 0.006381969320847997,
+      "signed_rgb_mae_path_excess_fraction": 0.17541693134134453
+    }
+  ],
+  "within_clip_ranking": {
+    "adjacent_pair_count": 16,
+    "spearman_flow_mean_vs_rgb_mae": 0.6,
+    "highest_flow_mean_pair": {
+      "from_frame": 3,
+      "to_frame": 4,
+      "mean_magnitude_px": 0.14876474859287864,
+      "rgb_mae_normalized": 0.002884104763700352
+    },
+    "highest_rgb_mae_pair": {
+      "from_frame": 0,
+      "to_frame": 1,
+      "mean_magnitude_px": 0.07752776274029666,
+      "rgb_mae_normalized": 0.004579503676470588
+    }
+  },
+  "summary": {
+    "mean_adjacent_mean_flow_magnitude_px": 0.07734395246127027,
+    "mean_adjacent_mean_flow_frame_diagonal_fraction": 8.0521895180265e-05,
+    "median_adjacent_mean_flow_magnitude_px": 0.07615670977172279,
+    "max_adjacent_mean_flow_magnitude_px": 0.14876474859287864,
+    "adjacent_flow_path_px": 1.2375032393803242,
+    "anchor_endpoint_flow_magnitude_sum_px": 1.142125459862902,
+    "signed_flow_path_excess_fraction": 0.07707275139350935
+  },
+  "cross_clip_reference_comparison": {
+    "reference_clip": "CogVideoX-2B chunk13",
+    "reference_frame_count": 16,
+    "reference_resolution_px": [
+      720,
+      480
+    ],
+    "flow_pair_ranking_vs_rgb_mae_spearman": 0.9856115107913668,
+    "flow_peak_pair": {
+      "from_frame": 12,
+      "to_frame": 13,
+      "mean_magnitude_px": 0.08303737467665098,
+      "rgb_mae_normalized": 0.0017950216351972888
+    },
+    "rgb_mae_peak_pair": {
+      "from_frame": 12,
+      "to_frame": 13,
+      "mean_magnitude_px": 0.08303737467665098,
+      "rgb_mae_normalized": 0.0017950216351972888
+    },
+    "mean_adjacent_flow_magnitude_px": 0.03764389671145321,
+    "mean_adjacent_flow_frame_diagonal_fraction": 4.35022435260945e-05,
+    "signed_flow_path_excess_fraction": -0.007196042523275679,
+    "warning": "Reference results are from a different model, prompt, seed, frame count, and resolution; metrics are descriptive and not a controlled model comparison."
+  },
+  "limitations": [
+    "One saved Wan sequence. Whole-frame flow magnitude is an algorithmic proxy, not an object track or ground truth.",
+    "Cross-clip comparison is uncontrolled: Wan retry5 and CogVideoX chunk13 differ in model, prompt, seed, frame count, resolution, and generation configuration.",
+    "Pairwise rank correlations are descriptive within each clip only. Endpoint and adjacent flow fields are independently estimated; their means are not pointwise-composed trajectories.",
+    "No claim about object/path influence, event recall, sampling sufficiency, or model superiority follows. Full-sequence/all-frame policy unchanged."
+  ]
+}

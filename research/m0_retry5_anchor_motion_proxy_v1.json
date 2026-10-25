@@ -1,0 +1,396 @@
+{
+  "audit_id": "EXP-M0-RETRY5-ANCHOR-MOTION-PROXY-001",
+  "status": "completed_cpu_rgb_difference_proxy",
+  "created_date": "2026-10-16",
+  "scope": "Existing hash-verified retry5 RGB PNGs only; no tensor or model access, inference, decode, human labels, GPU, or cloud runtime.",
+  "source_run": "m0/runs/wan_t4_2026-10-02_retry5/run_001",
+  "source_manifest": {
+    "path": "m0/runs/wan_t4_2026-10-02_retry5/manifest.json",
+    "sha256": "a190ba398f7db0bca7ae0e7b4471050bfd3af581dd38cdfb67c59ee6dcffbfd8"
+  },
+  "frame_count": 17,
+  "frame_shape_hwc": [
+    480,
+    832,
+    3
+  ],
+  "frame_sha256": [
+    {
+      "frame": 0,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_000.png",
+      "sha256": "71dc7f04299e24b0f74f6b6f4abcae5bcfe0edca0fa2d4a47bd4250d73ff1c31"
+    },
+    {
+      "frame": 1,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_001.png",
+      "sha256": "64b571c5b150e5994ecfc8b4886c292c130853a3f0bea03d4719d0aa2155ae8e"
+    },
+    {
+      "frame": 2,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_002.png",
+      "sha256": "12acca218de855c8d7fab1d345b6492ede65a16a4dcc62889c3b9dc99d87a86c"
+    },
+    {
+      "frame": 3,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_003.png",
+      "sha256": "412f7881ddeb7eb1bd11df504b9f7677503afc10917c1abae95ce77b5ba2470b"
+    },
+    {
+      "frame": 4,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_004.png",
+      "sha256": "1c92c3e51b9e085ec08f8a1ad97a810037ce1048dd65ec5f1e51b9ecf4a28813"
+    },
+    {
+      "frame": 5,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_005.png",
+      "sha256": "601207ea3b91d64e131e34ead1ad19dd0c07ebe62dc8c7f708374af9626dc39e"
+    },
+    {
+      "frame": 6,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_006.png",
+      "sha256": "d6d5b4208859f234eb0d0a6708282bf1bc3f2d02b8fbad10695db9b2e4628308"
+    },
+    {
+      "frame": 7,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_007.png",
+      "sha256": "0074526d5be6a910cd0735e29c2acebf2b02551dd8f78b79d9a7d0feb8be38a2"
+    },
+    {
+      "frame": 8,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_008.png",
+      "sha256": "b36a3ba051bcc2c0131d9c780e509d63f43ac6223b703211d78c5b981817fe6b"
+    },
+    {
+      "frame": 9,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_009.png",
+      "sha256": "fcc471d5663e2d419ef4303a88014176fc7ccc3eae1c8e065a6e197d84f55de2"
+    },
+    {
+      "frame": 10,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_010.png",
+      "sha256": "96fe291e4982675ce990ea31597da4a9359ba80324759c806b5f1bca45630d38"
+    },
+    {
+      "frame": 11,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_011.png",
+      "sha256": "6d569d4f436bc498ec4ecaab4ef08de76a5ebc4a522d213487c1e2c8c8276bef"
+    },
+    {
+      "frame": 12,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_012.png",
+      "sha256": "cdab0da0d1ec906641ff0012878c5ed609f3ada28a5f295734cd7a363b61de64"
+    },
+    {
+      "frame": 13,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_013.png",
+      "sha256": "4a78c5d5160525f4d211b2a9fd73bb9b14e20270d7cf0eb34b9ee788d0366a5c"
+    },
+    {
+      "frame": 14,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_014.png",
+      "sha256": "da9895e232affcaa63930c401cb132bdc1b9157ee51a5668cb9589087ba7d53f"
+    },
+    {
+      "frame": 15,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_015.png",
+      "sha256": "b705c5a775d011049268e081e7e06a3edf41afe0041df47ef7902d1782771372"
+    },
+    {
+      "frame": 16,
+      "path": "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_016.png",
+      "sha256": "8a0ee45f1b44dfa3781d882bd79d251c58ae74436e469f1c34ffe11123f97306"
+    }
+  ],
+  "anchors": [
+    0,
+    4,
+    8,
+    12,
+    16
+  ],
+  "method": {
+    "name": "adjacent RGB mean absolute difference",
+    "formula": "mean(abs(uint8_RGB(frame_t) - uint8_RGB(frame_t+1))) / 255",
+    "range_per_pair": [
+      0.0,
+      1.0
+    ],
+    "aggregation": "All H\u00d7W\u00d73 channel values; full frame; no mask, optical flow, threshold, registration, or object segmentation.",
+    "interpretation": "Apparent pixel-change proxy. It mixes object motion, background/camera changes, lighting, texture/flicker, and image rendering effects; it is not optical flow or a motion ground truth."
+  },
+  "adjacent_frame_transitions": [
+    {
+      "from_frame": 0,
+      "to_frame": 1,
+      "normalized_rgb_mae": 0.004579503676470588,
+      "rgb_mae_8bit_levels": 1.1677734375
+    },
+    {
+      "from_frame": 1,
+      "to_frame": 2,
+      "normalized_rgb_mae": 0.0026518835365342717,
+      "rgb_mae_8bit_levels": 0.6762303018162393
+    },
+    {
+      "from_frame": 2,
+      "to_frame": 3,
+      "normalized_rgb_mae": 0.001941010846111949,
+      "rgb_mae_8bit_levels": 0.494957765758547
+    },
+    {
+      "from_frame": 3,
+      "to_frame": 4,
+      "normalized_rgb_mae": 0.002884104763700352,
+      "rgb_mae_8bit_levels": 0.7354467147435897
+    },
+    {
+      "from_frame": 4,
+      "to_frame": 5,
+      "normalized_rgb_mae": 0.003713660811546841,
+      "rgb_mae_8bit_levels": 0.9469835069444444
+    },
+    {
+      "from_frame": 5,
+      "to_frame": 6,
+      "normalized_rgb_mae": 0.0032646384542064687,
+      "rgb_mae_8bit_levels": 0.8324828058226496
+    },
+    {
+      "from_frame": 6,
+      "to_frame": 7,
+      "normalized_rgb_mae": 0.0029774665608764874,
+      "rgb_mae_8bit_levels": 0.7592539730235043
+    },
+    {
+      "from_frame": 7,
+      "to_frame": 8,
+      "normalized_rgb_mae": 0.0018380487210910006,
+      "rgb_mae_8bit_levels": 0.46870242387820515
+    },
+    {
+      "from_frame": 8,
+      "to_frame": 9,
+      "normalized_rgb_mae": 0.002903017376822524,
+      "rgb_mae_8bit_levels": 0.7402694310897436
+    },
+    {
+      "from_frame": 9,
+      "to_frame": 10,
+      "normalized_rgb_mae": 0.0012570799553795879,
+      "rgb_mae_8bit_levels": 0.3205553886217949
+    },
+    {
+      "from_frame": 10,
+      "to_frame": 11,
+      "normalized_rgb_mae": 0.0019461923391151333,
+      "rgb_mae_8bit_levels": 0.496279046474359
+    },
+    {
+      "from_frame": 11,
+      "to_frame": 12,
+      "normalized_rgb_mae": 0.0019317443857885036,
+      "rgb_mae_8bit_levels": 0.4925948183760684
+    },
+    {
+      "from_frame": 12,
+      "to_frame": 13,
+      "normalized_rgb_mae": 0.0034148984780878163,
+      "rgb_mae_8bit_levels": 0.8707991119123931
+    },
+    {
+      "from_frame": 13,
+      "to_frame": 14,
+      "normalized_rgb_mae": 0.002040002566197419,
+      "rgb_mae_8bit_levels": 0.5202006543803419
+    },
+    {
+      "from_frame": 14,
+      "to_frame": 15,
+      "normalized_rgb_mae": 0.0012367500418971008,
+      "rgb_mae_8bit_levels": 0.3153712606837607
+    },
+    {
+      "from_frame": 15,
+      "to_frame": 16,
+      "normalized_rgb_mae": 0.0010479806906737053,
+      "rgb_mae_8bit_levels": 0.26723507612179487
+    }
+  ],
+  "anchor_interval_comparison": [
+    {
+      "start_anchor": 0,
+      "end_anchor": 4,
+      "anchor_endpoint_normalized_rgb_mae": 0.00976590976935646,
+      "adjacent_transitions": [
+        {
+          "from_frame": 0,
+          "to_frame": 1,
+          "normalized_rgb_mae": 0.004579503676470588,
+          "rgb_mae_8bit_levels": 1.1677734375
+        },
+        {
+          "from_frame": 1,
+          "to_frame": 2,
+          "normalized_rgb_mae": 0.0026518835365342717,
+          "rgb_mae_8bit_levels": 0.6762303018162393
+        },
+        {
+          "from_frame": 2,
+          "to_frame": 3,
+          "normalized_rgb_mae": 0.001941010846111949,
+          "rgb_mae_8bit_levels": 0.494957765758547
+        },
+        {
+          "from_frame": 3,
+          "to_frame": 4,
+          "normalized_rgb_mae": 0.002884104763700352,
+          "rgb_mae_8bit_levels": 0.7354467147435897
+        }
+      ],
+      "adjacent_path_length_normalized": 0.01205650282281716,
+      "mean_adjacent_step_normalized_rgb_mae": 0.00301412570570429,
+      "path_change_not_visible_in_endpoint_contrast": 0.0022905930534607,
+      "fraction_of_adjacent_path_length_not_represented_by_endpoint_contrast": 0.18998818207264123,
+      "peak_adjacent_to_endpoint_mae_ratio": 0.46892750236544134
+    },
+    {
+      "start_anchor": 4,
+      "end_anchor": 8,
+      "anchor_endpoint_normalized_rgb_mae": 0.010090514103611531,
+      "adjacent_transitions": [
+        {
+          "from_frame": 4,
+          "to_frame": 5,
+          "normalized_rgb_mae": 0.003713660811546841,
+          "rgb_mae_8bit_levels": 0.9469835069444444
+        },
+        {
+          "from_frame": 5,
+          "to_frame": 6,
+          "normalized_rgb_mae": 0.0032646384542064687,
+          "rgb_mae_8bit_levels": 0.8324828058226496
+        },
+        {
+          "from_frame": 6,
+          "to_frame": 7,
+          "normalized_rgb_mae": 0.0029774665608764874,
+          "rgb_mae_8bit_levels": 0.7592539730235043
+        },
+        {
+          "from_frame": 7,
+          "to_frame": 8,
+          "normalized_rgb_mae": 0.0018380487210910006,
+          "rgb_mae_8bit_levels": 0.46870242387820515
+        }
+      ],
+      "adjacent_path_length_normalized": 0.011793814547720797,
+      "mean_adjacent_step_normalized_rgb_mae": 0.0029484536369301993,
+      "path_change_not_visible_in_endpoint_contrast": 0.0017033004441092663,
+      "fraction_of_adjacent_path_length_not_represented_by_endpoint_contrast": 0.14442320058682256,
+      "peak_adjacent_to_endpoint_mae_ratio": 0.36803484672972925
+    },
+    {
+      "start_anchor": 8,
+      "end_anchor": 12,
+      "anchor_endpoint_normalized_rgb_mae": 0.005778379393958438,
+      "adjacent_transitions": [
+        {
+          "from_frame": 8,
+          "to_frame": 9,
+          "normalized_rgb_mae": 0.002903017376822524,
+          "rgb_mae_8bit_levels": 0.7402694310897436
+        },
+        {
+          "from_frame": 9,
+          "to_frame": 10,
+          "normalized_rgb_mae": 0.0012570799553795879,
+          "rgb_mae_8bit_levels": 0.3205553886217949
+        },
+        {
+          "from_frame": 10,
+          "to_frame": 11,
+          "normalized_rgb_mae": 0.0019461923391151333,
+          "rgb_mae_8bit_levels": 0.496279046474359
+        },
+        {
+          "from_frame": 11,
+          "to_frame": 12,
+          "normalized_rgb_mae": 0.0019317443857885036,
+          "rgb_mae_8bit_levels": 0.4925948183760684
+        }
+      ],
+      "adjacent_path_length_normalized": 0.008038034057105748,
+      "mean_adjacent_step_normalized_rgb_mae": 0.002009508514276437,
+      "path_change_not_visible_in_endpoint_contrast": 0.0022596546631473103,
+      "fraction_of_adjacent_path_length_not_represented_by_endpoint_contrast": 0.2811203146308817,
+      "peak_adjacent_to_endpoint_mae_ratio": 0.5023930031070238
+    },
+    {
+      "start_anchor": 12,
+      "end_anchor": 16,
+      "anchor_endpoint_normalized_rgb_mae": 0.006381969320847997,
+      "adjacent_transitions": [
+        {
+          "from_frame": 12,
+          "to_frame": 13,
+          "normalized_rgb_mae": 0.0034148984780878163,
+          "rgb_mae_8bit_levels": 0.8707991119123931
+        },
+        {
+          "from_frame": 13,
+          "to_frame": 14,
+          "normalized_rgb_mae": 0.002040002566197419,
+          "rgb_mae_8bit_levels": 0.5202006543803419
+        },
+        {
+          "from_frame": 14,
+          "to_frame": 15,
+          "normalized_rgb_mae": 0.0012367500418971008,
+          "rgb_mae_8bit_levels": 0.3153712606837607
+        },
+        {
+          "from_frame": 15,
+          "to_frame": 16,
+          "normalized_rgb_mae": 0.0010479806906737053,
+          "rgb_mae_8bit_levels": 0.26723507612179487
+        }
+      ],
+      "adjacent_path_length_normalized": 0.007739631776856042,
+      "mean_adjacent_step_normalized_rgb_mae": 0.0019349079442140104,
+      "path_change_not_visible_in_endpoint_contrast": 0.0013576624560080446,
+      "fraction_of_adjacent_path_length_not_represented_by_endpoint_contrast": 0.1754169313413445,
+      "peak_adjacent_to_endpoint_mae_ratio": 0.5350853798266246
+    }
+  ],
+  "summary": {
+    "adjacent_transition_count": 16,
+    "anchor_endpoint_contrast_count": 4,
+    "intermediate_frames_not_in_anchor_set": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11,
+      13,
+      14,
+      15
+    ],
+    "anchor_only_omits_direct_measurement_of_all_adjacent_one_frame_transitions": true,
+    "mean_adjacent_normalized_rgb_mae": 0.0024767489502812343,
+    "median_adjacent_normalized_rgb_mae": 0.0023459430513658452,
+    "max_adjacent_normalized_rgb_mae": 0.004579503676470588,
+    "dense_adjacent_path_length_normalized": 0.03962798320449975,
+    "sum_of_four_anchor_endpoint_contrasts_normalized": 0.032016772587774425,
+    "fraction_of_dense_path_length_not_represented_by_anchor_endpoint_contrasts": 0.19206656512010112
+  },
+  "limitations": [
+    "One generated clip, one prompt, and one seed; exploratory only.",
+    "Pixel differences are not a semantic/object motion measure and may respond to background texture, lighting, flicker, and encoding/rendering changes.",
+    "The four anchor endpoint contrasts do not reveal when or how changes occurred inside each four-frame interval; 12 intermediate frames and all 16 adjacent transition magnitudes are omitted by anchor-only sampling.",
+    "This does not alter the registered recommendation to generate full sequences and score all decoded RGB frames."
+  ]
+}

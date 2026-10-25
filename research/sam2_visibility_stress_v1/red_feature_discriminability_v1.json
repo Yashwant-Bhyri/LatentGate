@@ -1,0 +1,397 @@
+{
+  "experiment_id": "EXP-RED-OBSERVER-FEATURE-DISCRIMINABILITY-001",
+  "status": "completed_cpu_diagnostic_not_threshold_validation",
+  "started_at_utc": "2026-10-15T08:52:38.603626+00:00",
+  "completed_at_utc": "2026-10-15T08:52:38.663743+00:00",
+  "runtime": {
+    "wall_seconds": 0.05992308305576444,
+    "device": "Darwin arm64 CPU",
+    "python": "3.12.3",
+    "gpu_used": false,
+    "peak_vram_bytes": null,
+    "peak_vram_note": "CPU-only deterministic scoring; no GPU memory allocated."
+  },
+  "inputs": {
+    "stress_report": "research/sam2_visibility_stress_v1/report.json",
+    "stress_report_sha256": "001c3f4d14be2c92e62c52edb3e62fc6c4e7c00b4e316c536dab364912aa69a6",
+    "fixture_truth": "research/kubric_gate0_fixture_v1/ground_truth.json",
+    "fixture_truth_sha256": "0dd6d5518de3c82d2e73d912c44fc712978d65dd93c38f8eb24d37500f8ad56b",
+    "analyzer_sha256": "ec614d61d8359e607169b751cda7dd61e183553bab0de13005977dfc620095f3"
+  },
+  "geometry": {
+    "frame_wh": [
+      160,
+      96
+    ],
+    "control_grid_wh": [
+      52,
+      30
+    ],
+    "controller_anchor_frames": [
+      0,
+      4,
+      8,
+      12,
+      16
+    ]
+  },
+  "registered_red_stability_cutoff": 0.65,
+  "clean_two_path_development_anchor_ranges": {
+    "area_cv_across_thresholds": [
+      0.30004636615123353,
+      0.33311647545174417
+    ],
+    "stability_heuristic": [
+      0.6743338305297055,
+      0.7677565737032586
+    ],
+    "anchor_count": 10,
+    "all_clean_anchors_scoreable": true
+  },
+  "accepted_occlusion_anchors_with_over_half_cell_relative_path_error": [
+    {
+      "case": "left_fixed_pole_occlusion",
+      "frame_index": 8,
+      "stability": 0.7539223684779465,
+      "area_cv_across_thresholds": 0.2476711192271387,
+      "trusted_by_registered_stability_cutoff": true,
+      "start_calibrated_path_error_control_grid_xy": [
+        0.8616455233891784,
+        0.15232636681500322
+      ],
+      "accepted_error_over_half_cell": true,
+      "area_cv_outside_clean_anchor_envelope": true
+    },
+    {
+      "case": "left_fixed_pole_occlusion",
+      "frame_index": 12,
+      "stability": 0.7070229780579557,
+      "area_cv_across_thresholds": 0.4072324348325876,
+      "trusted_by_registered_stability_cutoff": true,
+      "start_calibrated_path_error_control_grid_xy": [
+        -1.1544371900558474,
+        -0.1632211538461531
+      ],
+      "accepted_error_over_half_cell": true,
+      "area_cv_outside_clean_anchor_envelope": true
+    },
+    {
+      "case": "right_fixed_pole_occlusion",
+      "frame_index": 12,
+      "stability": 0.8186677908923278,
+      "area_cv_across_thresholds": 0.24233574983121767,
+      "trusted_by_registered_stability_cutoff": true,
+      "start_calibrated_path_error_control_grid_xy": [
+        0.9002479503029273,
+        0.16030526891807284
+      ],
+      "accepted_error_over_half_cell": true,
+      "area_cv_outside_clean_anchor_envelope": true
+    }
+  ],
+  "feature_ranges_on_these_false_accepts": {
+    "stability_heuristic": [
+      0.7070229780579557,
+      0.8186677908923278
+    ],
+    "area_cv_across_thresholds": [
+      0.24233574983121767,
+      0.4072324348325876
+    ],
+    "area_cv_outside_clean_envelope_count": 3,
+    "false_accept_count": 3
+  },
+  "area_cv_brightness_control": {
+    "factors": [
+      0.8,
+      0.9,
+      1.1,
+      1.2
+    ],
+    "original_clean_envelope_used_without_retuning": [
+      0.30004636615123353,
+      0.33311647545174417
+    ],
+    "results": [
+      {
+        "global_brightness_factor": 0.8,
+        "control_anchor_scoreability_fraction": 1.0,
+        "anchors_above_registered_stability_cutoff": 0,
+        "anchors": 10,
+        "area_cv_median": 1.3694093066165474,
+        "area_cv_outside_original_clean_envelope": 10,
+        "area_cv_measured_count": 10
+      },
+      {
+        "global_brightness_factor": 0.9,
+        "control_anchor_scoreability_fraction": 1.0,
+        "anchors_above_registered_stability_cutoff": 0,
+        "anchors": 10,
+        "area_cv_median": 0.26740856043994876,
+        "area_cv_outside_original_clean_envelope": 10,
+        "area_cv_measured_count": 10
+      },
+      {
+        "global_brightness_factor": 1.1,
+        "control_anchor_scoreability_fraction": 1.0,
+        "anchors_above_registered_stability_cutoff": 10,
+        "anchors": 10,
+        "area_cv_median": 0.1295760330555062,
+        "area_cv_outside_original_clean_envelope": 10,
+        "area_cv_measured_count": 10
+      },
+      {
+        "global_brightness_factor": 1.2,
+        "control_anchor_scoreability_fraction": 1.0,
+        "anchors_above_registered_stability_cutoff": 10,
+        "anchors": 10,
+        "area_cv_median": 0.07905562375004632,
+        "area_cv_outside_original_clean_envelope": 10,
+        "area_cv_measured_count": 10
+      }
+    ]
+  },
+  "all_stress_control_anchor_rows": [
+    {
+      "case": "left_fixed_pole_occlusion",
+      "start_anchor_trusted": true,
+      "controller_anchors": [
+        {
+          "frame_index": 0,
+          "stability": 0.7095348340250252,
+          "area_cv_across_thresholds": 0.32307690173199105,
+          "trusted_by_registered_stability_cutoff": true,
+          "start_calibrated_path_error_control_grid_xy": [
+            0.0,
+            0.0
+          ],
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": false
+        },
+        {
+          "frame_index": 4,
+          "stability": 0.7790631564696053,
+          "area_cv_across_thresholds": 0.3007949035567724,
+          "trusted_by_registered_stability_cutoff": true,
+          "start_calibrated_path_error_control_grid_xy": [
+            -0.03176005084340461,
+            -0.007512019230768163
+          ],
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": false
+        },
+        {
+          "frame_index": 8,
+          "stability": 0.7539223684779465,
+          "area_cv_across_thresholds": 0.2476711192271387,
+          "trusted_by_registered_stability_cutoff": true,
+          "start_calibrated_path_error_control_grid_xy": [
+            0.8616455233891784,
+            0.15232636681500322
+          ],
+          "accepted_error_over_half_cell": true,
+          "area_cv_outside_clean_anchor_envelope": true
+        },
+        {
+          "frame_index": 12,
+          "stability": 0.7070229780579557,
+          "area_cv_across_thresholds": 0.4072324348325876,
+          "trusted_by_registered_stability_cutoff": true,
+          "start_calibrated_path_error_control_grid_xy": [
+            -1.1544371900558474,
+            -0.1632211538461531
+          ],
+          "accepted_error_over_half_cell": true,
+          "area_cv_outside_clean_anchor_envelope": true
+        },
+        {
+          "frame_index": 16,
+          "stability": 0.7420104797127672,
+          "area_cv_across_thresholds": 0.293452495843752,
+          "trusted_by_registered_stability_cutoff": true,
+          "start_calibrated_path_error_control_grid_xy": [
+            -0.12956850266342612,
+            -0.00035350678733114815
+          ],
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": true
+        }
+      ]
+    },
+    {
+      "case": "left_static_red_distractor",
+      "start_anchor_trusted": false,
+      "controller_anchors": [
+        {
+          "frame_index": 0,
+          "stability": 0.11151908970286362,
+          "area_cv_across_thresholds": 0.14902490889750292,
+          "trusted_by_registered_stability_cutoff": false,
+          "start_calibrated_path_error_control_grid_xy": null,
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": true
+        },
+        {
+          "frame_index": 4,
+          "stability": 0.12265703053007826,
+          "area_cv_across_thresholds": 0.14251088389659394,
+          "trusted_by_registered_stability_cutoff": false,
+          "start_calibrated_path_error_control_grid_xy": null,
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": true
+        },
+        {
+          "frame_index": 8,
+          "stability": 0.0,
+          "area_cv_across_thresholds": 0.14321641658726775,
+          "trusted_by_registered_stability_cutoff": false,
+          "start_calibrated_path_error_control_grid_xy": null,
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": true
+        },
+        {
+          "frame_index": 12,
+          "stability": 0.0,
+          "area_cv_across_thresholds": 0.14498495840202494,
+          "trusted_by_registered_stability_cutoff": false,
+          "start_calibrated_path_error_control_grid_xy": null,
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": true
+        },
+        {
+          "frame_index": 16,
+          "stability": 0.0,
+          "area_cv_across_thresholds": 0.14061392267772127,
+          "trusted_by_registered_stability_cutoff": false,
+          "start_calibrated_path_error_control_grid_xy": null,
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": true
+        }
+      ]
+    },
+    {
+      "case": "right_fixed_pole_occlusion",
+      "start_anchor_trusted": true,
+      "controller_anchors": [
+        {
+          "frame_index": 0,
+          "stability": 0.7095348340250252,
+          "area_cv_across_thresholds": 0.32307690173199105,
+          "trusted_by_registered_stability_cutoff": true,
+          "start_calibrated_path_error_control_grid_xy": [
+            0.0,
+            0.0
+          ],
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": false
+        },
+        {
+          "frame_index": 4,
+          "stability": 0.6690593733070617,
+          "area_cv_across_thresholds": 0.3069517974454781,
+          "trusted_by_registered_stability_cutoff": true,
+          "start_calibrated_path_error_control_grid_xy": [
+            -0.09453186988830753,
+            -0.061723758012821595
+          ],
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": false
+        },
+        {
+          "frame_index": 8,
+          "stability": 0.5898736702200447,
+          "area_cv_across_thresholds": 0.4518373029926894,
+          "trusted_by_registered_stability_cutoff": false,
+          "start_calibrated_path_error_control_grid_xy": [
+            -1.0631071071235523,
+            -0.15735380690737766
+          ],
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": true
+        },
+        {
+          "frame_index": 12,
+          "stability": 0.8186677908923278,
+          "area_cv_across_thresholds": 0.24233574983121767,
+          "trusted_by_registered_stability_cutoff": true,
+          "start_calibrated_path_error_control_grid_xy": [
+            0.9002479503029273,
+            0.16030526891807284
+          ],
+          "accepted_error_over_half_cell": true,
+          "area_cv_outside_clean_anchor_envelope": true
+        },
+        {
+          "frame_index": 16,
+          "stability": 0.7604165454902146,
+          "area_cv_across_thresholds": 0.30878561272050975,
+          "trusted_by_registered_stability_cutoff": true,
+          "start_calibrated_path_error_control_grid_xy": [
+            0.014888591586418531,
+            0.004762336719883464
+          ],
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": false
+        }
+      ]
+    },
+    {
+      "case": "right_static_red_distractor",
+      "start_anchor_trusted": false,
+      "controller_anchors": [
+        {
+          "frame_index": 0,
+          "stability": 0.22741914939238117,
+          "area_cv_across_thresholds": 0.14902490889750292,
+          "trusted_by_registered_stability_cutoff": false,
+          "start_calibrated_path_error_control_grid_xy": null,
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": true
+        },
+        {
+          "frame_index": 4,
+          "stability": 0.0,
+          "area_cv_across_thresholds": 0.14208491190916248,
+          "trusted_by_registered_stability_cutoff": false,
+          "start_calibrated_path_error_control_grid_xy": null,
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": true
+        },
+        {
+          "frame_index": 8,
+          "stability": 0.007120003904196315,
+          "area_cv_across_thresholds": 0.15394701366874816,
+          "trusted_by_registered_stability_cutoff": false,
+          "start_calibrated_path_error_control_grid_xy": null,
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": true
+        },
+        {
+          "frame_index": 12,
+          "stability": 0.17466056148176046,
+          "area_cv_across_thresholds": 0.13979066736637757,
+          "trusted_by_registered_stability_cutoff": false,
+          "start_calibrated_path_error_control_grid_xy": null,
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": true
+        },
+        {
+          "frame_index": 16,
+          "stability": 0.0,
+          "area_cv_across_thresholds": 0.14713871200896075,
+          "trusted_by_registered_stability_cutoff": false,
+          "start_calibrated_path_error_control_grid_xy": null,
+          "accepted_error_over_half_cell": false,
+          "area_cv_outside_clean_anchor_envelope": true
+        }
+      ]
+    }
+  ],
+  "decision": "The registered stability score overlaps accepted occlusion failures and clean anchors. An in-sample area-CV envelope is only a candidate diagnostic: it was derived from two simple paths, and must not be deployed or used to tune the feedback gate.",
+  "next_falsifiable_step": "Before any observer-controlled DiTraj run, freeze a candidate visibility gate on separate development renders, then test it on independently rendered paths with occlusion and photometric variation. Require it to reject every >0.5-cell false-accept anchor while retaining at least 90% of clean eligible anchors; report coverage, path error, visibility/identity, background stability, and apparent size separately.",
+  "limitations": [
+    "The clean feature envelope comes from the same two correlated fixture paths, not independent videos.",
+    "Brightness transforms are simple global pixel changes and do not represent generated-video appearance variation.",
+    "No human labels, generated-video observer accuracy, model inference, or policy efficacy is established."
+  ]
+}

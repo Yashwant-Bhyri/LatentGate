@@ -1,0 +1,48 @@
+{
+  "status": "synthetic_browser_independence_and_csv_export_smoke_passed",
+  "checked_utc": "2026-10-11T12:39:30Z",
+  "packet": "research/gate1_manual_annotation_packets_v4/synthetic_reliability/rater_01.zip",
+  "source": "isolated extracted HTML copy with a unique synthetic localStorage key; source ZIP not modified",
+  "device": {
+    "host": "local MacBook Pro Apple M3",
+    "system": "Darwin",
+    "architecture": "arm64",
+    "browser": "Codex in-app Chromium (independence check); standard Chrome (CSV export check)"
+  },
+  "gpu_used": false,
+  "peak_vram_mb": null,
+  "model_inference": false,
+  "observations": [
+    "Initial frame had blank visibility, count, identity, and box fields.",
+    "Setting visibility to No left count and identity blank.",
+    "Drawing a box left visibility, count, and identity unchanged; the frame remained incomplete.",
+    "Changing visibility to Yes left count and identity blank; the frame remained incomplete.",
+    "Manually entering count 1 and identity Yes completed the drawn frame (1/17).",
+    "Reload preserved the explicit labels, box, and 1/17 completion state.",
+    "Changing visibility back to No left count 1, identity Yes, and the box unchanged and marked the row incomplete.",
+    "In standard Chrome, a fresh packetKey exported a 34-row CSV with exactly one explicitly entered synthetic absent-frame row (visible=false, count=0, identity=false, no box); all other annotation fields remained blank.",
+    "An earlier scratch-key export included two extra smoke rows from browser-local state; the final clean-key CSV was re-exported and retained as the QA artifact. No packet ZIP or human-return CSV was modified.",
+    "The synthetic absent-frame value deliberately did not describe the visible object in that frame; it tested CSV serialization only and is invalid as an annotation of the image."
+  ],
+  "cleanup": "The temporary browser pages were closed and the local server stopped. Task-generated Downloads copies were removed after audit; the clean one-row synthetic CSV is retained in research/qa. No rater submission was created.",
+  "not_verified": [
+    "CSV import/resume could not be exercised through the automation file chooser because the ChatGPT Chrome extension lacks local-file access; no extension permission was changed. The blank CSV fallback remains available."
+  ],
+  "limitations": [
+    "Agent-entered synthetic UI smoke only; not human usability or agreement evidence.",
+    "Does not validate generated-video observer accuracy or policy efficacy.",
+    "The retained smoke CSV deliberately mislabels one displayed frame as absent; never include it in a reliability score or treat it as ground truth."
+  ],
+  "packet_integrity_audit": "research/qa/gate1_v4_packet_integrity_audit.json",
+  "packet_integrity_audit_sha256": "87dfa50333f65b739f2178b290d1b2d47123a7057854bfe4dced3f1f485ba6bf",
+  "csv_export": {
+    "status": "verified",
+    "browser": "standard Chrome on local Mac",
+    "rows": 34,
+    "nonblank_annotation_rows": 1,
+    "synthetic_row": "visible=false; instance_count=0; identity_consistent=false; no box; deliberately entered as a serialization test, not a visual judgment or valid label for the depicted frame",
+    "artifact": "research/qa/gate1_v4_ui_roundtrip/smoke_export_intentionally_invalid_not_for_scoring.csv",
+    "sha256": "85987434275b8ff399482edd02833deb983d86db4d4351cc2916baa9cef4b43b",
+    "valid_annotation_of_image": false
+  }
+}

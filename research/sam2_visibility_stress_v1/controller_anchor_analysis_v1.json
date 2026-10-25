@@ -1,0 +1,354 @@
+{
+  "experiment_id": "EXP-SAM2-VISIBILITY-DISTRACTOR-STRESS-001",
+  "status": "completed_deterministic_anchor_error_analysis",
+  "created_at_utc": "2026-10-15T08:47:30.491218+00:00",
+  "input_report": "research/sam2_visibility_stress_v1/report.json",
+  "input_report_sha256": "001c3f4d14be2c92e62c52edb3e62fc6c4e7c00b4e316c536dab364912aa69a6",
+  "truth_path": "research/kubric_gate0_fixture_v1/ground_truth.json",
+  "truth_sha256": "0dd6d5518de3c82d2e73d912c44fc712978d65dd93c38f8eb24d37500f8ad56b",
+  "control_grid_wh": [
+    52,
+    30
+  ],
+  "frame_wh": [
+    160,
+    96
+  ],
+  "control_frames": [
+    0,
+    4,
+    8,
+    12,
+    16
+  ],
+  "cases": [
+    {
+      "case": "left_fixed_pole_occlusion",
+      "observer": "full-frame nine-threshold red-centroid ensemble",
+      "stability_cutoff": 0.65,
+      "cutoff_status": "in-sample development heuristic; not a calibrated confidence or held-out threshold",
+      "start_anchor_trusted": true,
+      "accepted_control_anchor_count": 5,
+      "accepted_future_anchor_count": 4,
+      "accepted_future_anchors_over_half_cell_after_start_calibration": 2,
+      "controller_anchor_rows": [
+        {
+          "frame_index": 0,
+          "scoreable": true,
+          "stability_heuristic": 0.7095348340250252,
+          "trusted_by_current_in_sample_cutoff": true,
+          "raw_target_center_error_control_grid_xy": [
+            0.10468750000000071,
+            -0.6430288461538464
+          ],
+          "after_start_anchor_error_control_grid_xy": [
+            0.0,
+            0.0
+          ],
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        },
+        {
+          "frame_index": 4,
+          "scoreable": true,
+          "stability_heuristic": 0.7790631564696053,
+          "trusted_by_current_in_sample_cutoff": true,
+          "raw_target_center_error_control_grid_xy": [
+            0.0729274491565961,
+            -0.6505408653846145
+          ],
+          "after_start_anchor_error_control_grid_xy": [
+            -0.03176005084340461,
+            -0.007512019230768163
+          ],
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        },
+        {
+          "frame_index": 8,
+          "scoreable": true,
+          "stability_heuristic": 0.7539223684779465,
+          "trusted_by_current_in_sample_cutoff": true,
+          "raw_target_center_error_control_grid_xy": [
+            0.9663330233891791,
+            -0.49070247933884314
+          ],
+          "after_start_anchor_error_control_grid_xy": [
+            0.8616455233891784,
+            0.15232636681500322
+          ],
+          "accepted_residual_exceeds_half_cell_on_either_axis": true
+        },
+        {
+          "frame_index": 12,
+          "scoreable": true,
+          "stability_heuristic": 0.7070229780579557,
+          "trusted_by_current_in_sample_cutoff": true,
+          "raw_target_center_error_control_grid_xy": [
+            -1.0497496900558467,
+            -0.8062499999999995
+          ],
+          "after_start_anchor_error_control_grid_xy": [
+            -1.1544371900558474,
+            -0.1632211538461531
+          ],
+          "accepted_residual_exceeds_half_cell_on_either_axis": true
+        },
+        {
+          "frame_index": 16,
+          "scoreable": true,
+          "stability_heuristic": 0.7420104797127672,
+          "trusted_by_current_in_sample_cutoff": true,
+          "raw_target_center_error_control_grid_xy": [
+            -0.02488100266342541,
+            -0.6433823529411775
+          ],
+          "after_start_anchor_error_control_grid_xy": [
+            -0.12956850266342612,
+            -0.00035350678733114815
+          ],
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        }
+      ],
+      "interpretation": "The first anchor is trusted; inspect whether later trusted residuals exceed the half-cell observer tolerance."
+    },
+    {
+      "case": "left_static_red_distractor",
+      "observer": "full-frame nine-threshold red-centroid ensemble",
+      "stability_cutoff": 0.65,
+      "cutoff_status": "in-sample development heuristic; not a calibrated confidence or held-out threshold",
+      "start_anchor_trusted": false,
+      "accepted_control_anchor_count": 0,
+      "accepted_future_anchor_count": 0,
+      "accepted_future_anchors_over_half_cell_after_start_calibration": 0,
+      "controller_anchor_rows": [
+        {
+          "frame_index": 0,
+          "scoreable": true,
+          "stability_heuristic": 0.11151908970286362,
+          "trusted_by_current_in_sample_cutoff": false,
+          "raw_target_center_error_control_grid_xy": [
+            10.096212121212123,
+            -4.81934731934732
+          ],
+          "after_start_anchor_error_control_grid_xy": null,
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        },
+        {
+          "frame_index": 4,
+          "scoreable": true,
+          "stability_heuristic": 0.12265703053007826,
+          "trusted_by_current_in_sample_cutoff": false,
+          "raw_target_center_error_control_grid_xy": [
+            11.379535503609237,
+            -4.813226744186045
+          ],
+          "after_start_anchor_error_control_grid_xy": null,
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        },
+        {
+          "frame_index": 8,
+          "scoreable": true,
+          "stability_heuristic": 0.0,
+          "trusted_by_current_in_sample_cutoff": false,
+          "raw_target_center_error_control_grid_xy": [
+            12.783333023389176,
+            -4.818618881118882
+          ],
+          "after_start_anchor_error_control_grid_xy": null,
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        },
+        {
+          "frame_index": 12,
+          "scoreable": true,
+          "stability_heuristic": 0.0,
+          "trusted_by_current_in_sample_cutoff": false,
+          "raw_target_center_error_control_grid_xy": [
+            14.087879097822938,
+            -4.8448426573426575
+          ],
+          "after_start_anchor_error_control_grid_xy": null,
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        },
+        {
+          "frame_index": 16,
+          "scoreable": true,
+          "stability_heuristic": 0.0,
+          "trusted_by_current_in_sample_cutoff": false,
+          "raw_target_center_error_control_grid_xy": [
+            15.270506292554092,
+            -4.761664746543779
+          ],
+          "after_start_anchor_error_control_grid_xy": null,
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        }
+      ],
+      "interpretation": "The current gate rejects this case at the first anchor and should fail closed."
+    },
+    {
+      "case": "right_fixed_pole_occlusion",
+      "observer": "full-frame nine-threshold red-centroid ensemble",
+      "stability_cutoff": 0.65,
+      "cutoff_status": "in-sample development heuristic; not a calibrated confidence or held-out threshold",
+      "start_anchor_trusted": true,
+      "accepted_control_anchor_count": 4,
+      "accepted_future_anchor_count": 3,
+      "accepted_future_anchors_over_half_cell_after_start_calibration": 1,
+      "controller_anchor_rows": [
+        {
+          "frame_index": 0,
+          "scoreable": true,
+          "stability_heuristic": 0.7095348340250252,
+          "trusted_by_current_in_sample_cutoff": true,
+          "raw_target_center_error_control_grid_xy": [
+            0.10468750000000071,
+            -0.6430288461538464
+          ],
+          "after_start_anchor_error_control_grid_xy": [
+            0.0,
+            0.0
+          ],
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        },
+        {
+          "frame_index": 4,
+          "scoreable": true,
+          "stability_heuristic": 0.6690593733070617,
+          "trusted_by_current_in_sample_cutoff": true,
+          "raw_target_center_error_control_grid_xy": [
+            0.010155630111693181,
+            -0.704752604166668
+          ],
+          "after_start_anchor_error_control_grid_xy": [
+            -0.09453186988830753,
+            -0.061723758012821595
+          ],
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        },
+        {
+          "frame_index": 8,
+          "scoreable": true,
+          "stability_heuristic": 0.5898736702200447,
+          "trusted_by_current_in_sample_cutoff": false,
+          "raw_target_center_error_control_grid_xy": [
+            -0.9584196071235516,
+            -0.800382653061224
+          ],
+          "after_start_anchor_error_control_grid_xy": [
+            -1.0631071071235523,
+            -0.15735380690737766
+          ],
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        },
+        {
+          "frame_index": 12,
+          "scoreable": true,
+          "stability_heuristic": 0.8186677908923278,
+          "trusted_by_current_in_sample_cutoff": true,
+          "raw_target_center_error_control_grid_xy": [
+            1.004935450302928,
+            -0.4827235772357735
+          ],
+          "after_start_anchor_error_control_grid_xy": [
+            0.9002479503029273,
+            0.16030526891807284
+          ],
+          "accepted_residual_exceeds_half_cell_on_either_axis": true
+        },
+        {
+          "frame_index": 16,
+          "scoreable": true,
+          "stability_heuristic": 0.7604165454902146,
+          "trusted_by_current_in_sample_cutoff": true,
+          "raw_target_center_error_control_grid_xy": [
+            0.11957609158641924,
+            -0.6382665094339629
+          ],
+          "after_start_anchor_error_control_grid_xy": [
+            0.014888591586418531,
+            0.004762336719883464
+          ],
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        }
+      ],
+      "interpretation": "The first anchor is trusted; inspect whether later trusted residuals exceed the half-cell observer tolerance."
+    },
+    {
+      "case": "right_static_red_distractor",
+      "observer": "full-frame nine-threshold red-centroid ensemble",
+      "stability_cutoff": 0.65,
+      "cutoff_status": "in-sample development heuristic; not a calibrated confidence or held-out threshold",
+      "start_anchor_trusted": false,
+      "accepted_control_anchor_count": 0,
+      "accepted_future_anchor_count": 0,
+      "accepted_future_anchors_over_half_cell_after_start_calibration": 0,
+      "controller_anchor_rows": [
+        {
+          "frame_index": 0,
+          "scoreable": true,
+          "stability_heuristic": 0.22741914939238117,
+          "trusted_by_current_in_sample_cutoff": false,
+          "raw_target_center_error_control_grid_xy": [
+            -9.994696969696971,
+            -4.81934731934732
+          ],
+          "after_start_anchor_error_control_grid_xy": null,
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        },
+        {
+          "frame_index": 4,
+          "scoreable": true,
+          "stability_heuristic": 0.0,
+          "trusted_by_current_in_sample_cutoff": false,
+          "raw_target_center_error_control_grid_xy": [
+            -11.58083395322164,
+            -4.929315476190476
+          ],
+          "after_start_anchor_error_control_grid_xy": null,
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        },
+        {
+          "frame_index": 8,
+          "scoreable": true,
+          "stability_heuristic": 0.007120003904196315,
+          "trusted_by_current_in_sample_cutoff": false,
+          "raw_target_center_error_control_grid_xy": [
+            -12.672728512503886,
+            -4.812791375291374
+          ],
+          "after_start_anchor_error_control_grid_xy": null,
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        },
+        {
+          "frame_index": 12,
+          "scoreable": true,
+          "stability_heuristic": 0.17466056148176046,
+          "trusted_by_current_in_sample_cutoff": false,
+          "raw_target_center_error_control_grid_xy": [
+            -13.747424389514006,
+            -4.735411899313502
+          ],
+          "after_start_anchor_error_control_grid_xy": null,
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        },
+        {
+          "frame_index": 16,
+          "scoreable": true,
+          "stability_heuristic": 0.0,
+          "trusted_by_current_in_sample_cutoff": false,
+          "raw_target_center_error_control_grid_xy": [
+            -15.173904910065609,
+            -4.770305299539171
+          ],
+          "after_start_anchor_error_control_grid_xy": null,
+          "accepted_residual_exceeds_half_cell_on_either_axis": false
+        }
+      ],
+      "interpretation": "The current gate rejects this case at the first anchor and should fail closed."
+    }
+  ],
+  "decision": "A high threshold-agreement score is not sufficient to certify path-state accuracy. The same-color distractor is rejected by the existing cutoff in this fixture, but dynamic pole occlusion can leave trusted anchors with >0.5-cell relative error.",
+  "limitations": [
+    "Two correlated synthetic mirrored paths only; disturbance geometry and cutoff were not selected on independent held-out videos.",
+    "The 0.65 cutoff is evaluated in-sample and this diagnostic does not calibrate it.",
+    "No human annotation, generated-video measurement, or policy efficacy result is included."
+  ]
+}

@@ -1,0 +1,13 @@
+# Python and notebook caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Local environments and editor files
+.venv/
+venv/
+.DS_Store
+
+# Owner-only annotation keys must stay outside Git history.
+**/PRIVATE_UNBLIND_KEY.json

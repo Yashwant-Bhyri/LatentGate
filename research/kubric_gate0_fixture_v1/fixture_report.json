@@ -1,0 +1,1121 @@
+{
+  "fixture_id": "EXP-LATENTGATE-KUBRIC-GATE0-RENDER-001",
+  "status": "kubric_rendered_truth_scored",
+  "python": "3.11.14",
+  "kubric": "HEAD",
+  "kubric_source_commit_sha": "61f2422c84bab75006df33c6989e0b483db3ccfe",
+  "blender_python": "4.3.0",
+  "runtime_packages": {
+    "bpy": "4.3.0",
+    "tensorflow": "2.16.2",
+    "pybullet-arm64": "3.2.8",
+    "numpy": "1.26.4",
+    "pillow": "12.3.0"
+  },
+  "frame_size_wh": [
+    160,
+    96
+  ],
+  "frames_per_path": 17,
+  "total_rendered_frames": 34,
+  "fixed_camera": {
+    "type": "orthographic",
+    "orthographic_scale": 5.0,
+    "position_xyz": [
+      0.0,
+      0.0,
+      8.0
+    ],
+    "look_at_xyz": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "object": {
+    "name": "tracked_red_ball",
+    "shape": "Kubric ico-sphere",
+    "radius_world_units": 0.3,
+    "segmentation_id": 7
+  },
+  "world_x_to_screen_x_sign": -1.0,
+  "render": {
+    "engine": "Kubric Blender/Cycles",
+    "samples_per_pixel": 8,
+    "denoising": false,
+    "device": "CPU"
+  },
+  "score_contract": "blinded_manual_boxes_v2; scores recomputed from saved binary mask PNGs and projected ground-truth centers",
+  "path_scores": {
+    "right": {
+      "scorer_report": {
+        "scorer": "blinded_manual_boxes_v2",
+        "frame_count": 17,
+        "frame_size_wh": [
+          160,
+          96
+        ],
+        "frame_diagonal_px": 186.59046063504962,
+        "missing_center_error_penalty_frame_diagonals": 1.0,
+        "hard_fail": false,
+        "hard_fail_reasons": [],
+        "visible_frame_coverage": 1.0,
+        "scoreable_identity_coverage": 1.0,
+        "mean_center_error_frame_diagonals_valid_only": 1.1424713687713242e-08,
+        "mean_center_error_frame_diagonals_missing_penalized": 1.1424713687713242e-08,
+        "fde_frame_diagonals_missing_penalized": 1.0222112246901323e-08,
+        "mean_bbox_iou_all_frames_missing_as_zero": 0.9999997868257742,
+        "target_direction_sign_x": 1,
+        "endpoint_delta_x_frame_diagonals": 0.17149858514250882,
+        "target_aligned_endpoint_progress_frame_diagonals": 0.17149858514250882,
+        "center_x_monotonic_step_fraction_target_direction": 1.0,
+        "center_x_monotonic_valid_adjacent_pair_count": 16,
+        "missing_or_identity_ambiguous_frames": [],
+        "identity_failure_frames": [],
+        "duplicate_instance_frames": [],
+        "duplicate_frame_rate": 0.0,
+        "records": [
+          {
+            "frame_index": 0,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 0.0,
+            "bbox_iou": 1.0
+          },
+          {
+            "frame_index": 1,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 1.0222112246901323e-08,
+            "bbox_iou": 0.9999998092651549
+          },
+          {
+            "frame_index": 2,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 2.0444224493802645e-08,
+            "bbox_iou": 0.9999996185303462
+          },
+          {
+            "frame_index": 3,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 2.0444224493802645e-08,
+            "bbox_iou": 0.9999996185303462
+          },
+          {
+            "frame_index": 4,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 1.0222112246901323e-08,
+            "bbox_iou": 0.9999998092651549
+          },
+          {
+            "frame_index": 5,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 0.0,
+            "bbox_iou": 1.0
+          },
+          {
+            "frame_index": 6,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 1.0222112246901323e-08,
+            "bbox_iou": 0.9999998092651549
+          },
+          {
+            "frame_index": 7,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 2.0444224493802645e-08,
+            "bbox_iou": 0.9999996185303462
+          },
+          {
+            "frame_index": 8,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 2.0444224493802645e-08,
+            "bbox_iou": 0.9999996185303462
+          },
+          {
+            "frame_index": 9,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 1.0222112246901323e-08,
+            "bbox_iou": 0.9999998092651549
+          },
+          {
+            "frame_index": 10,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 0.0,
+            "bbox_iou": 1.0
+          },
+          {
+            "frame_index": 11,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 1.0222112246901323e-08,
+            "bbox_iou": 0.9999998092651549
+          },
+          {
+            "frame_index": 12,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 2.0444224493802645e-08,
+            "bbox_iou": 0.9999996185303462
+          },
+          {
+            "frame_index": 13,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 2.0444224493802645e-08,
+            "bbox_iou": 0.9999996185303462
+          },
+          {
+            "frame_index": 14,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 1.0222112246901323e-08,
+            "bbox_iou": 0.9999998092651549
+          },
+          {
+            "frame_index": 15,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 0.0,
+            "bbox_iou": 1.0
+          },
+          {
+            "frame_index": 16,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 1.0222112246901323e-08,
+            "bbox_iou": 0.9999998092651549
+          }
+        ]
+      },
+      "target_boxes_xyxy_normalized": [
+        [
+          0.4375,
+          0.3958333333333333,
+          0.5625,
+          0.6041666666666666
+        ],
+        [
+          0.44999998807907104,
+          0.3958333333333333,
+          0.574999988079071,
+          0.6041666666666666
+        ],
+        [
+          0.4624999761581421,
+          0.3958333333333333,
+          0.5874999761581421,
+          0.6041666666666666
+        ],
+        [
+          0.4750000238418579,
+          0.3958333333333333,
+          0.6000000238418579,
+          0.6041666666666666
+        ],
+        [
+          0.48750001192092896,
+          0.3958333333333333,
+          0.612500011920929,
+          0.6041666666666666
+        ],
+        [
+          0.5,
+          0.3958333333333333,
+          0.625,
+          0.6041666666666666
+        ],
+        [
+          0.512499988079071,
+          0.3958333333333333,
+          0.637499988079071,
+          0.6041666666666666
+        ],
+        [
+          0.5249999761581421,
+          0.3958333333333333,
+          0.6499999761581421,
+          0.6041666666666666
+        ],
+        [
+          0.5375000238418579,
+          0.3958333333333333,
+          0.6625000238418579,
+          0.6041666666666666
+        ],
+        [
+          0.550000011920929,
+          0.3958333333333333,
+          0.675000011920929,
+          0.6041666666666666
+        ],
+        [
+          0.5625,
+          0.3958333333333333,
+          0.6875,
+          0.6041666666666666
+        ],
+        [
+          0.574999988079071,
+          0.3958333333333333,
+          0.699999988079071,
+          0.6041666666666666
+        ],
+        [
+          0.5874999761581421,
+          0.3958333333333333,
+          0.7124999761581421,
+          0.6041666666666666
+        ],
+        [
+          0.6000000238418579,
+          0.3958333333333333,
+          0.7250000238418579,
+          0.6041666666666666
+        ],
+        [
+          0.612500011920929,
+          0.3958333333333333,
+          0.737500011920929,
+          0.6041666666666666
+        ],
+        [
+          0.625,
+          0.3958333333333333,
+          0.75,
+          0.6041666666666666
+        ],
+        [
+          0.637499988079071,
+          0.3958333333333333,
+          0.762499988079071,
+          0.6041666666666666
+        ]
+      ],
+      "annotations_from_source_masks": [
+        {
+          "frame_index": 0,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            70,
+            38,
+            90,
+            58
+          ]
+        },
+        {
+          "frame_index": 1,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            72,
+            38,
+            92,
+            58
+          ]
+        },
+        {
+          "frame_index": 2,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            74,
+            38,
+            94,
+            58
+          ]
+        },
+        {
+          "frame_index": 3,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            76,
+            38,
+            96,
+            58
+          ]
+        },
+        {
+          "frame_index": 4,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            78,
+            38,
+            98,
+            58
+          ]
+        },
+        {
+          "frame_index": 5,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            80,
+            38,
+            100,
+            58
+          ]
+        },
+        {
+          "frame_index": 6,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            82,
+            38,
+            102,
+            58
+          ]
+        },
+        {
+          "frame_index": 7,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            84,
+            38,
+            104,
+            58
+          ]
+        },
+        {
+          "frame_index": 8,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            86,
+            38,
+            106,
+            58
+          ]
+        },
+        {
+          "frame_index": 9,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            88,
+            38,
+            108,
+            58
+          ]
+        },
+        {
+          "frame_index": 10,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            90,
+            38,
+            110,
+            58
+          ]
+        },
+        {
+          "frame_index": 11,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            92,
+            38,
+            112,
+            58
+          ]
+        },
+        {
+          "frame_index": 12,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            94,
+            38,
+            114,
+            58
+          ]
+        },
+        {
+          "frame_index": 13,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            96,
+            38,
+            116,
+            58
+          ]
+        },
+        {
+          "frame_index": 14,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            98,
+            38,
+            118,
+            58
+          ]
+        },
+        {
+          "frame_index": 15,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            100,
+            38,
+            120,
+            58
+          ]
+        },
+        {
+          "frame_index": 16,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            102,
+            38,
+            122,
+            58
+          ]
+        }
+      ]
+    },
+    "left": {
+      "scorer_report": {
+        "scorer": "blinded_manual_boxes_v2",
+        "frame_count": 17,
+        "frame_size_wh": [
+          160,
+          96
+        ],
+        "frame_diagonal_px": 186.59046063504962,
+        "missing_center_error_penalty_frame_diagonals": 1.0,
+        "hard_fail": false,
+        "hard_fail_reasons": [],
+        "visible_frame_coverage": 1.0,
+        "scoreable_identity_coverage": 1.0,
+        "mean_center_error_frame_diagonals_valid_only": 6.013007204059602e-09,
+        "mean_center_error_frame_diagonals_missing_penalized": 6.013007204059602e-09,
+        "fde_frame_diagonals_missing_penalized": 1.0222112246901323e-08,
+        "mean_bbox_iou_all_frames_missing_as_zero": 0.9999998878030307,
+        "target_direction_sign_x": -1,
+        "endpoint_delta_x_frame_diagonals": -0.17149858514250882,
+        "target_aligned_endpoint_progress_frame_diagonals": 0.17149858514250882,
+        "center_x_monotonic_step_fraction_target_direction": 1.0,
+        "center_x_monotonic_valid_adjacent_pair_count": 16,
+        "missing_or_identity_ambiguous_frames": [],
+        "identity_failure_frames": [],
+        "duplicate_instance_frames": [],
+        "duplicate_frame_rate": 0.0,
+        "records": [
+          {
+            "frame_index": 0,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 0.0,
+            "bbox_iou": 1.0
+          },
+          {
+            "frame_index": 1,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 1.0222112246901323e-08,
+            "bbox_iou": 0.9999998092651549
+          },
+          {
+            "frame_index": 2,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 5.111056123450661e-09,
+            "bbox_iou": 0.9999999046325729
+          },
+          {
+            "frame_index": 3,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 5.111056123450661e-09,
+            "bbox_iou": 0.9999999046325729
+          },
+          {
+            "frame_index": 4,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 1.0222112246901323e-08,
+            "bbox_iou": 0.9999998092651549
+          },
+          {
+            "frame_index": 5,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 0.0,
+            "bbox_iou": 1.0
+          },
+          {
+            "frame_index": 6,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 1.0222112246901323e-08,
+            "bbox_iou": 0.9999998092651549
+          },
+          {
+            "frame_index": 7,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 5.111056123450661e-09,
+            "bbox_iou": 0.9999999046325729
+          },
+          {
+            "frame_index": 8,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 5.111056123450661e-09,
+            "bbox_iou": 0.9999999046325729
+          },
+          {
+            "frame_index": 9,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 1.0222112246901323e-08,
+            "bbox_iou": 0.9999998092651549
+          },
+          {
+            "frame_index": 10,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 0.0,
+            "bbox_iou": 1.0
+          },
+          {
+            "frame_index": 11,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 1.0222112246901323e-08,
+            "bbox_iou": 0.9999998092651549
+          },
+          {
+            "frame_index": 12,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 5.111056123450661e-09,
+            "bbox_iou": 0.9999999046325729
+          },
+          {
+            "frame_index": 13,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 5.111056123450661e-09,
+            "bbox_iou": 0.9999999046325729
+          },
+          {
+            "frame_index": 14,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 1.0222112246901323e-08,
+            "bbox_iou": 0.9999998092651549
+          },
+          {
+            "frame_index": 15,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 0.0,
+            "bbox_iou": 1.0
+          },
+          {
+            "frame_index": 16,
+            "object_visible": true,
+            "instance_count": 1,
+            "identity_consistent": true,
+            "hard_fail": false,
+            "hard_fail_reasons": [],
+            "scoreable": true,
+            "center_error_frame_diagonals": 1.0222112246901323e-08,
+            "bbox_iou": 0.9999998092651549
+          }
+        ]
+      },
+      "target_boxes_xyxy_normalized": [
+        [
+          0.4375,
+          0.3958333333333333,
+          0.5625,
+          0.6041666666666666
+        ],
+        [
+          0.42500001192092896,
+          0.3958333333333333,
+          0.550000011920929,
+          0.6041666666666666
+        ],
+        [
+          0.4124999940395355,
+          0.3958333333333333,
+          0.5374999940395355,
+          0.6041666666666666
+        ],
+        [
+          0.4000000059604645,
+          0.3958333333333333,
+          0.5250000059604645,
+          0.6041666666666666
+        ],
+        [
+          0.38749998807907104,
+          0.3958333333333333,
+          0.512499988079071,
+          0.6041666666666666
+        ],
+        [
+          0.375,
+          0.3958333333333333,
+          0.5,
+          0.6041666666666666
+        ],
+        [
+          0.36250001192092896,
+          0.3958333333333333,
+          0.48750001192092896,
+          0.6041666666666666
+        ],
+        [
+          0.3499999940395355,
+          0.3958333333333333,
+          0.4749999940395355,
+          0.6041666666666666
+        ],
+        [
+          0.3375000059604645,
+          0.3958333333333333,
+          0.4625000059604645,
+          0.6041666666666666
+        ],
+        [
+          0.32499998807907104,
+          0.3958333333333333,
+          0.44999998807907104,
+          0.6041666666666666
+        ],
+        [
+          0.3125,
+          0.3958333333333333,
+          0.4375,
+          0.6041666666666666
+        ],
+        [
+          0.30000001192092896,
+          0.3958333333333333,
+          0.42500001192092896,
+          0.6041666666666666
+        ],
+        [
+          0.2874999940395355,
+          0.3958333333333333,
+          0.4124999940395355,
+          0.6041666666666666
+        ],
+        [
+          0.2750000059604645,
+          0.3958333333333333,
+          0.4000000059604645,
+          0.6041666666666666
+        ],
+        [
+          0.26249998807907104,
+          0.3958333333333333,
+          0.38749998807907104,
+          0.6041666666666666
+        ],
+        [
+          0.25,
+          0.3958333333333333,
+          0.375,
+          0.6041666666666666
+        ],
+        [
+          0.23750001192092896,
+          0.3958333333333333,
+          0.36250001192092896,
+          0.6041666666666666
+        ]
+      ],
+      "annotations_from_source_masks": [
+        {
+          "frame_index": 0,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            70,
+            38,
+            90,
+            58
+          ]
+        },
+        {
+          "frame_index": 1,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            68,
+            38,
+            88,
+            58
+          ]
+        },
+        {
+          "frame_index": 2,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            66,
+            38,
+            86,
+            58
+          ]
+        },
+        {
+          "frame_index": 3,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            64,
+            38,
+            84,
+            58
+          ]
+        },
+        {
+          "frame_index": 4,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            62,
+            38,
+            82,
+            58
+          ]
+        },
+        {
+          "frame_index": 5,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            60,
+            38,
+            80,
+            58
+          ]
+        },
+        {
+          "frame_index": 6,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            58,
+            38,
+            78,
+            58
+          ]
+        },
+        {
+          "frame_index": 7,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            56,
+            38,
+            76,
+            58
+          ]
+        },
+        {
+          "frame_index": 8,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            54,
+            38,
+            74,
+            58
+          ]
+        },
+        {
+          "frame_index": 9,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            52,
+            38,
+            72,
+            58
+          ]
+        },
+        {
+          "frame_index": 10,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            50,
+            38,
+            70,
+            58
+          ]
+        },
+        {
+          "frame_index": 11,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            48,
+            38,
+            68,
+            58
+          ]
+        },
+        {
+          "frame_index": 12,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            46,
+            38,
+            66,
+            58
+          ]
+        },
+        {
+          "frame_index": 13,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            44,
+            38,
+            64,
+            58
+          ]
+        },
+        {
+          "frame_index": 14,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            42,
+            38,
+            62,
+            58
+          ]
+        },
+        {
+          "frame_index": 15,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            40,
+            38,
+            60,
+            58
+          ]
+        },
+        {
+          "frame_index": 16,
+          "object_visible": true,
+          "instance_count": 1,
+          "identity_consistent": true,
+          "bbox_xyxy_px": [
+            38,
+            38,
+            58,
+            58
+          ]
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "This fixture validates camera projection, segmentation ingestion, and the box scorer on rendered known truth; it is not a generated video or a manual-label reliability study.",
+    "The two path arms are deterministic render checks, not a video-diffusion control experiment."
+  ],
+  "target_box_size_px": [
+    20.0,
+    20.0
+  ],
+  "score_source": "binary mask PNGs plus projected centers in ground_truth.json",
+  "metric_scope": {
+    "path_metric": "center error and signed path response",
+    "extent_metric": "bbox IoU is valid for the size-matched 20x20 fixture box",
+    "duplicate_policy": "hard failure; ambiguous duplicate-frame centers are unscoreable"
+  }
+}

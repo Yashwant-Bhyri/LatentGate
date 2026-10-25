@@ -1,0 +1,1404 @@
+version: 1
+project: latentgate
+
+research_focus:
+  failure_family: fixed_camera_2d_object_trajectory_drift
+  intervention_candidate: DiTraj Wan2.1-1.3B mirrored-path pilot; establish full-run target-box response and separately identify late cross-attention-mask actuation with early STD-RoPE held fixed before evaluating predicted-clean residual feedback
+  broader_north_star: "A native latent video policy or model improvement with a measured video and closed-loop robotics delta; the P4 box-mask controller is a stepping-stone experiment."
+  native_video_action_reference: "UWM (arXiv:2504.02792), used as a continuous coupled video/action design reference, not a direct Wan port or novelty claim"
+  native_video_action_memo: "research/2026-10-12_native_video_action_policy_feasibility.md"
+  native_video_action_status: "paper_and_local_feasibility_audited; bowl_on_plate_candidate_artifact_metadata_pinned; conservative_CC_BY4_attribution_basis_recorded_HF_Apache_grant_unclarified; episode_alignment_audit_execution_platform_and_image_conditioned_backbone_pending"
+  reward_audit_baseline: VIGOR secondary geometry/camera score
+  geometry_reference: GEM-4D
+  status: gate1_human_reference_pending_scorer_hardened_baseline_and_feedback_not_run
+  evidence_memo: "research/2026-10-02_ditraj_trajectory_control_pilot.md"
+  vigor_adapter_status: "repository claims release; public checkpoint URL not located/verified"
+  ditraj_code_license: "CC BY-NC 4.0 stated in upstream README; keep adaptation research-only pending clarification"
+  caveat: "The first DiTraj pilot controls a 2D image-space box path under a fixed-camera/fixed-depth assumption. It does not establish metric 3D, contact, or physics. The upstream Wan implementation needs a separate pinned stack or explicit port and measured T4 FP16 feasibility. VIGOR's static-world reprojection reward remains secondary because it may penalize valid manipulated-object motion."
+  sequence_measurement_policy: "Generate each matched arm as one jointly denoised 17-frame sequence; score all 17 decoded RGB frames. Five nominal latent-time boxes at [0,4,8,12,16] are control anchors, not sparse evaluation points. Treat independent-frame/chunk sampling as a separate matched ablation only after a measured memory, latency, or feedback-horizon constraint."
+
+compute_coordination:
+  colab_target_profile: "Verified profile yashwant's (y), account yashwantkumarbhyri@gmail.com, on 2026-10-11. Colab showed no subscription and zero compute units. Three connection-only allocations succeeded at 14:35, 15:30, and 15:39 UTC; the second confirmed PyTorch CUDA availability on Tesla T4 and the third completed a synchronized synthetic 128x128 FP32 CUDA matrix multiply. All runtimes were disconnected. No notebook cell ran, no file was uploaded, no package was installed, and no model weight was downloaded or loaded. No paid checkout prompt appeared. The official FAQ says free-tier GPU access exists with dynamic availability and premium GPUs require paid plans. With this account unsubscribed at zero units, T4 selected, and premium choices disabled, the UI plus policy strongly support free-tier T4 access; however, no per-session billing label or receipt appeared. Future availability is not guaranteed. Three earlier free-T4 requests were denied by usage limits. The Drive notebook last-edit date is October 2 and predates the local manifest-hash wrapper update."
+  latest_colab_access_check: "At 06:26 UTC the designated Colab account yashwantkumarbhyri@gmail.com was visible in the current M1 notebook: unsubscribed, zero compute units, disconnected, free resources not guaranteed. Notebook last edited Oct 13; old package-install output is stale and later cells remain unrun."
+  designated_kaggle_compute: "Fresh browser check on 2026-10-08 about 08:41 UTC verified the designated bvyashwantkumar draft remains four cells, Draft saved, and Draft Session off. Settings > Accelerator lists None, GPU T4 x2, and TPU v5e-8 but exposes no quota/admission status; free quota remains unconfirmed. File > Import Notebook reached the file chooser, but Chrome's ChatGPT extension blocked local file selection because persistent Allow access to file URLs is disabled. The import dialog was cancelled; no permission changed, no upload occurred, and no runtime started. At that 2026-10-08 check the local notebook hash was 2e697fb5942472a0e6dd71a6c67975345f9fb7970aae08609221cd8940583e4e; the current 2026-10-16 byte pin is 5f8294ed508a8ad2581ef9bf0b1754aeaa44812bb964376f993fbd4a121d9d55. Details: research/2026-10-08_gate1_and_ditraj_staging_recheck.md. Keep venkatayashwantkumar distinct and unused; M1 must not use either Kaggle handle or draft."
+  repo_task_gpu_status: "M1 model run not started; the current local notebook and runner remain unrun. The October 13 canonical Drive copy (1tbDohIHBeHeKF5SD9_9Nkwf22LaJfMmk) retains only a package-install output, with no visible preflight or runner output; the October 15 duplicate (1QctKinHmdeFM7Rdj5oDke_UsqdCjxFBb) has no saved outputs. Both copies pin stale bundle hashes. The same-day Resources check showed not subscribed/zero units and an idle T4 with no billing label, then disconnected; both notebook pages now show Connect T4. No-paid admission remains unverified. The in-place Drive Manage versions route was blocked because Chrome denied local-file selection while the extension's Allow access to file URLs permission is disabled; that permission was left unchanged and no version was added. The versioned stack pins torch 2.11.0+cu130 and torchvision 0.26.0+cu130. Earlier T4 access and synthetic matmul evidence is historical and does not prove current free admission."
+  latest_m1_drive_notebook_inventory_utc: "2026-10-17T06:32:32Z"
+  latest_m1_drive_notebook_inventory: "Read-only M1 source reconciliation found the canonical Colab notebook is the October 13 copy. It expects stale bundle SHA-256 73af0539fd76957217f4d817560315d7c319321fa2f7bdc2cfe0305b13fc5564, versus current local bundle 7f0764dd3e8730485650d1c80defc4e6024f621af03068dad18291e272daee1. Local notebook SHA-256 is ab9d85acda9451ae2edc3a4509064cafc27c66573ef25f7e9158459e9a1e27ef; ticket SHA-256 e7f09412381306749fa26e82915b24e148931494361007c3d8b052fb65f962ba. The visible remote setup lacks the early no-paid guard and pinned Torch/TorchVision used locally and expects the old bundle. Exact remote file hash was not available through read-only UI. No save, upload, download, account/permission change, runtime, or cell execution occurred."
+  current_run_runtime_check: "2026-10-11 15:39–15:41 UTC: in the verified y profile, a connection-only T4 allocation succeeded. The runtime selector showed T4 GPU selected, premium GPUs disabled, and a Pro+ upsell; no paid checkout prompt appeared. Colab showed no subscription, zero compute units, and that free resources are not guaranteed. The official FAQ says free-tier GPU access is available with fluctuating resource types; paired with T4 enabled and premium GPUs disabled, this strongly supports free-tier access, though no per-session billing receipt was shown. Colab's first-party in-browser Terminal completed a synchronized synthetic 128x128 FP32 CUDA matrix multiply on Tesla T4, shape (128, 128), checksum -3017.00537, peak allocation 8,716,800 bytes. After disconnect, Resources showed not connected, not subscribed, and zero units. No notebook cell ran, no file was uploaded, no package was installed, and no model weight was downloaded or loaded. This was a hardware smoke, not an M1 model run. The FAQ disallows remote control such as SSH shells on free managed runtimes; official release notes document the in-browser Terminal as available to all users. The FAQ does not explicitly classify this Terminal, and the sources do not establish that the in-browser probe violated policy. Use notebook cells for model work because they align with Colab's notebook-first priority and keep the research record reproducible. Read-only UI checks at 2026-10-11 15:50, 16:00, and 16:12 UTC show the intended profile still not connected, not subscribed, at zero units, with the Drive notebook still last edited October 2 and offering Reconnect T4. No setting changed and no cell ran during those checks. Future T4 admission is unconfirmed."
+  latest_preflight_attempt_utc: "2026-10-12T06:18:00Z"
+  latest_preflight_attempt: "Task-isolated Colab browser verified yashwantkumarbhyri@gmail.com on the empty Untitled0 preflight notebook. Clicking Connect returned Unable to connect to the runtime. No runtime attached, no cell ran, no paid accelerator was selected, and M1 stayed untouched. This attempt does not establish current T4 availability. Native Chrome profile creation remains unavailable while the Mac is locked."
+  current_colab_quota_check_utc: "2026-10-17T06:56:00Z"
+  current_colab_quota_check: "Read-only Colab AX snapshot captured about 06:56 UTC in the designated account yashwantkumarbhyri@gmail.com: unsubscribed, zero compute units, no connected runtime, and free resources not guaranteed. The visible Connect T4 control is only an offer. A later native Chrome read attempt around 07:01 UTC was blocked because the Mac was locked; treat 06:56 as the last successful resource view."
+  latest_colab_check_attempt_utc: "2026-10-17T10:26:00Z"
+  latest_colab_check_attempt: "Fresh Chrome inventory at about 10:26 UTC still lists the designated Colab tab, but the Mac is locked, preventing page-content/resource inspection. Last successful view remains 06:56 UTC: designated yashwantkumarbhyri@gmail.com, unsubscribed, zero units, disconnected, free resources unguaranteed. No runtime/cell was started."
+  latest_drive_connector_identity_check_utc: "2026-10-16T16:45:34Z"
+  latest_drive_connector_identity_check: "Read-only Google Drive profile check returned B V Yashwant Kumar, bvyashwantkumar900@gmail.com. The project-designated profile is yashwantkumarbhyri@gmail.com (Yashwant’s (y)); the connector is authenticated to a different Google account, so no Drive search or notebook write was attempted."
+  latest_kaggle_recheck_attempt_utc: "2026-10-17T10:26:00Z"
+  latest_kaggle_recheck_attempt: "Fresh Chrome inventory at about 10:26 UTC lists the designated browser profile and bvyashwantkumar DiTraj tab title/URL; the locked Mac prevented page-content/session/admission inspection. Free admission remains unknown; no account switch or staging occurred."
+  current_kaggle_staging_check_utc: "2026-10-17T04:30:34Z"
+  current_kaggle_staging_check: "The local DiTraj notebook has 12 cells, 10 code cells, all execution counts null and outputs empty; its SHA-256 5f8294ed508a8ad2581ef9bf0b1754aeaa44812bb964376f993fbd4a121d9d55 matches the registry. The designated Kaggle page body was unavailable, so remote source, session, quota, staging, and admission remain unverified. No upload, permission change, cell, or runtime occurred; experiment gates stay closed."
+  latest_kaggle_staging_route_check_utc: "2026-10-17T10:26:00Z"
+  latest_kaggle_staging_route_check: "No fresh Kaggle staging route/admission evidence; page-content inspection was unavailable while the Mac was locked. No upload, staging, permission change, or runtime occurred."
+  deep_research_status: "Both full primary-source reports in Research LatentGate Methods were recovered in the browser and summarized in research/2026-10-11_full_research_chat_reconciliation.md; the thread reader itself remains capped at 20,000 characters and no attachments are reported. DiTraj/Wan2.1 T2V 1.3B remains a backbone-fit open-loop foundation, not a demonstrated feedback policy. The reports leave causal feedback efficacy unanswered, flag prior-art collisions, and propose different observer thresholds/timing from the local registered plan; keep local thresholds and gates unchanged unless deliberately preregistered otherwise. The reports could not inspect this workspace, so local metrics and code status remain sourced to local artifacts."
+  deep_research_last_checked_utc: "2026-10-17T10:26:00Z"
+  deep_research_check_attempt_utc: "2026-10-17T10:26:00Z"
+  deep_research_check_attempt: "Research LatentGate Methods is idle; October 11 remains its latest completed primary-source report, already reconciled locally. No newer report or research question warrants a new run while task tolerances, calibration data, human returns, and compute admission remain unresolved. Existing M1 source/subagent work and M2 source reviews are recorded; no new subagent/DR run."
+  deep_research_full_reports_reconciled_utc: "2026-10-11T14:46:50Z"
+  deep_research_incorporation: "research/2026-10-11_full_research_chat_reconciliation.md"
+  deep_research_incorporation_sha256: "5e707543d48a749c9d503acd1921cfadbb1d645d48ae16284823eeca9848a651"
+  deep_research_initial_excerpt_incorporation: "research/2026-10-11_deep_research_report_incorporation.md"
+  deep_research_initial_excerpt_sha256: "03ada3cde5d953baf17d47d452b5efa31c7da42aa990e4751d700ec698c3c071"
+  latest_m1_t4_preflight_utc: "2026-10-15T06:42:00Z"
+  latest_m1_t4_preflight: "Designated y profile: notebook cells confirmed Tesla T4, NVIDIA driver 580.82.07/CUDA 13.0, torch 2.11.0+cu130, cuda_available=true, and 14.56 GiB. Session disconnected; no model/checkpoint/dataset/project runner or package install. No charge, compute-unit debit, or billing class was shown. This is hardware evidence only. The versioned M1 stack now pins the observed Torch 2.11.0+cu130 plus TorchVision 0.26.0+cu130; no-paid admission, the current notebook/bundle hashes, and the guarded preflight are still required before weights."
+  latest_browser_compute_check_utc: "2026-10-17T10:26:00Z"
+  latest_browser_compute_check: "Fresh browser inventory still lists designated Colab and Kaggle tabs, but the Mac lock prevented page-content checks. Last successful Colab resource view is 06:56 UTC (zero units, unsubscribed, disconnected, free resources not guaranteed); Kaggle admission remains unknown. No external compute was used."
+  latest_usage_limit_check_utc: "2026-10-17T10:25:57Z"
+  latest_usage_limit_check: "Read-only account-level usage at 10:25 UTC: 3% of the five-hour window and 68% weekly used; ordinary usage allowed. Three reset credits remain available and unused."
+  latest_task_continuation_utc: "2026-10-17T07:28:14Z"
+  latest_task_continuation: "M0 completed its inventory: all four unique saved RGB sequences already have adjacent metrics; no distinct CPU target remains. M1 completed the cross-lane synthesis: M0 pixel metrics are clip-local and tail-sensitive, while M1 source confirms 49 RGB frames decode from 13 temporal latents without sparse RGB selection; its next valid experiment is full 49-frame baseline plus exact same-runtime replay with every frame scored, gated on exact account/hash and admitted free T4. M2 completed local DiTraj hardening: all notebook/CLI routes require fresh manual exact-arm receipts, stale notebook retired, preliminary ZIP/export disabled; no valid receipt or Kaggle admission exists. M1 is now active on read-only comparison of the live same-account Colab notebook to the local canonical source and bundle. No run, tests, upload or paid compute."
+  latest_task_continuations: "M0 idle: no unmeasured complete hash-pinned saved RGB sequence remains. M1 active on read-only same-account Colab notebook/source reconciliation; local six-member bundle hashes match, live notebook was last edited Oct 13, no runtime. M2 idle after a local-only receipt-gate and preliminary-export remediation; the receipt is a human attestation and does not prove free quota. Gate 1 still needs two independent v5 returns."
+  latest_coordination_heartbeat_utc: "2026-10-17T10:26:28Z"
+  latest_coordination_heartbeat: "No material lane changes. M0 remains idle with all four unique complete RGB sequences already covered by adjacent metrics; retry4/retry5 are duplicates. M1 remains blocked on stale remote bundle pin 73af… vs local 7f0764… and unverified free T4 admission. M2 remains idle after the background-calibration preregistration; numeric cutoffs need task-defined material camera motion/acceptable lighting-codec variation and calibration data. Gate 1 v16 remains 7,232 paths/24 exact-v5 candidates/zero complete or partial human returns; metadata counts remain 24/7,181/27 and none changed after v16. Mac lock prevented current provider page reads; last successful Colab view at 06:56 UTC showed zero units, unsubscribed, disconnected, free access not guaranteed; Kaggle admission unknown. No runtime, upload, labels, tests, or account change. Full-sequence generation/scoring every decoded frame remains recommended; chunking exploratory. Goal API still paused."
+  policy: "Use only the designated Kaggle account bvyashwantkumar for the DiTraj lane and the designated Colab account yashwantkumarbhyri@gmail.com for M1. Do not use alternate accounts, rotate profiles to bypass provider limits, pool quotas, or use paid compute. Kaggle shows 00:00 / 30 hrs, which appears to be usage/cap; GPU T4 x2 is offered but no actual free admission/live device has been verified. Obtain fresh free admission and satisfy the matching notebook, open experiment gate, and arm prerequisites before any GPU run. Colab was last checked disconnected, unsubscribed, with zero units and free resources not guaranteed; obtain fresh no-paid admission before any M1 runtime. M1's same-ID Drive refresh is blocked by Chrome extension file-URL access, which was left unchanged."
+
+  latest_gate1_public_metadata_inventory_utc: "2026-10-17T10:26:28Z"
+  latest_gate1_public_metadata_inventory: "Metadata-only inventory found 7,232 public CSV/ZIP paths across research, Downloads, and Desktop (24/7,181/27), with zero modified after scan v16. V16 remains at 24 exact-v5-header candidates (2 QA/synthetic, 2 blank exact templates, 20 blank/wrong map), zero complete and zero partial human returns. No annotation values, aliases, keys, or archive contents were read; private custody was not accessed."
+  current_usage_check_utc: "2026-10-17T10:25:57Z"
+  current_usage_check: "Read-only account-level Codex usage: 3% used in the five-hour window and 68% weekly; ordinary usage allowed. Three reset credits remain available and unused; no reset was used."
+execution_queue:
+  - order: 1
+    experiment: EXP-LATENTGATE-GATE1-ANNOTATION-RELIABILITY-001
+    status: "v5_browser_display_mapping_csv_smoke_passed_two_rater_labels_pending_preunblind_and_truth_eligibility_guard_validated"
+    annotation_tolerance_audit_memo: "research/2026-10-14_gate1_annotation_tolerance_literature_audit.md"
+    annotation_tolerance_audit_memo_sha256: "6c172293d7212e23aa389b220ea5450ac63b2d39d86d210bba495e0ebed43b6c"
+    annotation_tolerance_decision: "Keep the preregistered 0.5 grid-cell p95 threshold as a finite-packet process screen for this rigid sphere only. Report per-clip and pooled p50/p95/max in grid cells and source pixels; keep categorical visibility/identity separate and preserve blind worst-frame plus guarded truth gates. VOT2014/VOT2016 annotation-noise evidence is adjacent, not a threshold source for diffusion outputs."
+    annotation_aggregation_literature_supplement: "The TIP 2016 Lampert et al. study reports that vision-detector rankings depend on ground-truth aggregation, aggregation degrades with few/high-variance labels, and consensus voting can overemphasize obvious features. Preserve independent v5 annotations for the blinded agreement screen; do not harmonize before scoring. This is rationale for the blind protocol only, not a numeric tolerance source. No code/data reused; paper review only, no compute."
+    tro_annotation_protocol_audit_memo: "research/2026-10-15_gate1_tro_annotation_protocol_audit.md"
+    tro_annotation_protocol_audit_memo_sha256: "0df3670ecd82b5c3ecaeb43a6bdb522be88744de32c7e0a52bc08111abcc5c08"
+    tro_annotation_protocol_decision: "TRO 2024 supports structured absent/out-of-view/occluded states and layered human review, but reports no numeric inter-rater tolerance in the reviewed annotation description. Its linked repository currently exposes only a README and no license or downloadable data/checkpoint. Keep v5 schema and thresholds fixed for the continuously visible Kubric sphere; consider the taxonomy only for a preregistered later generated-video sample."
+    center_vs_iou_metric_audit_memo: "research/2026-10-15_gate1_center_vs_iou_metric_audit.md"
+    center_vs_iou_metric_audit_memo_sha256: "aa70511b1ae39dbcefc1e28f988144e959bacd81ebd1942ba653aa332bdc5645"
+    center_vs_iou_metric_decision: "Keep the task-aligned axis-wise center p95 as the Gate 1 path-reference pass metric and IoU diagnostic only; small-object and human-preference literature shows IoU sensitivity but does not calibrate our tolerance. Preserve width/height/area as a separate size guardrail. No threshold or v5 schema change."
+    finite_packet_threshold_audit_memo: "research/2026-10-15_gate1_finite_packet_threshold_resolution.md"
+    finite_packet_threshold_audit_memo_sha256: "d3d11060ad180f0398a4ca81e26ef7b1c9da744418dedb3552f97d0143cef2e2"
+    finite_packet_threshold_interpretation: "At n=17 per clip, >=95% joint categorical agreement requires 17/17 exact matches per clip (34/34 overall under the registered pooled-plus-per-clip rule); >=90% center-pair coverage requires >=16/17 per clip. Linear-interpolated p95 is not a maximum bound; preserve blind worst-frame review. Klie et al. (2024) is adjacent NLP evidence on small samples and agreement interpretation, not visual-label calibration. No threshold/schema change."
+    kubric_blender_license_audit_memo: "research/2026-10-15_gate1_kubric_blender_license_audit.md"
+    kubric_blender_license_audit_memo_sha256: "3a2dacbe49c415fe714c2050e800aad1385e7c8e95acec44c642be38b32bdbee"
+    kubric_blender_license_audit_decision: "The pinned Kubric commit carries Apache-2.0; the fixture renderer imports Blender bpy directly, and Blender's official FAQ says shared/published bpy scripts must be GPL-licensed. Blender's official manual says GPL covers the Blender application, not generated artwork. Kubric's reviewed README/LICENSE does not give an explicit license for the generated RGB/mask/truth artifacts. Do not describe the renderer as Apache-only or infer the data license. This does not affect local reliability work or measurement thresholds. Before source distribution, audit the remaining locked dependencies and choose GPL-compatible renderer terms/refactor."
+    fixture_artifact_alignment_audit_memo: "research/2026-10-15_gate1_fixture_artifact_alignment_audit.md"
+    fixture_artifact_alignment_audit_memo_sha256: "3cb3fbd1d6783e00abea24983dfc440f1648e1382e442940853794ba0071259b"
+    fixture_artifact_alignment_script: "research/audit_gate1_fixture_artifact_alignment.py"
+    fixture_artifact_alignment_script_sha256: "d9d9fdcc4d7a1832f17cdab8715ae0107bd464f4b28739481d327a9657e76c8f"
+    fixture_artifact_alignment_report: "research/gate1_fixture_artifact_alignment_audit_v1.json"
+    fixture_artifact_alignment_report_sha256: "ced417b03befb54fd6c04904a3e4c4d3a7e185699b7059efc3722ad821a03328"
+    fixture_artifact_alignment_decision: "Read-only CPU audit aligned all 34 RGB/mask/truth records; recomputed binary masks, box edges, areas, single-component identity, and projected centers. The maximum mask-box center gap is 3.81e-6 source px; both paths have invariant 20x20 px boxes and zero mask-area CV. Exterior-of-target RGB changes (13.62%/13.64% mean) include moving shadows and cannot be treated as camera motion. This closes a fixture-integrity subcheck only; the two-rater v5 agreement gate remains open. Current cached fixture_report.json lacks an RGB hash map, so this audit recorded per-file hashes as a new pinned snapshot rather than claiming comparison with a previous baseline."
+    packet_fixture_pixels_audit_memo: "research/2026-10-15_gate1_v5_packet_fixture_pixels_audit.md"
+    packet_fixture_pixels_audit_memo_sha256: "eb1285d08216b95cf00a165efd0aefab659fe187b4b218ce84b43373ca273e11"
+    packet_fixture_pixels_audit_script: "research/audit_gate1_v5_packet_fixture_pixels.py"
+    packet_fixture_pixels_audit_script_sha256: "fd09dc8bf0f5710d833d79cdac7faf3511a2b932dacbc7ce7f826525c29e2c94"
+    packet_fixture_pixels_audit_report: "research/gate1_v5_packet_fixture_pixels_audit_v1.json"
+    packet_fixture_pixels_audit_report_sha256: "7096cd466da056e13d48dedb9d5d0b95d78b5e9629ffdebd3c17855ddbdf1a1d"
+    packet_fixture_pixels_audit_decision: "Both archived v5 rater packets contain the exact unordered 34-PNG byte multiset from the canonical Kubric RGB fixture; both have two blind groups x 17 frame indices, blank 34-row label templates, and exact one-to-one CSV triplet keys (blind_clip_id, frame_index, image_file) against each embedded frame manifest. The script does not open PRIVATE_UNBLIND_KEY.json and emits no direction-to-alias mapping. This closes packet/source pixel and template-key provenance only; independent human-label agreement remains pending. Generated-artifact distribution terms are still unresolved, so packets remain local."
+    packet_key_validation_memo: "research/2026-10-15_gate1_packet_key_fail_closed_audit.md"
+    packet_key_validation_memo_sha256: "85772570cf43e05f8b572dd812db555ac01791dbacbd4ece4e456f5e46914c64"
+    packet_key_validation_decision: "Agreement, truth, and blind-review paths now check each submission against the reference packet key-to-image map before scoring or key access; second-seed packaging requires both exact-map report flags and the same packet hash. Synthetic regressions reject a common wrong filename while preserving blindness. No labels or policy result; reference ZIP trust remains hash-bound."
+    label_intake_scanner: "research/scan_gate1_label_intake.py"
+    label_intake_scanner_sha256: "a7db4518ef76d5efe761d0f05e014968ae32a94927a3ee8c849d89e8b30c360c"
+    label_intake_scan: "research/gate1_label_intake_scan_v16.json"
+    label_intake_scan_sha256: "51eca7508423b6fa6c6628b6ecfd0094d03e9798818e101e5e1d40d50b73d959"
+    historical_label_intake_scan_v1: "research/gate1_label_intake_scan_v1.json"
+    historical_label_intake_scan_v2: "research/gate1_label_intake_scan_v2.json"
+    historical_label_intake_scan_v3: "research/gate1_label_intake_scan_v3.json"
+    historical_label_intake_scan_v4: "research/gate1_label_intake_scan_v4.json"
+    historical_label_intake_scan_v5: "research/gate1_label_intake_scan_v5.json"
+    historical_label_intake_scan_v6: "research/gate1_label_intake_scan_v6.json"
+    historical_label_intake_scan_v7: "research/gate1_label_intake_scan_v7.json"
+    historical_label_intake_scan_v8: "research/gate1_label_intake_scan_v8.json"
+    historical_label_intake_scan_v9: "research/gate1_label_intake_scan_v9.json"
+    historical_label_intake_scan_v10: "research/gate1_label_intake_scan_v10.json"
+    historical_label_intake_scan_v11: "research/gate1_label_intake_scan_v11.json"
+    historical_label_intake_scan_v12: "research/gate1_label_intake_scan_v12.json"
+    historical_label_intake_scan_v13: "research/gate1_label_intake_scan_v13.json"
+    historical_label_intake_scan_v14: "research/gate1_label_intake_scan_v14.json"
+    historical_label_intake_scan_v15: "research/gate1_label_intake_scan_v15.json"
+    label_intake_validator: "research/validate_gate1_label_intake.py"
+    label_intake_validator_sha256: "0ea4a78124775a594d25a1e5f28ae51559da1c22ccc1f08d8caecc01e6b4bd49"
+    label_intake_selfcheck: "research/gate1_label_intake_scanner_selfcheck_v1.json"
+    label_intake_selfcheck_sha256: "0ba2f1436f4781381bcf79d72a9a8db76a32fdd5aaccc95e86ec8c8a9bc8247a"
+    label_intake_scan_memo: "research/2026-10-15_gate1_label_intake_scan.md"
+    label_intake_scan_memo_sha256: "6c5682e45e20189fe3843d4987890d82ad3afeef06020c4a254b49cc73ba7e16"
+    rater_independence_audit_memo: "research/2026-10-16_gate1_rater_independence_provenance_audit.md"
+    rater_independence_audit_memo_sha256: "6d138c5480cfc2fd66f7d829537fe11b2a122fda8b6cc9168bd3fd91fd6e1829"
+    rater_independence_audit_decision: "The October 16 source audit proposed a separate receipt, token-to-person roster, and byte-hash checks because scanner/scorers do not establish authorship. The coordinator SOP and owner checklist now define these custody controls plus a pre-CSV-parser tuple/hash preflight; a read-only hash helper has been drafted but is unexecuted and unverified. This closes the procedural specification gap only; no actual returns exist and tokens/attestations do not cryptographically prove human independence. See the receipt/independence delta memo and helper audit."
+    rater_independence_status: "receipt_and_private_custody_controls_documented; hash_preflight_helper_drafted_unverified; no actual receipt or independent human return; two complete v5 CSVs still blocking"
+    rater_independence_latest_inventory: "research/gate1_label_intake_scan_v16.json; 7232 paths, 24 exact-header candidates, zero complete or partial human returns"
+    rater_owner_label_handoff_checklist: "research/2026-10-16_gate1_owner_label_handoff_checklist.md"
+    rater_owner_label_handoff_checklist_sha256: "e6c0bf8c48194beb40f890778789b008e48767aea693d23abb2961acb94240b7"
+    rater_assignment_intake_sop_draft: "research/2026-10-16_gate1_assignment_intake_sop_draft.md"
+    rater_assignment_intake_sop_draft_sha256: "30fc20c6f4696e993ab8fef4d29b2f6cb51cc3de939fa3e1556bec5045c9c4e4"
+    rater_assignment_intake_sop_status: "coordinator-only draft; v16 private custody tree and scanner exclusion remain in place; the broad scanner reads annotation cells and emits derived counts plus candidate paths but no raw cells; future content-scan output must go to owner-only staging; pre-score hash helper is source-drafted, unexecuted, and unverified; two independent complete human returns remain the blocker"
+    gate1_intake_readiness_audit_memo: "research/2026-10-16_gate1_intake_readiness_audit.md"
+    gate1_intake_readiness_audit_sha256: "6bada5a25fa86067e085c05953f671c60a4e1b1912e50d21618d10af78098252"
+    gate1_intake_readiness_decision: "Canonical payload is two independently assigned complete v5 CSVs; scanner is only a metadata/coarse-completeness filter. Coordinator must verify receipts, distinct people/tokens, and hashes before scoring; agreement, blind worst-frame review, then guarded truth remain ordered gates. The empty owner-only originals/staging/receipts/private_roster tree is now verified, and the coordinator SOP binds the custody flow to it while preserving broad scanner-root exclusion. Keep named originals separate from opaque scan/scoring copies and enforce manual receipt checks. The owner handoff now routes receipt and scoring through the private SOP. Two genuine complete returns remain absent."
+    gate1_storage_control_metadata_audit_memo: "research/2026-10-16_gate1_storage_control_metadata_audit.md"
+    gate1_storage_control_metadata_audit_sha256: "903e0c805030e573953d7c8207e8302f4d3b334a7d41dcbf9d13eaab90cfe28f"
+    gate1_storage_control_status: "Verified empty private tree: /Users/yash/Library/Application Support/LatentGate/Gate1 and originals/, staging/, receipts/, private_roster/ are each 0700 yash:staff with no ACL entries. Library and Application Support are 0700; Application Support has only group:everyone deny delete; the inspected ancestry has no broader ACL grant. Home is 0750; traversal is blocked by Library. Scan v16 roots are project research/, Downloads, and Desktop, excluding this tree. Recheck immediately before first return; no files or submission data exist here."
+    rater_assignment_packet_manifest_check: "2026-10-16 metadata-only: both manifest-relative synthetic_reliability ZIP paths exist in v5 directory; byte counts and SHA-256 match manifest. Manifest defines archive path/hash, not a separate packet_id field; SOP uses the relative path as packet_id. No archive contents opened."
+    rater_return_format_decision: "Owner handoff requests plain CSV through the coordinator controlled channel; intake scanner recognizes a ZIP with one CSV <=10,000,000 bytes and no UNBLIND/PRIVATE_KEY member. Agreement/truth scorers take CSV paths. Coordinator SOP narrows ZIP intake to one safe member, a 12,000,000-byte envelope cap, opaque bounded streaming, and separate envelope/member hashes; no ZIP path extraction."
+    zip_intake_safety_source_review_memo: "research/2026-10-16_gate1_zip_intake_safety_source_review.md"
+    zip_intake_safety_source_review_sha256: "a7170280b4b4189f3d06b2e1bc65214d8e95664302d0b8a1cfa63d42b589aeca"
+    zip_intake_safety_source_review_decision: "Current scanner reads one declared <=10MB CSV member in memory and does not extract it; archive member paths/symlinks are not filesystem targets. The previous SOP extraction wording was underspecified. Use plain CSV by default; if ZIP is needed, hash the envelope first and stream via a ZipInfo object to an opaque temp path with actual byte cap/CRC checks, rejecting encrypted, symlink/special, duplicate, extra, path-like, oversized, or blacklisted archives. No exploit established; code/schema unchanged."
+    v5_static_packet_audit_memo: "research/2026-10-16_gate1_v5_static_packet_audit.md"
+    v5_static_packet_audit_memo_sha256: "999362d73d1f026b5ec1e42eec17fc2c9b9912a565b17e3aaed323b863c2ab76"
+    v5_static_packet_audit_decision: "The final two v5 ZIPs preserve their exact blank 34-row/11-column packet maps. Static HTML/JavaScript has no external asset references or direct network APIs; labels persist in localStorage and CSV export creates a local Blob. Visibility, count, identity, and box are separately entered. This is static-source evidence only, not a runtime network trace or human-label agreement result."
+    ditraj_staging_route_recheck_memo: "research/2026-10-15_ditraj_staging_route_recheck.md"
+    ditraj_staging_route_recheck_memo_sha256: "05871d1a4e16aadecd0637d0d0327cfe8d6b4a44a1ce090fc4b3aee237e9e979"
+    ditraj_staging_route_decision: "At 07:35 UTC the designated draft finished loading and was confirmed Draft Session off with four unexecuted stale cells (clone/install, version check, duplicate T4 checks); runner/smoke/results cells are absent. The editor was reviewed only; no transfer or runtime occurred. Chrome local-file access still requires user action, Kaggle's '00:00 / 30 hrs' does not prove free admission, and the remote draft remains noncanonical."
+    last_label_return_check_utc: "2026-10-16T15:45:29Z"
+    label_return_check: "2026-10-16T15:45:29Z: packet-bound scan v16 covered 7,232 CSV/ZIP paths and found 24 exact-v5-header candidates: two blank canonical packets, 20 blank or wrong-map files, and two known QA/synthetic files. There are zero complete or partial human returns. Approved roots were project research/, Downloads, and Desktop; the owner-only Application Support tree was excluded. The report emitted no annotation values, blind aliases, direction map, or private key; archives were not extracted. CPU only, Darwin arm64/Python 3.12.3, 9.900657 s, GPU false, peak VRAM null, model inference false."
+    latest_recheck_memo: "research/2026-10-13_gate1_ditraj_recheck.md"
+    latest_recheck_memo_sha256: "0977289b157ac0a8996fa11de56431360845d84fb4534254f8d5efff3c5b5b67"
+    latest_packet_version: gate1_manual_annotation_packets_v5
+    rater_independence_audit_memo: "research/2026-10-16_gate1_rater_independence_provenance_audit.md"
+    rater_independence_audit_memo_sha256: "6d138c5480cfc2fd66f7d829537fe11b2a122fda8b6cc9168bd3fd91fd6e1829"
+    rater_owner_label_handoff_checklist: "research/2026-10-16_gate1_owner_label_handoff_checklist.md"
+    rater_owner_label_handoff_checklist_sha256: "e6c0bf8c48194beb40f890778789b008e48767aea693d23abb2961acb94240b7"
+    rater_assignment_intake_sop_draft: "research/2026-10-16_gate1_assignment_intake_sop_draft.md"
+    rater_assignment_intake_sop_draft_sha256: "30fc20c6f4696e993ab8fef4d29b2f6cb51cc3de939fa3e1556bec5045c9c4e4"
+    rater_assignment_intake_sop_status: "coordinator-only draft; v16 private custody tree and scanner exclusion remain in place; the broad scanner reads annotation cells and emits derived counts plus candidate paths but no raw cells; future content-scan output must go to owner-only staging; pre-score hash helper is source-drafted, unexecuted, and unverified; two independent complete human returns remain the blocker"
+    gate1_intake_readiness_audit_memo: "research/2026-10-16_gate1_intake_readiness_audit.md"
+    gate1_intake_readiness_audit_sha256: "6bada5a25fa86067e085c05953f671c60a4e1b1912e50d21618d10af78098252"
+    gate1_intake_readiness_decision: "Plain CSV is the canonical return. Optional ZIP must pass the stricter coordinator SOP before scoring. Receipt and independence verification are manual; scanner does not establish authorship. Handoff v16 pointer and false-plus-notes uncertainty wording are explicit; the former public return/scoring examples now defer to the private coordinator SOP. The empty owner-only custody tree is verified and excluded from broad inventory roots. Preserve opaque scan/scoring staging and manual receipt checks. Two independent complete human returns still block Gate 1."
+    gate1_storage_control_metadata_audit_memo: "research/2026-10-16_gate1_storage_control_metadata_audit.md"
+    gate1_storage_control_metadata_audit_sha256: "903e0c805030e573953d7c8207e8302f4d3b334a7d41dcbf9d13eaab90cfe28f"
+    gate1_storage_control_status: "Verified empty owner-only tree: root plus originals/, staging/, receipts/, private_roster/ are 0700 yash:staff with no ACL entries. Library/Application Support are 0700; Application Support only has group:everyone deny delete; inspected ancestry has no broader ACL grant. Scanner v16 roots exclude this tree. Recheck before first genuine return; no files or label data are present."
+    rater_assignment_packet_manifest_check: "Both v5 synthetic_reliability ZIP paths exist; archive sizes and SHA-256 match packet_manifest.json. Manifest has no separate packet_id field, so the SOP uses its relative archive path. Metadata-only check; no ZIP contents opened."
+    rater_return_format_decision: "Owner handoff requests plain CSV through the coordinator controlled channel; intake scanner recognizes a ZIP with one CSV <=10,000,000 bytes and no UNBLIND/PRIVATE_KEY member. Agreement/truth scorers take CSV paths. Coordinator SOP narrows ZIP intake to one safe member, a 12,000,000-byte envelope cap, opaque bounded streaming, and separate envelope/member hashes; no ZIP path extraction."
+    zip_intake_safety_source_review_memo: "research/2026-10-16_gate1_zip_intake_safety_source_review.md"
+    zip_intake_safety_source_review_sha256: "a7170280b4b4189f3d06b2e1bc65214d8e95664302d0b8a1cfa63d42b589aeca"
+    zip_intake_safety_source_review_decision: "Current scanner reads one declared <=10MB CSV member in memory and does not extract it; archive member paths/symlinks are not filesystem targets. The previous SOP extraction wording was underspecified. Use plain CSV by default; if ZIP is needed, hash the envelope first and stream via a ZipInfo object to an opaque temp path with actual byte cap/CRC checks, rejecting encrypted, symlink/special, duplicate, extra, path-like, oversized, or blacklisted archives. No exploit established; code/schema unchanged."
+    display_scale_audit: "research/2026-10-11_gate1_annotation_display_scale_audit.md"
+    v5_ui_smoke_report: "research/qa/gate1_v5_ui_roundtrip/report.json"
+    v5_ui_smoke_report_sha256: "2e9c5aa6ec8f95ea007fb29ff759c0c04845639bd500ee37fcce1cb8ad420758"
+    v5_packet_integrity_audit: "research/gate1_v5_packet_integrity_audit.json"
+    v5_packet_integrity_audit_sha256: "179988a70d5a83cb29a104ec3f40cb0dea0a63d843be01d84cf66582a4b69f9e"
+    v5_packet_integrity_script: "research/audit_gate1_v5_packet_integrity.py"
+    v5_packet_integrity_script_sha256: "202c2036577e5199ba50b7f1cf4b3bf0d878a81274a5781b954540bb958c41fd"
+    agreement_scorer: "research/score_annotation_agreement.py"
+    agreement_scorer_sha256: "9a3bc5289ef7e89a88b26f20ffc8770b415044ef35cb8ced5ee590597fe8aaac"
+    agreement_scorer_diagnostic: "research/gate1_scorer_tail_diagnostic_v6.json"
+    agreement_scorer_diagnostic_sha256: "69d254f3f63673b7a09b6065ad74c27785269aff6899b7c78404cf748ebf8367"
+    agreement_scorer_selfcheck: "research/validate_gate1_agreement_scorer.py"
+    agreement_scorer_selfcheck_sha256: "c673cc8d60885c2799f51caae212c6c69826a73f527672cb067217c13031534c"
+    known_truth_scorer: "research/score_gate1_labels_against_kubric_truth.py"
+    known_truth_scorer_sha256: "e170665880063bc5725c41f5316ac93275f360079ca0e4dc82ff21ffc5864957"
+    known_truth_oracle_validation_script: "research/validate_gate1_truth_scorer_oracle.py"
+    known_truth_oracle_validation_script_sha256: "3e305914a51f5ef52fc347b7ad1bded04499edc6ee0b6bc62a5e7182c3c5798e"
+    known_truth_oracle_validation: "research/gate1_truth_scorer_oracle_selfcheck_v3.json"
+    known_truth_oracle_validation_sha256: "9457781ba2ef1810f25b44196a2aa89cb9974cacdf894ed3727a0625e13f9605"
+    historical_known_truth_oracle_validation_v2: "research/gate1_truth_scorer_oracle_selfcheck_v2.json"
+    historical_known_truth_oracle_validation_v1: "research/gate1_truth_scorer_oracle_selfcheck_v1.json"
+    known_truth_audit_memo: "research/2026-10-11_gate1_known_truth_scorer_audit.md"
+    known_truth_audit_memo_sha256: "fd4171d1d8f54268b2535e362854cead94798d8a4414c73f66bb51b6dcf90961"
+    blind_worst_frame_review_builder: "research/build_gate1_blind_worst_frame_review.py"
+    blind_worst_frame_review_builder_sha256: "948641497d6261d7fc499ee6b8d1666bc0e12e1860603eaff88fbeb47fcff4d3"
+    blind_worst_frame_review_selfcheck: "research/validate_gate1_blind_worst_frame_review.py"
+    blind_worst_frame_review_selfcheck_sha256: "c6c8fb44b64d7abcad03775c084a466313c3a2356825fba26bc2a07958137c99"
+    blind_worst_frame_review_result: "research/gate1_blind_worst_frame_review_selfcheck_v2.json"
+    blind_worst_frame_review_result_sha256: "8d92865c807f1de8bc56e3edb2af5c54ad526b9763de512c9c1ff48264fbbdfe"
+    historical_blind_worst_frame_review_result_v1: "research/gate1_blind_worst_frame_review_selfcheck_v1.json"
+    blind_worst_frame_review_memo: "research/2026-10-11_gate1_blind_worst_frame_review.md"
+    blind_worst_frame_review_memo_sha256: "ed58064d9526f43499136bea1a03f1c12806d5712d977f8adacecc0235f6f9ee"
+
+    packet_static_audit: "The 2026-10-07 audit covered v3/v4 and the 2026-10-16 audit inspected the final v5 synthetic-reliability packets. The v5 HTML embeds all frames, references no remote assets or direct network APIs, stores labels in browser localStorage, and exports a local Blob. The 34-row/11-column frame mappings are preserved, and visibility/count/identity/box are separately entered. This is static source evidence, not a runtime trace or human agreement result. See research/2026-10-16_gate1_v5_static_packet_audit.md, research/2026-10-07_gate1_packet_static_source_audit.md, research/2026-10-09_gate1_annotator_ui_roundtrip.md, and research/2026-10-11_gate1_manifest_qa_reconciliation.md."
+    ui_mechanics_check: "research/2026-10-09_gate1_annotator_ui_roundtrip.md"
+    ui_smoke_csv: "research/qa/2026-10-09_gate1_annotator_roundtrip/smoke_not_human_rater_labels.csv"
+    ui_smoke_csv_sha256: "62984ff39fd4e5b7dce10e248c7147da7358ad0ecd2f5cca80d5b13bb3404468"
+    manifest_qa_reconciliation: "research/2026-10-11_gate1_manifest_qa_reconciliation.md"
+    release_gate: "Have two independent raters label all 34 frames in both v5 mirrored Kubric clips. Validate both exact frame-key/image mappings against research/gate1_manual_annotation_packets_v5/synthetic_reliability/rater_01.zip, then score with --source-width 160 --source-height 96 --expected-clips 2 and require pooled and each mirrored clip threshold to pass. The corrected p95 limit is <=0.5 target-grid cell per axis. Regardless of p95 pass, use the same v5 ZIP in the blind worst-frame helper to inspect and record each clip's maximum radial center-disagreement frame, any distinct nonzero axis maxima, and categorical/eligibility flags; correct data-entry/export errors and rescore while blind. Keep genuine visibility/identity uncertainty separate from path geometry. The known-truth scorer repeats packet-map validation and recomputes this blind screen before any key read. Score geometry only when annotation and fixture truth each mark one visible, identity-consistent target. This one-pair screen remains insufficient; a second independently rendered mirrored-seed block is required."
+    second_seed_block_status: "prepared_not_run_waiting_for_first_block_human_screen_and_blind_review"
+    second_seed_block_workflow: "research/2026-10-12_gate1_second_seed_block_workflow.md"
+    second_seed_block_renderer: "research/render_gate0_kubric_fixture.py --seed <seed>"
+    second_seed_block_packet_builder: "research/build_gate1_seed_block_packets.py"
+    second_seed_block_packet_builder_sha256: "47e38565cdd7b4d07746c7f0c786e8a3cc48da8f54fc8dc9269cb7db1fb04c49"
+    second_seed_block_packet_gate: "Requires exact first-block rater CSV hashes; matching packet SHA plus exact key-to-image checks in both agreement and truth reports; completed blind review whose report also passes both packet-key checks; and the same revalidated mappings when the builder reads the CSVs. No candidate fixture or packets have been created."
+  - order: 2
+    experiment: EXP-DITRAJ-WAN13B-PAIRED-PATH-PILOT-002
+    status: local_12_cell_notebook_current_hash_manual_receipt_gated_preliminary_output_nonexportable_remote_stage_stale_kaggle_free_admission_unknown_colab_free_admission_unverified_gate1_labels_pending
+    local_notebook_sha256: "fc066dc732ca1213487181fe38f7b2a5d54038b39aa14d16f8569c8548c56e15"
+    notebook_review_memo: "research/2026-10-07_ditraj_notebook_preflight_review.md"
+    latest_review_memo: "research/2026-10-16_ditraj_fp16_t4_compatibility_audit.md"
+    latest_review_memo_sha256: "4a200f6b7e9f839e9402383e34d2a28561b66883670ce7cfd1bf62ae2babd1ea"
+    latest_local_source_audit: "research/2026-10-16_ditraj_notebook_local_source_audit.md"
+    latest_local_source_audit_sha256: "af322e450f28fffc7f366f73aee48a1a45e4821d0997cf2ed9b0c5d232366223"
+    latest_local_source_recheck_utc: "2026-10-16T15:42:29Z"
+    latest_local_source_recheck_decision: "Current local notebook SHA-256 5f8294ed508a8ad2581ef9bf0b1754aeaa44812bb964376f993fbd4a121d9d55 matches this registry; all 12 cells have null execution counts and empty outputs. Static AST extraction confirms the embedded pilot source byte-matches the local runner SHA-256 312d923f04af24a909082ca659a0d743e2066e2f970c71298eb971c594bc5a4e. The 2e697... hash in the earlier 13:22 memo is historical; current bytes are reviewed but remote staging remains blocked by the designated route's local-file permission. No quota/account check or runtime occurred."
+    latest_action_to_gate1_measurement_audit: "research/2026-10-16_ditraj_action_to_gate1_measurement_audit.md"
+    latest_action_to_gate1_measurement_audit_sha256: "0966dd6ba3d7c199ce04cf435292bb0f5981ff7f992a7fa0c04716c94afc5cff"
+    embedded_and_local_runner_sha256: "312d923f04af24a909082ca659a0d743e2066e2f970c71298eb971c594bc5a4e"
+    latest_local_notebook_metadata_recheck_utc: "2026-10-17T04:31:15Z"
+    latest_local_notebook_metadata_recheck: "Read-only notebook JSON/hash review confirms the current local 12-cell source matches the registered SHA-256 5f8294ed508a8ad2581ef9bf0b1754aeaa44812bb964376f993fbd4a121d9d55; its 10 code cells have null execution counts and no outputs. No local source or remote notebook was changed."
+    latest_remote_stage_recheck_utc: "2026-10-17T04:31:15Z"
+    latest_remote_stage_recheck: "Chrome profile B V YASHWANT KUMAR shows the designated bvyashwantkumar Kaggle DiTraj draft URL/title, but the page body exposes no notebook content, so source/session/quota/admission cannot be confirmed. The designated-account Colab Resources panel is fresh but belongs to M1 CogVideoX, not this DiTraj notebook. No import, upload, edit, or runtime occurred."
+    last_remote_preflight_utc: "2026-10-15T07:35:58Z"
+    last_quota_recheck_utc: "2026-10-15T07:35:58Z"
+    latest_stage_recheck: "2026-10-16 06:59 UTC read-only check: the designated Kaggle draft loads, is saved with Draft Session off, and offers GPU T4 x2 with Start session enabled. The 00:00 / 30 hrs display appears to be usage/cap, not proof of zero remaining quota or free admission. No session was started. Remote source remains a stale four-cell draft; local 12-cell source adds exact (7,5) guard and remains unuploaded."
+    staging_attempt_utc: "2026-10-15T06:42:23Z"
+    staging_result: "The designated draft loads and is saved/session-off, but remains a stale four-cell source. File > Import did not open a chooser. The browser security policy refused inspection of chrome://extensions and explicitly prohibits alternate routes for that setting. No local file was selected/transferred; no permission, source, cell, or runtime change occurred. User action is required to enable local-file access."
+    latest_local_review: "2026-10-16: the local 12-cell notebook has a fail-closed `(7,5)` T4 capability guard before model weights; all cells remain unexecuted and the embedded runner is unchanged. The resource gate, 30-step screen, and feedback screen remain false by default. The remote draft is stale; Chrome blocked local file selection for Drive Manage versions, so it was not updated."
+    free_accelerator_quota: "2026-10-17 04:30 UTC: the designated Colab account is not subscribed, has zero compute units, is disconnected, and free resources are not guaranteed; Connect T4 is not proof of admission. The designated Kaggle page body is inaccessible, so its present quota/admission is unknown. No runtime was started."
+    release_gate: "The current local 12-cell notebook SHA-256 is fc066dc732ca1213487181fe38f7b2a5d54038b39aa14d16f8569c8548c56e15; notebook setup, preflight, and run paths require a fresh exact-arm manual admission receipt, and direct runner CLIs re-hash their executing source. The receipt is an operator attestation and cannot verify Kaggle billing or staged notebook identity. Preliminary annotation output remains non-scoreable and non-exportable until the per-frame hash/dimension manifest and background-stability measure exist. Remote staging remains stale, Kaggle admission is unknown, and Gate 1 still lacks two independent complete v5 returns. No receipt, model run, test, upload, or runtime is recorded; keep execution closed."
+  - order: 3
+    experiment: EXP-DITRAJ-FULL-RUN-BOX-SENSITIVITY-001
+    status: planned_after_open_loop_path_response
+    release_gate: "After the independently scored open-loop pilot, compare matched whole-run target-box perturbations that include early STD-RoPE and foreground routing. Keep prompt, noise, sampler, and seed matched; use independent human output labels and scene/identity/size guardrails. A one-seed directional screen is not sign calibration; require at least eight paired seed blocks before calibrating the full-run box action."
+  - order: 4
+    experiment: EXP-DITRAJ-BOX-MASK-ACTUATION-CHECK-001
+    status: planned_after_open_loop_requires_human_output_labels
+    release_gate: "Separate late mask actuation from full-run box sensitivity: after step 4 compare static 0, ±1, and ±2 horizontal-cell shifts to future cross-attention masks, hold the starting box and early STD-RoPE fixed, and verify the shared prefix and scheduler state are identical. Pilot mask_step=18 leaves 13 eligible calls in a 30-step run. Use human output labels until the observer passes held-out validation. A one-seed screen is directional only; require at least eight paired seed blocks before calibrating the action sign. A null ±1 with repeatable ±2 response is a measurable dead band, not evidence that the whole route is inactive."
+  - order: 5
+    experiment: EXP-DITRAJ-GENERATED-PREVIEW-OBSERVER-GATE-001
+    status: preregistered_not_run
+    release_gate: "Before enabling an online observer, label ten no-policy Wan clips from five mirrored seed pairs with two blind raters across all 17 frames. Report visibility/identity, raw frame-0 localization, controller-keyframe coverage/error, and held-out false-accept behavior separately. Freeze any threshold on development blocks and use fresh holdout blocks for confirmation."
+  - order: 6
+    experiment: EXP-DITRAJ-WAN13B-X0-BOX-FEEDBACK-SMOKE-001
+    status: local_adapter_ready_plumbing_gated_by_observer_and_actuation
+    release_gate: "Only after observer and actuator gates pass, run the one-direction eight-step baseline/no-op/bounded-feedback smoke to verify adapter hooks, exact no-op replay, and quantized mask changes. Step-4 feedback affects only three later calls in this schedule; report plumbing/resource facts only, with no motion-direction or efficacy claim."
+  - order: 7
+    experiment: EXP-DITRAJ-STEP4-FEEDBACK-EFFICACY-001
+    status: future_requires_observer_and_actuation_pass
+    release_gate: "After the eight-step plumbing smoke, compare open-loop, exact no-op, fixed action, live residual, shuffled-state, and sign-reversed-state arms on the full 30-step schedule. Use matched held-out paths and at least ten paired seed blocks for efficacy claims; keep path error, visibility/identity, apparent size, and background stability separate."
+  - order: 8
+    experiment: EXP-M1-COGVIDEOX5B-I2V-SMOKE-001
+    status: prepared_not_run_no_paid_confirmation_and_drive_sync_unresolved
+    scope_amendment: research/2026-10-15_m1_smoke_gate_scope_amendment.md
+    scope_amendment_sha256: 8f5f52302fcf01c164d66189516054e4b3ebe4d975ec5b2c1102040133233733
+    package_stack_decision: research/2026-10-15_m1_package_stack_decision.md
+    package_stack_id: m1-colab-t4-2026-10-15-cu130-v1
+    package_stack_decision_sha256: 95fccd10a4d437dd959a80ca056e935794f299ae54b98ebc270f3be7a756b388
+    bundle_sha256: 7f0764dd3e8730485650d1c80defc4e6024f621af03068dad18291e272daee1e
+    local_notebook_sha256: ab9d85acda9451ae2edc3a4509064cafc27c66573ef25f7e9158459e9a1e27ef
+    runner_sha256: 3ed1802b5cec198d94f7662ebca3e26531a50f8fc7691f9f2b7f01e73925ec0e
+    full_sequence_frame_audit: m1/full_sequence_frame_audit_2026-10-16.md
+    full_sequence_frame_audit_sha256: c6b7a01e0e9d4a434764ea11f53734b47bcc408fc3252d70e29f3aceda8c74b9
+    capture_path_audit: m1/capture_path_static_audit_2026-10-16.md
+    capture_path_audit_sha256: e05e4434c94d9c475465ed9a61aad628986047079d5a6308edb0f8ba9276dbde
+    temporal_support_audit: m1/cogvideox_temporal_support_audit_2026-10-16.md
+    temporal_support_audit_sha256: bbda7aaf356fd3f90fadf5284b0126703a3551929eadd81086d90962c415ca5d
+    sparse_rgb_decode_audit: m1/cogvideox_sparse_rgb_decode_audit_2026-10-17.md
+    sparse_rgb_decode_audit_sha256: 5f3a88d4b4c69888779a7bef39206236df347e122e599403dc0965a38fc00ad8
+    readiness_report: m1/experiment_readiness_2026-10-16.md
+    readiness_report_sha256: 42bf4aafc0a8cc3cb8beeb1eec5659f45d13ab3d585be8f6282a9084a36f013f
+    sequence_synthesis: m1/cogvideox2b_30step_m0_and_m1_sequence_synthesis_2026-10-17.md
+    sequence_synthesis_sha256: ac815e229d49690def78a1fa72eee7137c6a60448458e6628006bcd72029817f
+    ticket_sha256: e7f09412381306749fa26e82915b24e148931494361007c3d8b052fb65f962ba
+    dense_frame_scoring: "Score all 49 decoded RGB frames into m1/runs/cogvideox_5b_i2v_t4_smoke/frame_score_table.jsonl with per-frame paths and hashes; the original eight are sentinel-only. Their legacy indices are not preserved locally, so do not infer them from latent anchors."
+    attention_capture_followup: "The one-clip smoke defers attention capture. Before the eight-seed pilot, freeze the bounded per-seed attention hooks and storage/runtime budget required by m1/failure_atlas_plan.md."
+    release_gate: "This one-clip, unsteered M1 smoke is independent of DiTraj/Kubric Gate 1. Run only on the authorized Colab profile after explicit no-paid T4 admission, same-ID Drive notebook refresh and SHA-256 readback, and a passing guarded bundle/T4/CC7.5/package preflight for the versioned torch 2.11.0+cu130 / torchvision 0.26.0+cu130 stack. Run only the seed-2026 full-sequence baseline plus exact same-runtime replay, with all 49 decoded frames scored into the registered frame_score_table.jsonl post-run artifact. No Kaggle/paid fallback. Do not start the eight-seed batch until runtime, peak memory, capture coverage, replay, and the complete frame-score table pass review and receive a separate release decision."
+  - candidate: VIGOR saved-M0 reward audit
+    status: secondary_not_scheduled
+    note: "Outside the active compute queue; do not place ahead of DiTraj or M1."
+
+hypotheses:
+  - id: H1_LATENT_OBSERVABILITY
+    statement: "Robotics-relevant state variables are recoverable from intermediate video-generator representations."
+    status: open
+
+  - id: H2_LATENT_CORRECTABILITY
+    statement: "Intervening on selected internal representations causally improves corresponding generation failures."
+    status: open
+
+  - id: H3_SYNTHETIC_SUBSTITUTION
+    statement: "Higher physical/geometric consistency increases the amount of real robot data that synthetic trajectories can substitute at matched downstream performance."
+    status: open
+
+milestones:
+  - id: M0
+    name: microscope
+    status: complete
+    progress_note: "Retry5 completed on a free Colab T4: 17 Wan frames at 832x480, 30 steps, 160.02 s generation plus a 142.10 s exact same-seed replay, with 7.91 GiB peak allocated GPU memory. All ten M0 gates pass, including predicted-clean latents/previews at steps 4, 14, 24, and 29; hidden summaries (18/18); bounded-attention summaries (18/18); VAE round trip; and exact replay. The retry5 final frame PNGs and seven post-step latents are byte-for-byte identical to retry4. All 128 manifest-listed artifact hashes match. Retry4 remains a historical attempt with predicted-clean capture gaps. The image-space motion proxy shows rightward motion and apparent size growth; this is not metric 3D evidence. CogVideoX-2B is separate feasibility evidence. No M1 experiment has started."
+    latest_run_artifacts: "m0/runs/wan_t4_2026-10-02_retry5"
+    prior_run_artifacts: "m0/runs/wan_t4_2026-10-02_retry4"
+    runner_source: "m0/runner_snapshots/run_m0_retry5_2026-10-02.py"
+    posthoc_frame_audit: "m0/analysis/wan_t4_retry5_frame_motion_audit.json"
+    gates:
+      runtime_config: pass
+      architecture: pass
+      post_step_latents: pass
+      hidden_state_summaries: pass
+      bounded_attention_summaries: pass
+      vae_roundtrip: pass
+      same_seed_replay: pass
+      predicted_clean_latents_and_previews: pass
+      transformer_dtype: pass
+      generation_packet_and_hashes: pass
+    target_model: "Wan-AI/Wan2.1-T2V-1.3B-Diffusers"
+    target_revision: "0fad780a534b6463e45facd96134c9f345acfa5b"
+    required_outputs:
+      - pinned_environment_and_generation_config
+      - deterministic_generation
+      - model_tensor_map
+      - vae_roundtrip_report
+      - denoising_latent_capture
+      - predicted_clean_latents_and_previews
+      - selected_transformer_hidden_state_capture
+      - bounded_attention_summaries
+      - generation_packet
+      - one_full_autopsy_report
+    offline_location_readout:
+      experiment_id: EXP-LATENTGATE-M0-SPATIAL-LOCATION-READOUT-001
+      status: completed_cpu_only_same_clip_proxy_readout_late_spatial_signal_detected_no_robust_center_gain
+      protocol: "research/2026-10-12_m0_spatial_latent_location_readout.md"
+      runner: "research/run_m0_spatial_latent_location_readout.py"
+      output: "m0/analysis/m0_spatial_latent_location_readout_v1.json"
+      output_sha256: "28edcab17b8de90cd4f7ad8baf96e809b3265b5054dd0a1174f783ab625d3737"
+      runner_sha256: "c21a4f9085ba9abde130113ca6fd1c52fb5b2de39328a12577a7559c009ca81f"
+      input_run: "m0/runs/wan_t4_2026-10-02_retry5/run_001"
+      method: "Leave one of five latent times out; ridge alpha=1 on 64-value 2x2x16 latent patches; compare positive-residual location and average precision to train-time mean occupancy prior. RGB red-threshold proxy only."
+      evidence_boundary: "One prompt/seed and one clip; five within-clip temporal folds are correlated and do not establish generalization, geometry/contact, causal control, policy efficacy, or M1/M2/M3 completion."
+      result: "x0-hat pre-step 014 had mean held-out center error 0.711 token cells vs coordinate prior 0.906, but this small single-clip difference is not robust; all other x0-hat snapshots were equal to or worse than the prior. Late spatial snapshots rank the same-clip red proxy highly, with the coordinate prior itself at AP 0.940."
+    offline_temporal_change_readout:
+      experiment_id: EXP-LATENTGATE-M0-TEMPORAL-CHANGE-LOCALIZATION-001
+      status: completed_cpu_only_same_clip_mixed_late_temporal_localization_signal_no_robust_readout_gain
+      protocol: "research/2026-10-12_m0_temporal_change_localization.md"
+      protocol_sha256: "56aed6fd62f44c2ad70a635d21d0a5e42db1dd5ebe232de5352b589c6f8fa5e2"
+      runner: "research/run_m0_temporal_change_localization.py"
+      runner_sha256: "9e26f17cbb8ca8ea5b517bd173a56a85104a87efa52d4fd2c9aa8175c628bbe6"
+      output: "m0/analysis/m0_temporal_change_localization_v1.json"
+      output_sha256: "66b5465a81cc94c7981552dda444b72411e06bd61c4236fe50d9f1d1c873f2a2"
+      input_run: "m0/runs/wan_t4_2026-10-02_retry5/run_001"
+      method: "Leave one of four adjacent latent-time pairs out; ridge alpha=1 on signed 64-value 2x2x16 latent differences to predict red-proxy XOR occupancy. Compare AP/RMSE with a spatial-site prior; also report absolute-delta energy, RGB-change rank correlation, and object/background enrichment."
+      evidence_boundary: "One prompt/seed and one clip; four correlated transitions and seven denoising snapshots are not independent samples. Red-XOR and RGB-change targets are same-output proxies. No object understanding, forecasting, geometry/contact, causal control, policy efficacy, generalization, or M1/M2/M3 completion is established."
+      result: "At post-step 029, ridge mean AP was 0.307 vs 0.671 for the spatial-site prior and beat it on 1/4 transitions. Direct absolute-delta energy mean AP was 0.546; red-XOR energy enrichment exceeded 1 on 3/4 transitions (mean ratio 2.255), with positive Spearman correlation to patch RGB change on 3/4. Early direct-energy scores were near chance. Mixed within-clip signal only; no milestone gate advanced."
+
+  - id: M1
+    name: failure_atlas
+    status: prepared_not_run_no_paid_confirmation_and_drive_sync_unresolved
+    plan_file: "m1/failure_atlas_plan.md"
+    first_execution_ticket: "m1/geometry_scale_drift_ticket.json"
+    scope_amendment: "research/2026-10-15_m1_smoke_gate_scope_amendment.md"
+    progress_note: "No M1 notebook cell or model inference has run. On 2026-10-15 the designated Colab account allocated Tesla T4 and confirmed PyTorch CUDA (`2.11.0+cu130`, 14.56 GiB), then disconnected without installing packages or loading weights; no billing receipt appeared. This proves hardware access at that time, not free billing. The versioned M1 stack now pins `torch==2.11.0+cu130` and `torchvision==0.26.0+cu130`, matching the observed CUDA 13.0 runtime; the guarded preflight must verify both before weights. Refresh/hash-check the Drive notebook and local bundle. The single unsteered baseline/replay smoke is independent of DiTraj/Kubrik Gate 1 under the linked amendment; its own no-paid admission, T4/CC7.5/package, capture/replay, and blinded scoreability gates remain. Do not start the eight-seed atlas until the smoke passes review and a separate release decision is recorded."
+  - id: M2
+    name: geometry_emergence
+    status: blocked_by_M1
+    objective: "Probe depth/pointmap information across transformer layer and denoising timestep."
+    plan_source: CODEX_MULTI_AGENT_BOOTSTRAP.md
+  - id: M3
+    name: causal_geometry_intervention
+    status: blocked_by_M2
+    objective: "Perform one activation or latent intervention and measure its causal effect."
+    plan_source: CODEX_MULTI_AGENT_BOOTSTRAP.md
+  - id: M4
+    name: first_policy_gate
+    status: planned_not_started
+    objective: "Build one teacher → latent probe → gate → independent verifier policy."
+    plan_source: CODEX_MULTI_AGENT_BOOTSTRAP.md
+    release_gate: "Detailed hypothesis, controls, falsifier, and run ticket are not yet registered."
+  - id: M5
+    name: tracking_identity_gate
+    status: planned_not_started
+    objective: "Repeat the teacher/probe/gate/verifier process for tracking or identity."
+    plan_source: CODEX_MULTI_AGENT_BOOTSTRAP.md
+    release_gate: "Detailed hypothesis, controls, falsifier, and run ticket are not yet registered."
+  - id: M6
+    name: policy_interference
+    status: planned_not_started
+    objective: "Measure cross-effects among isolated, independently verified policies."
+    plan_source: CODEX_MULTI_AGENT_BOOTSTRAP.md
+    release_gate: "Do not compose policies before their isolated effects and collateral changes are measured."
+  - id: M7
+    name: synthetic_data_pilot
+    status: planned_not_started
+    objective: "Test whether improved generated videos support better pseudo-actions or downstream robot policy performance."
+    plan_source: CODEX_MULTI_AGENT_BOOTSTRAP.md
+    release_gate: "Define a matched downstream policy-performance comparison before the pilot."
+
+experiments:
+  - id: EXP-LATENTGATE-GATE0-SCORER-VALIDATION-001
+    owner: "LatentGate research"
+    status: kubric_rendered_truth_scored_annotation_reliability_pending
+    protocol: "research/2026-10-02_state-feedback_source_audit.md"
+    scorer: "research/path_annotation_scoring.py"
+    renderer: "research/render_gate0_kubric_fixture.py"
+    results: "research/gate0_scorer_validation_v1.json"
+    rendered_fixture: "research/kubric_gate0_fixture_v1/fixture_report.json"
+    annotation_reliability_packages: "research/kubric_gate0_annotation_reliability/package_manifest.json"
+    compute: "CPU-only deterministic PIL and Kubric/Blender renders; no GPU or cloud inference"
+    limitation: "Kubric mask/projection truth and scorer pass on both 17-frame path directions; independent double-label reliability check remains open"
+
+  - id: EXP-LATENTGATE-GATE1-ANNOTATION-RELIABILITY-001
+    owner: "LatentGate measurement"
+    status: "kubric_rendered_truth_scored_scorer_and_unblind_guard_hardened_human_labels_pending"
+    protocol: "research/2026-10-03_gate1_annotation_method_followup.md"
+    packet_builder: "research/build_blinded_box_packets.py"
+    synthetic_rater_01: "research/gate1_manual_annotation_packets_v5/synthetic_reliability/rater_01.zip"
+    synthetic_rater_02: "research/gate1_manual_annotation_packets_v5/synthetic_reliability/rater_02.zip"
+    superseded_packet_version: "research/gate1_manual_annotation_packets_v3"
+    independence_audit: "research/2026-10-11_gate1_annotation_independence_audit.md"
+    packet_integrity_audit: "research/qa/gate1_v4_packet_integrity_audit.json"
+    packet_integrity_audit_sha256: "87dfa50333f65b739f2178b290d1b2d47123a7057854bfe4dced3f1f485ba6bf"
+    v4_ui_smoke_report: "research/qa/gate1_v4_ui_roundtrip/report.json"
+    v4_ui_smoke_report_sha256: "f4b43449996c2799a8a98dda3e9f1446a018877a9bd2a670ac23b7fd193be9dc"
+    v4_manifest_sha256: "a1498dae7d9ce8cdcf11222a55fd21f96851811de0647caf3bab3201b763e58f"
+    builder_sha256_at_v4_build: "58a0cb7c2729d59c438d384af1cc3e88e869caf5747500425a591ae3c2419825"
+    v4_manifest: "research/gate1_manual_annotation_packets_v4/packet_manifest.json"
+    v5_builder_sha256: "d8e1de9a4122ce14ba6e540fea2b5974d342c5fa88ebe86cdbef5a349ccd3091"
+    v5_manifest_sha256: "1a661d35a94c98f7ec8688d81d71c5cdd2f38c90b74e3ed738952cee9ed6fca5"
+    display_scale_audit: "research/2026-10-11_gate1_annotation_display_scale_audit.md"
+    v5_ui_smoke_report: "research/qa/gate1_v5_ui_roundtrip/report.json"
+    v5_ui_smoke_report_sha256: "2e9c5aa6ec8f95ea007fb29ff759c0c04845639bd500ee37fcce1cb8ad420758"
+    v5_packet_integrity_audit: "research/gate1_v5_packet_integrity_audit.json"
+    v5_packet_integrity_audit_sha256: "179988a70d5a83cb29a104ec3f40cb0dea0a63d843be01d84cf66582a4b69f9e"
+    v5_packet_integrity_script: "research/audit_gate1_v5_packet_integrity.py"
+    v5_packet_integrity_script_sha256: "202c2036577e5199ba50b7f1cf4b3bf0d878a81274a5781b954540bb958c41fd"
+    superseded_annotation_presentation_version: "research/gate1_manual_annotation_packets_v4"
+    agreement_scorer: "research/score_annotation_agreement.py"
+    agreement_scorer_sha256: "9a3bc5289ef7e89a88b26f20ffc8770b415044ef35cb8ced5ee590597fe8aaac"
+    metric_version: blinded_human_annotation_agreement_v2
+    coordinate_scale_audit: "research/2026-10-11_gate1_coordinate_scale_audit.md"
+    coordinate_scale_audit_sha256: "e3b1c84726ad7197f82d77c2bf9b2897198a092954607e00d43c2dabd2ef4be1"
+    coordinate_mapping_diagnostic: "research/gate1_scorer_tail_diagnostic_v6.json"
+    coordinate_mapping_diagnostic_sha256: "69d254f3f63673b7a09b6065ad74c27785269aff6899b7c78404cf748ebf8367"
+    historical_scorer_diagnostic_result_v2: "research/gate1_scorer_tail_diagnostic_v2.json"
+    historical_scorer_diagnostic_result_v5: "research/gate1_scorer_tail_diagnostic_v5.json"
+    absent_identity_guard_validation: "research/gate1_absent_identity_guard_v1.json"
+    absent_identity_guard_validation_sha256: "e876edbd16e7d52fff0263fc7b97984623b9ba66d9b34532d4f96a82d9f66f39"
+    scorer_cpu_audit: "research/2026-10-11_gate1_annotation_independence_audit.md"
+    scorer_diagnostic_script: "research/validate_gate1_agreement_scorer.py"
+    scorer_diagnostic_script_sha256: "c673cc8d60885c2799f51caae212c6c69826a73f527672cb067217c13031534c"
+    scorer_diagnostic_result: "research/gate1_scorer_tail_diagnostic_v6.json"
+    scorer_diagnostic_result_sha256: "69d254f3f63673b7a09b6065ad74c27785269aff6899b7c78404cf748ebf8367"
+    scorer_diagnostic_decision: "The scorer now requires each complete rater CSV to match the archived packet frame-key set and exact image filename for every blind frame. The CLI self-check rejects both raters sharing one wrong filename. The packet maps were compared without reading a private key or revealing alias direction. No thresholds changed; human-label reliability remains unmeasured. See the packet-key fail-closed audit and v6 diagnostic."
+    known_truth_scorer: "research/score_gate1_labels_against_kubric_truth.py"
+    known_truth_scorer_sha256: "e170665880063bc5725c41f5316ac93275f360079ca0e4dc82ff21ffc5864957"
+    known_truth_oracle_validation_script: "research/validate_gate1_truth_scorer_oracle.py"
+    known_truth_oracle_validation_script_sha256: "3e305914a51f5ef52fc347b7ad1bded04499edc6ee0b6bc62a5e7182c3c5798e"
+    known_truth_oracle_validation_result: "research/gate1_truth_scorer_oracle_selfcheck_v3.json"
+    known_truth_oracle_validation_result_sha256: "9457781ba2ef1810f25b44196a2aa89cb9974cacdf894ed3727a0625e13f9605"
+    historical_known_truth_oracle_validation_result_v1: "research/gate1_truth_scorer_oracle_selfcheck_v1.json"
+    historical_known_truth_oracle_validation_result_v2: "research/gate1_truth_scorer_oracle_selfcheck_v2.json"
+    known_truth_oracle_audit_memo: "research/2026-10-11_gate1_known_truth_scorer_audit.md"
+    known_truth_oracle_audit_memo_sha256: "fd4171d1d8f54268b2535e362854cead94798d8a4414c73f66bb51b6dcf90961"
+    blind_worst_frame_review_builder: "research/build_gate1_blind_worst_frame_review.py"
+    blind_worst_frame_review_builder_sha256: "948641497d6261d7fc499ee6b8d1666bc0e12e1860603eaff88fbeb47fcff4d3"
+    blind_worst_frame_review_selfcheck: "research/validate_gate1_blind_worst_frame_review.py"
+    blind_worst_frame_review_selfcheck_sha256: "c6c8fb44b64d7abcad03775c084a466313c3a2356825fba26bc2a07958137c99"
+    blind_worst_frame_review_result: "research/gate1_blind_worst_frame_review_selfcheck_v2.json"
+    blind_worst_frame_review_result_sha256: "8d92865c807f1de8bc56e3edb2af5c54ad526b9763de512c9c1ff48264fbbdfe"
+    blind_worst_frame_review_memo: "research/2026-10-11_gate1_blind_worst_frame_review.md"
+    blind_worst_frame_review_memo_sha256: "ed58064d9526f43499136bea1a03f1c12806d5712d977f8adacecc0235f6f9ee"
+    packet_key_validation_memo: "research/2026-10-15_gate1_packet_key_fail_closed_audit.md"
+    packet_key_validation_memo_sha256: "85772570cf43e05f8b572dd812db555ac01791dbacbd4ece4e456f5e46914c64"
+    manifest: "research/gate1_manual_annotation_packets_v5/packet_manifest.json"
+    packet_static_audit: "research/2026-10-16_gate1_v5_static_packet_audit.md"
+    packet_static_audit_sha256: "999362d73d1f026b5ec1e42eec17fc2c9b9912a565b17e3aaed323b863c2ab76"
+    historical_packet_static_audit: "research/2026-10-07_gate1_packet_static_source_audit.md"
+    research_report_incorporation: "research/2026-10-11_full_research_chat_reconciliation.md"
+    source_resolution: [160, 96]
+    target_resolution: [832, 480]
+    target_control_grid: [52, 30]
+    last_label_return_check_utc: "2026-10-16T15:45:29Z"
+    label_return_check: "2026-10-16T15:45:29Z: packet-bound scan v16 covered 7,232 CSV/ZIP paths and found 24 exact-v5-header candidates: two blank canonical packets, 20 blank or wrong-map files, and two known QA/synthetic files. There are zero complete or partial human returns. Approved roots were project research/, Downloads, and Desktop; the owner-only Application Support tree was excluded. The report emitted no annotation values, blind aliases, direction map, or private key; archives were not extracted. CPU only, Darwin arm64/Python 3.12.3, 9.900657 s, GPU false, peak VRAM null, model inference false."
+    label_intake_scanner: "research/scan_gate1_label_intake.py"
+    label_intake_scanner_sha256: "a7db4518ef76d5efe761d0f05e014968ae32a94927a3ee8c849d89e8b30c360c"
+    label_intake_scan: "research/gate1_label_intake_scan_v16.json"
+    label_intake_scan_sha256: "51eca7508423b6fa6c6628b6ecfd0094d03e9798818e101e5e1d40d50b73d959"
+    historical_label_intake_scan_v1: "research/gate1_label_intake_scan_v1.json"
+    historical_label_intake_scan_v2: "research/gate1_label_intake_scan_v2.json"
+    historical_label_intake_scan_v3: "research/gate1_label_intake_scan_v3.json"
+    historical_label_intake_scan_v4: "research/gate1_label_intake_scan_v4.json"
+    historical_label_intake_scan_v5: "research/gate1_label_intake_scan_v5.json"
+    historical_label_intake_scan_v6: "research/gate1_label_intake_scan_v6.json"
+    historical_label_intake_scan_v7: "research/gate1_label_intake_scan_v7.json"
+    historical_label_intake_scan_v8: "research/gate1_label_intake_scan_v8.json"
+    historical_label_intake_scan_v9: "research/gate1_label_intake_scan_v9.json"
+    historical_label_intake_scan_v10: "research/gate1_label_intake_scan_v10.json"
+    historical_label_intake_scan_v11: "research/gate1_label_intake_scan_v11.json"
+    historical_label_intake_scan_v12: "research/gate1_label_intake_scan_v12.json"
+    historical_label_intake_scan_v13: "research/gate1_label_intake_scan_v13.json"
+    historical_label_intake_scan_v14: "research/gate1_label_intake_scan_v14.json"
+    historical_label_intake_scan_v15: "research/gate1_label_intake_scan_v15.json"
+    label_intake_validator: "research/validate_gate1_label_intake.py"
+    label_intake_validator_sha256: "0ea4a78124775a594d25a1e5f28ae51559da1c22ccc1f08d8caecc01e6b4bd49"
+    label_intake_selfcheck: "research/gate1_label_intake_scanner_selfcheck_v1.json"
+    label_intake_selfcheck_sha256: "0ba2f1436f4781381bcf79d72a9a8db76a32fdd5aaccc95e86ec8c8a9bc8247a"
+    label_intake_scan_memo: "research/2026-10-15_gate1_label_intake_scan.md"
+    label_intake_scan_memo_sha256: "6c5682e45e20189fe3843d4987890d82ad3afeef06020c4a254b49cc73ba7e16"
+    latest_local_notebook_source_audit: "research/2026-10-16_ditraj_notebook_local_source_audit.md"
+    latest_local_notebook_source_audit_sha256: "8146f7ce8da987d31a8de167dab1a0421bb05ecc798fed60901786f4f603ddfc"
+    latest_recheck_memo: "research/2026-10-11_gate1_known_truth_scorer_audit.md"
+    decision_rule: "For the one-pair process screen, require --source-width 160 --source-height 96 --expected-clips 2, at least 95% joint visibility/count/identity agreement, at least 90% unique visible center-pair coverage, and p95 tight-box-midpoint disagreement no more than 0.5 target-grid cell per axis after mapping. Require pooled and each mirrored clip to pass. Regardless of pass, inspect and record each clip's maximum radial-error frame and per-axis maxima if different while still blind. Fix data-entry/export errors and rescore; keep true visibility/identity uncertainty out of geometry scoring. This review is diagnostic, not a new numeric threshold. A one-pair pass still requires a second independently rendered mirrored-seed block."
+    compute: "Packet-key CPU self-checks on Darwin arm64/Python 3.12.3: agreement CLI 0.409068 s; truth oracle 0.779671 s for seven subprocesses; offline worst-frame review 0.014575 s. GPU false, peak VRAM null/not allocated, no model inference, external download, cloud runtime, or paid resource."
+    limitation: "One existing left/right Kubric pair only, 34 correlated frame labels; all v3/v4/v5 human templates remain blank. Packet-map validation assumes the registry/hash-bound reference ZIP is trusted and does not authenticate a malicious substitute. Synthetic exact/shared-bias/rater-uncertain/truth-uncertain/duplicate, common-wrong-filename, and below-threshold-before-unblind checks validate code behavior only. No human agreement, generated-video observer accuracy, or policy efficacy is established; a passing one-pair screen still requires a second independently rendered mirrored-seed block."
+
+  - id: EXP-LATENTGATE-GATE1-KNOWN-TRUTH-COMMON-MODE-DIAGNOSTIC-001
+    owner: "LatentGate measurement"
+    status: "completed_synthetic_oracle_threshold_gate_truth_eligibility_validation_human_labels_pending"
+    protocol: "research/validate_gate1_truth_scorer_oracle.py"
+    scorer: "research/score_gate1_labels_against_kubric_truth.py"
+    scorer_sha256: "ed3f950e192f32c8908982555b2d344721414d1295b31b7aa11a8de65cfa22d4"
+    result: "research/gate1_truth_scorer_oracle_selfcheck_v2.json"
+    result_sha256: "38091045a84809d7b82f53156b15aafc304cdb1e827fe2d3678ed2dc6cb18a58"
+    historical_result_v1: "research/gate1_truth_scorer_oracle_selfcheck_v1.json"
+    protocol_sha256: "5397a143fdea093b13b013df09cbf3d72335e20ccea5597a539ffa8f5a216faf"
+    audit: "research/2026-10-11_gate1_known_truth_scorer_audit.md"
+    input: "Local Kubric Gate 0 left/right 17-frame fixture; disposable synthetic clip IDs; temporary exact and common-shift CSVs plus a temporary synthetic key derived from saved masks/boxes, deleted on exit. The oracle harness never reads the real packet key."
+    compute: "1.320003 s including six scorer subprocesses; Darwin arm64/Python 3.12.3; CPU only, GPU false, peak VRAM null, no model inference or external downloads."
+    finding: "Exact-oracle boxes return 0.0 px center error and IoU 1.0. Identical synthetic CSVs with a shared +2 source-pixel x shift remain pairwise exact, while truth scoring reports +2.0 px / 0.65 horizontal grid cells and mean IoU 0.8182. Rater identity uncertainty, truth identity uncertainty, and a truth duplicate-instance case each exclude one frame from unique-target geometry while retaining visible-box coverage. A deliberately below-threshold pair is rejected before the synthetic key-read error; accepted calls use only the generated temporary key, never the private packet key. V2 synthetic CSVs now include a nonempty frame image_file to remain compatible with the strengthened blinded scorer."
+    limitation: "Synthetic arithmetic, eligibility, and pre-unblind sequencing validation only. No human labels, new pass threshold, observer transfer result, or policy-efficacy measurement."
+
+  - id: EXP-LATENTGATE-GATE1-KNOWN-TRUTH-COMMON-MODE-DIAGNOSTIC-002
+    owner: "LatentGate measurement"
+    status: "completed_synthetic_packet_key_rejection_before_unblind_human_labels_pending"
+    protocol: "research/validate_gate1_truth_scorer_oracle.py"
+    scorer: "research/score_gate1_labels_against_kubric_truth.py"
+    scorer_sha256: "e170665880063bc5725c41f5316ac93275f360079ca0e4dc82ff21ffc5864957"
+    result: "research/gate1_truth_scorer_oracle_selfcheck_v3.json"
+    result_sha256: "9457781ba2ef1810f25b44196a2aa89cb9974cacdf894ed3727a0625e13f9605"
+    protocol_sha256: "3e305914a51f5ef52fc347b7ad1bded04499edc6ee0b6bc62a5e7182c3c5798e"
+    reference_packet: "research/gate1_manual_annotation_packets_v5/synthetic_reliability/rater_01.zip"
+    reference_packet_sha256: "0ab9ebeebc24e9badd58c53b1d9076522e926d69dc47067b6f957450a56533d8"
+    compute: "0.779671 s including seven isolated scorer subprocesses; Darwin arm64/Python 3.12.3; CPU only, GPU false, peak VRAM null, no model inference or external downloads."
+    finding: "Exact oracle, common +2 px bias, visibility/identity uncertainty, duplicate-instance and below-threshold-before-unblind cases retain expected outcomes. A pair where both submissions share one wrong image filename is rejected against the archived packet map before any deliberately missing key is touched."
+    limitation: "Synthetic code-order and oracle validation only; no human labels, agreement estimate, threshold change, observer transfer, or policy efficacy. The private packet key was not read."
+
+  - id: EXP-LATENTGATE-GATE1-SCORER-UNIT-MAPPING-003
+    owner: "LatentGate measurement"
+    status: "completed_cpu_resolution_mapping_and_single_outlier_tail_sensitivity_human_labels_pending"
+    protocol: "research/validate_gate1_agreement_scorer.py"
+    scorer: "research/score_annotation_agreement.py"
+    scorer_sha256: "c9f4da990fe1318a6cbdee9f508d3481e6c2e8a393360888f8d671a57b9dbf09"
+    diagnostic_script_sha256: "60ee9392be958ee1b80c76c09a0594be5146f7152ed5668dfdc8eb45d9e65431"
+    result: "research/gate1_scorer_tail_diagnostic_v3.json"
+    result_sha256: "55120ce5110d67c420c9be8bf22aa1c296b164d5dd754679bf9bdaf806b5b49d"
+    audit: "research/2026-10-11_gate1_coordinate_scale_audit.md"
+    tail_sensitivity_audit: "research/2026-10-11_gate1_p95_tail_sensitivity.md"
+    tail_sensitivity_audit_sha256: "f659aa7b069fe51a72234efb96a0b99a4987c7118f1319f8cb214c82ece3ced0"
+    source_resolution: [160, 96]
+    target_resolution: [832, 480]
+    target_grid: [52, 30]
+    compute: "0.000426 s CPU-only on Darwin arm64/Python 3.12.3; GPU false; peak VRAM null/not allocated; no model inference. Includes source-resolution mapping, weak-clip pooling, missing-clip/out-of-frame rejection, and the one-frame tail case."
+    finding: "A source pixel maps to 0.325 x-cells and 0.3125 y-cells. The old raw 8 px threshold would permit 2.6 x-cells / 2.5 y-cells. A 15 target-px error on two left frames makes pooled p95 pass but per-clip p95 fail. Separately, one 2.5-cell error in a single frame among 34 passes pooled and per-clip p95 (left p95=0.5, pooled p95=0.0); max-frame review is therefore required regardless of numeric pass."
+    limitation: "Synthetic scorer validation only. It does not measure human annotation reliability, observer transfer, or policy efficacy; the sensitivity case does not justify a new numeric maximum-error threshold."
+
+  - id: EXP-LATENTGATE-GATE1-SCORER-UNIT-MAPPING-004
+    owner: "LatentGate measurement"
+    status: "completed_cpu_empty_blind_alias_rejection_and_mapping_regression_human_labels_pending"
+    protocol: "research/validate_gate1_agreement_scorer.py"
+    scorer: "research/score_annotation_agreement.py"
+    scorer_sha256: "2f4db941431668c80d7bbd0113652246b19c5d30898e75b159897272a5c792ec"
+    diagnostic_script_sha256: "5e44ce6c85490e606a9b586426237af92b2c6110c7fb9955bd21a965be890a78"
+    result: "research/gate1_scorer_tail_diagnostic_v4.json"
+    result_sha256: "027a9fd117a77a8312bb56b9550a08450c9f2935405c3084def6e91cc831a390"
+    compute: "0.000594 s on Darwin arm64/Python 3.12.3; CPU only, GPU false, peak VRAM null/not allocated; no model inference, external dataset, cloud runtime, or paid resource."
+    finding: "The parser previously accepted a whitespace-only blind_clip_id. It now rejects empty aliases; the synthetic diagnostic confirms this alongside unchanged source-resolution mapping, per-clip rejection, missing-clip/out-of-frame rejection, and one-frame p95-tail sensitivity."
+    limitation: "Synthetic parser and scorer validation only; no human labels or agreement estimate. The code fix does not pass Gate 1 or establish path-policy efficacy."
+
+  - id: EXP-LATENTGATE-GATE1-SCORER-UNIT-MAPPING-005
+    owner: "LatentGate measurement"
+    status: "completed_cpu_image_filename_consistency_guard_human_labels_pending"
+    protocol: "research/validate_gate1_agreement_scorer.py"
+    scorer: "research/score_annotation_agreement.py"
+    scorer_sha256: "05fb713a1608ffe8a334e1dd3ac8437bea2a52b5802bf292b8297d964e5b9cee"
+    diagnostic_script_sha256: "bc76a78d4471c7c067ab7dd35f40fe9073a1feb244098c3ccb205d82f273a2de"
+    result: "research/gate1_scorer_tail_diagnostic_v5.json"
+    result_sha256: "7b289397e3c0005e1265c32d268b48252f993b23c5f2fd15ca9c3e7643b48dec"
+    compute: "0.000581 s on Darwin arm64/Python 3.12.3; CPU only, GPU false, peak VRAM null/not allocated; no model inference, external dataset, cloud runtime, or paid resource."
+    finding: "The v5 CSV schema includes image_file, so the scorer now requires nonempty filenames and rejects cross-rater filename mismatches for the same blind clip/frame key. Synthetic checks also retain blank-ID, mapping, pooling, missing-clip, out-of-frame, and p95-tail checks."
+    limitation: "Synthetic scorer validation only; it confirms paired filenames agree but does not authenticate a common filename against the archived packet manifest. It provides no human-label agreement or path-policy efficacy evidence."
+
+  - id: EXP-LATENTGATE-GATE1-SCORER-UNIT-MAPPING-006
+    owner: "LatentGate measurement"
+    status: "completed_cpu_archived_packet_key_binding_common_mode_filename_rejection_human_labels_pending"
+    protocol: "research/validate_gate1_agreement_scorer.py"
+    scorer: "research/score_annotation_agreement.py"
+    scorer_sha256: "9a3bc5289ef7e89a88b26f20ffc8770b415044ef35cb8ced5ee590597fe8aaac"
+    diagnostic_script_sha256: "c673cc8d60885c2799f51caae212c6c69826a73f527672cb067217c13031534c"
+    result: "research/gate1_scorer_tail_diagnostic_v6.json"
+    result_sha256: "69d254f3f63673b7a09b6065ad74c27785269aff6899b7c78404cf748ebf8367"
+    reference_packet: "research/gate1_manual_annotation_packets_v5/synthetic_reliability/rater_01.zip"
+    reference_packet_sha256: "0ab9ebeebc24e9badd58c53b1d9076522e926d69dc47067b6f957450a56533d8"
+    compute: "0.409068 s on Darwin arm64/Python 3.12.3; CPU only, GPU false, peak VRAM null, no model inference or external downloads. Includes agreement CLI correct-map and common-wrong-map cases."
+    finding: "Both v5 synthetic packet maps contain 34 entries and are equal. The agreement CLI accepts exact map submissions and rejects two raters sharing a wrong image filename; previous coordinate scaling, blank alias/image, cross-rater mismatch, incomplete clip, out-of-frame, pooling, and tail-sensitivity checks remain."
+    limitation: "Synthetic implementation validation only. The packet ZIP must itself be the trusted registry/hash-bound reference. No human-label reliability, observer transfer, or policy efficacy evidence."
+
+  - id: EXP-LATENTGATE-GATE1-BLINDED-WORST-FRAME-REVIEW-SELF-CHECK-001
+    owner: "LatentGate measurement"
+    status: "completed_synthetic_visual_review_mechanics_human_labels_pending"
+    protocol: "research/validate_gate1_blind_worst_frame_review.py"
+    protocol_sha256: "86f4379957ec81bef544e38ba00dda3d3fb4231e17169005937f235580e6ae1b"
+    builder: "research/build_gate1_blind_worst_frame_review.py"
+    builder_sha256: "bde1f862dcb4b7cc89c536a4ded88066b5ba16aac6a0a580b85db9edc7ab02db"
+    result: "research/gate1_blind_worst_frame_review_selfcheck_v1.json"
+    result_sha256: "f718a8785daa277fbcf193b2781770a60ee1b291b2b107d5c0247c795a03f55b"
+    audit: "research/2026-10-11_gate1_blind_worst_frame_review.md"
+    audit_sha256: "ed58064d9526f43499136bea1a03f1c12806d5712d977f8adacecc0235f6f9ee"
+    input: "Public v5 blind packet ZIP and blank template; temporary arbitrary complete A/B boxes with a single +2.5-grid-cell x shift at frame 16 of one opaque clip; no private key or Kubric truth loaded."
+    compute: "0.009979 s including offline HTML/JSON build on Darwin arm64/Python 3.12.3; CPU only, GPU false, peak VRAM null; no inference."
+    finding: "The registered pooled/per-clip p95 screen passes with the injected 2.5-cell single-frame tail. The offline report selects the injected radial and horizontal maxima, includes the other clip's representative radial-max frame, and embeds two blind review cards without scripts, network URLs, direction aliases, key, or truth."
+    limitation: "Mechanics-only validation with arbitrary synthetic boxes and no human submissions. It does not measure annotation precision/reliability, generated-video observer accuracy, or policy efficacy."
+
+  - id: EXP-LATENTGATE-GATE1-BLINDED-WORST-FRAME-REVIEW-SELF-CHECK-002
+    owner: "LatentGate measurement"
+    status: "completed_synthetic_packet_key_checked_offline_review_human_labels_pending"
+    protocol: "research/validate_gate1_blind_worst_frame_review.py"
+    protocol_sha256: "c6c8fb44b64d7abcad03775c084a466313c3a2356825fba26bc2a07958137c99"
+    builder: "research/build_gate1_blind_worst_frame_review.py"
+    builder_sha256: "948641497d6261d7fc499ee6b8d1666bc0e12e1860603eaff88fbeb47fcff4d3"
+    result: "research/gate1_blind_worst_frame_review_selfcheck_v2.json"
+    result_sha256: "8d92865c807f1de8bc56e3edb2af5c54ad526b9763de512c9c1ff48264fbbdfe"
+    reference_packet_sha256: "0ab9ebeebc24e9badd58c53b1d9076522e926d69dc47067b6f957450a56533d8"
+    compute: "0.014575 s including offline HTML build on Darwin arm64/Python 3.12.3; CPU only, GPU false, peak VRAM null, no inference."
+    finding: "The review builder validates both submitted maps against the archived packet before producing blind cards; the synthetic max frame remains correctly selected and the HTML contains no external or script resources, key, truth, or direction aliases."
+    limitation: "Mechanics-only synthetic validation; no human submission, annotation reliability, generated-video observer accuracy, or policy efficacy evidence."
+
+  - id: EXP-DITRAJ-WAN13B-TRAJECTORY-PILOT-001
+    owner: "LatentGate research"
+    status: superseded_not_run
+    protocol: "research/run_ditraj_matched_pilot.py"
+    limitation: "Legacy one-way, direction-revealing prototype; not the current causal experiment"
+
+  - id: EXP-DITRAJ-WAN13B-PAIRED-PATH-PILOT-002
+    owner: "LatentGate research"
+    status: local_notebook_current_hash_manual_receipt_gated_preliminary_output_nonexportable_remote_stage_stale_kaggle_free_admission_unknown_gate1_labels_pending
+    protocol: "research/ditraj_paired_path_pilot_v1.ipynb"
+    notebook_review_memo: "research/2026-10-07_ditraj_notebook_preflight_review.md"
+    local_notebook_sha256: "fc066dc732ca1213487181fe38f7b2a5d54038b39aa14d16f8569c8548c56e15"
+    fp16_t4_compatibility_audit: "research/2026-10-16_ditraj_fp16_t4_compatibility_audit.md"
+    fp16_t4_compatibility_audit_sha256: "4a200f6b7e9f839e9402383e34d2a28561b66883670ce7cfd1bf62ae2babd1ea"
+    action_to_gate1_measurement_audit: "research/2026-10-16_ditraj_action_to_gate1_measurement_audit.md"
+    action_to_gate1_measurement_audit_sha256: "0966dd6ba3d7c199ce04cf435292bb0f5981ff7f992a7fa0c04716c94afc5cff"
+    generated_output_annotation_adapter_contract: "research/ditraj_generated_output_annotation_adapter_contract_v1.md"
+    generated_output_annotation_adapter_contract_sha256: "82db035eaefbb4a1384e1e296cefc99e42d3e1240b64e124ac1ba16d3e2fd7f7"
+    generated_output_frame_manifest_schema_version: "ditraj.generated_output_frame_manifest.v1"
+    generated_output_frame_manifest_schema_status: "specified_source_helper_written_unexecuted_no_manifest_or_packet"
+    generated_output_frame_manifest_schema_decision: "The contract fixes exact 102-row JSON fields/serialization, six opaque UUIDv4 IDs × indices 0–16, canonical relative PNG paths, exact-byte SHA-256, RGB8 832×480 checks, detached manifest/archive integrity hashes, archive membership, and fail-closed uniqueness/key validation. The source-only builder now requires a separately reviewed registry pin of the exact full-schedule report bytes and resolves output parents before path-separation checks; it has not been executed, compiled, or tested."
+    generated_output_frame_manifest_builder: "research/build_ditraj_output_frame_manifest.py"
+    generated_output_frame_manifest_builder_sha256: "370dcf2168cfcdf52ff33aea92e0f7f464d5f295690140028a0ed7ff0da4fb19"
+    generated_output_frame_manifest_builder_status: "source_only_written_unexecuted_uncompiled_untested_no_artifacts"
+    generated_output_frame_manifest_builder_scope: "Build mode reads six registered arm frame directories and their full-schedule pilot_report.json, first requires exact report bytes to match the separately reviewed SHA-256 pin below, writes only the evaluator manifest and separate mode-0600 mapping under a mode-0700 owner directory, and never copies frames or creates an archive. Read-only validation checks the future ZIP and detached integrity receipt. It creates no score or background classification."
+    generated_output_frame_manifest_builder_run_report_sha256: null
+    generated_output_frame_manifest_builder_run_report_pin_status: "absent_no_report_hash_reviewed_build_fails_closed"
+    generated_output_frame_manifest_builder_prerequisite: "Do not invoke before two independent complete Gate 1 v5 returns pass their existing gates, fresh verified no-paid admission, six full-schedule outputs, a separately reviewed run-report SHA-256 recorded above, and the registered background calibration/release requirements. The helper does not adjudicate human-return acceptance or tolerances, or verify a no-paid admission receipt."
+    generated_output_frame_manifest_builder_source_audit_utc: "2026-10-17T15:01:41Z"
+    generated_output_frame_manifest_builder_source_audit_decision: "Static audit corrected receipt key-order overconstraint, canonicalized existing output parents before separation/source-tree checks, and replaced report self-attestation/caller-supplied hashes with a fail-closed registry SHA-256 pin. No report exists or has an independently reviewed hash; the registry pin is deliberately null."
+    generated_output_frame_manifest_builder_source_audit_limitation: "Source only; not executed, compiled, or tested. No run report, frames, human labels, keys, custody, manifest, private map, or archive was accessed or created."
+    background_stability_evidence_schema_version: "ditraj.background_stability_evidence.v1"
+    background_stability_evidence_schema_status: "specified_only_no_artifact_no_numeric_thresholds"
+    background_stability_evidence_schema_decision: "Separate blind evaluator-side provenance and 16 transition records per clip from the annotation ZIP. Keep G/A/L/C separate and descriptive; threshold/classification fields remain null until task tolerances and independent development/holdout calibration support a preregistered freeze."
+    generated_output_annotation_adapter_status: "specification_only_deferred_until_gate1_v5_human_returns_and_full_six_clip_outputs"
+    generated_output_annotation_adapter_decision: "Keep a separate blind 102-frame map for six generated clips; preserve the raw identity answer and explicitly derive nullable identity_consistent, enforce source-pixel half-open boxes and complete one-to-one image keys, and report path, visibility/count/identity, apparent size, and background separately. Refuse wrong maps, missing/duplicate frames, inferred labels, and unblinded keys."
+    generated_output_annotation_adapter_prerequisites: "First pass Gate 1 with two independent complete v5 human returns; scan v7 at 2026-10-16T06:48:03Z found zero. Then obtain fresh verified no-paid admission and six complete artifact-verified full-schedule outputs. The one-step smoke is not sufficient. No packet or labels exist."
+    background_stability_protocol_memo: "research/2026-10-17_ditraj_background_stability_protocol.md"
+    background_stability_protocol_memo_sha256: "72e0254f5ce4a51d408018b463358595db66e946486c6d8c58f0c176075ad21f"
+    background_stability_protocol_status: "method_selected_source_review_only_separate_calibration_required_no_threshold_packet_or_labels"
+    background_stability_protocol_decision: "For each blind clip, use the union of both raters' valid target boxes over all frames plus a separately calibrated/frozen target-shadow halo as one static exclusion ROI. Report sparse forward/backward pyramidal Lucas-Kanade background displacement and valid-feature coverage in px/frame-pair separately from raw ROI RGB/luma changes. Preserve source-pixel PNG hashes and codec/decode provenance; no stabilization or photometric normalization in primary metrics. VBench full-frame CLIP/MAE may be comparator only. No numeric threshold until independent calibration; Gate 1 remains blocked on two independent complete v5 returns."
+    background_stability_protocol_next_step: "Follow research/2026-10-17_ditraj_background_calibration_prereg_v1.md after Gate 1 labels, fresh verified no-paid admission, and six verified full-schedule outputs. Calibrate on separate scene-level development and holdout controls, freeze all settings and any numeric threshold before the 102-frame packet, and report descriptive metrics only if separation/coverage fails."
+    background_calibration_preregistration: "research/2026-10-17_ditraj_background_calibration_prereg_v1.md"
+    background_calibration_preregistration_sha256: "5cf0a399425082ae279086ad6e4ac319eb98d5bfdd19c5bd472ffbf1387d5159"
+    background_calibration_status: "source_only_protocol_preregistered_numeric_tolerances_and_values_unresolved_no_calibration_data_or_threshold"
+    background_calibration_decision: "Fill protocol gaps with scene-level development/holdout splits, static/target-shadow/illumination/codec/known-translation/local-scene-change controls, calibration-ground-truth halo selection, exact per-clip G/A/L/C summaries, and a midpoint cutoff only when acceptable and material-change calibration ranges are separated. Holdout is one-shot; any overlap or coverage failure invalidates the cutoff."
+    background_calibration_blocker: "No task-defined minimum material camera translation, maximum acceptable illumination/codec variation, calibration dataset, or calibrated threshold exists. If tolerances remain unspecified, report descriptive curves only. Gate 1 still requires two independent complete v5 human returns; fresh verified no-paid admission and six full-schedule outputs precede later packet creation/scoring."
+    output_contract_runner_crosswalk_memo: "research/2026-10-17_ditraj_output_contract_runner_crosswalk.md"
+    output_contract_runner_crosswalk_sha256: "3afebe679bbf551ec9e7ebae034b25923a560d7659d567f57b4a5303e61ff0b7"
+    output_contract_runner_crosswalk_utc: "2026-10-17T13:28:37Z"
+    output_contract_runner_crosswalk_schema_followup_utc: "2026-10-17T14:35:37Z"
+    output_contract_runner_crosswalk_schema_followup: "The contract specifies exact evaluator-side 102-row frame-manifest and separate blind background-evidence schemas, detached hashes, archive/key/path validation, and no-threshold-until-calibrated behavior. A source-only builder/validator draft is now pinned but unexecuted, uncompiled, and untested; no run/output artifact or release gate changed. Two independent complete Gate 1 v5 returns remain absent."
+    output_contract_runner_crosswalk_source_audit_followup_utc: "2026-10-17T15:01:41Z"
+    output_contract_runner_crosswalk_source_audit_followup: "Static review found and corrected three helper issues: the receipt validator had imposed an unrequired key-order restriction; output path spellings were not canonicalized through existing parents before isolation checks; and run-report provenance relied on self-reported/caller-supplied digest rather than an independent registry pin. The helper now requires a reviewed registry report hash, deliberately null because no full-schedule report exists. No execution, compile, tests, report, frames, labels, keys, map, manifest, or archive."
+    output_contract_runner_crosswalk_finding: "Notebook and runner hashes match their registry pins. Runner writes 17 RGB PNGs per arm and checks returned shape, but does not create the required per-frame hash/dimension manifest or any separate background metric. Its local template uses clip_A-style IDs and its report carries arm metadata; these are preliminary and remain explicitly non-scoreable/non-exportable. No scoring packet exists."
+    output_contract_runner_crosswalk_decision: "No code edit: the current source already fails closed and lists both absent artifacts. Do not reuse/export the smoke template/report. A later packet builder must add the complete 102-row hash/dimension map, fresh opaque random blind IDs, no condition metadata in the packet, and the calibrated background report before scoring."
+    fp16_t4_precision_decision: "Pinned upstream run.py loads the VAE in FP32 and the DiTraj pipeline in BF16. T4 is CC 7.5; the local runner already uses FP16 for the pipeline and FP32 for the VAE. The local notebook now fails closed before weights unless CUDA is available, GPU name contains T4, and capability is exactly (7,5). This is a source guard, not measured runtime compatibility."
+    fp16_t4_compatibility_unknowns: "No T4 smoke has run on the exact pinned DiTraj/Diffusers stack. Python 3.11 is recommended upstream but not enforced; CUDA wheel flavor/driver compatibility and exact SDPA dispatch, output finiteness, runtime, and peak VRAM are unverified."
+    feedback_design: "research/ditraj_feedback_adapter_design_v1.md"
+    baseline: "research/m0_trajectory_baseline_v1.json"
+    controls: [base, foreground_background_separation, full_ditraj]
+    paths: [right, left]
+    compute: "No DiTraj runtime has started. The local 12-cell notebook was updated only with an exact (7,5) T4 capability preflight and all cells remain unexecuted; the embedded runner is unchanged. Gate 1 still lacks two complete independent v5 CSVs. Kaggle shows 00:00 / 30 hrs with GPU T4 x2 offered, but this appears to be a usage/cap counter and does not establish free admission; Colab is disconnected with zero units. M1 canonical Drive update was blocked by disabled extension file-URL access. No tests, model downloads, upload, cell execution, or runtime allocation occurred; no paid compute was used."
+    measurement_mapping: "The source audit maps 17 decoded frames to the five latent-time boxes and Gate 1 fields. The local six-clip template image map and same_identity_as_frame_0 field cannot be sent directly to the packet-bound v5 scorer; create a separate blinded output packet and explicit identity-field adapter. Keep path, visibility/identity, apparent size, and background measures separate."
+    limitation: "17-frame image-space trajectory pilot; not metric 3D or manipulation physics. No feedback gain has been measured."
+
+  - id: EXP-DITRAJ-UNIPC-EXACT-CAPTURE-CPU-001
+    owner: "LatentGate architecture"
+    status: completed_cpu_pinned_scheduler_smoke
+    protocol: "research/smoke_pinned_unipc_capture.py"
+    results: "research/ditraj_unipc_capture_smoke_v1.json"
+    compute: "Actual Diffusers 0.33.1 UniPC with tiny CPU tensors; no GPU quota or model weights"
+    limitation: "Validates scheduler wrapper contract only. Full DiTraj pipeline integration, Wan VAE decode, and T4 resource cost remain unmeasured."
+
+  - id: EXP-DITRAJ-RED-OBSERVER-KUBRIC-CALIBRATION-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_known_truth_calibration
+    protocol: "research/evaluate_ditraj_red_observer_kubric.py"
+    results: "research/ditraj_red_observer_kubric_calibration_v1.json"
+    compute: "CPU-only observer evaluation on 34 Kubric RGB frames and independent binary segmentation masks"
+    limitation: "Synthetic red sphere only; 34 correlated frames across two paths. Does not validate observer on Wan outputs or establish policy gain."
+
+  - id: EXP-SAM2-OBSERVER-TRANSFER-PROBE-001
+    owner: "LatentGate measurement"
+    status: completed_local_mps_proposal_probe
+    protocol: "research/sam2_observer_probe.py"
+    results: "research/sam2_observer_probe_v1/report.json"
+    summary: "SAM 2.1 tiny on M3/MPS: two 17-frame Kubric mirrors, 100% coverage, mean IoU 0.750, tight-box-center error 2.64/2.73 px; Wan M0 SAM2/red-threshold center tracks differ by 4.91 px on average and correlate strongly."
+    compute: "Local MPS; Apache-2.0 facebook/sam2.1-hiera-tiny at pinned revision; no cloud GPU or quota"
+    limitation: "Kubric center has about +2.5 px vertical bias, exceeding the illustrative half-cell gate after mapping to the 52x30 grid. Wan comparison has no independent labels; SAM2 remains a mask proposal only. No generation or policy effect was tested."
+
+  - id: EXP-SAM2-PROMPT-SENSITIVITY-PROBE-001
+    owner: "LatentGate measurement"
+    status: completed_local_mps_prompt_sensitivity_probe
+    protocol: "research/sam2_prompt_sensitivity_probe.py"
+    results: "research/sam2_prompt_sensitivity_v1/report.json"
+    summary: "Reused the known-truth center-prompt baseline and tested valid +/-4 px vertical prompt offsets on both Kubric mirrors. Coverage stayed 100%, mean IoU ranged 0.749-0.751, downward box-center bias remained 2.47-2.50 px, and mask area remained about 1.29-1.30x truth."
+    compute: "Local Apple M3/MPS with pinned facebook/sam2.1-hiera-tiny; no cloud GPU or quota"
+    limitation: "Two simple correlated Kubric clips, one positive point per clip, and vertical offsets only. This is an oracle-prompt sensitivity check, not detector-in-the-wild evaluation, held-out observer validation, generation, or policy efficacy."
+
+  - id: EXP-SAM2-VISIBILITY-DISTRACTOR-STRESS-001
+    owner: "LatentGate measurement"
+    status: completed_synthetic_observer_stress_not_human_or_policy_efficacy
+    protocol: "research/sam2_visibility_stress_probe.py"
+    analysis_protocol: "research/analyze_sam2_visibility_stress.py"
+    results: "research/sam2_visibility_stress_v1/report.json"
+    anchor_analysis: "research/sam2_visibility_stress_v1/controller_anchor_analysis_v1.json"
+    artifact_index: "research/sam2_visibility_stress_v1/artifact_sha256_v1.json"
+    hashes:
+      runner_sha256: "6d3589b8c2be7ef35c356bfaa896b431c7410c6fde05e194cc8b62a4c8e0e9be"
+      analysis_runner_sha256: "a3b8c315a68a402fc29f0c2861ccefec9b906972c063fdc753b66dccc7feeca0"
+      results_sha256: "001c3f4d14be2c92e62c52edb3e62fc6c4e7c00b4e316c536dab364912aa69a6"
+      anchor_analysis_sha256: "1784f4044bb6d20b76445a90c8a29a0ba17ecc27147c910f8a00a92762c04f05"
+      artifact_index_sha256: "641e9659c06dc618e85f8b4d1383807ce6051cd0bb22c2056126555a75bff7ae"
+    summary: >-
+      Four deterministic Kubric image composites (left/right × fixed pole occlusion/static red distractor). SAM 2.1 Tiny achieved 100% mask coverage, mean IoU 0.742–0.753 to visible-mask truth, and mean full projected-box center error 2.68–3.03 px. The red-centroid proxy erred 41.75–42.01 px under the same-color distractor; the current in-sample 0.65 stability cutoff rejected all controller anchors on both distractor cases. Under pole occlusion it accepted 5/5 and 4/5 anchors, including 2 and 1 future anchors respectively with >0.5 control-grid-cell start-calibrated center error. This identifies a synthetic false-accept mode for the red observer gate; it does not establish generated-video observer accuracy.
+    compute: >-
+      Local Apple M3/MPS, FP16; model weights loaded from the local Hugging Face cache with local_files_only. Elapsed 426.21 s; sampled MPS driver-allocation peak 15,275,196,416 bytes at 0.2 s sampling. Apple unified memory has no dedicated VRAM value (peak_vram_bytes=null). No cloud runtime, model generation, or paid compute.
+    license_boundary: >-
+      Pinned facebook/sam2.1-hiera-tiny revision de431c4043854a71d8101e17995dfe596bf101a5 is Apache-2.0. The local Kubric source is Apache-2.0, but the generated fixture artifact terms remain under review because the renderer uses Blender bpy; do not redistribute this derived fixture as Apache-only.
+    limitation: >-
+      Two correlated simple synthetic paths, hand-designed nuisance factors, and oracle first-frame center prompts only. SAM 2 mask-box centers remain biased; the red observer's 0.65 cutoff is in-sample and not calibrated. Background stability and apparent-size guardrails were not evaluated, and this experiment supplies no human-label reliability, Wan observer accuracy, policy action, or efficacy evidence.
+
+  - id: EXP-RED-OBSERVER-FEATURE-DISCRIMINABILITY-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_diagnostic_not_threshold_validation
+    protocol: "research/analyze_red_observer_visibility_signals.py"
+    results: "research/sam2_visibility_stress_v1/red_feature_discriminability_v1.json"
+    memo: "research/2026-10-15_red_observer_signal_overlap.md"
+    hashes:
+      analyzer_sha256: "ec614d61d8359e607169b751cda7dd61e183553bab0de13005977dfc620095f3"
+      results_sha256: "686abe2429b3652c8085b3b4dfadd00890fd6959f34d413675d3e96b04ab6975"
+    summary: >-
+      The clean two-path stability range (0.674–0.768) overlaps all three accepted pole-occlusion anchors whose start-calibrated center error exceeded 0.5 cell (0.707, 0.754, 0.819). A two-sided area-CV interval copied from clean anchors flags those three in-sample, but brightness factors 0.8/0.9/1.1/1.2 put all 40 clean-anchor observations outside the interval; the existing stability cutoff accepts 0/10 anchors at 0.8–0.9 and 10/10 at 1.1–1.2. No threshold change is justified.
+    compute: "0.0599 s on Darwin arm64/Python 3.12.3, CPU only; GPU false and peak VRAM null. No model inference or external data."
+    license_boundary: "Uses only already-present derived Kubric fixture images and masks; their source/rendered-artifact terms remain as recorded in the fixture license audit. No new weights or external packages were downloaded."
+    limitation: "Development-only features from two correlated paths and simple global brightness transforms. No independent path, human labels, generated Wan observer accuracy, background/size guardrail validation, or policy efficacy."
+
+  - id: EXP-SAM2-RED-START-ANCHORED-FUSION-DIAGNOSTIC-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_known_truth_development_diagnostic_only
+    protocol: "research/2026-10-16_gate1_start_anchored_observer_fusion.md"
+    protocol_sha256: "d10660929c5cdb6255075787b1e07f1d3b1dc69d0f69fedc9d6a1248a3d55caf"
+    runner: "research/analyze_sam2_red_observer_fusion.py"
+    runner_sha256: "5f8c6f040815af93260794f519141acaee9cbe4466b2576360c95c452e3737e3"
+    results: "research/sam2_visibility_stress_v1/fusion_diagnostic_v1.json"
+    results_sha256: "6d279f84c98f8a143b4a20a69a08ed422c4115edb20fe0e83c3b3c98e392ff73"
+    input_report_sha256: "001c3f4d14be2c92e62c52edb3e62fc6c4e7c00b4e316c536dab364912aa69a6"
+    fixture_truth_sha256: "0dd6d5518de3c82d2e73d912c44fc712978d65dd93c38f8eb24d37500f8ad56b"
+    summary: >-
+      On four saved synthetic composites and 16 correlated future anchors, the fixed start-anchored candidate fused 3 anchors, all in pole-occlusion cases. Per-case mean radial residual changed from 0.2640 to 0.2491 control-grid cells (left pole) and 0.2173 to 0.1361 (right pole); no red-distractor anchor fused, so those cases used the SAM 2 fallback. This is a small known-truth development signal only. The 0.5-cell disagreement cutoff was fixed before analysis but is not a production threshold; no threshold was fit.
+    compute: "0.025160 s on macOS arm64 / Python 3.12.3, CPU-only JSON arithmetic; GPU false and peak VRAM null. No new model inference, external data, runtime, or paid compute."
+    license_boundary: "Uses existing local Kubric-derived images/truth and existing SAM2/red outputs only. No new assets or weights were downloaded. Generated-fixture redistribution terms remain unresolved; keep local."
+    limitation: >-
+      Two correlated path renders, two hand-designed nuisances, oracle-prompt SAM 2 proposals, and four correlated future anchors per case. SAM 2 is not ground truth and start-anchoring hides absolute localization error. No human-label reliability, identity/visibility validation, clean-brightness fusion check, background/size guardrail, generated Wan observer transfer, actuator, or policy efficacy was measured. Gate 1 remains open pending two independent complete v5 human-label submissions and its registered agreement, blind-review, and truth stages.
+
+  - id: EXP-M0-WAN-OBSERVER-HUMAN-LABEL-001
+    owner: "LatentGate measurement"
+    status: annotation_packet_prepared_labels_pending
+    protocol: "research/2026-10-03_gate1_annotation_method_followup.md"
+    inputs: "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames"
+    annotation_rater_01: "research/gate1_manual_annotation_packets_v4/generated_sample_observer_check/rater_01.zip"
+    annotation_rater_02: "research/gate1_manual_annotation_packets_v4/generated_sample_observer_check/rater_02.zip"
+    manifest: "research/gate1_manual_annotation_packets_v4/packet_manifest.json"
+    superseded_packet_version: "research/gate1_manual_annotation_packets_v3"
+    superseded_combined_archive: "research/wan_m0_observer_labels_v1/blinded_annotation_package.zip"
+    compute: "No model run; separate offline packets contain the same existing 17-frame M0 clip for two independent human raters"
+    limitation: "One convenience clip only. Human labels can validate observer transfer on that sample, but not the held-out multi-seed gate or any policy efficacy."
+
+  - id: EXP-DITRAJ-FULL-RUN-BOX-SENSITIVITY-001
+    owner: "LatentGate policy"
+    status: planned_after_open_loop_path_response
+    design: "Compare matched whole-run target-box perturbations that affect early STD-RoPE as well as foreground routing; keep prompt, noise, sampler, start box, and frame path otherwise matched."
+    protocol: "research/2d_path_policy_component_plan.md"
+    prerequisites: [gate1_reference_reliability_pass, open_loop_path_response_reviewed, human_output_labels_available, free_T4_quota_confirmed]
+    compute: "Wan2.1-1.3B / DiTraj matched 17-frame 832x480 videos; seed screen first, then at least eight paired seed blocks for sign calibration"
+    limitation: "This measures whole-run target-box sensitivity and must not be attributed to the adapter's later cross-attention-only mask update."
+
+  - id: EXP-DITRAJ-BOX-MASK-ACTUATION-CHECK-001
+    owner: "LatentGate policy"
+    status: planned_after_open_loop_requires_human_output_labels
+    design: "Same prompt/noise/schedule and identical shared prefix through step 4; compare static 0, ±1, and ±2 horizontal-cell shifts to future cross-attention masks, with first box and early STD-RoPE fixed. Pilot mask_step=18 under 30 steps leaves 13 eligible calls."
+    protocol: "research/ditraj_feedback_adapter_design_v1.md"
+    prerequisites: [open_loop_path_response_reviewed, gate1_reference_reliability_pass, human_output_labels_available, free_T4_quota_confirmed]
+    compute: "Matched 17-frame 832x480, 30-step DiTraj trajectories; requires a free CUDA T4 and source-staged notebook"
+    decision_rule: "Proceed to online feedback only if independent human labels show repeatable signed object response and identity, visibility, size, and fixed-background guardrails hold. If ±1 is null but ±2 acts, quantify a dead band; if neither acts repeatably, test spatial Wan latent features/QK tracking instead."
+    limitation: "Tests late cross-attention mask actuation under a fixed early RoPE prefix; it does not measure STD-RoPE's effect, full DiTraj path response, or feedback efficacy."
+
+  - id: EXP-DITRAJ-GENERATED-PREVIEW-OBSERVER-GATE-001
+    owner: "LatentGate measurement"
+    status: preregistered_not_run
+    design: "Ten no-policy Wan clips from five mirrored seed pairs; two blind raters annotate all 17 frames. Report visibility/identity, raw frame-0 localization, controller-keyframe coverage/error, and false accepts separately."
+    protocol: "research/2d_path_policy_component_plan.md"
+    prerequisites: [gate1_reference_reliability_pass, no_policy_wan_samples_available, free_T4_quota_confirmed]
+    decision_rule: "Freeze any observer threshold on development blocks; confirm on fresh held-out seed blocks. Do not enable online observation until the held-out gate passes."
+    limitation: "An observer release gate is not actuator evidence or policy efficacy; keep all score families separate."
+
+  - id: EXP-DITRAJ-STEP4-FEEDBACK-EFFICACY-001
+    owner: "LatentGate policy"
+    status: future_requires_observer_and_actuation_pass
+    design: "Full 30-step matched comparison: open-loop, exact no-op, fixed action, live residual, temporally shuffled state, and sign-reversed state."
+    protocol: "research/2d_path_policy_component_plan.md"
+    prerequisites: [generated_preview_observer_gate, full_run_box_action_reviewed, late_mask_actuation_reviewed, eight_step_adapter_plumbing_pass, free_T4_quota_confirmed]
+    decision_rule: "Use at least ten paired held-out seed blocks and keep path error, visibility/identity, apparent size, background stability, and blinded quality separate. No efficacy claim from plumbing or one-seed directional screens."
+    limitation: "No DiTraj feedback video or policy-gain result exists."
+
+
+  - id: EXP-M0-STEP4-FEEDBACK-MECHANISM-DIAGNOSTIC-001
+    owner: "LatentGate measurement / policy"
+    status: completed_offline_counterfactual_no_model_rerun
+    protocol: "research/evaluate_m0_feedback_mechanism.py"
+    results: "research/m0_step4_feedback_mechanism_diagnostic_v1.json"
+    source_sample: "m0/runs/wan_t4_2026-10-02_retry5/run_001"
+    compute: "CPU observer/controller evaluation over saved final RGB and step-4 x0 preview frames; no new model inference or quota"
+    finding: "The fixed red observer scored all frames; text-only M0 red centroid moved 32.56 px against the pilot path's 332.8 px command. A counterfactual step-4 update changed 71 rasterized cells, with four unlocked boxes shifting right by one grid cell."
+    limitation: "One text-prompt-only sample; same-proxy measurement; no DiTraj, no denoising resume with updated masks, no causal video response, and no efficacy result."
+
+  - id: EXP-M0-FIVE-POINT-TEMPORAL-READOUT-PROBE-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_posthoc_proxy_sampling_probe
+    protocol: "research/probe_m0_five_point_temporal_readout.py"
+    results: "research/m0_temporal_downsampling_probe_v1.json"
+    source_sample: "m0/runs/wan_t4_2026-10-02_retry5/run_001"
+    compute: "CPU interpolation plus RGB color-threshold recomputation over the saved 17 frames and existing 4x3x3 threshold grid; no model inference, GPU, or learned segmentation"
+    finding: "At the registered threshold, five-anchor interpolation has 0.8599 px mean and 1.6929 px maximum center error on 12 omitted frames. All 36 color thresholds retain full coverage; threshold-sweep mean center error is 0.7189–0.9468 px and mean area error is 0.4363–1.5957%. Schedule enumeration finds only 5/17 one-frame and 8/16 two-frame event windows intersect an anchor."
+    recommendation: "Do not require chunked denoising for the first DiTraj lane. Keep the 17-frame sequence jointly generated and retain all 17 RGB frames for evaluation; save them as individual artifacts if convenient. Chunk only as a separate ablation after a measured memory, latency, or horizon constraint."
+    limitation: "One text-only sample and a same-sample color-threshold proxy; threshold robustness applies only to this clip. Transient coverage is schedule math, not an observed event rate. Not observer validation or evidence of generalization to other clips."
+
+  - id: EXP-M0-SAVED-RGB-SEQUENCE-INVENTORY-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_only_inventory_no_new_generation
+    protocol: "research/inventory_m0_saved_rgb_sequences.py"
+    protocol_sha256: "c5771bdd5c81078b1e7b5b1bf2a201b09204eacefbc99aea0bb08e6debc4aa9f"
+    report: "research/2026-10-16_m0_saved_rgb_sequence_inventory.md"
+    report_sha256: "db9be33c3d5b29aab5375dbf14d5f2df65237ed3ccfc90eeabbe629cf2db5e2f"
+    results: "research/m0_saved_rgb_sequence_inventory_v1.json"
+    results_sha256: "03eaaddef94ff898a62abb638d140e88804b8ad289360b5196708fd192dc6e11"
+    sources:
+      - "m0/runs/wan_t4_2026-10-02_retry4"
+      - "m0/runs/wan_t4_2026-10-02_retry5"
+      - "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13"
+      - "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot"
+      - "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot_30steps"
+    finding: "All five run records have a complete hash-matched RGB sequence but the Wan retry4/retry5 final RGB frame sets are byte-identical, yielding four unique clips. Wan passes 17/17 baseline frames and all 36 full-track threshold cases; CogVideoX-2B 50-step passes 16/16 and 36/36; the 8- and 30-step 480x320 clips each pass 0/9 baseline and 0/36 full-track threshold cases. Five-anchor schedules miss 12/17, 11/16, and 4/9 possible one-frame event windows for the Wan 17-frame, CogVideoX 16-frame, and CogVideoX 9-frame schedules, respectively."
+    compute: "CPU-only PNG integrity, RGB decode/dimension check, red-mask scoreability over existing 36-case threshold grid, and schedule-only window counts; no interpolation reanalysis, latent inspection, model inference, GPU, cloud runtime, or new generation."
+    matched_comparison: "No informative matched multi-clip motion comparison: the nominal CogVideoX 8/30-step pair is unscoreable under the fixed proxy, below documented 720x480 resolution, and lacks checkpoint/runner/effective-noise provenance; 50-step CogVideoX differs in dimensions and frame count; Wan retry/replay is one unique sample."
+    next_step: "After current saved-Wan two-rater labels and confirmed free-T4 admission, preregister two additional unique seeds under exact pinned M0 settings for a three-clip exploratory full-sequence screen; score every decoded frame and retain anchors as secondary analysis. This does not replace the existing three-development/five-held-out observer gate."
+    limitation: "The fixed red RGB mask is a screening proxy, not human ground truth. Window counts are schedule coverage only. All current CogVideoX outputs lack independent labels; no causal, observer-generalization, or chunking claim follows."
+
+  - id: EXP-M0-WAN-VAE-TEMPORAL-SUPPORT-AUDIT-001
+    owner: "LatentGate measurement"
+    status: completed_primary_source_temporal_support_audit
+    report: "research/2026-10-16_m0_wan_vae_temporal_support.md"
+    report_sha256: "07f7886ad8c0e8f3ee28050c6d51d0b367246ecbeb3cce8b2716f3eb2e939a2f"
+    results: "research/m0_wan_vae_temporal_support_audit_v1.json"
+    results_sha256: "6acb174f9b79990d07812c01574a7f3d2489788508cec12c8dd64cc11761edcb"
+    sources:
+      - "m0/run_config.yaml"
+      - "m0/runs/wan_t4_2026-10-02_retry5/config_snapshot.yaml"
+      - "m0/runs/wan_t4_2026-10-02_retry5/manifest.json"
+      - "m0/runs/wan_t4_2026-10-02_retry5/generation_packet.json"
+      - "research/m0_temporal_sampling_audit_v1.json"
+    primary_sources:
+      - "https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers/blob/0fad780a534b6463e45facd96134c9f345acfa5b/vae/config.json"
+      - "https://github.com/huggingface/diffusers/blob/v0.40.0/src/diffusers/models/autoencoders/autoencoder_kl_wan.py"
+    primary_source_sha256:
+      vae_config: "f0c1cc1d7decb5badc384f54691746a27a9aeff49f7ebca974e583389342d527"
+      diffusers_source: "a38de0c53adcb81887a0b48d44e3fb59737d7b1e4779a666febe83be666e8fa8"
+    finding: "The exact pinned config sets temperal_downsample=[false,true,true], num_res_blocks=2, and no encoder down-block attention. The matching Diffusers 0.40.0 source yields a 112-RGB-frame maximum causal past reach. For this 17-frame clip the five latent positions have structural support [0,0], [0,4], [0,8], [0,12], and [0,16]; the initial causal edge is zero-left-padded, the first downsample position is preserved, and no future/right temporal padding is added. This is possible graph support, not a claim of nonzero numerical influence from every frame."
+    compute: "CPU/source and saved-metadata audit; fetched and hashed text-only primary sources. No model weights fetched or loaded, no inference, generation, GPU, or cloud runtime."
+    recommendation: "Keep jointly generated full sequences and score every decoded RGB frame. Use latent-time anchors as secondary internal-state summaries. Consider chunks only after a measured resource/control-horizon constraint."
+    limitation: "The support interval is a structural architecture bound. Learned weights and nonlinear activations can make some structurally reachable inputs have zero or negligible numerical influence for a particular sample."
+
+  - id: EXP-M0-LATENT-SLOT-DYNAMICS-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_safe_tensor_diagnostics
+    protocol: "research/analyze_m0_latent_slot_dynamics.py"
+    protocol_sha256: "9b49df0e84ae6b18a178cd0cc9bcd59607b9264ab7656793e05ffd8f7bf1d6b1"
+    report: "research/2026-10-16_m0_latent_slot_dynamics.md"
+    report_sha256: "2d262e4a58cd0e3341e7c3e0c2fab557e987ac3171be4c35b36059b4323ec091"
+    results: "research/m0_latent_slot_dynamics_v1.json"
+    results_sha256: "c8787b6182107b1aa1ff64942c8b134f4b8dd897f87bbbe0807ac765877ab09e"
+    input_manifests:
+      retry4: "m0/runs/wan_t4_2026-10-02_retry4/manifest.json"
+      retry4_manifest_sha256: "3f735cf94cf4899e39abcb3c672eba841409f57bfd5085d56e2ea67dbbd7545d"
+      retry5: "m0/runs/wan_t4_2026-10-02_retry5/manifest.json"
+      retry5_manifest_sha256: "a190ba398f7db0bca7ae0e7b4471050bfd3af581dd38cdfb67c59ee6dcffbfd8"
+    temporal_support_source: "research/m0_wan_vae_temporal_support_audit_v1.json"
+    temporal_support_source_sha256: "6acb174f9b79990d07812c01574a7f3d2489788508cec12c8dd64cc11761edcb"
+    selected_artifact_count: 20
+    selected_artifact_hashes: "Exact checkpoint paths and SHA-256 values are recorded in the results JSON; all match the corresponding run-manifest file hashes."
+    finding: "Safe CPU loading succeeded for 20 selected artifacts. Retry4/retry5 initial noise and all seven post-step tensors are byte- and tensor-equal (8/8). Adjacent per-slot mean-absolute deltas are recorded for all six post-step intervals and three retry5 x0_hat intervals."
+    compute: "torch 2.9.1; torch.load(map_location='cpu', weights_only=True); CPU arithmetic only. No weights loaded, inference, VAE decode, RGB proxy inventory, GPU, or cloud runtime."
+    limitation: "Single saved run; latent slots have causal-prefix structural support and do not correspond to isolated frames. Latent-space differences are not decoded-frame evidence or proof of object/path influence, semantics, controllability, or policy efficacy. Retry4 contains no predicted-clean snapshots."
+
+  - id: EXP-M0-RETRY5-ANCHOR-MOTION-PROXY-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_rgb_difference_proxy
+    protocol: "research/analyze_m0_retry5_anchor_motion_proxy.py"
+    protocol_sha256: "541dabc2a8c6fe97493cb6de07393f71f22a58d00ddc94a2b7113439c80a6f20"
+    report: "research/2026-10-16_m0_retry5_anchor_motion_proxy.md"
+    report_sha256: "8c3423c8140aa84a1b96b5cbc51f3f6f6572d6d5a75552287b7055be595bcd0a"
+    results: "research/m0_retry5_anchor_motion_proxy_v1.json"
+    results_sha256: "09ef38b0fe988d607004acbd1b90683f69d7a8ad61148102b5d4746a01b02ae6"
+    source_manifest: "m0/runs/wan_t4_2026-10-02_retry5/manifest.json"
+    source_manifest_sha256: "a190ba398f7db0bca7ae0e7b4471050bfd3af581dd38cdfb67c59ee6dcffbfd8"
+    temporal_support_reference: "research/m0_wan_vae_temporal_support_audit_v1.json"
+    temporal_support_reference_sha256: "6acb174f9b79990d07812c01574a7f3d2489788508cec12c8dd64cc11761edcb"
+    frame_count: 17
+    frame_hashes: "Per-frame paths and SHA-256 values are included in the result JSON and match the source manifest."
+    anchors: [0, 4, 8, 12, 16]
+    finding: "Computed normalized whole-frame RGB MAE for all 16 adjacent frame pairs and compared each four-transition path with its anchor endpoint contrast. Dense adjacent path length is 0.039628 versus summed anchor contrasts 0.032017 (19.2% path excess under this pixel L1 proxy). The anchors omit 12 intermediate images and the timing of inner-interval changes."
+    compute: "CPU-only Pillow/NumPy on existing PNGs. No model or latent access, inference, optical flow, human labels, GPU, cloud runtime, or repeated RGB proxy-coverage inventory."
+    limitation: "One prompt/seed/clip. Whole-frame pixel change can include object motion, background, lighting, rendering, or flicker and may hide localized changes. It is not ground-truth motion, event recall, or general sampling evidence. Registered full-sequence/all-frame policy unchanged."
+
+  - id: EXP-COGVIDEOX2B-CHUNK13-ANCHOR-MOTION-PROXY-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_rgb_difference_proxy
+    protocol: "research/analyze_cogvideox2b_chunk13_anchor_motion_proxy.py"
+    protocol_sha256: "545e1742bb1b2e191f48fa08fa57e07b61ad2eca0a6ae7f258a706d16d323939"
+    report: "research/2026-10-16_cogvideox2b_chunk13_anchor_motion_proxy.md"
+    report_sha256: "ec7a3c8caa0941fe7c4de0caf0abb79a56e3d1ace70db07e42bfe880a6feaa77"
+    results: "research/cogvideox2b_chunk13_anchor_motion_proxy_v1.json"
+    results_sha256: "7f603bf5db6500ca862d1f003f9a870dfc29a1dc35e4efb32feee91739a6fbe3"
+    input_map: "research/cogvideox2b_rgb_proxy_inputs_v1.json"
+    input_map_sha256: "280f8dfd299cdb135974c824998b2ff36b884abfefdfb1a09391e4539ff36de1"
+    source_manifest: "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/manifest.json"
+    source_manifest_sha256: "2727ccdc46e659effec4cbb97639a3b50a05bae8ef950e8a8a349b5ed3b0706e"
+    frame_count: 16
+    frame_hashes: "All 16 frame paths and SHA-256 values are included in the result JSON and match the pinned input map."
+    anchors: [0, 4, 8, 12, 15]
+    finding: "Using the same whole-frame normalized RGB MAE as the Wan retry5 proxy, computed all 15 adjacent transitions and four endpoint contrasts. Mean adjacent MAE is 0.000817; dense path is 0.012254 versus summed anchor endpoint contrasts 0.010648 (13.1% path excess). Frames 0–3 are byte-identical."
+    compute: "CPU-only Pillow/NumPy on existing PNGs. No model, latent arrays, inference, labels, optical flow, GPU, cloud runtime, or new generation."
+    limitation: "One saved sequence; pixel MAE is not object-motion truth, event recall, or general sampling evidence. Existing full-sequence/all-frame policy unchanged."
+
+  - id: EXP-COGVIDEOX2B-CHUNK13-FARNEBACK-FLOW-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_classical_dense_optical_flow_proxy
+    protocol: "research/analyze_cogvideox2b_chunk13_farneback_flow.py"
+    protocol_sha256: "c8c5f111ad1f3803cb3ddbdffa0a027309233affd39c5fa902dfab4df3cac927"
+    report: "research/2026-10-17_cogvideox2b_chunk13_farneback_flow.md"
+    report_sha256: "f09de6e3ee528a364087988d702b35dc53a19566e618ef56e7d1d8cf1d3f9f4d"
+    results: "research/cogvideox2b_chunk13_farneback_flow_v1.json"
+    results_sha256: "216656c47c99bea09f99c419b983225330db719c1df9f546894b2b6e1ca91f3d"
+    input_map: "research/cogvideox2b_rgb_proxy_inputs_v1.json"
+    input_map_sha256: "280f8dfd299cdb135974c824998b2ff36b884abfefdfb1a09391e4539ff36de1"
+    source_manifest: "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/manifest.json"
+    source_manifest_sha256: "2727ccdc46e659effec4cbb97639a3b50a05bae8ef950e8a8a349b5ed3b0706e"
+    rgb_mae_comparison: "research/cogvideox2b_chunk13_anchor_motion_proxy_v1.json"
+    rgb_mae_comparison_sha256: "7f603bf5db6500ca862d1f003f9a870dfc29a1dc35e4efb32feee91739a6fbe3"
+    implementation: "OpenCV Python 4.11.0 cv2.calcOpticalFlowFarneback; OpenCL disabled; one CPU thread; no learned weights. Parameters and 16 frame hashes are in the results JSON."
+    anchors: [0, 4, 8, 12, 15]
+    finding: "Estimated 15 adjacent flow fields and four direct anchor endpoint fields. Mean adjacent full-frame flow magnitude is 0.03764 px. Sum adjacent mean magnitudes 0.56466 px versus endpoint sum 0.56872 px (−0.7% signed path excess); per-interval differences are recorded. Adjacent flow mean and existing RGB-MAE rank correlation is descriptively 0.986 (15 pairs), and both peak at 12→13."
+    compute: "CPU-only OpenCV Farneback on existing hash-pinned PNGs; NumPy arrays; no model/latent loading, inference, generation, GPU, cloud, dependency installation, or tests."
+    limitation: "One sequence; full-frame magnitude drops direction and correspondence, and means are not a tracked object trajectory. Flow and RGB MAE are descriptive proxies, not independent ground truth, object/path influence, event recall, or general sampling evidence. Full-sequence/all-frame policy unchanged."
+
+  - id: EXP-COGVIDEOX2B-CHUNK13-RED-BALL-MASK-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_red_mask_component_proxy
+    mask_protocol: "research/2026-10-17_m0_wan_retry5_red_ball_mask_protocol.md"
+    mask_protocol_sha256: "b2651c0aa1b941c84fedaefe6b0c28d8e8e1ceedd2b0f11af12cccdf5c920a7c"
+    runner: "research/analyze_cogvideox2b_chunk13_red_ball_mask.py"
+    runner_sha256: "899608744f088bb9a56106dd404c4283dc71a02edf6ab2ad40e414a933ff9433"
+    report: "research/2026-10-17_cogvideox2b_chunk13_red_ball_mask.md"
+    report_sha256: "2e1d58ecbb5f0874f5e6a4d7cf8f4f6fd2815e3f5f66d83f6abe304f3164f9cf"
+    results: "research/cogvideox2b_chunk13_red_ball_mask_v1.json"
+    results_sha256: "2b5678971752d16ac360f467e6d06783309cb511631a02fd8bdeca5ec7750bdb"
+    source_manifest: "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13/manifest.json"
+    source_manifest_sha256: "2727ccdc46e659effec4cbb97639a3b50a05bae8ef950e8a8a349b5ed3b0706e"
+    input_map: "research/cogvideox2b_rgb_proxy_inputs_v1.json"
+    input_map_sha256: "280f8dfd299cdb135974c824998b2ff36b884abfefdfb1a09391e4539ff36de1"
+    rgb_mae_reference: "research/cogvideox2b_chunk13_anchor_motion_proxy_v1.json"
+    rgb_mae_reference_sha256: "7f603bf5db6500ca862d1f003f9a870dfc29a1dc35e4efb32feee91739a6fbe3"
+    farneback_reference: "research/cogvideox2b_chunk13_farneback_flow_v1.json"
+    farneback_reference_sha256: "216656c47c99bea09f99c419b983225330db719c1df9f546894b2b6e1ca91f3d"
+    frame_count: 16
+    anchors: [0, 4, 8, 12, 15]
+    mask_method: "Reused exact fixed rule R>150, G<125, B<125 with 8-connected components; largest area >=300 px and all other threshold-mask pixels combined <300 px in every frame. No threshold tuning, morphology, or temporal association."
+    finding: "The isolation gate passed all 16 frames. Largest component is 1,792–2,015 px and at most 2 threshold pixels lie outside it. Mask-centroid displacement peaks at 12→13 (6.35 px); existing whole-frame Farneback and RGB-MAE peaks also occur at 12→13 (0.08304 px and 0.001795). Frames 0–3 are byte-identical."
+    compute: "CPU-only OpenCV/Pillow/NumPy on existing RGB PNGs after pinned-map, source-manifest, and frame-hash verification. No model/latent loading, inference, generation, GPU, cloud, dependency installation, or tests."
+    limitation: "Second saved-sequence diagnostic only, not a controlled Wan-vs-CogVideoX model comparison or general sampling evidence. Fixed color mask and motion values are image-space proxies; all-frame policy unchanged."
+
+  - id: EXP-M0-WAN-RETRY5-FARNEBACK-FLOW-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_cross_clip_classical_flow_proxy
+    protocol: "research/analyze_wan_retry5_farneback_flow.py"
+    protocol_sha256: "4320a619ec5e10a5a587a330bb09480f5d2199298f501c7c2b39be4659701fe6"
+    report: "research/2026-10-17_m0_wan_retry5_farneback_flow.md"
+    report_sha256: "e9e16964b91ea0623dc34183e5dc773b5530e38e1a2045ed640d2a2bb47fa66d"
+    results: "research/m0_wan_retry5_farneback_flow_v1.json"
+    results_sha256: "cf57ee689c05769c76c0642fd796e9d0b62787887d4ec75e30736ddc66922ac1"
+    source_manifest: "m0/runs/wan_t4_2026-10-02_retry5/manifest.json"
+    source_manifest_sha256: "a190ba398f7db0bca7ae0e7b4471050bfd3af581dd38cdfb67c59ee6dcffbfd8"
+    rgb_mae_comparison: "research/m0_retry5_anchor_motion_proxy_v1.json"
+    rgb_mae_comparison_sha256: "09ef38b0fe988d607004acbd1b90683f69d7a8ad61148102b5d4746a01b02ae6"
+    farneback_reference: "research/cogvideox2b_chunk13_farneback_flow_v1.json"
+    farneback_reference_sha256: "216656c47c99bea09f99c419b983225330db719c1df9f546894b2b6e1ca91f3d"
+    implementation: "OpenCV Python 4.11.0 cv2.calcOpticalFlowFarneback with the registered CogVideoX settings (pyr_scale=0.5, levels=3, winsize=15, iterations=3, poly_n=5, poly_sigma=1.2, flags=0); OpenCL disabled; one CPU thread. All 17 RGB hashes were verified."
+    anchors: [0, 4, 8, 12, 16]
+    finding: "Computed 16 adjacent fields and four direct anchor endpoint fields. Mean adjacent full-frame flow magnitude is 0.07734 px; adjacent path sum 1.23750 px vs endpoint sum 1.14213 px (+7.7%). Flow and RGB-MAE ranks correlate at Spearman 0.60 (16 pairs); their maxima differ (flow 3→4, MAE 0→1)."
+    cross_clip_context: "Against the saved CogVideoX-2B chunk13 clip, Wan's mean flow is 0.07734 vs 0.03764 px, diagonal-normalized means 0.0000805 vs 0.0000435, and signed path excess +7.7% vs −0.7%. This is descriptive only; clips differ in model, prompt, seed, resolution, length, and generation settings."
+    compute: "CPU-only OpenCV on existing manifest-hash-verified RGB PNGs. No model/latent loading, inference, generation, GPU, cloud, dependency installation, or tests."
+    limitation: "One Wan sequence and one uncontrolled cross-clip reference. Whole-frame optical flow and RGB MAE are algorithmic proxies, not object tracking, ground truth, event recall, or general sampling evidence. Full-sequence/all-frame policy unchanged."
+
+  - id: EXP-M0-WAN-RETRY5-RED-BALL-MASK-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_red_mask_component_proxy
+    protocol: "research/2026-10-17_m0_wan_retry5_red_ball_mask_protocol.md"
+    protocol_sha256: "b2651c0aa1b941c84fedaefe6b0c28d8e8e1ceedd2b0f11af12cccdf5c920a7c"
+    runner: "research/analyze_wan_retry5_red_ball_mask.py"
+    runner_sha256: "26d074f3be44d886ce3e12b9ba335854dfc1b786dd4f3ed715d2eb93166301ae"
+    report: "research/2026-10-17_m0_wan_retry5_red_ball_mask.md"
+    report_sha256: "6689fd53711848898a41b78524d41a0174dd2cf56310d9d56453a71475335a9f"
+    results: "research/m0_wan_retry5_red_ball_mask_v1.json"
+    results_sha256: "100ddc24fc26232bd703c31122c69ee0d4770317bb955dc1ec5439c4092f4f5c"
+    source_manifest: "m0/runs/wan_t4_2026-10-02_retry5/manifest.json"
+    source_manifest_sha256: "a190ba398f7db0bca7ae0e7b4471050bfd3af581dd38cdfb67c59ee6dcffbfd8"
+    rgb_mae_reference: "research/m0_retry5_anchor_motion_proxy_v1.json"
+    rgb_mae_reference_sha256: "09ef38b0fe988d607004acbd1b90683f69d7a8ad61148102b5d4746a01b02ae6"
+    farneback_reference: "research/m0_wan_retry5_farneback_flow_v1.json"
+    farneback_reference_sha256: "cf57ee689c05769c76c0642fd796e9d0b62787887d4ec75e30736ddc66922ac1"
+    frame_count: 17
+    mask_method: "Existing M0 RGB threshold R>150, G<125, B<125; 8-connected components; fixed isolation rule requires largest area >=300 px and total foreground outside it <300 px in every frame. No morphology, threshold tuning, or temporal association."
+    finding: "The fixed rule passed all 17 frames. Largest component area is 10,306–12,981 px and foreground outside it is 0–3 px. Adjacent mask-centroid displacement peaks at 5→6 (4.56 px), distinct from the existing full-frame Farneback peak 3→4 (0.14876 px) and RGB-MAE peak 0→1 (0.004580). Per-frame boxes/centroids and all joined adjacent-pair values are in the report/result."
+    compute: "CPU-only OpenCV/Pillow/NumPy on existing, manifest-hash-verified decoded RGB PNGs. No model/latent loading, inference, generation, GPU, cloud, dependency installation, or tests."
+    limitation: "One saved clip. A fixed color-connected component is an image-space object-local proxy, not a semantic ground-truth track; the full-sequence/all-frame policy is unchanged."
+
+  - id: EXP-DITRAJ-WAN13B-X0-BOX-FEEDBACK-SMOKE-001
+    owner: "LatentGate architecture / policy"
+    status: local_adapter_implemented_not_run_plumbing_gated_by_observer_and_actuation
+    protocol: "research/run_ditraj_feedback_pilot.py"
+    adapter: "research/ditraj_feedback_adapter.py"
+    design: "research/ditraj_feedback_adapter_design_v1.md"
+    controls: [full_ditraj_baseline, decode_matched_noop, step4_x0_hat_bounded_residual]
+    prerequisites: [generated_preview_observer_gate, full_run_box_action_reviewed, late_mask_actuation_reviewed, free_T4_quota_confirmed]
+    compute: "No model inference has run. After observer and actuator gates, run only a one-direction eight-step plumbing smoke; step-4 feedback affects three later calls. Requires the reviewed open-loop baseline, staged notebook, and fresh free-T4 quota; no paid accelerator is authorized."
+    limitation: "Plumbing/resource smoke only. It cannot establish motion direction, feedback improvement, held-out efficacy, or full-run DiTraj/RoPE control."
+
+  - id: EXP-M1-COGVIDEOX5B-I2V-SMOKE-001
+    owner: "LatentGate M1 track"
+    status: prepared_not_run_no_paid_confirmation_and_drive_sync_unresolved
+    protocol: "m1/failure_atlas_plan.md"
+    bundle_sha256: 7f0764dd3e8730485650d1c80defc4e6024f621af03068dad18291e272daee1e
+    local_notebook_sha256: ab9d85acda9451ae2edc3a4509064cafc27c66573ef25f7e9158459e9a1e27ef
+    runner_sha256: 3ed1802b5cec198d94f7662ebca3e26531a50f8fc7691f9f2b7f01e73925ec0e
+    full_sequence_frame_audit: m1/full_sequence_frame_audit_2026-10-16.md
+    full_sequence_frame_audit_sha256: c6b7a01e0e9d4a434764ea11f53734b47bcc408fc3252d70e29f3aceda8c74b9
+    capture_path_audit: m1/capture_path_static_audit_2026-10-16.md
+    capture_path_audit_sha256: e05e4434c94d9c475465ed9a61aad628986047079d5a6308edb0f8ba9276dbde
+    temporal_support_audit: m1/cogvideox_temporal_support_audit_2026-10-16.md
+    temporal_support_audit_sha256: bbda7aaf356fd3f90fadf5284b0126703a3551929eadd81086d90962c415ca5d
+    sparse_rgb_decode_audit: m1/cogvideox_sparse_rgb_decode_audit_2026-10-17.md
+    sparse_rgb_decode_audit_sha256: 5f3a88d4b4c69888779a7bef39206236df347e122e599403dc0965a38fc00ad8
+    readiness_report: "m1/experiment_readiness_2026-10-16.md"
+    readiness_report_sha256: "42bf4aafc0a8cc3cb8beeb1eec5659f45d13ab3d585be8f6282a9084a36f013f"
+    sequence_synthesis: "m1/cogvideox2b_30step_m0_and_m1_sequence_synthesis_2026-10-17.md"
+    sequence_synthesis_sha256: "ac815e229d49690def78a1fa72eee7137c6a60448458e6628006bcd72029817f"
+    ticket_sha256: "e7f09412381306749fa26e82915b24e148931494361007c3d8b052fb65f962ba"
+    dense_frame_scoring: "Score every index 0–48 in m1/runs/cogvideox_5b_i2v_t4_smoke/frame_score_table.jsonl with linked baseline/replay paths and hashes. The original eight are sentinel-only; their exact legacy indices are not preserved locally."
+    attention_capture_followup: "The one-clip smoke defers attention capture. Before the eight-seed pilot, freeze the bounded per-seed attention hooks and storage/runtime budget required by m1/failure_atlas_plan.md."
+    compute: "No M1 inference has run. On 2026-10-15, notebook cells confirmed a Tesla T4 and PyTorch CUDA (`2.11.0+cu130`, 14.56 GiB), then disconnected; no model, package install, or weights ran and no billing receipt appeared. Hardware access is confirmed for that moment, but free/no-paid admission is unresolved. The versioned package stack now pins Torch 2.11.0+cu130 and TorchVision 0.26.0+cu130, with a pre-install no-paid guard in the local notebook. The Drive notebook predates the local manifest-hash wrapper; refresh it and verify the current bundle SHA before any run. This one-clip smoke is independent of DiTraj/Kubrik Gate 1 under research/2026-10-15_m1_smoke_gate_scope_amendment.md. No Kaggle fallback or paid accelerator."
+    scope_amendment: research/2026-10-15_m1_smoke_gate_scope_amendment.md
+    scope_amendment_sha256: 8f5f52302fcf01c164d66189516054e4b3ebe4d975ec5b2c1102040133233733
+    limitation: "Single-smoke feasibility and observability check; not a seed-batch or geometry-ground-truth result"
+
+  - id: EXP-LATENTGATE-UWM-NATIVE-ACTION-POLICY-FEASIBILITY-001
+    owner: "LatentGate architecture"
+    status: "paper_and_local_feasibility_audited_interactive_simulator_and_image_conditioned_backbone_pending"
+    protocol: "research/2026-10-12_native_video_action_policy_feasibility.md"
+    lead_reference: "UWM arXiv:2504.02792; conceptual continuous coupled video/action diffusion reference, not a direct Wan reproduction"
+    design: "Build an action-producing policy inside an image-conditioned video denoiser. First establish action-labeled interactive simulation data and spatial feature access; then test a small action head and a joint action/video denoising objective."
+    evidence_chain: [observability, forecastability, correctability, action_specificity, downstream_utility]
+    relationship_to_m1_m3: "Parallel architecture hypothesis only; does not replace or unblock M1 common-route/small-batch validation, M2 geometry emergence/predictive probe, or M3 causal intervention."
+    simulator_candidate: "See EXP-LATENTGATE-NATIVE-VIDEO-ACTION-DATASET-001: provisional LIBERO-Goal put_the_bowl_on_the_plate; Book-Caddy is deferred unless a long-horizon task is needed. No simulator package is installed locally."
+    prerequisites: [interactive_action_labeled_data, image_conditioned_backbone_selected, spatial_token_capture_plan, measured_memory_and_runtime_route]
+    controls: [action_only, video_only, joint_correct_actions, joint_shuffled_actions, joint_sign_reversed_actions, ditraj_p4_after_its_own_gates]
+    primary_metrics: [held_out_closed_loop_success, target_error]
+    generalization_axes: [repeated_paired_seed_blocks, unseen_object_instances, unseen_layouts]
+    evaluator: independent
+    guardrails: [video_path_error, visibility, object_identity, apparent_size, contact_task_completion, background_camera_stability, non_target_policy_families, broad_pretrained_video_prior_retention]
+    decision_rule: >-
+      Continue only if repeated paired held-out seed blocks, scored by an independent evaluator, show the joint model improves closed-loop outcomes over matched video-only and action-only controls; confirm the effect on unseen object instances and layouts. Gains must materially weaken under shuffled/sign-reversed action labels, compute and data/update budgets must be matched, and non-target guardrails plus broad pretrained video-prior retention must show no material regression.
+    compute: "No model training or inference started. UWM's paper-reported 100K-step DROID pretraining used four NVIDIA A100 GPUs for 24 hours; T4 suitability for a small Wan adaptation is unmeasured. Colab availability remains unconfirmed."
+    license_boundary: "The official UWM repository lists code and checkpoints but no software license was found. Do not run or reuse its code/checkpoints until terms are clear; paper license does not establish artifact license."
+    limitation: "Design ticket only. UWM is not a Wan port. The local M0 hidden summaries are spatially pooled, M0 is text-to-video rather than observation-conditioned, and no native action/video model or efficacy result exists. This lane does not pass or bypass the separate P4 Gate 1 human-reference requirement."
+
+  - id: EXP-LATENTGATE-NATIVE-VIDEO-ACTION-DATASET-001
+    owner: "LatentGate data and measurement"
+    status: "partial_proprioception_state_shift_verified_rgb_phase_provenance_and_initial_observation_pending"
+    protocol: "research/native_video_action_episode_schema_v2.md"
+    source_alignment_audit: "research/2026-10-15_libero_episode_alignment_audit.md"
+    machine_audit_record: "research/libero_goal_episode_alignment_audit_v2.json"
+    audit_runner: "research/audit_libero_episode_alignment.py"
+    task_candidate: "LIBERO-Goal / put_the_bowl_on_the_plate; provisional one-object placement data-path study, not a downstream generalization benchmark"
+    source_artifact_candidate: "Hugging Face yifengzhu-hf/LIBERO-datasets/libero_goal/put_the_bowl_on_the_plate_demo.hdf5 at commit 97773100c1474cd0d686ebd173cc0e4fd5442466; 468246288 bytes; SHA-256 e69528b0cf10dfc59b20698e12ec2affc03f3887309034d3eb74cac3ec929406; temporary copy downloaded, full hash verified, not stored in repository"
+    source_terms: "LIBERO README directly points to this Hugging Face dataset distribution and lists datasets CC BY 4.0; conservatively preserve CC BY attribution. HF repo-level Apache-2.0 metadata remains unclarified; upstream issue 150 asks about authorization and is open without maintainer clarification. Do not rely on Apache to waive attribution."
+    data_contract: "Versioned per-modality observation streams and action stream with source indices, explicit pre/post/unknown phases, action-to-observation references, content hashes, outcomes, and separate privileged simulator truth; same-row array joins are not alignment evidence"
+    prerequisites: [execution_platform_selected, simulator_task_and_commit_pinned, dataset_cc_by4_attribution_recorded, controller_action_semantics_inspected, one_episode_source_alignment_audit_passed, split_manifest_frozen]
+    splits: [train, validation, test_seen, test_unseen_object_if_constructed, test_unseen_layout_if_constructed]
+    controls: [exact_replay_or_noop, correct_action_pairs, shuffled_action_pairs, sign_reversed_actions_if_meaningful]
+    compute: "The candidate HDF5 was downloaded to temporary storage for hash-verified structural inspection and static proprioception/state phase checks across all 50 episodes. No LIBERO/MuJoCo setup, simulator rollout, model inference, or training run. Current Colab/Kaggle GPU admission remains unconfirmed."
+    decision_rule: "Collect only after action ordering/units/scaling/timing, source artifact terms, environment pin, split rules, and one-episode modality-specific pre/post alignment audit are recorded. Keep policy-visible RGB/proprioception separate from privileged state/contact labels."
+    limitation: "A hash-verified HDF5 inspection found 50 demos/4669 rows; demo_0 has 90 rows with actions [90,7], states [90,79], and 90-frame 128x128 agent/wrist RGB streams. Its env_args records Panda OSC_POSE, control_delta=true, input range [-1,1], xyz output ±0.05 m, orientation component output ±0.5, and 20 Hz. Across all 50 episodes, saved joint/gripper observation rows exactly match flattened state row k+1 for all 4619 adjacent pairs, establishing the proprioception/state one-row offset. The HDF5 layout is consistent with the pinned LIBERO create_dataset.py writer, but does not record its converter revision. The source writer collects RGB after env.step(action); conditional on this writer, same-row states/actions are pre-action while RGB/proprioception are post-action. The numeric check does not independently establish RGB phase. A candidate transition view uses obs[k-1] with actions[k] for k>=1; the first stored action lacks a pre-action camera sample because cap_index=5 discarded the first five source actions. No timestamp or simulator replay validates camera timing. Reward/done fields contain only a final-row marker that the converter sets unconditionally, not independent task success. The temporary file is not in this repository. LIBERO's README lists CC BY 4.0; preserve attribution while the HF Apache-2.0 tag remains unresolved. Standard LIBERO task lists do not by themselves provide unseen object/layout holdouts. This lane is independent of P4 Gate 1 but does not unblock M1–M3 or establish native-policy efficacy."
+
+  - id: EXP-LATENTGATE-COGVIDEOX2B-RGB-PROXY-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_only_single_clip_rgb_proxy_opposes_prompt_direction
+    protocol: "research/2026-10-12_cogvideox2b_rgb_proxy_audit.md"
+    protocol_sha256: "0e877da1cbf1a4a51faf4236a5d80a6f1753dfeae0a05c498e76ed838f094722"
+    runner: "research/run_cogvideox2b_rgb_proxy_audit.py"
+    runner_sha256: "b00a962c741e95a9973ff9767457bcf5ec7c6a47722cc797443704287685b923"
+    input_hashes: "research/cogvideox2b_rgb_proxy_inputs_v1.json"
+    input_hashes_sha256: "280f8dfd299cdb135974c824998b2ff36b884abfefdfb1a09391e4539ff36de1"
+    source_run: "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13"
+    results: "research/cogvideox2b_rgb_proxy_audit_v1.json"
+    results_sha256: "9a13a3132a48ee70b6972d050a45841363234c0804a98056f8d9c08a7aaa87de"
+    result: "All 36 registered RGB thresholds retained detections on all 16 frames and showed leftward endpoint displacement: dx=-0.05024 to -0.04875 of width (median -0.04934); dy=-0.04594 to -0.04360 of height. The first three adjacent transitions are byte-identical; of 15 adjacent steps, 12 move left and 3 are still for every threshold. Median proxy-mask endpoint area ratio is 0.894."
+    compute: "Preregistered CPU-only RGB mask threshold sweep over 16 saved output frames; no latent arrays, model inference, GPU, or human labels."
+    limitation: "One RGB sequence and one color proxy only. This audit does not resolve the separate latent-time-to-frame mapping gate or establish cross-model generalization or policy efficacy."
+
+  - id: EXP-COGVIDEOX2B-STEP-SENSITIVITY-RGB-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_only_no_direction_scoreable_in_either_low_resolution_clip
+    protocol: "research/2026-10-12_cogvideox2b_stepsensitivity_rgb_protocol.md"
+    protocol_sha256: "5149c9c8771abbac355085d355da7f6dc430f5878e2795ef456d3ee33700a0e2"
+    runner: "research/run_cogvideox2b_stepsensitivity_rgb.py"
+    runner_sha256: "4d771de0916d213a3a482021aad403d79a323fd781cfbc2110b1b2203f6ac40b"
+    input_hashes: "research/cogvideox2b_stepsensitivity_inputs_v1.json"
+    input_hashes_sha256: "b412f4f31d051d31f40060d17b34e47443ea5c8c23e857e996409cc7453dbcdd"
+    results: "research/cogvideox2b_stepsensitivity_rgb_v1.json"
+    results_sha256: "4855a996bf9e3c908d4c7fa89a722e45449bf6f38ece8766bc70b11455607acc"
+    report: "research/2026-10-12_cogvideox2b_stepsensitivity_rgb_report.md"
+    sources:
+      - "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot"
+      - "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot_30steps"
+    result: "Across the registered 36 thresholds, the 8-step 480x320 clip had 0 red-mask pixels and the 30-step clip peaked at 203 pixels in one frame, below the fixed 300-pixel centroid floor. Neither clip had a valid centroid in any frame or any complete track; direction was unscoreable. The existing 50-step 720x480 result is separately analyzed and is not pooled because resolution and frame count differ."
+    compute: "Preregistered CPU-only RGB mask analysis on 18 saved PNGs; no latent arrays, model inference, GPU, or human labels."
+    limitation: "One saved output per recorded setting; matching manifests do not establish identical code, checkpoint, environment, or effective initial noise. The 480x320 runs are below the model's documented resolution. No direction, latent interpretation, step-count causality, controllability, or policy efficacy claim follows."
+
+  - id: EXP-COGVIDEOX2B-FIVE-ANCHOR-RGB-READOUT-001
+    owner: "LatentGate measurement"
+    status: stopped_proxy_coverage_failure_no_interpolation_metrics
+    preregistration: "research/cogvideox_2b_sparse_frame_preregistration_v1.json"
+    preregistration_sha256: "a684caf7b9cb0a3170cc8803c0119a720e3e45f7df0e015880f298239022f4fd"
+    protocol_report: "research/2026-10-12_cogvideox2b_five_anchor_sparse_readout.md"
+    runner: "research/audit_cogvideox_2b_five_anchor_sparse_readout.py"
+    runner_sha256: "fef34b5af0dda94f9d27ed08feba4bd1d86f0d17a9f845e46c0ec7667ccadea9"
+    results: "research/cogvideox_2b_five_anchor_readout_v1.json"
+    results_sha256: "4b73e15a6e0b1eb88f8543b121336f5796206217ebd80f93ca6ee155c994aee4"
+    finding: "Both run manifests and all 18 RGB hashes passed. The fixed (150,125,125) proxy had 0/9 scoreable frames per run; no one of the 36 threshold combinations yielded full 9-frame coverage. The preregistered 300-pixel floor failed, so interpolation and event-window metrics were not computed."
+    overlap: "The earlier EXP-COGVIDEOX2B-STEP-SENSITIVITY-RGB-001 already established low-resolution RGB unscoreability. This follow-up adds frozen five-anchor protocol/hashes but no sparse-interpolation outcome."
+    compute: "Local CPU-only RGB threshold coverage checks; no latent arrays, inference, GPU, human labels, Colab, Kaggle, or generation."
+    limitation: "Stopped at preregistered coverage gate. No threshold tuning. The two sensitivity variants are not independent samples; neither this stop nor the earlier scoreability audit isolates a denoising-step effect."
+
+  - id: EXP-COGVIDEOX2B-PILOT-ADJACENT-MOTION-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_saved_rgb_adjacent_motion_proxy
+    runner: "research/analyze_cogvideox2b_pilot_adjacent_motion.py"
+    runner_sha256: "e04e6b9272cc8b8b70a2667b6b1d45b62add21c355a26df4620afdadb7fa8606"
+    report: "research/2026-10-17_cogvideox2b_pilot_adjacent_motion.md"
+    report_sha256: "b48befc9d006ff6fddb4520b2fb95775895e36946654470da91810e2a26a5f1a"
+    results: "research/cogvideox2b_pilot_adjacent_motion_v1.json"
+    results_sha256: "ec178ded48ff5ef36d1b7dbfae856c7df3460ce8144f7ba468e696bdeb251195"
+    source_run: "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot"
+    source_manifest_sha256: "08cb21bb8f69a725ed06dbcedf18a3db65af892356ae9f33520ed7d7ee104eb6"
+    input_map: "research/cogvideox2b_stepsensitivity_inputs_v1.json"
+    input_map_sha256: "b412f4f31d051d31f40060d17b34e47443ea5c8c23e857e996409cc7453dbcdd"
+    anchor_preregistration: "research/cogvideox_2b_sparse_frame_preregistration_v1.json"
+    anchor_preregistration_sha256: "a684caf7b9cb0a3170cc8803c0119a720e3e45f7df0e015880f298239022f4fd"
+    anchors: [0, 2, 4, 6, 8]
+    method_references:
+      rgb_mae: "research/cogvideox2b_chunk13_anchor_motion_proxy_v1.json"
+      rgb_mae_sha256: "7f603bf5db6500ca862d1f003f9a870dfc29a1dc35e4efb32feee91739a6fbe3"
+      farneback: "research/cogvideox2b_chunk13_farneback_flow_v1.json"
+      farneback_sha256: "216656c47c99bea09f99c419b983225330db719c1df9f546894b2b6e1ca91f3d"
+    prior_mask_gate: "The 8-step pilot's existing fixed red-mask gate remains 0/9; it was referenced without recomputation or tuning."
+    finding: "Added the first adjacent whole-frame RGB-MAE/Farneback values for this saved pilot: eight pairs and four direct endpoint intervals. RGB-MAE path is 5.0041e-6 normalized vs endpoint total 4.2552e-6 (15.0% of the dense path above endpoint contrasts); its largest pair is 4→5. Farneback path is 5.2793e-8 px vs endpoint total 2.5591e-8 px (51.5% of the dense path); its largest pair is 7→8. Absolute flow is extremely close to zero."
+    compute: "CPU-only Pillow/NumPy/OpenCV on the nine saved, hash-verified RGB PNGs. Reused normalized RGB-MAE and registered OpenCV 4.11.0 Farneback settings. No model/latent access, inference, generation, GPU, cloud, installation, or tests."
+    limitation: "Clip-local image-space diagnostics only; no cross-model or denoising-step claim, human-label claim, object-motion ground truth, or sampling-policy claim."
+
+  - id: EXP-COGVIDEOX2B-PILOT-30STEPS-ADJACENT-MOTION-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_saved_rgb_adjacent_motion_proxy
+    runner: "research/analyze_cogvideox2b_pilot_30steps_adjacent_motion.py"
+    runner_sha256: "0fb64ad4e375aad2d0c1231395ecb2e3b630767abd32f9d8bfbc1bdb9d5f025f"
+    method_runner: "research/analyze_cogvideox2b_pilot_adjacent_motion.py"
+    method_runner_sha256: "e04e6b9272cc8b8b70a2667b6b1d45b62add21c355a26df4620afdadb7fa8606"
+    report: "research/2026-10-17_cogvideox2b_pilot_30steps_adjacent_motion.md"
+    report_sha256: "d60c4f6a4b794117982ed1bd3cffed0dca62da25eaa9e08dfcf9a8a7a6182fbd"
+    results: "research/cogvideox2b_pilot_30steps_adjacent_motion_v1.json"
+    results_sha256: "88b79cd88aa3180611545b8f1f71024f80bc3074bdaeb38ebb8a808439f44ec6"
+    source_run: "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot_30steps"
+    source_manifest_sha256: "5ba9d3735fe511b5c0dee48fb92b9b103148b41ba463a194a419540eac3864be"
+    input_map: "research/cogvideox2b_stepsensitivity_inputs_v1.json"
+    input_map_sha256: "b412f4f31d051d31f40060d17b34e47443ea5c8c23e857e996409cc7453dbcdd"
+    anchor_preregistration: "research/cogvideox_2b_sparse_frame_preregistration_v1.json"
+    anchor_preregistration_sha256: "a684caf7b9cb0a3170cc8803c0119a720e3e45f7df0e015880f298239022f4fd"
+    anchors: [0, 2, 4, 6, 8]
+    method_references:
+      rgb_mae: "research/cogvideox2b_chunk13_anchor_motion_proxy_v1.json"
+      rgb_mae_sha256: "7f603bf5db6500ca862d1f003f9a870dfc29a1dc35e4efb32feee91739a6fbe3"
+      farneback: "research/cogvideox2b_chunk13_farneback_flow_v1.json"
+      farneback_sha256: "216656c47c99bea09f99c419b983225330db719c1df9f546894b2b6e1ca91f3d"
+    prior_mask_gate: "Existing 0/9 fixed-mask coverage failure (maximum mask size 203 px against the 300-pixel floor) referenced without recomputation or tuning."
+    finding: "Added eight adjacent-pair metrics and four direct anchor endpoint intervals for the saved 30-step clip. RGB-MAE dense path is 0.00095454 normalized vs endpoint sum 0.00092827 (2.75% of the path above endpoints); Farneback path is 0.18714 px vs endpoint sum 0.19119 px (endpoint sum exceeds path by 2.16% of path). Both metrics peak at 0→1, where Farneback magnitude is tail-sensitive (median 0, P99 3.9e-5 px, max 36.68 px). Five run records cover four unique complete RGB sequences; retry4/retry5 final RGB sequences are byte-identical (their complete artifact sets differ), and every unique sequence already has both adjacent metrics, so no distinct saved-clip CPU target remains."
+    compute: "CPU-only Pillow/NumPy/OpenCV on nine saved, hash-verified RGB PNGs. Reused the registered normalized RGB-MAE definition and OpenCV 4.11.0 Farneback settings. No model/latent access, inference, generation, GPU, cloud, download, installation, or tests."
+    limitation: "Clip-local descriptive image-space metrics only; no controlled cross-step inference comparison, denoising-step attribution, human-label/object-ground-truth claim, or sampling-policy claim."
+
+  - id: EXP-COGVIDEOX2B-50STEP-FIVE-ANCHOR-RGB-READOUT-001
+    owner: "LatentGate measurement"
+    status: completed_cpu_only_single_clip_sparse_interpolation
+    preregistration: "research/cogvideox2b_50step_five_anchor_preregistration_v1.json"
+    preregistration_sha256: "4eaf63a27a8ad88fe4c989bd83d8effad6976b5a0ff015e879c5ea72ed4472f8"
+    protocol_report: "research/2026-10-15_cogvideox2b_50step_five_anchor_readout.md"
+    protocol_sha256: "de48e8c28ce5e833c078f58777f80a136a81c8388a9dee338e95eef0dd842642"
+    report: "research/2026-10-15_cogvideox2b_50step_five_anchor_readout_report.md"
+    runner: "research/audit_cogvideox2b_50step_five_anchor_readout.py"
+    runner_sha256: "33ad6752c16cab6024b55b73a9386be439a392351a06c54f83f65b64858af451"
+    input_hashes: "research/cogvideox2b_rgb_proxy_inputs_v1.json"
+    input_hashes_sha256: "280f8dfd299cdb135974c824998b2ff36b884abfefdfb1a09391e4539ff36de1"
+    results: "research/cogvideox2b_50step_five_anchor_readout_v1.json"
+    results_sha256: "7720a87fbc37a7f1ae139f58c5106b6b2f7585220e23aaf5b6709cf35dcb3aaf"
+    source_run: "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_chunk13"
+    finding: "All manifest/frame hashes passed and all 36 fixed threshold cases had complete 16/16 coverage. With anchors [0,4,8,12,15], baseline omitted-frame center error averaged 1.14 px (1.89 max), and mask area error averaged 12.0 px (0.62% relative mean, 1.83% relative max). Across thresholds, mean center error was 0.95–1.15 px. Schedule coverage was 5/16 one-frame, 8/15 two-frame, 11/14 three-frame, and 13/13 four-frame windows."
+    compute: "CPU-only analysis of saved RGB PNGs; no latent arrays, model inference, GPU, Colab, Kaggle, human labels, or generation."
+    limitation: "One sequence, one color proxy, no observed event labels, and no latent-to-frame alignment. Supports a coarse summary of this sample only; dense framewise evaluation remains required for brief events, visibility, and identity. Does not compare chunked generation or establish general sampling performance."
+
+policies:
+  - id: P1_DEPTH_GEOMETRY
+    status: planned
+    teacher_candidates:
+      - VideoDepthAnything
+      - VGGT
+    metrics:
+      - depth_temporal_consistency
+      - depth_order_violations
+      - reprojection_error
+      - rigid_scale_drift
+
+  - id: P2_IDENTITY_TRACKING
+    status: planned
+    teacher_candidates:
+      - CoTracker3
+      - DINO_features
+    metrics:
+      - track_survival
+      - identity_embedding_variance
+      - identity_switch_count
+
+  - id: P3_TRAJECTORY
+    status: planned
+    teacher_candidates:
+      - point_tracks
+      - intended_waypoints
+    metrics:
+      - path_error
+      - acceleration_spikes
+      - jerk
+      - target_completion
+
+experiment_defaults:
+  seeds: 50
+  intervention_strengths: [0.0, 0.05, 0.1, 0.25, 0.5, 1.0]
+  require_matched_compute_baseline: true
+  require_independent_evaluator: true
+  require_reproducible_config: true
+
+gate1_intake_pipeline_source_audit:
+  audit_utc: "2026-10-16T17:11:48Z"
+  memo: "research/2026-10-17_gate1_intake_scanner_source_audit.md"
+  memo_sha256: "cfda400cfdf8f4f86737cc08dd194421275cff4a5704d17da03e1a46a024e95a"
+  memo_sha256_at_initial_audit: "b8a8dceab9ebda3e4832d7e765d48e6f40e60f3ff58d35d67527940a1a90a9c5"
+  latest_source_followup_utc: "2026-10-17T06:23:00Z"
+  latest_source_followup: "Scanner now requires an explicit fresh output outside the project, in an existing current-user-owned owner-only directory; it creates mode-0600 files exclusively without following symlinks. POSIX owner/mode is checked; the coordinator SOP still requires ACL review. Scanner remains excluded from genuine-return intake."
+  latest_source_sha256: "a7db4518ef76d5efe761d0f05e014968ae32a94927a3ee8c849d89e8b30c360c"
+  latest_memo_sha256: "cfda400cfdf8f4f86737cc08dd194421275cff4a5704d17da03e1a46a024e95a"
+  coordinator_sop_sha256_current: "30fc20c6f4696e993ab8fef4d29b2f6cb51cc3de939fa3e1556bec5045c9c4e4"
+  scanner_sha256: "957db7e6be873ece8e472c488901df8577addd3cc7f9d701aea4ad2b9b13de8e"
+  coordinator_sop_sha256: "7278689382309a2794b4fa287ccca2a6a7692d429e2dad4773445896c77f6c52"
+  latest_full_inventory: "research/gate1_label_intake_scan_v16.json"
+  latest_full_inventory_sha256: "51eca7508423b6fa6c6628b6ecfd0094d03e9798818e101e5e1d40d50b73d959"
+  current_blocker: "two independent complete v5 human returns; v16 has zero complete and zero partial returns"
+  decision: "Keep the broad content scanner out of the genuine-return path. Its CSV/ZIP reads include annotation cells; it emits resolved candidate paths and derived annotation counts though not raw values. Explicitly route any future full-scan report to owner-only staging. No metadata-only helper added because legitimate returns use controlled receipts and no persistent private metadata baseline is registered."
+  execution: "source and documentation review only; no scanner/scorer/test run and no candidate, annotation, key, receipt, or staging file opened"
+
+gate1_receipt_independence_delta_audit:
+  audit_utc: "2026-10-16T18:09:55Z"
+  memo: "research/2026-10-17_gate1_receipt_independence_delta_audit.md"
+  memo_sha256: "7e9580f5f113cd81c16f75c9f189cf1db5c166274bd8e6720c154804e5da0726"
+  prior_provenance_audit_sha256: "6d138c5480cfc2fd66f7d829537fe11b2a122fda8b6cc9168bd3fd91fd6e1829"
+  owner_checklist_sha256: "e6c0bf8c48194beb40f890778789b008e48767aea693d23abb2961acb94240b7"
+  coordinator_sop_sha256: "121b327b59952f6cf7860d75b5f55db115c3fba1664ca4033378be6eb13bd503"
+  current_blocker: "two independent complete v5 human returns; scan v16 reports zero complete and zero partial returns"
+  decision: "The receipt, roster, private-custody, and hash requirements close the prior procedural provenance gaps if followed, but no actual receipt/assignment exists and attestations/tokens cannot cryptographically prove real-world independence. SOP now makes the token, packet ID, and assigned packet hash tuple explicit before CSV parsing. Strict metadata-only checks cannot recompute byte hashes; use hash-only streaming without CSV parsing."
+  execution: "source-document review and coordinator-SOP clarification only; no real receipt, roster, assignment, submission, label, key, or staging file opened; no code, scanner, scorer, or test run"
+
+gate1_custody_preflight_helper:
+  completed_utc: "2026-10-16T23:38:46Z"
+  source: "research/preflight_gate1_custody.py"
+  source_sha256: "477dca3a2a3f088a2f01d73dc16e60b2ad03d8850446d345eacf05937f0355a4"
+  prior_source_sha256: "1de329c0e6313b1f71a026bd6b10b930ccc73e7be65f41eac3805b063b86752b"
+  initial_source_sha256: "2e48dcefe583164b25b008b9d1f5780f280adeb60adcb0c537d721e0a6e24343"
+  audit_memo: "research/2026-10-17_gate1_custody_preflight_helper_audit.md"
+  audit_memo_sha256: "4a16e938fede197273d153b6627667853bd85585f9bba12e828421f65d8baf4d"
+  prior_audit_memo_sha256: "c811cea8e5573958f6584554f49e2eb87cffe1d8f289d212931086f379f40abc"
+  static_review_utc: "2026-10-16T23:58:45Z"
+  static_review_findings: "Initial review found missing intermediate-parent symlink rejection and ZIP metadata gaps for DOS directory entries and strong-encryption bit. That revision added canonical-path checks and rejects DOS directory attribute 0x10 plus encryption bits 0x01/0x40; its absolute-path operations still had a concurrent same-UID parent-swap risk, superseded by the dirfd follow-up below."
+  dirfd_followup_utc: "2026-10-17T00:04:07Z"
+  dirfd_followup_decision: "Implemented component-by-component directory-fd traversal with O_DIRECTORY|O_NOFOLLOW, retained descriptors, descriptor-relative file open/list/stat, fstat owner/mode checks, ancestry ACL grant rejection, and fail-closed platform/capability gates. Same-UID mutations are not locked out; ACL inspection still uses path-based ls with identity bracketing. Static only; no execution, compile, test, or private-tree access."
+  coordinator_sop_sha256: "30fc20c6f4696e993ab8fef4d29b2f6cb51cc3de939fa3e1556bec5045c9c4e4"
+  status: "source-only dirfd and descriptor-ACL revision complete; unverified pending isolated ABI, empty-ACL, and filesystem validation; not executed, compiled, or tested; no private tree access; same-UID concurrent mutation is not excluded"
+  behavior: "Checks owner-only directories/files, component-wise dirfd path traversal, exact private roster/receipt schema, distinct token/person refs, token/packet/hash tuples, bounded original/ZIP-member/staged-file streaming hashes, and distinct received-envelope bytes. Each staged-file digest must match its receipt and, for ZIP, the streamed member; identical staged CSV bytes are not independently rejected because the SOP does not require distinct scored CSV contents. Uses descriptor-relative opens/listings/stats with O_NOFOLLOW; owner/mode use fstat; ACL checks use Apple acl_get_fd_np(ACL_TYPE_EXTENDED) on retained/opened descriptors through ctypes. ZIP checks reject DOS directory and traditional/strong encryption bits. Never parses CSV cells; emits only pass/fail and an opaque run ID."
+  scope_limit: "Initial two-return pair only; exact file set required. Descriptor anchoring prevents parent-path redirection after opening, but concurrent same-UID mutation of entries, modes, ACLs, or files is not locked out. Adapt before later mirrored-seed pair."
+  review_decision: "Descriptor ACL review replaced absolute-path ls queries with Apple acl_get_fd_np(ACL_TYPE_EXTENDED) calls bound via ctypes on retained/opened descriptors. Official API support is clear, but helper behavior is not validated; isolated fixtures must confirm empty ACL, allow/deny ACE, unsupported filesystem, errno and ctypes ABI behavior before real intake. Quiescent owner-only use remains necessary, and same-UID mutation is not excluded."
+  followup_requested_utc: "2026-10-17T00:00:12Z"
+  followup_status: "descriptor-ACL source review completed; helper remains unverified pending isolated fixture validation; no private tree access or execution, compilation, or tests"
+  current_blocker: "two independent complete v5 human returns; scan v16 reports zero complete and zero partial returns"
+  acl_review_requested_utc: "2026-10-17T00:27:08Z"
+  acl_fd_followup_utc: "2026-10-17T00:31:57Z"
+  acl_fd_followup_decision: "Official Apple docs and Apple Libc header establish descriptor-based ACL retrieval with acl_get_fd_np and ACL_TYPE_EXTENDED; Python ctypes binds that public C API. The helper now checks ACL entries and allow/deny tags on the same open descriptors and opens listed regular files with O_NOFOLLOW before comparing identities and querying ACLs. Null/error/unsupported/unknown results fail closed. No execution or fixture validation occurred; EINVAL for a fresh empty ACL and the ctypes ABI/symbol resolution remain unverified."
+  contract_regression_review_utc: "2026-10-17T00:59:26Z"
+  contract_regression_review_decision: "Focused source-only comparison found no refactor-introduced file/schema/ZIP/fail-closed mismatch. It found a pre-existing staged-hash distinctness overconstraint not required by the SOP; removed it while retaining individual receipt/member-to-stage hash checks and the SOP-required distinct received-envelope hashes. No other source correction was justified. Two independent complete v5 human returns remain the Gate 1 blocker."
+  validation_plan: "research/2026-10-17_gate1_custody_preflight_validation_plan.md"
+  validation_plan_sha256: "e0232c4b8e380aa0e82e6cd966fa02ec2f966e46f8953d62a707496ae88e4fc8"
+  validation_plan_utc: "2026-10-17T04:31:15Z"
+  validation_plan_decision: "Planning only: maps ctypes ABI/symbols, empty ACL/errno, allow/deny ACEs, unsupported ACL filesystems, dirfd/no-follow, and the same-UID mutation limit to synthetic fixtures and explicit pass/fail rules. No fixture, helper execution/compile/test, or private-data access occurred; helper remains unverified. Two independent complete v5 returns remain the Gate 1 blocker."
+
+ditraj_runner_notebook_readiness_audit:
+  audit_utc: "2026-10-17T05:30:17Z"
+  notebook_sha256: "5f8294ed508a8ad2581ef9bf0b1754aeaa44812bb964376f993fbd4a121d9d55"
+  runner_sha256: "312d923f04af24a909082ca659a0d743e2066e2f970c71298eb971c594bc5a4e"
+  embedded_runner_byte_equal: true
+  matches: "Six mirrored-path × Base/SG-only/full-DiTraj cases; shared initial latent tensor and SHA; 17 frames at 832x480 with exact output shape check; per-arm time, peak VRAM, noise hash and red proxy; global Python/Torch/CUDA/T4 metadata."
+  execution_gate_gap: "Historical finding at 05:30Z, remediated in the 06:10Z source update: notebook setup/preflight/run cells and paired/feedback/legacy direct CLIs now require a fresh exact-arm manual receipt; direct CLIs re-hash the runner before model/CUDA work. The remaining limitation is that Kaggle offers no provider quota API here, and the kernel cannot independently authenticate UI evidence or re-hash the staged notebook. No valid receipt exists, so execution remains blocked."
+  evaluation_gap: "Historical finding at 05:30Z, remediated by removing automatic preliminary ZIP/archive creation and setting reports to preliminary_not_scoreable/exportable=false. Export/scoring remains blocked until the registered per-frame hash/dimension manifest and separate background-stability measure are produced."
+  blockers: "Two independent complete v5 human returns remain absent (scan v16 zero complete/partial); designated Kaggle page content/free admission unknown. Colab is unsubscribed, zero units, disconnected, and not guaranteed free."
+  execution: "Original 05:30Z crosswalk was CPU/source-only with no edits, execution, compile, tests, inference, private-data access, staging, or runtime; see source_remediation_execution for the later local edit-only follow-up."
+  source_remediation_utc: "2026-10-17T06:10:04Z"
+  source_remediation_memo: "research/2026-10-17_ditraj_admission_export_remediation.md"
+  source_remediation_memo_sha256: "4772c8fc4700e550423026dac0a6a12066cfa88a664b6dbdf7bf818f3843fb07"
+  source_remediation_decision: "Added a standard-library manual receipt validator and wired it before notebook setup/install, CUDA preflight, and every paired/feedback/legacy runner entry. Receipts require the designated account, <=15-minute UTC check, exact notebook/runner hashes, intended arm, free-T4/no-paid attestations, provenance text, and evidence SHA; direct CLIs re-hash the executing runner. The validator does not query Kaggle billing and cannot authenticate account UI or re-hash the staged notebook, so the receipt remains an operator attestation and execution stays blocked without independently reviewed current evidence. The stale notebook is fail-closed in every code cell."
+  canonical_notebook_sha256_current: "fc066dc732ca1213487181fe38f7b2a5d54038b39aa14d16f8569c8548c56e15"
+  retired_notebook_sha256_current: "ebcebad652cb69daed5f4ccef3dcdccdc95a2cdf97643860bd7040b67079720f"
+  admission_validator_sha256: "b40f3d230dcdf9e47ebbedfe853e6d26090933db199959b96c79a4612d6193d9"
+  admission_receipt_template_sha256: "48c80e420932aec436ee832bee311c4a8e39415431d364cbb4334111d394fc11"
+  paired_runner_sha256_current: "c00e1470c3e67da3573f61614f90e3ec9ab525135040ca3928a4bc3db4432984"
+  feedback_runner_sha256_current: "8b00b8c413b6e8dcfd4b61ceaf206ec4a3f45351557c3b21aa52d06c75dac25f"
+  legacy_matched_runner_sha256_current: "fcd286cc91ee1a8122374a800464f38c7ea9d36235ec022fa085c6eb0e931bd7"
+  packet_export_remediation: "Automatic ZIP creation and notebook broad-archive export were removed. Paired, legacy, and feedback reports explicitly mark preliminary annotation artifacts non-scoreable and non-exportable until both the registered per-frame SHA-256/dimension manifest and separate background-stability measure are present. No arms or thresholds changed."
+  source_remediation_execution: "Source/notebook edits and static JSON/hash review only. No tests, syntax compile, notebook cells, package installs, model or CUDA work, upload/stage, runtime, or human/private label access. Canonical notebook remains 12 cells with null execution counts and empty outputs."

@@ -1,0 +1,11 @@
+# Gate 1 offline manual annotation packets
+
+Distribute each ZIP separately to an independent rater; never send `PRIVATE_UNBLIND_KEY.json`. These v5 packets preserve v4's independent label fields and enlarge low-resolution Kubric frames for usable box annotation. Each ZIP contains one offline `index.html`, a blank CSV fallback, and instructions. The page embeds its frames, has no network calls, supports framewise tight-box drawing and CSV import/export, and does not interpolate. Images below 640 source pixels wide are enlarged to 640 CSS pixels where the viewport allows; saved coordinates remain in source-frame pixels. Visibility, instance count, identity, and box are entered independently; no action auto-fills another scored field.
+
+`synthetic_reliability/` contains the paired Kubric mirror fixture in a different clip order for the two raters. `generated_sample_observer_check/` contains separate blinded aliases of the same saved Wan M0 sample so that human boxes can be compared with the red/SAM2 proposals without showing raters those proposals.
+
+Keep returned CSVs separate and blinded until both are complete. Do not score blank templates. The Kubric labels measure annotation reliability only; the generated sample is a one-clip observer convenience check, not policy efficacy.
+
+The synthetic Kubric frames are 160×96; their CSV boxes are raw source-frame pixel coordinates. When scoring this pair against the Wan control grid (832×480, 52×30), pass `--source-width 160 --source-height 96 --expected-clips 2`; the scorer maps x/y separately before applying the half-cell threshold. For the native 832×480 M0 sample, pass `--source-width 832 --source-height 480 --expected-clips 1`. See the [coordinate-scale audit](../2026-10-11_gate1_coordinate_scale_audit.md).
+
+A post-build browser mechanics smoke loaded v5, confirmed the source-space SVG transform round-trip, and serialized a blank 35-row synthetic CSV without downloading it. The in-app viewport constrained the 160-pixel image width to 622 CSS pixels. This smoke does not establish human annotation precision or agreement; see the [smoke report](../qa/gate1_v5_ui_roundtrip/report.json). The build manifest's `browser_interaction_verified: false` is an as-built field and does not include this later smoke.

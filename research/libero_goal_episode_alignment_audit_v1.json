@@ -1,0 +1,188 @@
+{
+  "all_episode_array_lengths_match": true,
+  "artifact": {
+    "filename": "libero_goal/put_the_bowl_on_the_plate_demo.hdf5",
+    "license_basis": "LIBERO's official repository lists datasets under CC BY 4.0; preserve that attribution. Hugging Face repository-level Apache-2.0 metadata remains unresolved.",
+    "repository": "yifengzhu-hf/LIBERO-datasets",
+    "revision": "97773100c1474cd0d686ebd173cc0e4fd5442466",
+    "sha256": "e69528b0cf10dfc59b20698e12ec2affc03f3887309034d3eb74cac3ec929406",
+    "size_bytes": 468246288
+  },
+  "converter_source": {
+    "artifact_records_converter_commit": false,
+    "commit": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+    "hdf5_layout_consistent_with_converter_writer": true,
+    "path": "scripts/create_dataset.py",
+    "phase_mapping": {
+      "confidence": "Static source-code mapping, conditional on this artifact having been produced by the matching converter. The HDF5 does not record the converter revision and no simulator replay or timestamp comparison was performed.",
+      "missing_endpoint": "The first stored action lacks its pre-action camera/proprio sample. The converter also skips raw indices 0 through 4 with cap_index=5.",
+      "pre_action_policy_input": "For stored action rows k>=1, obs[k-1] is the previous post-action observation and is the candidate pre-action RGB/proprioception input for action[k].",
+      "rgb_and_proprioception": "Source converter calls env.step(action[j]) before appending the returned observation, so stored obs[k] is post-action.",
+      "states_and_actions_same_stored_row": "Source converter selects states[j] and actions[j]; its playback initializes from states[0] and compares the state after action[j] against states[j+1]."
+    },
+    "repository": "Lifelong-Robot-Learning/LIBERO"
+  },
+  "created_utc": "2026-10-15T06:31:13.157327+00:00",
+  "dataset": {
+    "bddl_path": "libero/libero/bddl_files/libero_goal/put_the_bowl_on_the_plate.bddl",
+    "camera_height": 128,
+    "camera_names": [
+      "robot0_eye_in_hand",
+      "agentview"
+    ],
+    "camera_width": 128,
+    "control_frequency_hz": 20,
+    "controller_config": {
+      "control_delta": true,
+      "damping_ratio": 1,
+      "damping_ratio_limits": [
+        0,
+        10
+      ],
+      "impedance_mode": "fixed",
+      "input_max": 1,
+      "input_min": -1,
+      "interpolation": null,
+      "kp": 150,
+      "kp_limits": [
+        0,
+        300
+      ],
+      "orientation_limits": null,
+      "output_max": [
+        0.05,
+        0.05,
+        0.05,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "output_min": [
+        -0.05,
+        -0.05,
+        -0.05,
+        -0.5,
+        -0.5,
+        -0.5
+      ],
+      "position_limits": null,
+      "ramp_ratio": 0.2,
+      "type": "OSC_POSE",
+      "uncouple_pos_ori": true
+    },
+    "demo_count": 50,
+    "environment": "Libero_Tabletop_Manipulation",
+    "episode_sample_count_max": 126,
+    "episode_sample_count_min": 79,
+    "goal": "put the bowl on the plate",
+    "robot_models": [
+      "Panda"
+    ],
+    "sample_count_total": 4669,
+    "tag": "libero-v1"
+  },
+  "decision": {
+    "collection_or_training_gate_passed": false,
+    "remaining": [
+      "Confirm the exact converter and source revision for this artifact.",
+      "Record the CC BY 4.0 attribution; do not rely on unresolved Apache-2.0 metadata.",
+      "Recover or explicitly accept the missing initial pre-action camera sample.",
+      "Do not treat terminal reward/done markers as measured success.",
+      "Pin the simulator/assets and validate the transition mapping before collection or policy training."
+    ],
+    "safe_derived_transition_view": "Subject to converter provenance, pair obs[k-1] with actions[k] and obs[k] for k=1..N-1; do not pair obs[k] with actions[k].",
+    "status": "partial_static_alignment_audit_complete"
+  },
+  "outcome_semantics": {
+    "all_episodes_have_only_final_reward_and_done_markers": true,
+    "interpretation": "The pinned converter sets rewards[-1] and dones[-1] to 1 unconditionally; these fields are not independent task-success labels."
+  },
+  "record_version": "latentgate.libero_episode_alignment_audit/v1",
+  "selected_episode": {
+    "action_count": 90,
+    "actions_all_finite": true,
+    "actions_dtype": "float64",
+    "actions_max": 1.0,
+    "actions_min": -1.0,
+    "actions_shape": [
+      90,
+      7
+    ],
+    "done_nonzero_indices": [
+      89
+    ],
+    "episode_id": "demo_0",
+    "init_state_length": 79,
+    "model_xml_characters": 91305,
+    "num_samples_attribute": 90,
+    "observation_lengths_match_actions": true,
+    "observation_streams": {
+      "agentview_rgb": {
+        "dtype": "uint8",
+        "shape": [
+          90,
+          128,
+          128,
+          3
+        ]
+      },
+      "ee_ori": {
+        "dtype": "float64",
+        "shape": [
+          90,
+          3
+        ]
+      },
+      "ee_pos": {
+        "dtype": "float64",
+        "shape": [
+          90,
+          3
+        ]
+      },
+      "ee_states": {
+        "dtype": "float64",
+        "shape": [
+          90,
+          6
+        ]
+      },
+      "eye_in_hand_rgb": {
+        "dtype": "uint8",
+        "shape": [
+          90,
+          128,
+          128,
+          3
+        ]
+      },
+      "gripper_states": {
+        "dtype": "float64",
+        "shape": [
+          90,
+          2
+        ]
+      },
+      "joint_states": {
+        "dtype": "float64",
+        "shape": [
+          90,
+          7
+        ]
+      }
+    },
+    "reward_nonzero_indices": [
+      89
+    ],
+    "robot_states_shape": [
+      90,
+      9
+    ],
+    "states_shape": [
+      90,
+      79
+    ],
+    "terminal_reward_and_done_are_last_row_only": true,
+    "timestamp_datasets": []
+  }
+}

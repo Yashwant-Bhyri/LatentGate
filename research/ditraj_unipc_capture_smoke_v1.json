@@ -1,0 +1,21 @@
+{
+  "experiment_id": "EXP-DITRAJ-UNIPC-EXACT-CAPTURE-CPU-001",
+  "status": "passed",
+  "diffusers_version": "0.33.1",
+  "device": "cpu",
+  "seed": 2026,
+  "num_inference_steps": 8,
+  "captured_step_zero_based": 4,
+  "scheduler_step_index": 4,
+  "captured_tensor_shape": [
+    1,
+    2,
+    5,
+    4,
+    6
+  ],
+  "captured_tensor_dtype": "torch.float32",
+  "max_abs_error_vs_flow_prediction_conversion": 0.0,
+  "scheduler_index_after_update": 5,
+  "final_sample_finite": true
+}

@@ -1,0 +1,614 @@
+{
+  "capture_status": {
+    "attention_limitation_or_failure": null,
+    "attention_summary_count": 18,
+    "attention_summary_expected": 18,
+    "attention_summary_status": "captured",
+    "hidden_state_shape_notes": {
+      "post_step_latent": {
+        "dtype": "torch.float32",
+        "shape": [
+          1,
+          16,
+          5,
+          60,
+          104
+        ]
+      }
+    },
+    "hidden_state_summary_count": 18,
+    "hidden_state_summary_expected": 18,
+    "post_step_latent_steps_captured": [
+      0,
+      4,
+      9,
+      14,
+      19,
+      24,
+      29
+    ],
+    "post_step_latent_steps_expected": [
+      0,
+      4,
+      9,
+      14,
+      19,
+      24,
+      29
+    ],
+    "predicted_clean_limitation_or_failure": null,
+    "predicted_clean_preview_count": 4,
+    "predicted_clean_preview_status": "ok",
+    "predicted_clean_steps_captured": [
+      4,
+      14,
+      24,
+      29
+    ],
+    "predicted_clean_steps_expected": [
+      4,
+      14,
+      24,
+      29
+    ]
+  },
+  "dtype_check": {
+    "matches": true,
+    "transformer": {
+      "basis": "effective_model_compute_dtype; individual retained parameter dtypes are in tensor_map",
+      "expected": "float16",
+      "matches": true,
+      "observed": "torch.float16"
+    },
+    "vae": {
+      "basis": "effective_model_compute_dtype; individual retained parameter dtypes are in tensor_map",
+      "expected": "float32",
+      "matches": true,
+      "observed": "torch.float32"
+    }
+  },
+  "experiment_id": "M0_WAN21_T2V13B_T4_001",
+  "files_sha256": {
+    "autopsy_report.md": "3858d21b6aaffc8310224e7aa852fc1e09215ebc64982ad0b675773aaba88458",
+    "config_snapshot.yaml": "cfa478b48ee91da3c1867bc81a8a2d11d68ddf5eccee7300c1f65efc35c0d5a8",
+    "generation_packet.json": "7cf41fed61e26112adf6803ab983d6a1ba4b4ffaa38029c6786123c0a427b1e5",
+    "run_001/attention_summaries.json": "23301f713b8e92465aa3a29429dc3ba1a44590bd12ff401d0b4bce3f2c08c8f0",
+    "run_001/capture_status.json": "3bb3679644769e07879234ff615c3f8bcab75cd78e0813f7bdb745e2d9f60554",
+    "run_001/frames/frame_000.png": "71dc7f04299e24b0f74f6b6f4abcae5bcfe0edca0fa2d4a47bd4250d73ff1c31",
+    "run_001/frames/frame_001.png": "64b571c5b150e5994ecfc8b4886c292c130853a3f0bea03d4719d0aa2155ae8e",
+    "run_001/frames/frame_002.png": "12acca218de855c8d7fab1d345b6492ede65a16a4dcc62889c3b9dc99d87a86c",
+    "run_001/frames/frame_003.png": "412f7881ddeb7eb1bd11df504b9f7677503afc10917c1abae95ce77b5ba2470b",
+    "run_001/frames/frame_004.png": "1c92c3e51b9e085ec08f8a1ad97a810037ce1048dd65ec5f1e51b9ecf4a28813",
+    "run_001/frames/frame_005.png": "601207ea3b91d64e131e34ead1ad19dd0c07ebe62dc8c7f708374af9626dc39e",
+    "run_001/frames/frame_006.png": "d6d5b4208859f234eb0d0a6708282bf1bc3f2d02b8fbad10695db9b2e4628308",
+    "run_001/frames/frame_007.png": "0074526d5be6a910cd0735e29c2acebf2b02551dd8f78b79d9a7d0feb8be38a2",
+    "run_001/frames/frame_008.png": "b36a3ba051bcc2c0131d9c780e509d63f43ac6223b703211d78c5b981817fe6b",
+    "run_001/frames/frame_009.png": "fcc471d5663e2d419ef4303a88014176fc7ccc3eae1c8e065a6e197d84f55de2",
+    "run_001/frames/frame_010.png": "96fe291e4982675ce990ea31597da4a9359ba80324759c806b5f1bca45630d38",
+    "run_001/frames/frame_011.png": "6d569d4f436bc498ec4ecaab4ef08de76a5ebc4a522d213487c1e2c8c8276bef",
+    "run_001/frames/frame_012.png": "cdab0da0d1ec906641ff0012878c5ed609f3ada28a5f295734cd7a363b61de64",
+    "run_001/frames/frame_013.png": "4a78c5d5160525f4d211b2a9fd73bb9b14e20270d7cf0eb34b9ee788d0366a5c",
+    "run_001/frames/frame_014.png": "da9895e232affcaa63930c401cb132bdc1b9157ee51a5668cb9589087ba7d53f",
+    "run_001/frames/frame_015.png": "b705c5a775d011049268e081e7e06a3edf41afe0041df47ef7902d1782771372",
+    "run_001/frames/frame_016.png": "8a0ee45f1b44dfa3781d882bd79d251c58ae74436e469f1c34ffe11123f97306",
+    "run_001/frames_contact_sheet.png": "f47ef24f6d8e17e48206b5c26b8f10aee0f5985406456f362d1c4a4d55e403b3",
+    "run_001/initial_noise.pt": "56a3a32ef4bd09e28e755a8185cd75d84da5029e583a2fb40869fae44461a528",
+    "run_001/latents/post_step_000.pt": "be4b585a952b3837072a9c604e3cb388fb124c386830082337af2fe72ad0fa5c",
+    "run_001/latents/post_step_004.pt": "816558f4d9555ce3447f2c666f1a03fe5f40aa41351dadb4c1e3c871003be509",
+    "run_001/latents/post_step_009.pt": "efb801d7bd8e82729f1fb957830ae76b1851015a3dc60a4e75713c14091160c6",
+    "run_001/latents/post_step_014.pt": "e1cfc7792e48db1460909c6f3975bba4fbe6d56cc0df898deadeba9bcef62bc5",
+    "run_001/latents/post_step_019.pt": "ab5bfca74e3e312c6140740772f26b1b12c6482ff9b25868c6194b3e6286fea8",
+    "run_001/latents/post_step_024.pt": "36b1d0b3935fef71ea20512209d019b899de91ec72a32543beb672baa7b65237",
+    "run_001/latents/post_step_029.pt": "b1df3c486fc8940ccb4356f5ea03df9770b713c75713181069575250ba077d79",
+    "run_001/predicted_clean/pre_step_004.pt": "1cdbe782200fb9d51ec2dfec0461ad79aab7c00a06d822c1a64e410946d658b6",
+    "run_001/predicted_clean/pre_step_014.pt": "39227d9909ca728699a7d40b7d8005a13c0d49dfea81f1a12c0c44953a4860f0",
+    "run_001/predicted_clean/pre_step_024.pt": "07508b5a0c12e32b510088310f87d1a395a77bf8c0de93480e30f21ae9c44390",
+    "run_001/predicted_clean/pre_step_029.pt": "3f95f8f842678dd4155b0142f7717ce78c3db1f62a24f9072673446123981c1a",
+    "run_001/predicted_clean_previews/step_004/frames/frame_000.png": "a2ce5ee4ad1cad12ede4927aa2d10e1e47a3e3183a81e7e15a78b47b3988886a",
+    "run_001/predicted_clean_previews/step_004/frames/frame_001.png": "81300cb47e3f26927feafce212ae8ab9fc6863dfdcd14415813d5007f2d84168",
+    "run_001/predicted_clean_previews/step_004/frames/frame_002.png": "94e8f8a9c4d51c8a4c4f0803de2cf734a67405b0a47bd592a315c41c488e8711",
+    "run_001/predicted_clean_previews/step_004/frames/frame_003.png": "2285f9e6864b73d405a2a01e8d8e858b9fff3cfab1219c0670517e8ba2d2165e",
+    "run_001/predicted_clean_previews/step_004/frames/frame_004.png": "0a900eedd6c20664354ef2423523a328351d10a1b3ddd644f2f95a28aba9bd7a",
+    "run_001/predicted_clean_previews/step_004/frames/frame_005.png": "b74f8133a25f7c951bc699ecdd028e17c4e9407422c2de7c236b9867c087adbe",
+    "run_001/predicted_clean_previews/step_004/frames/frame_006.png": "b7a90c91ba3fc200b81072c331412f16c8cb468d6f8a7f35e659f1b30c7f78b0",
+    "run_001/predicted_clean_previews/step_004/frames/frame_007.png": "ca2f28a2b2ed5720197554a82df752e3ea0508490e06e0f96c129c7ca1284715",
+    "run_001/predicted_clean_previews/step_004/frames/frame_008.png": "8c7f0db1133ccc493cc895572e81d94f3c8809a179bd0b4a6724a68c3e014335",
+    "run_001/predicted_clean_previews/step_004/frames/frame_009.png": "5d430ba3f669a3add8bad65e18d79dfb45c202557c414beb85edb4b20d3bb0fc",
+    "run_001/predicted_clean_previews/step_004/frames/frame_010.png": "de4fc227a34bbaa37e3e266110156d1e3610bf92c446b946950b93f0272a939f",
+    "run_001/predicted_clean_previews/step_004/frames/frame_011.png": "5ec19b007ee8a44ed16ea544fbfffd124b1d11ea7f54ba9824ca0707fe7f91f8",
+    "run_001/predicted_clean_previews/step_004/frames/frame_012.png": "c7c5e563c512e734894723aee188d4cd8d4c03c78f8c8e1a92284014447fa92d",
+    "run_001/predicted_clean_previews/step_004/frames/frame_013.png": "596ea6a701bfc747593217ab303f2726d0823091d8c607bca18ad8748c1ba31e",
+    "run_001/predicted_clean_previews/step_004/frames/frame_014.png": "95c393946a1bd88ab8c7447fddfebbf991e2e245390d40a71a28dc9e9ff9eef7",
+    "run_001/predicted_clean_previews/step_004/frames/frame_015.png": "e31370de2ed6cd6b22460631aab7a4dd260699ca07733e77fcf05fa139545317",
+    "run_001/predicted_clean_previews/step_004/frames/frame_016.png": "fcaf1b09b848385ed8f77e8bf28bd4f42cf0104d5b540b86d2f0d00b576780c8",
+    "run_001/predicted_clean_previews/step_004/frames_contact_sheet.png": "31225648e09b79c21e69d66b6965c42ee8cc1ee002bebad4cbfaea798131e62a",
+    "run_001/predicted_clean_previews/step_014/frames/frame_000.png": "b75d744f5e1dc6a03006eaffeecf564da9bd2d5638345465fca3ac33e2cda302",
+    "run_001/predicted_clean_previews/step_014/frames/frame_001.png": "7c5cb8e2842db38c02b5dc17d690e0d0855c34438e23f7aec36d753accf63868",
+    "run_001/predicted_clean_previews/step_014/frames/frame_002.png": "9491894102ad48c55e5450efd3c3fac2bad4d66c3a1943f98d8a4cecdf2c71d3",
+    "run_001/predicted_clean_previews/step_014/frames/frame_003.png": "4d84aaa932f5471a9aee581c69bf8f110584b337ee22eb6f478cc2baecc28127",
+    "run_001/predicted_clean_previews/step_014/frames/frame_004.png": "2c3d6e6aaa5db11ca26716976af390a9b3da245952d53cfa705a78c4279e3e7d",
+    "run_001/predicted_clean_previews/step_014/frames/frame_005.png": "d1b01556f40d656d3038cedef62417e1dd3bfd36f8cd4419809668db417da837",
+    "run_001/predicted_clean_previews/step_014/frames/frame_006.png": "78599b74a7854aa1be67bf1075ed6ce5224f3c99b2d91c08add81f5828742ad2",
+    "run_001/predicted_clean_previews/step_014/frames/frame_007.png": "522455caace100bde169708db2feac916e21e885621039f7bcbd898e8ee127ae",
+    "run_001/predicted_clean_previews/step_014/frames/frame_008.png": "f2ad0124405b1ec5ac680a37cfd536c4f06c2f135ee457598c7ad5212dfb7d88",
+    "run_001/predicted_clean_previews/step_014/frames/frame_009.png": "09e771e585e9784e6232a03344ca432d57caa775062834a55e1c4013c57f3e22",
+    "run_001/predicted_clean_previews/step_014/frames/frame_010.png": "58d0d2e2bd2b45ea5cf355581158db229f2a433a14e7946079f2f46151907197",
+    "run_001/predicted_clean_previews/step_014/frames/frame_011.png": "a2e5e447e5423fe526f1a7bd0577ca0ff079270aa6b103ac499bc1ce23295e64",
+    "run_001/predicted_clean_previews/step_014/frames/frame_012.png": "5e41d87416f2df65bade06924eafceac730fbcb29fed32f66ed4643563be2032",
+    "run_001/predicted_clean_previews/step_014/frames/frame_013.png": "17bc98c7415b061906086fc0bc7b724d080b72a0420afbb5fce72560826b81c9",
+    "run_001/predicted_clean_previews/step_014/frames/frame_014.png": "19f1fb77bd3b306f3131cc12ec22bba437f127103525112f60480c9c003974b5",
+    "run_001/predicted_clean_previews/step_014/frames/frame_015.png": "7a6df6ec00b77026e40d83b063386dc3ffb55f4a8b5131fbd04f9c3793d69333",
+    "run_001/predicted_clean_previews/step_014/frames/frame_016.png": "a709f4cc32cad00088d5b509602f82495c83175e0cd93bbcc0aa6bb892954263",
+    "run_001/predicted_clean_previews/step_014/frames_contact_sheet.png": "7ada514b746254ec2633a87d2a77a4ceadee111cb7aa8df5b11d3e373f956c40",
+    "run_001/predicted_clean_previews/step_024/frames/frame_000.png": "7b9d700ef00bbfd7e1b483b167d14e18bc9ce81b811ec6728ab2875b191dc840",
+    "run_001/predicted_clean_previews/step_024/frames/frame_001.png": "126d24a3ec1bc7375b062c6453a051a72eb9a6337e3e1c3c16857bfefb116465",
+    "run_001/predicted_clean_previews/step_024/frames/frame_002.png": "8a37d93f96ff65c0285bcdf3862b49a9bc2644867ee3699f6853980d67fa6132",
+    "run_001/predicted_clean_previews/step_024/frames/frame_003.png": "c176560b01c872b70ce1d27ca2e9cc1e2622ab5b9c6814155a7b43d56a3218c0",
+    "run_001/predicted_clean_previews/step_024/frames/frame_004.png": "34c63063e72d2c0465b00e42c1217aaab72562d388dc3d3d754f2ad83816b90b",
+    "run_001/predicted_clean_previews/step_024/frames/frame_005.png": "82951fc290a53d96aa8f8db44d5897fd76b176fea3efedb355e505912145ad63",
+    "run_001/predicted_clean_previews/step_024/frames/frame_006.png": "e5eeb709eaaf9992c11695c7616581a17633035dc048e59f516c3e62eda9a579",
+    "run_001/predicted_clean_previews/step_024/frames/frame_007.png": "1427533aafae99646165bbc32212944dea28f955679c430dbbc5157355c61d72",
+    "run_001/predicted_clean_previews/step_024/frames/frame_008.png": "b928db5cbd109fef432541255684349e6913dc29bf60359f0babc638c23fc756",
+    "run_001/predicted_clean_previews/step_024/frames/frame_009.png": "5fd8431cf5c01a40f9b330ae8dd93aec28dee256d1ce7ba789eb04d31f90c223",
+    "run_001/predicted_clean_previews/step_024/frames/frame_010.png": "8150ae862834a3d729c2b712fcd6c9f7d5a28d6ffedcb70d4aa1569fd5ed3415",
+    "run_001/predicted_clean_previews/step_024/frames/frame_011.png": "008f687808dd111922c2f8ba793425a5731605dad831feae1f8975aebccab56b",
+    "run_001/predicted_clean_previews/step_024/frames/frame_012.png": "bf66ce77295d2c1e72ae2734f70e8abf5282fdc31fe1a348b57edf06007d83cb",
+    "run_001/predicted_clean_previews/step_024/frames/frame_013.png": "53d0555d19b5b3a6c60d2d4be7d6031c50cc0ec618f3f9782366081e2309dc78",
+    "run_001/predicted_clean_previews/step_024/frames/frame_014.png": "6bd287d62cdc34ec21c82c1dbac0b385009cab68dd582089215330d5ecf1554d",
+    "run_001/predicted_clean_previews/step_024/frames/frame_015.png": "3e76ed18952f4640e6d8e6a45d60b65d725221f049158fa73bd093a4c484301d",
+    "run_001/predicted_clean_previews/step_024/frames/frame_016.png": "9fa3e856c75722ddf62bdcfec2f91c35c3c242b920282753bf4336aeb6f119f0",
+    "run_001/predicted_clean_previews/step_024/frames_contact_sheet.png": "eb8fc0768eae1867e5595b97cd72b6c903ee3f147fa2aa795de4a7daf6366e32",
+    "run_001/predicted_clean_previews/step_029/frames/frame_000.png": "94181728ffcc60e56fb3da62b58ee776b17bad32741c46f0c9cbbcf04297f584",
+    "run_001/predicted_clean_previews/step_029/frames/frame_001.png": "70aeece162571c708e20835f96f98240afd8529d940b434f708711b2291f04ef",
+    "run_001/predicted_clean_previews/step_029/frames/frame_002.png": "5edf80db9c2028f68d7556de2d0969ba42ae35ae1ef7548ab66774f3c791e12a",
+    "run_001/predicted_clean_previews/step_029/frames/frame_003.png": "99f9c4155440fe55572c86bc92582f217cb7413d0eb4a819ec20d02655bfac53",
+    "run_001/predicted_clean_previews/step_029/frames/frame_004.png": "4759352f07e06ce537765eb7b0fc9e7fe1667d4a15b05fd48e976c88a9a695c2",
+    "run_001/predicted_clean_previews/step_029/frames/frame_005.png": "8a96f4c89606a6a2f7e4c245054bd5c9ddd20294f284145fdb65b134d21d89f2",
+    "run_001/predicted_clean_previews/step_029/frames/frame_006.png": "88ef2ef950f047f9769a83885f7cdf2112e020265d2fb13faae9d34f6ee692ab",
+    "run_001/predicted_clean_previews/step_029/frames/frame_007.png": "b3f2b4d41660512909f23bfe15319437c9a52a3e396648b29bbfd74b4d33f4d7",
+    "run_001/predicted_clean_previews/step_029/frames/frame_008.png": "0e8762af554a5279661cd477a60f761ed5610643bbf2b472b8812c028eb9f3d8",
+    "run_001/predicted_clean_previews/step_029/frames/frame_009.png": "d89f942029962724a07a163f6bd3395671cd97d05302ccbfc2f859229ae3f171",
+    "run_001/predicted_clean_previews/step_029/frames/frame_010.png": "4276ea36c1f4ce297a4d3d3e3f33bb09a2bf34cc2dd88295627b8be4a180dae4",
+    "run_001/predicted_clean_previews/step_029/frames/frame_011.png": "2482d05c878b817fa1cf87d637a6fb3bb62d73947deef4c1e9db1cd1b2e06f4b",
+    "run_001/predicted_clean_previews/step_029/frames/frame_012.png": "7960c0c2b9c1150ce178b6c299f7ae80a2338ea87a450d623d92a85a0be6c12e",
+    "run_001/predicted_clean_previews/step_029/frames/frame_013.png": "8d3f50d0901e801be98bf78ed2062ea87e9f273a52d8f07e7584496686c5c17f",
+    "run_001/predicted_clean_previews/step_029/frames/frame_014.png": "7dfb81fb0e35265002b6548d5497e6924f5e313eadf47ceb35d9db939cbf9edc",
+    "run_001/predicted_clean_previews/step_029/frames/frame_015.png": "0347b3452d1177f86b34548c510063912831df0edad97386931ca427d244677d",
+    "run_001/predicted_clean_previews/step_029/frames/frame_016.png": "eeb5876e0ec4133c1de7ef310620da40f7b17de91310316589176bb76a64f372",
+    "run_001/predicted_clean_previews/step_029/frames_contact_sheet.png": "998904bd4ce12da70ba813622095b495c9bcaa677ed05adbca77373b32a5e400",
+    "run_001/prompt_conditioning.pt": "073e3db6fb7ecf23266913e056df1d0ff9aa336c2b6610b2a7ca988a1f5f1578",
+    "run_001/transformer_summaries.pt": "8501ac873e59d6d1b4c1b6d37bc0c153909fd840a71ce81fa41ea83983001de5",
+    "run_001/vae_roundtrip_frames/frame_000.png": "d9b3d1b741f83d86cf9f344bcd2244663ba52dd657d18ba67df445d3fa4428b8",
+    "run_001/vae_roundtrip_frames/frame_001.png": "dcd35580d9d908b35d34af024034f109dba27bbb45a53836f119282a37308fae",
+    "run_001/vae_roundtrip_frames/frame_002.png": "7d401be9dd91bc638eda1ca0c8bed646daf2c598991ecb24e4d3a53712ae5685",
+    "run_001/vae_roundtrip_frames/frame_003.png": "b8ec7e60bd30676672ac43aba723ad1cb83458bfa92f3988a03932ecd892ae23",
+    "run_001/vae_roundtrip_frames/frame_004.png": "6286b6fe2b16be94b873ae6ce56fa19e60de64639efb0026ffaf6b86fb4d844e",
+    "run_001/vae_roundtrip_frames/frame_005.png": "b3bc3ad48fa36b98c1914d43e7db308a1b3fcfab91264729c75316a1e8b4c752",
+    "run_001/vae_roundtrip_frames/frame_006.png": "4b34c297ed0197312c352b638f1ec3d57d3521ba3bc899a3a707ddf1ba50b458",
+    "run_001/vae_roundtrip_frames/frame_007.png": "a8e8a45e2b8db272e2b5c441fccb713b27efd9cd23fb5f21c77eeacf830e1744",
+    "run_001/vae_roundtrip_frames/frame_008.png": "44ad5974308916f1047d8e7fd52c0bddd508e63dd7a5286cf06d492c1eeab3a1",
+    "run_001/vae_roundtrip_frames/frame_009.png": "708cd11e2ff5318ee2144d0a0df39ed386eeb522d6cf8640aa9c36a67f6cfe4d",
+    "run_001/vae_roundtrip_frames/frame_010.png": "4951668e26af6659ad025fa66bed3463af4145e0c683a0fc22ef63d04e63d486",
+    "run_001/vae_roundtrip_frames/frame_011.png": "5099520c3b9cc886f2432b8c625b11eae1ab9905454c1f450b77a5ff07c6e621",
+    "run_001/vae_roundtrip_frames/frame_012.png": "d77dcb4c8de64d79091b3366886b1aebbab6ea0acec477a0a2f5aa37b8f53630",
+    "run_001/vae_roundtrip_frames/frame_013.png": "7db824d529a101ac1a1f3cb4b17c363da94be012fd2769440a44a31a53912051",
+    "run_001/vae_roundtrip_frames/frame_014.png": "27233c9ca9ffe00ab9f750fcd90ce14be90655ee0b118b8f96da2fc4f5d4ccf4",
+    "run_001/vae_roundtrip_frames/frame_015.png": "f7075f0375b92c44cac9178af4d4f9392d7275d44dda8ab8b056c2441e98b70f",
+    "run_001/vae_roundtrip_frames/frame_016.png": "2fc71cabbbe4fd54b1e0a8d6162b63b183a01b72e9cdc0b221d2fca574ba1ebe",
+    "run_001/vae_roundtrip_frames_contact_sheet.png": "20d239e0de8e14bda69f6df02630c486c66e732b0ae5b03900a66f59efe174fc",
+    "run_001/vae_roundtrip_report.json": "4dc860b505bfc6977dcfc41fad7c62a377ce6729c6b7a0e8e46a8ec3ade019f3"
+  },
+  "generation_packet_sha256": "7cf41fed61e26112adf6803ab983d6a1ba4b4ffaa38029c6786123c0a427b1e5",
+  "generation_seconds": 160.01955591399928,
+  "limitations": [
+    "A same-seed replay checks selected latents; the full capture set is written only for run_001.",
+    "Attention metrics are sampled-query self-attention statistics, not a full attention map and not cross-attention.",
+    "Transformer summaries are spatially pooled channel vectors per latent frame, not token-level activations."
+  ],
+  "m0_completion_assessment": {
+    "gates": {
+      "attention_summaries_complete": true,
+      "hidden_state_summaries_complete": true,
+      "post_step_latents_complete": true,
+      "predicted_clean_latents_complete": true,
+      "predicted_clean_previews_complete": true,
+      "runtime_dtypes_match": true,
+      "runtime_matches_config": true,
+      "same_seed_replay_exact": true,
+      "transformer_architecture_matches": true,
+      "vae_roundtrip_complete": true
+    },
+    "status": "complete"
+  },
+  "manifest_schema_version": 1,
+  "model_config_check": {
+    "checks": {
+      "attention_head_dim": {
+        "expected": 128,
+        "matches": true,
+        "observed": 128
+      },
+      "block_count": {
+        "expected": 30,
+        "matches": true,
+        "observed": 30
+      },
+      "num_attention_heads": {
+        "expected": 12,
+        "matches": true,
+        "observed": 12
+      },
+      "patch_size": {
+        "expected": [
+          1,
+          2,
+          2
+        ],
+        "matches": true,
+        "observed": [
+          1,
+          2,
+          2
+        ]
+      }
+    },
+    "matches": true
+  },
+  "model_revision": "0fad780a534b6463e45facd96134c9f345acfa5b",
+  "observed_transformer_inputs": {
+    "encoder_hidden_states": {
+      "dtype": "torch.float16",
+      "shape": [
+        1,
+        226,
+        4096
+      ]
+    },
+    "hidden_states": {
+      "dtype": "torch.float16",
+      "shape": [
+        1,
+        16,
+        5,
+        60,
+        104
+      ]
+    },
+    "timestep": {
+      "dtype": "torch.int64",
+      "shape": [
+        1
+      ]
+    }
+  },
+  "peak_cuda_allocated_bytes": 8495847424,
+  "predicted_clean_previews": {
+    "status": "ok",
+    "steps": {
+      "14": {
+        "contact_sheet": "predicted_clean_previews/step_014/frames_contact_sheet.png",
+        "decoded_video_shape_bfhwc": [
+          17,
+          480,
+          832,
+          3
+        ],
+        "frame_dir": "predicted_clean_previews/step_014/frames",
+        "semantics": "VAE decode of x0_hat = x_i - sigma_i * guided_velocity after inverse Wan latent normalization",
+        "status": "ok"
+      },
+      "24": {
+        "contact_sheet": "predicted_clean_previews/step_024/frames_contact_sheet.png",
+        "decoded_video_shape_bfhwc": [
+          17,
+          480,
+          832,
+          3
+        ],
+        "frame_dir": "predicted_clean_previews/step_024/frames",
+        "semantics": "VAE decode of x0_hat = x_i - sigma_i * guided_velocity after inverse Wan latent normalization",
+        "status": "ok"
+      },
+      "29": {
+        "contact_sheet": "predicted_clean_previews/step_029/frames_contact_sheet.png",
+        "decoded_video_shape_bfhwc": [
+          17,
+          480,
+          832,
+          3
+        ],
+        "frame_dir": "predicted_clean_previews/step_029/frames",
+        "semantics": "VAE decode of x0_hat = x_i - sigma_i * guided_velocity after inverse Wan latent normalization",
+        "status": "ok"
+      },
+      "4": {
+        "contact_sheet": "predicted_clean_previews/step_004/frames_contact_sheet.png",
+        "decoded_video_shape_bfhwc": [
+          17,
+          480,
+          832,
+          3
+        ],
+        "frame_dir": "predicted_clean_previews/step_004/frames",
+        "semantics": "VAE decode of x0_hat = x_i - sigma_i * guided_velocity after inverse Wan latent normalization",
+        "status": "ok"
+      }
+    }
+  },
+  "repeat": {
+    "comparisons": {
+      "final_latent": {
+        "exact_equal": true,
+        "max_absolute_difference": 0.0,
+        "mean_absolute_difference": 0.0,
+        "rmse": 0.0,
+        "shape_match": true
+      },
+      "initial_noise": {
+        "exact_equal": true,
+        "max_absolute_difference": 0.0,
+        "mean_absolute_difference": 0.0,
+        "rmse": 0.0,
+        "shape_match": true
+      },
+      "post_step_latents": {
+        "0": {
+          "exact_equal": true,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "rmse": 0.0,
+          "shape_match": true
+        },
+        "14": {
+          "exact_equal": true,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "rmse": 0.0,
+          "shape_match": true
+        },
+        "19": {
+          "exact_equal": true,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "rmse": 0.0,
+          "shape_match": true
+        },
+        "24": {
+          "exact_equal": true,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "rmse": 0.0,
+          "shape_match": true
+        },
+        "29": {
+          "exact_equal": true,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "rmse": 0.0,
+          "shape_match": true
+        },
+        "4": {
+          "exact_equal": true,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "rmse": 0.0,
+          "shape_match": true
+        },
+        "9": {
+          "exact_equal": true,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "rmse": 0.0,
+          "shape_match": true
+        }
+      }
+    },
+    "duration_seconds": 142.10295984799995,
+    "instrumentation_on_repeat": "selected post-step latents and initial noise only; full baseline captures are in run_001",
+    "note": "Bitwise equality is reported; CUDA kernels may be nondeterministic even with fixed seeds and deterministic flags.",
+    "peak_cuda_allocated_bytes": 3790932480,
+    "requested": true,
+    "same_model_revision_and_generation_parameters": true,
+    "status": "completed"
+  },
+  "runtime": {
+    "accelerate": "1.14.0",
+    "compute_capability": [
+      7,
+      5
+    ],
+    "cuda_available": true,
+    "cuda_runtime": "12.8",
+    "determinism_flags": {
+      "cublas_workspace_config": ":4096:8",
+      "cuda_matmul_allow_tf32": false,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "deterministic_algorithms_enabled": false
+    },
+    "device_name": "Tesla T4",
+    "device_total_memory_bytes": 15637086208,
+    "diffusers": "0.40.0",
+    "huggingface_hub": "1.29.0",
+    "numpy": "2.1.3",
+    "pillow": "11.3.0",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "python_version": "3.13.15",
+    "pyyaml": "6.0.3",
+    "safetensors": "0.8.0",
+    "sentencepiece": "0.2.2",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.16.1"
+  },
+  "runtime_differences_from_config": {},
+  "status": "run_completed",
+  "tensor_map": {
+    "initial_latents": {
+      "dtype": "torch.float32",
+      "meaning": "initial Gaussian noise / first flow state",
+      "shape": [
+        1,
+        16,
+        5,
+        60,
+        104
+      ]
+    },
+    "scheduler": {
+      "class": "UniPCMultistepScheduler",
+      "config": {
+        "_class_name": "UniPCMultistepScheduler",
+        "_diffusers_version": "0.33.0.dev0",
+        "_use_default_values": [
+          "sigma_max",
+          "time_shift_type",
+          "sigma_min",
+          "use_dynamic_shifting",
+          "shift_terminal"
+        ],
+        "beta_end": 0.02,
+        "beta_schedule": "linear",
+        "beta_start": 0.0001,
+        "disable_corrector": [],
+        "dynamic_thresholding_ratio": 0.995,
+        "final_sigmas_type": "zero",
+        "flow_shift": 3.0,
+        "lower_order_final": true,
+        "num_train_timesteps": 1000,
+        "predict_x0": true,
+        "prediction_type": "flow_prediction",
+        "rescale_betas_zero_snr": false,
+        "sample_max_value": 1.0,
+        "shift_terminal": null,
+        "sigma_max": null,
+        "sigma_min": null,
+        "solver_order": 2,
+        "solver_p": null,
+        "solver_type": "bh2",
+        "steps_offset": 0,
+        "thresholding": false,
+        "time_shift_type": "exponential",
+        "timestep_spacing": "linspace",
+        "trained_betas": null,
+        "use_beta_sigmas": false,
+        "use_dynamic_shifting": false,
+        "use_exponential_sigmas": false,
+        "use_flow_sigmas": true,
+        "use_karras_sigmas": false
+      },
+      "order": 1
+    },
+    "transformer": {
+      "attention_head_dim": 128,
+      "block_count": 30,
+      "blocks_attribute": "blocks",
+      "class": "WanTransformer3DModel",
+      "compute_dtype": "torch.float16",
+      "first_parameter_dtype": "torch.float32",
+      "in_channels": 16,
+      "num_attention_heads": 12,
+      "out_channels": 16,
+      "parameter_dtype_profile": {
+        "by_dtype": {
+          "float16": {
+            "element_count": 1415869504,
+            "examples": [
+              "patch_embedding.weight",
+              "patch_embedding.bias",
+              "condition_embedder.time_proj.weight",
+              "condition_embedder.time_proj.bias",
+              "condition_embedder.text_embedder.linear_1.weight",
+              "condition_embedder.text_embedder.linear_1.bias"
+            ],
+            "tensor_count": 730
+          },
+          "float32": {
+            "element_count": 3127296,
+            "examples": [
+              "scale_shift_table",
+              "condition_embedder.time_embedder.linear_1.weight",
+              "condition_embedder.time_embedder.linear_1.bias",
+              "condition_embedder.time_embedder.linear_2.weight",
+              "condition_embedder.time_embedder.linear_2.bias",
+              "blocks.0.scale_shift_table"
+            ],
+            "tensor_count": 95
+          }
+        },
+        "total_element_count": 1418996800,
+        "total_tensor_count": 825
+      },
+      "patch_size": [
+        1,
+        2,
+        2
+      ],
+      "text_dim": 4096
+    },
+    "vae": {
+      "class": "AutoencoderKLWan",
+      "compute_dtype": "torch.float32",
+      "first_parameter_dtype": "torch.float32",
+      "in_channels": 3,
+      "latents_mean": [
+        -0.7571,
+        -0.7089,
+        -0.9113,
+        0.1075,
+        -0.1745,
+        0.9653,
+        -0.1517,
+        1.5508,
+        0.4134,
+        -0.0715,
+        0.5517,
+        -0.3632,
+        -0.1922,
+        -0.9497,
+        0.2503,
+        -0.2921
+      ],
+      "latents_std": [
+        2.8184,
+        1.4541,
+        2.3275,
+        2.6558,
+        1.2196,
+        1.7708,
+        2.6052,
+        2.0743,
+        3.2687,
+        2.1526,
+        2.8652,
+        1.5579,
+        1.6382,
+        1.1253,
+        2.8251,
+        1.916
+      ],
+      "out_channels": 3,
+      "parameter_dtype_profile": {
+        "by_dtype": {
+          "float32": {
+            "element_count": 126892531,
+            "examples": [
+              "encoder.conv_in.weight",
+              "encoder.conv_in.bias",
+              "encoder.down_blocks.0.norm1.gamma",
+              "encoder.down_blocks.0.conv1.weight",
+              "encoder.down_blocks.0.conv1.bias",
+              "encoder.down_blocks.0.norm2.gamma"
+            ],
+            "tensor_count": 194
+          }
+        },
+        "total_element_count": 126892531,
+        "total_tensor_count": 194
+      },
+      "spatial_compression_ratio": 8,
+      "temporal_compression_ratio": 4,
+      "z_dim": 16
+    }
+  }
+}

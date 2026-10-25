@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "fixture_id": "M1_MUG_HOLDER_START_V1",
+  "status": "visually_reviewed_candidate",
+  "created_date": "2026-10-02",
+  "visual_review": {
+    "reviewed_date": "2026-10-02",
+    "reviewer": "Codex visual review of the 720x480 model input",
+    "result": "scoreable candidate for a qualitative image-to-video smoke",
+    "notes": "The mug and its handle, empty holder opening, and open gripper are distinct, unobstructed, and visible at model input size. The initial pick-and-place intent is readable.",
+    "limitations": "This is a visual review only. It does not establish calibrated geometry, valid grasp/contact, or physical ground truth. Generated clips still require independent blinded review."
+  },
+  "generation_method": "built-in image_gen",
+  "source_image": {
+    "path": "m1/assets/mug_holder_start_v1_source.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "7fb2eb294fa0b35f9e62e9217ac4f19eda9f66006730ad79f7b0cfd8b42e09f1"
+  },
+  "model_input_image": {
+    "path": "m1/assets/mug_holder_start_v1_720x480.png",
+    "width": 720,
+    "height": 480,
+    "resize": "Pillow LANCZOS from the source image",
+    "sha256": "69cf5a5b1385ee0efdb525b4e164b35624c5d6d3db4d7a2da00fe2a5e27d69ea"
+  },
+  "visual_condition": "Fixed, slightly elevated front three-quarter view of a clean tabletop. One matte blue ceramic mug with a visible C-shaped handle sits left of one empty dark-gray holder with a circular opening. One compact robot arm enters from the right with an open parallel-jaw gripper poised above the mug handle. No contact has begun.",
+  "video_prompt": "A compact robot arm smoothly picks up the single blue ceramic mug by its handle, lifts it vertically, moves it right, lowers it into the empty dark-gray holder, releases it, and withdraws. Keep the camera fixed. Keep the mug's identity, blue color, shape and handle, the holder, tabletop, lighting, and background stable throughout. Use one continuous shot with no cuts and no extra objects.",
+  "image_generation_prompt": "Use case: photorealistic-natural. Asset type: a controlled shared starting image for an image-to-video robotics experiment; landscape 3:2 framing, intended to be resized to 720x480. Scene: a clean, realistic tabletop robotics lab under soft neutral daylight, viewed from a fixed slightly elevated front three-quarter camera. Subject: exactly one small matte blue ceramic mug with a clearly visible C-shaped handle on the left half of the tabletop, next to an empty rigid dark-gray holder fixture on its right with a clearly visible circular opening. One compact industrial robot arm enters from the right edge; its simple parallel-jaw gripper is open and poised just above the mug handle, not touching or occluding the mug. Keep the mug, holder, gripper, and tabletop fully visible with clear gaps between all objects. Use realistic materials and proportions, a plain light neutral background, and crisp focus. This is a static initial scene before a pick-and-place action. Avoid extra objects, extra mugs, people, hands, text, labels, logos, watermarks, motion blur, dramatic perspective, or malformed/ambiguous gripper geometry.",
+  "limitations": [
+    "This generated image is a shared visual condition, not a rendered scene with physical ground truth.",
+    "It does not establish metric object dimensions, force, grasp quality, or true contact.",
+    "The 720x480 copy preserves image dimensions but does not create calibration metadata."
+  ]
+}

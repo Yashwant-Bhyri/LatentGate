@@ -1,0 +1,314 @@
+{
+  "experiment_id": "EXP-M0-STEP4-FEEDBACK-MECHANISM-DIAGNOSTIC-001",
+  "status": "offline_counterfactual_diagnostic_no_model_rerun",
+  "created_at_utc": "2026-10-01T22:54:45.684919+00:00",
+  "model_sample": {
+    "source_run": "m0/runs/wan_t4_2026-10-02_retry5/run_001",
+    "model": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+    "seed": 2026,
+    "prompt": "A single bright red ball rolling slowly from left to right across a smooth white tabletop, fixed camera, soft daylight, simple clean background.",
+    "note": "Text-prompt-only M0 generation; not a DiTraj path-conditioned run."
+  },
+  "method": {
+    "step4_x0_frames": "saved zero-based step-4 predicted-clean RGB preview",
+    "final_rgb_frames": "final decoded frames from the same M0 sample",
+    "observer": "same nine-threshold red-centroid observer used by the proposed feedback adapter",
+    "counterfactual": "apply one bounded step-4 residual to the five original target boxes and rasterize, but do not re-run denoising",
+    "controller_config": {
+      "gain": 0.5,
+      "minimum_stability": 0.65,
+      "max_shift_xy": [
+        0.019230769230769232,
+        0.03333333333333333
+      ],
+      "locked_box_indices": [
+        0
+      ]
+    },
+    "latent_grid_wh": [
+      52,
+      30
+    ]
+  },
+  "input_sha256": {
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_000.png": "71dc7f04299e24b0f74f6b6f4abcae5bcfe0edca0fa2d4a47bd4250d73ff1c31",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_001.png": "64b571c5b150e5994ecfc8b4886c292c130853a3f0bea03d4719d0aa2155ae8e",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_002.png": "12acca218de855c8d7fab1d345b6492ede65a16a4dcc62889c3b9dc99d87a86c",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_003.png": "412f7881ddeb7eb1bd11df504b9f7677503afc10917c1abae95ce77b5ba2470b",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_004.png": "1c92c3e51b9e085ec08f8a1ad97a810037ce1048dd65ec5f1e51b9ecf4a28813",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_005.png": "601207ea3b91d64e131e34ead1ad19dd0c07ebe62dc8c7f708374af9626dc39e",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_006.png": "d6d5b4208859f234eb0d0a6708282bf1bc3f2d02b8fbad10695db9b2e4628308",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_007.png": "0074526d5be6a910cd0735e29c2acebf2b02551dd8f78b79d9a7d0feb8be38a2",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_008.png": "b36a3ba051bcc2c0131d9c780e509d63f43ac6223b703211d78c5b981817fe6b",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_009.png": "fcc471d5663e2d419ef4303a88014176fc7ccc3eae1c8e065a6e197d84f55de2",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_010.png": "96fe291e4982675ce990ea31597da4a9359ba80324759c806b5f1bca45630d38",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_011.png": "6d569d4f436bc498ec4ecaab4ef08de76a5ebc4a522d213487c1e2c8c8276bef",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_012.png": "cdab0da0d1ec906641ff0012878c5ed609f3ada28a5f295734cd7a363b61de64",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_013.png": "4a78c5d5160525f4d211b2a9fd73bb9b14e20270d7cf0eb34b9ee788d0366a5c",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_014.png": "da9895e232affcaa63930c401cb132bdc1b9157ee51a5668cb9589087ba7d53f",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_015.png": "b705c5a775d011049268e081e7e06a3edf41afe0041df47ef7902d1782771372",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/frames/frame_016.png": "8a0ee45f1b44dfa3781d882bd79d251c58ae74436e469f1c34ffe11123f97306",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_000.png": "a2ce5ee4ad1cad12ede4927aa2d10e1e47a3e3183a81e7e15a78b47b3988886a",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_001.png": "81300cb47e3f26927feafce212ae8ab9fc6863dfdcd14415813d5007f2d84168",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_002.png": "94e8f8a9c4d51c8a4c4f0803de2cf734a67405b0a47bd592a315c41c488e8711",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_003.png": "2285f9e6864b73d405a2a01e8d8e858b9fff3cfab1219c0670517e8ba2d2165e",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_004.png": "0a900eedd6c20664354ef2423523a328351d10a1b3ddd644f2f95a28aba9bd7a",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_005.png": "b74f8133a25f7c951bc699ecdd028e17c4e9407422c2de7c236b9867c087adbe",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_006.png": "b7a90c91ba3fc200b81072c331412f16c8cb468d6f8a7f35e659f1b30c7f78b0",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_007.png": "ca2f28a2b2ed5720197554a82df752e3ea0508490e06e0f96c129c7ca1284715",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_008.png": "8c7f0db1133ccc493cc895572e81d94f3c8809a179bd0b4a6724a68c3e014335",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_009.png": "5d430ba3f669a3add8bad65e18d79dfb45c202557c414beb85edb4b20d3bb0fc",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_010.png": "de4fc227a34bbaa37e3e266110156d1e3610bf92c446b946950b93f0272a939f",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_011.png": "5ec19b007ee8a44ed16ea544fbfffd124b1d11ea7f54ba9824ca0707fe7f91f8",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_012.png": "c7c5e563c512e734894723aee188d4cd8d4c03c78f8c8e1a92284014447fa92d",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_013.png": "596ea6a701bfc747593217ab303f2726d0823091d8c607bca18ad8748c1ba31e",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_014.png": "95c393946a1bd88ab8c7447fddfebbf991e2e245390d40a71a28dc9e9ff9eef7",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_015.png": "e31370de2ed6cd6b22460631aab7a4dd260699ca07733e77fcf05fa139545317",
+    "m0/runs/wan_t4_2026-10-02_retry5/run_001/predicted_clean_previews/step_004/frames/frame_016.png": "fcaf1b09b848385ed8f77e8bf28bd4f42cf0104d5b540b86d2f0d00b576780c8",
+    "research/trajectory_control_v1.json": "b34923bd1ec5e9caaea99750a9461f163e6ffda1c8afffc1ce2e9f7b371313b5",
+    "m0/analysis/wan_t4_retry5_frame_motion_audit.json": "362977927487aab396ff4e042796f32515b1f222db0ea1dd0973440dad476b65"
+  },
+  "final_output_vs_commanded_path": {
+    "scoreable_coverage": 1.0,
+    "mean_center_error_px_valid_only": 145.32584479395086,
+    "p95_center_error_px_valid_only": 282.96760676502913,
+    "mean_center_error_frame_diagonals_valid_only": 0.1512970577414138,
+    "commanded_endpoint_dx_px": 332.79999999999995,
+    "observed_endpoint_dx_px": 32.559911935864214,
+    "fraction_of_commanded_horizontal_displacement": 0.09783627384574585,
+    "source_audit_red_centroid_endpoint_dx_px": 32.56
+  },
+  "step4_x0_hat_vs_commanded_path": {
+    "controller_frame_indices": [
+      0,
+      4,
+      8,
+      12,
+      16
+    ],
+    "observer_scoreable_coverage": 1.0,
+    "start_observation_trusted_at_0_65_in_sample_cutoff": true,
+    "raw_start_error_px": 6.940767668541805,
+    "anchor_offset_xy_normalized": [
+      0.005739166802261719,
+      0.010494243851386753
+    ],
+    "mean_l2_anchor_relative_error_continuous_control_grid_units": 9.426504035117864,
+    "trusted_unlocked_action_box_count_of_4": 4,
+    "rasterized_changed_token_total": 71,
+    "per_keyframe": [
+      {
+        "rgb_frame_index": 0,
+        "target_center_px": [
+          208.0,
+          302.4
+        ],
+        "step4_x0_center_px": [
+          212.77498677948176,
+          307.4372370486656
+        ],
+        "final_rgb_center_px": [
+          209.0066853987017,
+          300.36158244190335
+        ],
+        "step4_x0_raw_center_error_px": 6.940767668541805,
+        "step4_x0_anchor_relative_error_continuous_control_grid_xy": [
+          0.0,
+          0.0
+        ],
+        "observer_stability": 0.984410780743797,
+        "accepted_by_development_cutoff": true,
+        "applied_box_shift_xy_normalized": [
+          0.0,
+          0.0
+        ],
+        "applied_box_shift_continuous_control_grid_xy": [
+          0.0,
+          0.0
+        ],
+        "rasterized_mask_change": {
+          "latent_frame": 0,
+          "changed_token_count": 0,
+          "target_occupied_tokens": 49,
+          "updated_occupied_tokens": 49,
+          "mask_iou": 1.0,
+          "center_shift_tokens_xy": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "rgb_frame_index": 4,
+        "target_center_px": [
+          291.2,
+          302.4
+        ],
+        "step4_x0_center_px": [
+          222.08528372341132,
+          306.0799580143245
+        ],
+        "final_rgb_center_px": [
+          220.2815613858671,
+          299.9771068952937
+        ],
+        "step4_x0_raw_center_error_px": 69.21261515779142,
+        "step4_x0_anchor_relative_error_continuous_control_grid_xy": [
+          -4.6181064410044,
+          -0.08482993964632146
+        ],
+        "observer_stability": 0.9303810562662957,
+        "accepted_by_development_cutoff": true,
+        "applied_box_shift_xy_normalized": [
+          0.019230769230769232,
+          0.001413832327438691
+        ],
+        "applied_box_shift_continuous_control_grid_xy": [
+          1.0,
+          0.04241496982316073
+        ],
+        "rasterized_mask_change": {
+          "latent_frame": 1,
+          "changed_token_count": 14,
+          "target_occupied_tokens": 49,
+          "updated_occupied_tokens": 49,
+          "mask_iou": 0.75,
+          "center_shift_tokens_xy": [
+            1.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "rgb_frame_index": 8,
+        "target_center_px": [
+          374.40000000000003,
+          302.4
+        ],
+        "step4_x0_center_px": [
+          232.55251336898397,
+          299.00381091975083
+        ],
+        "final_rgb_center_px": [
+          233.05713322659477,
+          299.0025258903764
+        ],
+        "step4_x0_raw_center_error_px": 141.88813750206563,
+        "step4_x0_anchor_relative_error_continuous_control_grid_xy": [
+          -9.163904588156113,
+          -0.527089133057177
+        ],
+        "observer_stability": 0.976144752253484,
+        "accepted_by_development_cutoff": true,
+        "applied_box_shift_xy_normalized": [
+          0.019230769230769232,
+          0.008784818884286283
+        ],
+        "applied_box_shift_continuous_control_grid_xy": [
+          1.0,
+          0.2635445665285885
+        ],
+        "rasterized_mask_change": {
+          "latent_frame": 2,
+          "changed_token_count": 22,
+          "target_occupied_tokens": 56,
+          "updated_occupied_tokens": 64,
+          "mask_iou": 0.6901408450704225,
+          "center_shift_tokens_xy": [
+            1.0,
+            0.5
+          ]
+        }
+      },
+      {
+        "rgb_frame_index": 12,
+        "target_center_px": [
+          457.6,
+          302.4
+        ],
+        "step4_x0_center_px": [
+          236.50710856720826,
+          301.4057519057519
+        ],
+        "final_rgb_center_px": [
+          239.76540057452917,
+          303.3230928822215
+        ],
+        "step4_x0_raw_center_error_px": 221.09512697340296,
+        "step4_x0_anchor_relative_error_continuous_control_grid_xy": [
+          -14.116742388267095,
+          -0.37696782143210816
+        ],
+        "observer_stability": 0.935623024467666,
+        "accepted_by_development_cutoff": true,
+        "applied_box_shift_xy_normalized": [
+          0.019230769230769232,
+          0.006282797023868469
+        ],
+        "applied_box_shift_continuous_control_grid_xy": [
+          1.0,
+          0.18848391071605408
+        ],
+        "rasterized_mask_change": {
+          "latent_frame": 3,
+          "changed_token_count": 14,
+          "target_occupied_tokens": 56,
+          "updated_occupied_tokens": 56,
+          "mask_iou": 0.7777777777777778,
+          "center_shift_tokens_xy": [
+            1.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "rgb_frame_index": 16,
+        "target_center_px": [
+          540.8,
+          302.4
+        ],
+        "step4_x0_center_px": [
+          238.17127838936827,
+          308.31091980063434
+        ],
+        "final_rgb_center_px": [
+          241.56659733456593,
+          307.4036668977737
+        ],
+        "step4_x0_raw_center_error_px": 302.6864419107251,
+        "step4_x0_anchor_relative_error_continuous_control_grid_xy": [
+          -19.21273177438209,
+          0.05460517199804449
+        ],
+        "observer_stability": 0.949232915360027,
+        "accepted_by_development_cutoff": true,
+        "applied_box_shift_xy_normalized": [
+          0.019230769230769232,
+          -0.0009100861999674081
+        ],
+        "applied_box_shift_continuous_control_grid_xy": [
+          1.0,
+          -0.027302585999022244
+        ],
+        "rasterized_mask_change": {
+          "latent_frame": 4,
+          "changed_token_count": 21,
+          "target_occupied_tokens": 49,
+          "updated_occupied_tokens": 56,
+          "mask_iou": 0.6666666666666666,
+          "center_shift_tokens_xy": [
+            1.0,
+            -0.5
+          ]
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "One existing text-prompt-only clip and one saved x0 checkpoint; not DiTraj and not a matched path-conditioned baseline.",
+    "The same red proxy is used for observing the saved clip; there are no independent human labels here.",
+    "The step-4 box update is counterfactual only; the denoising loop was not resumed with the modified mask.",
+    "The 0.65 observer cutoff is in-sample on two synthetic paths and is only used here to mirror the implemented development controller.",
+    "A rasterized mask shift demonstrates controller actuation, not predictable object motion or efficacy."
+  ]
+}

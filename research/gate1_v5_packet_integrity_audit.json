@@ -1,0 +1,60 @@
+{
+  "audit_id": "EXP-LATENTGATE-GATE1-V5-PACKET-INTEGRITY-001",
+  "status": "integrity_and_blinding_structure_pass_human_labels_pending",
+  "time_utc": "2026-10-11T14:23:57.505892+00:00",
+  "runtime_seconds": 0.039848,
+  "host": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.3"
+  },
+  "gpu_used": false,
+  "peak_vram_mb": null,
+  "packet_version": "gate1_manual_annotation_packets_v5",
+  "rater_packets": [
+    {
+      "archive": "synthetic_reliability/rater_01.zip",
+      "archive_sha256": "0ab9ebeebc24e9badd58c53b1d9076522e926d69dc47067b6f957450a56533d8",
+      "clip_order": [
+        "clip_41aaab39d1",
+        "clip_b47085ed61"
+      ],
+      "packet_key": "synthetic-rater-1",
+      "frame_count": 34,
+      "source_size_wh": [
+        160,
+        96
+      ],
+      "template_rows": 34,
+      "scored_fields_blank": true,
+      "offline_csp_and_source_coordinate_mapping_present": true
+    },
+    {
+      "archive": "synthetic_reliability/rater_02.zip",
+      "archive_sha256": "8a660acb5bd77855b82c13b27cc951f8d2e4d6131e38e0144e83638e2f92e7ff",
+      "clip_order": [
+        "clip_b47085ed61",
+        "clip_41aaab39d1"
+      ],
+      "packet_key": "synthetic-rater-2",
+      "frame_count": 34,
+      "source_size_wh": [
+        160,
+        96
+      ],
+      "template_rows": 34,
+      "scored_fields_blank": true,
+      "offline_csp_and_source_coordinate_mapping_present": true
+    }
+  ],
+  "checks": {
+    "same_embedded_pixels_for_each_shared_blind_clip": true,
+    "mirrored_clip_order_reversed_between_raters": true,
+    "unblind_key_outside_archives": true,
+    "restrictive_csp_and_no_external_code_or_network_api": true,
+    "source_pixel_coordinate_mapping_present": true,
+    "all_packet_templates_blank": true,
+    "only_expected_offline_files_in_zip": true
+  },
+  "limitation": "This is a static packet-integrity audit. It does not measure human annotation agreement, generated-video observer accuracy, or policy efficacy."
+}

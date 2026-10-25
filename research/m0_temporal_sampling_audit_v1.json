@@ -1,0 +1,106 @@
+{
+  "audit_id": "EXP-M0-TEMPORAL-SAMPLING-AUDIT-001",
+  "status": "completed_cpu_metadata_audit",
+  "scope": "Compare saved Wan M0 decoded-frame count, latent temporal axis, VAE compression metadata, and the planned DiTraj RGB-frame anchors.",
+  "model_outcome_claim": "none; no model inference or chunked-generation comparison",
+  "generation": {
+    "rgb_frames": 17,
+    "resolution_wh": [
+      832,
+      480
+    ],
+    "latent_shape_bcthw": [
+      1,
+      16,
+      5,
+      60,
+      104
+    ],
+    "latent_temporal_positions": 5,
+    "vae_temporal_compression_ratio": 4,
+    "vae_spatial_compression_ratio": 8,
+    "spatial_shape_matches_vae_ratio": true
+  },
+  "temporal_alignment": {
+    "formula": "latent_t = (rgb_frames - 1) / temporal_compression_ratio + 1",
+    "derived_nominal_rgb_frame_anchors": [
+      0,
+      4,
+      8,
+      12,
+      16
+    ],
+    "configured_ditraj_frame_anchors": [
+      0,
+      4,
+      8,
+      12,
+      16
+    ],
+    "anchors_match": true,
+    "positions": [
+      {
+        "latent_time_index": 0,
+        "nominal_rgb_frame_anchor": 0,
+        "frame_stride_from_previous_position": null
+      },
+      {
+        "latent_time_index": 1,
+        "nominal_rgb_frame_anchor": 4,
+        "frame_stride_from_previous_position": 4
+      },
+      {
+        "latent_time_index": 2,
+        "nominal_rgb_frame_anchor": 8,
+        "frame_stride_from_previous_position": 4
+      },
+      {
+        "latent_time_index": 3,
+        "nominal_rgb_frame_anchor": 12,
+        "frame_stride_from_previous_position": 4
+      },
+      {
+        "latent_time_index": 4,
+        "nominal_rgb_frame_anchor": 16,
+        "frame_stride_from_previous_position": 4
+      }
+    ],
+    "interpretation_limit": "These are nominal stride anchors, not disjoint RGB-frame groups or a measurement of each latent's exact temporal receptive field."
+  },
+  "saved_temporal_diagnostics": {
+    "post_step_latent_checkpoints": [
+      0,
+      4,
+      9,
+      14,
+      19,
+      24,
+      29
+    ],
+    "post_step_checkpoint_count": 7,
+    "latent_time_slices_across_saved_checkpoints": 35,
+    "predicted_clean_steps": [
+      4,
+      14,
+      24,
+      29
+    ],
+    "predicted_clean_time_slices": 20,
+    "transformer_summary_call_count": 18,
+    "transformer_summary_semantics": "selected block outputs pooled over spatial tokens per latent frame; positive and negative prompt calls kept separate"
+  },
+  "recommendation": {
+    "framewise_view": "Keep all decoded RGB frames as the evaluation/readout unit for visibility, identity, box, and trajectory measurements.",
+    "latent_view": "Index internal-state measurements by latent time position and denoising step; this run has five latent positions, not seventeen.",
+    "chunking": "Do not make chunked generation a fixed architecture requirement. Consider it only after a measured memory, latency, or control-horizon constraint; compare against the full-sequence baseline because chunking changes temporal context."
+  },
+  "limitations": [
+    "Metadata only; no model was loaded and no GPU was used.",
+    "The audit does not determine exact VAE receptive-field support per latent position.",
+    "No equivalence or quality comparison between full-sequence and chunked inference was run."
+  ],
+  "inputs_sha256": {
+    "m0/runs/wan_t4_2026-10-02_retry5/generation_packet.json": "7cf41fed61e26112adf6803ab983d6a1ba4b4ffaa38029c6786123c0a427b1e5",
+    "research/path_counterfactual_spec_v1.json": "79cd228d0ac7fb8e59b95161626f6568eb22484519d906bf9ecfa5d2157e80b3"
+  }
+}

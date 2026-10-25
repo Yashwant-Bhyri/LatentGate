@@ -1,0 +1,302 @@
+{
+  "audit_type": "posthoc_color_mask_frame_motion_audit",
+  "audit_date": "2026-10-02",
+  "source_run": "m0/runs/wan_t4_2026-10-02_retry5/run_001",
+  "source_generation": {
+    "model": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+    "device": "Tesla T4",
+    "width": 832,
+    "height": 480,
+    "frames": 17,
+    "inference_steps": 30,
+    "seed": 2026,
+    "prompt": "A single bright red ball rolling slowly from left to right across a smooth white tabletop, fixed camera, soft daylight, simple clean background."
+  },
+  "method": {
+    "mask": "RGB pixels where R > 150, G < 125, and B < 125",
+    "summary": "Per-frame color-mask pixel count, centroid, and bounding box; frame order is 000 through 016.",
+    "limitations": [
+      "The color mask is a simple proxy, not a segmentation model or ground-truth object track.",
+      "Bounding-box and mask growth indicate apparent image-space size change; they do not establish metric 3D scale drift.",
+      "A separate geometry/depth or object-tracking measurement is needed to confirm the suspected scale inconsistency."
+    ]
+  },
+  "measurements": {
+    "valid_frames": 17,
+    "mask_centroid_start_xy_pixels": [
+      209.01,
+      301.14
+    ],
+    "mask_centroid_end_xy_pixels": [
+      241.57,
+      307.4
+    ],
+    "centroid_endpoint_shift_xy_pixels": [
+      32.56,
+      6.26
+    ],
+    "horizontal_shift_as_fraction_of_frame_width": 0.0391,
+    "vertical_shift_as_fraction_of_frame_height": 0.013,
+    "linear_centroid_slope_pixels_per_frame_xy": [
+      2.2114,
+      0.414
+    ],
+    "centroid_x_increases_each_frame": true,
+    "red_mask_pixel_count_start_end": [
+      10306,
+      12981
+    ],
+    "red_mask_pixel_count_endpoint_change_percent": 25.96,
+    "bounding_box_width_start_end_pixels": [
+      120,
+      133
+    ],
+    "bounding_box_width_endpoint_change_percent": 10.83,
+    "bounding_box_height_start_end_pixels": [
+      127,
+      144
+    ],
+    "bounding_box_height_endpoint_change_percent": 13.39,
+    "per_frame": [
+      {
+        "frame": 0,
+        "pixel_count": 10306,
+        "centroid_xy_pixels": [
+          209.01,
+          301.14
+        ],
+        "bbox_xywh_pixels": [
+          153,
+          240,
+          120,
+          127
+        ]
+      },
+      {
+        "frame": 1,
+        "pixel_count": 10509,
+        "centroid_xy_pixels": [
+          211.12,
+          300.95
+        ],
+        "bbox_xywh_pixels": [
+          154,
+          241,
+          122,
+          126
+        ]
+      },
+      {
+        "frame": 2,
+        "pixel_count": 10709,
+        "centroid_xy_pixels": [
+          214.03,
+          300.55
+        ],
+        "bbox_xywh_pixels": [
+          157,
+          241,
+          121,
+          126
+        ]
+      },
+      {
+        "frame": 3,
+        "pixel_count": 10829,
+        "centroid_xy_pixels": [
+          215.77,
+          300.39
+        ],
+        "bbox_xywh_pixels": [
+          158,
+          240,
+          122,
+          128
+        ]
+      },
+      {
+        "frame": 4,
+        "pixel_count": 10964,
+        "centroid_xy_pixels": [
+          220.28,
+          299.98
+        ],
+        "bbox_xywh_pixels": [
+          162,
+          238,
+          124,
+          131
+        ]
+      },
+      {
+        "frame": 5,
+        "pixel_count": 11130,
+        "centroid_xy_pixels": [
+          222.62,
+          299.78
+        ],
+        "bbox_xywh_pixels": [
+          164,
+          238,
+          124,
+          131
+        ]
+      },
+      {
+        "frame": 6,
+        "pixel_count": 11414,
+        "centroid_xy_pixels": [
+          227.1,
+          298.9
+        ],
+        "bbox_xywh_pixels": [
+          168,
+          236,
+          125,
+          134
+        ]
+      },
+      {
+        "frame": 7,
+        "pixel_count": 11710,
+        "centroid_xy_pixels": [
+          231.11,
+          298.74
+        ],
+        "bbox_xywh_pixels": [
+          171,
+          235,
+          127,
+          136
+        ]
+      },
+      {
+        "frame": 8,
+        "pixel_count": 11867,
+        "centroid_xy_pixels": [
+          233.06,
+          298.95
+        ],
+        "bbox_xywh_pixels": [
+          173,
+          235,
+          127,
+          137
+        ]
+      },
+      {
+        "frame": 9,
+        "pixel_count": 11951,
+        "centroid_xy_pixels": [
+          235.44,
+          299.67
+        ],
+        "bbox_xywh_pixels": [
+          175,
+          235,
+          128,
+          138
+        ]
+      },
+      {
+        "frame": 10,
+        "pixel_count": 12053,
+        "centroid_xy_pixels": [
+          236.73,
+          300.15
+        ],
+        "bbox_xywh_pixels": [
+          176,
+          235,
+          128,
+          139
+        ]
+      },
+      {
+        "frame": 11,
+        "pixel_count": 12270,
+        "centroid_xy_pixels": [
+          238.42,
+          301.48
+        ],
+        "bbox_xywh_pixels": [
+          177,
+          236,
+          129,
+          140
+        ]
+      },
+      {
+        "frame": 12,
+        "pixel_count": 12532,
+        "centroid_xy_pixels": [
+          239.77,
+          303.32
+        ],
+        "bbox_xywh_pixels": [
+          177,
+          237,
+          131,
+          141
+        ]
+      },
+      {
+        "frame": 13,
+        "pixel_count": 12544,
+        "centroid_xy_pixels": [
+          240.04,
+          304.61
+        ],
+        "bbox_xywh_pixels": [
+          178,
+          238,
+          131,
+          142
+        ]
+      },
+      {
+        "frame": 14,
+        "pixel_count": 12805,
+        "centroid_xy_pixels": [
+          240.91,
+          306.2
+        ],
+        "bbox_xywh_pixels": [
+          178,
+          239,
+          132,
+          143
+        ]
+      },
+      {
+        "frame": 15,
+        "pixel_count": 12848,
+        "centroid_xy_pixels": [
+          241.15,
+          306.94
+        ],
+        "bbox_xywh_pixels": [
+          178,
+          239,
+          132,
+          144
+        ]
+      },
+      {
+        "frame": 16,
+        "pixel_count": 12981,
+        "centroid_xy_pixels": [
+          241.57,
+          307.4
+        ],
+        "bbox_xywh_pixels": [
+          178,
+          240,
+          133,
+          144
+        ]
+      }
+    ]
+  },
+  "interpretation": "The requested rightward motion is present in the color-mask centroid, with any apparent size change treated as an image-space proxy. This is a post-hoc measurement and is not part of the original run manifest."
+}

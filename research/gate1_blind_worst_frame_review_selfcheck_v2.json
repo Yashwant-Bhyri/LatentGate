@@ -1,0 +1,99 @@
+{
+  "experiment_id": "EXP-LATENTGATE-GATE1-BLINDED-WORST-FRAME-REVIEW-SELF-CHECK-001",
+  "status": "synthetic_review_mechanics_only_no_human_labels",
+  "created_utc": "2026-10-15T08:17:39Z",
+  "method": "Read only the public v5 blinded packet ZIP and its blank template; generate temporary complete synthetic rater CSVs with a single +2.5 control-grid-cell x disagreement at frame 16 of one opaque blind clip; build and inspect a temporary offline report. No truth fixture or private key is loaded.",
+  "injected_case": {
+    "blind_clip_id": "clip_41aaab39d1",
+    "frame_index": 16,
+    "horizontal_shift_source_px": 7.6923076923076925,
+    "horizontal_shift_grid_cells": 2.5
+  },
+  "validation": {
+    "registered_agreement_screen_passes_with_single_outlier": true,
+    "radial_and_x_maxima_select_injected_frame": true,
+    "offline_html_contains_blind_review_cards": true,
+    "no_external_or_script_resources": true,
+    "private_key_or_truth_loaded": false,
+    "direction_aliases_rendered": false
+  },
+  "review_summary": {
+    "blind_agreement_screen_pass": true,
+    "per_clip_review": {
+      "clip_41aaab39d1": {
+        "agreement_screen_pass": true,
+        "center_comparable_frames": 17,
+        "maximum_radial": {
+          "frame_index": 16,
+          "target_px": 39.999999999960025
+        },
+        "maximum_horizontal": {
+          "frame_index": 16,
+          "target_px": 39.999999999960025,
+          "grid_cells": 2.4999999999975016
+        },
+        "maximum_vertical": {
+          "frame_index": 0,
+          "target_px": 0.0,
+          "grid_cells": 0.0
+        },
+        "categorical_disagreement_frames": [],
+        "review_frame_indices": [
+          16
+        ],
+        "p95_abs_dx_cells": 0.4999999999994985,
+        "p95_abs_dy_cells": 0.0
+      },
+      "clip_b47085ed61": {
+        "agreement_screen_pass": true,
+        "center_comparable_frames": 17,
+        "maximum_radial": {
+          "frame_index": 0,
+          "target_px": 0.0
+        },
+        "maximum_horizontal": {
+          "frame_index": 0,
+          "target_px": 0.0,
+          "grid_cells": 0.0
+        },
+        "maximum_vertical": {
+          "frame_index": 0,
+          "target_px": 0.0,
+          "grid_cells": 0.0
+        },
+        "categorical_disagreement_frames": [],
+        "review_frame_indices": [
+          0
+        ],
+        "p95_abs_dx_cells": 0.0,
+        "p95_abs_dy_cells": 0.0
+      }
+    },
+    "privacy": {
+      "private_key_loaded": false,
+      "fixture_truth_loaded": false,
+      "unblinded_direction_included": false,
+      "offline_assets_embedded": true
+    }
+  },
+  "inputs": {
+    "review_builder_sha256": "948641497d6261d7fc499ee6b8d1666bc0e12e1860603eaff88fbeb47fcff4d3",
+    "packet_zip_sha256": "0ab9ebeebc24e9badd58c53b1d9076522e926d69dc47067b6f957450a56533d8"
+  },
+  "compute": {
+    "runtime_seconds_including_html_build": 0.014575,
+    "host": {
+      "system": "Darwin",
+      "machine": "arm64",
+      "python": "3.12.3"
+    },
+    "gpu_used": false,
+    "peak_vram_mb": null,
+    "model_inference": false
+  },
+  "limitations": [
+    "Synthetic arbitrary boxes and one injected outlier validate report selection/rendering only; they are not human labels or annotation precision evidence.",
+    "The generated report and synthetic CSVs are temporary and deleted on exit.",
+    "The helper must only be used with the two still-blinded submissions and a v5 packet archive; it never validates path policy efficacy."
+  ]
+}

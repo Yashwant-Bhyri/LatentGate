@@ -1,0 +1,1162 @@
+{
+  "right": [
+    {
+      "frame_index": 0,
+      "kubric_frame": 1,
+      "world_center_xyz": [
+        0.0,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.5,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        70,
+        38,
+        90,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 0,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          70,
+          38,
+          90,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_000.png",
+      "mask_file": "right/masks/mask_000.png"
+    },
+    {
+      "frame_index": 1,
+      "kubric_frame": 2,
+      "world_center_xyz": [
+        -0.0625,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.512499988079071,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        72,
+        38,
+        92,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 1,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          72,
+          38,
+          92,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_001.png",
+      "mask_file": "right/masks/mask_001.png"
+    },
+    {
+      "frame_index": 2,
+      "kubric_frame": 3,
+      "world_center_xyz": [
+        -0.125,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.5249999761581421,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        74,
+        38,
+        94,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 2,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          74,
+          38,
+          94,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_002.png",
+      "mask_file": "right/masks/mask_002.png"
+    },
+    {
+      "frame_index": 3,
+      "kubric_frame": 4,
+      "world_center_xyz": [
+        -0.1875,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.5375000238418579,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        76,
+        38,
+        96,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 3,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          76,
+          38,
+          96,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_003.png",
+      "mask_file": "right/masks/mask_003.png"
+    },
+    {
+      "frame_index": 4,
+      "kubric_frame": 5,
+      "world_center_xyz": [
+        -0.25,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.550000011920929,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        78,
+        38,
+        98,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 4,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          78,
+          38,
+          98,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_004.png",
+      "mask_file": "right/masks/mask_004.png"
+    },
+    {
+      "frame_index": 5,
+      "kubric_frame": 6,
+      "world_center_xyz": [
+        -0.3125,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.5625,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        80,
+        38,
+        100,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 5,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          80,
+          38,
+          100,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_005.png",
+      "mask_file": "right/masks/mask_005.png"
+    },
+    {
+      "frame_index": 6,
+      "kubric_frame": 7,
+      "world_center_xyz": [
+        -0.375,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.574999988079071,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        82,
+        38,
+        102,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 6,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          82,
+          38,
+          102,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_006.png",
+      "mask_file": "right/masks/mask_006.png"
+    },
+    {
+      "frame_index": 7,
+      "kubric_frame": 8,
+      "world_center_xyz": [
+        -0.4375,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.5874999761581421,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        84,
+        38,
+        104,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 7,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          84,
+          38,
+          104,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_007.png",
+      "mask_file": "right/masks/mask_007.png"
+    },
+    {
+      "frame_index": 8,
+      "kubric_frame": 9,
+      "world_center_xyz": [
+        -0.5,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.6000000238418579,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        86,
+        38,
+        106,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 8,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          86,
+          38,
+          106,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_008.png",
+      "mask_file": "right/masks/mask_008.png"
+    },
+    {
+      "frame_index": 9,
+      "kubric_frame": 10,
+      "world_center_xyz": [
+        -0.5625,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.612500011920929,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        88,
+        38,
+        108,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 9,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          88,
+          38,
+          108,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_009.png",
+      "mask_file": "right/masks/mask_009.png"
+    },
+    {
+      "frame_index": 10,
+      "kubric_frame": 11,
+      "world_center_xyz": [
+        -0.625,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.625,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        90,
+        38,
+        110,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 10,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          90,
+          38,
+          110,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_010.png",
+      "mask_file": "right/masks/mask_010.png"
+    },
+    {
+      "frame_index": 11,
+      "kubric_frame": 12,
+      "world_center_xyz": [
+        -0.6875,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.637499988079071,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        92,
+        38,
+        112,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 11,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          92,
+          38,
+          112,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_011.png",
+      "mask_file": "right/masks/mask_011.png"
+    },
+    {
+      "frame_index": 12,
+      "kubric_frame": 13,
+      "world_center_xyz": [
+        -0.75,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.6499999761581421,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        94,
+        38,
+        114,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 12,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          94,
+          38,
+          114,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_012.png",
+      "mask_file": "right/masks/mask_012.png"
+    },
+    {
+      "frame_index": 13,
+      "kubric_frame": 14,
+      "world_center_xyz": [
+        -0.8125,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.6625000238418579,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        96,
+        38,
+        116,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 13,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          96,
+          38,
+          116,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_013.png",
+      "mask_file": "right/masks/mask_013.png"
+    },
+    {
+      "frame_index": 14,
+      "kubric_frame": 15,
+      "world_center_xyz": [
+        -0.875,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.675000011920929,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        98,
+        38,
+        118,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 14,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          98,
+          38,
+          118,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_014.png",
+      "mask_file": "right/masks/mask_014.png"
+    },
+    {
+      "frame_index": 15,
+      "kubric_frame": 16,
+      "world_center_xyz": [
+        -0.9375,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.6875,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        100,
+        38,
+        120,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 15,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          100,
+          38,
+          120,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_015.png",
+      "mask_file": "right/masks/mask_015.png"
+    },
+    {
+      "frame_index": 16,
+      "kubric_frame": 17,
+      "world_center_xyz": [
+        -1.0,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.699999988079071,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        102,
+        38,
+        122,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 16,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          102,
+          38,
+          122,
+          58
+        ]
+      },
+      "rgb_file": "right/frames/frame_016.png",
+      "mask_file": "right/masks/mask_016.png"
+    }
+  ],
+  "left": [
+    {
+      "frame_index": 0,
+      "kubric_frame": 18,
+      "world_center_xyz": [
+        0.0,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.5,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        70,
+        38,
+        90,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 0,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          70,
+          38,
+          90,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_000.png",
+      "mask_file": "left/masks/mask_000.png"
+    },
+    {
+      "frame_index": 1,
+      "kubric_frame": 19,
+      "world_center_xyz": [
+        0.0625,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.48750001192092896,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        68,
+        38,
+        88,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 1,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          68,
+          38,
+          88,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_001.png",
+      "mask_file": "left/masks/mask_001.png"
+    },
+    {
+      "frame_index": 2,
+      "kubric_frame": 20,
+      "world_center_xyz": [
+        0.125,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.4749999940395355,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        66,
+        38,
+        86,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 2,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          66,
+          38,
+          86,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_002.png",
+      "mask_file": "left/masks/mask_002.png"
+    },
+    {
+      "frame_index": 3,
+      "kubric_frame": 21,
+      "world_center_xyz": [
+        0.1875,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.4625000059604645,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        64,
+        38,
+        84,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 3,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          64,
+          38,
+          84,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_003.png",
+      "mask_file": "left/masks/mask_003.png"
+    },
+    {
+      "frame_index": 4,
+      "kubric_frame": 22,
+      "world_center_xyz": [
+        0.25,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.44999998807907104,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        62,
+        38,
+        82,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 4,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          62,
+          38,
+          82,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_004.png",
+      "mask_file": "left/masks/mask_004.png"
+    },
+    {
+      "frame_index": 5,
+      "kubric_frame": 23,
+      "world_center_xyz": [
+        0.3125,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.4375,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        60,
+        38,
+        80,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 5,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          60,
+          38,
+          80,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_005.png",
+      "mask_file": "left/masks/mask_005.png"
+    },
+    {
+      "frame_index": 6,
+      "kubric_frame": 24,
+      "world_center_xyz": [
+        0.375,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.42500001192092896,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        58,
+        38,
+        78,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 6,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          58,
+          38,
+          78,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_006.png",
+      "mask_file": "left/masks/mask_006.png"
+    },
+    {
+      "frame_index": 7,
+      "kubric_frame": 25,
+      "world_center_xyz": [
+        0.4375,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.4124999940395355,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        56,
+        38,
+        76,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 7,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          56,
+          38,
+          76,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_007.png",
+      "mask_file": "left/masks/mask_007.png"
+    },
+    {
+      "frame_index": 8,
+      "kubric_frame": 26,
+      "world_center_xyz": [
+        0.5,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.4000000059604645,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        54,
+        38,
+        74,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 8,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          54,
+          38,
+          74,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_008.png",
+      "mask_file": "left/masks/mask_008.png"
+    },
+    {
+      "frame_index": 9,
+      "kubric_frame": 27,
+      "world_center_xyz": [
+        0.5625,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.38749998807907104,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        52,
+        38,
+        72,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 9,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          52,
+          38,
+          72,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_009.png",
+      "mask_file": "left/masks/mask_009.png"
+    },
+    {
+      "frame_index": 10,
+      "kubric_frame": 28,
+      "world_center_xyz": [
+        0.625,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.375,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        50,
+        38,
+        70,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 10,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          50,
+          38,
+          70,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_010.png",
+      "mask_file": "left/masks/mask_010.png"
+    },
+    {
+      "frame_index": 11,
+      "kubric_frame": 29,
+      "world_center_xyz": [
+        0.6875,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.36250001192092896,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        48,
+        38,
+        68,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 11,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          48,
+          38,
+          68,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_011.png",
+      "mask_file": "left/masks/mask_011.png"
+    },
+    {
+      "frame_index": 12,
+      "kubric_frame": 30,
+      "world_center_xyz": [
+        0.75,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.3499999940395355,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        46,
+        38,
+        66,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 12,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          46,
+          38,
+          66,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_012.png",
+      "mask_file": "left/masks/mask_012.png"
+    },
+    {
+      "frame_index": 13,
+      "kubric_frame": 31,
+      "world_center_xyz": [
+        0.8125,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.3375000059604645,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        44,
+        38,
+        64,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 13,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          44,
+          38,
+          64,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_013.png",
+      "mask_file": "left/masks/mask_013.png"
+    },
+    {
+      "frame_index": 14,
+      "kubric_frame": 32,
+      "world_center_xyz": [
+        0.875,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.32499998807907104,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        42,
+        38,
+        62,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 14,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          42,
+          38,
+          62,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_014.png",
+      "mask_file": "left/masks/mask_014.png"
+    },
+    {
+      "frame_index": 15,
+      "kubric_frame": 33,
+      "world_center_xyz": [
+        0.9375,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.3125,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        40,
+        38,
+        60,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 15,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          40,
+          38,
+          60,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_015.png",
+      "mask_file": "left/masks/mask_015.png"
+    },
+    {
+      "frame_index": 16,
+      "kubric_frame": 34,
+      "world_center_xyz": [
+        1.0,
+        0.0,
+        0.3
+      ],
+      "projected_target_center_xy_normalized": [
+        0.30000001192092896,
+        0.5
+      ],
+      "mask_pixel_count": 284,
+      "mask_bbox_xyxy_px": [
+        38,
+        38,
+        58,
+        58
+      ],
+      "annotation_from_mask": {
+        "frame_index": 16,
+        "object_visible": true,
+        "instance_count": 1,
+        "identity_consistent": true,
+        "bbox_xyxy_px": [
+          38,
+          38,
+          58,
+          58
+        ]
+      },
+      "rgb_file": "left/frames/frame_016.png",
+      "mask_file": "left/masks/mask_016.png"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "packet_version": "gate1_manual_annotation_packets_v3",
+  "status": "superseded_do_not_distribute",
+  "superseded_utc": "2026-10-11T12:21:00Z",
+  "superseded_by": "research/gate1_manual_annotation_packets_v4",
+  "superseded_reason": "The v3 UI auto-filled visibility, count, and identity when a box was drawn, and auto-filled count and identity when visibility was set to absent. This coupled independently scored fields and could inflate agreement.",
+  "created_utc": "2026-10-02T20:31:45.173201+00:00",
+  "build_wall_seconds": 0.32,
+  "build_host": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.3"
+  },
+  "purpose": "annotation packet generation only; no diffusion or vision inference",
+  "gpu_used": false,
+  "peak_vram_mb": null,
+  "browser_interaction_verified": false,
+  "browser_interaction_verification_scope": "at packet build time only; later QA is recorded separately",
+  "post_build_qa": {
+    "status": "synthetic_ui_roundtrip_smoke_passed",
+    "checked_utc": "2026-10-09T01:57:00Z",
+    "memo": "research/2026-10-09_gate1_annotator_ui_roundtrip.md",
+    "source": "isolated temporary copy of synthetic_reliability/rater_01.zip/index.html with a unique localStorage packet key; original packet ZIPs were not edited",
+    "verified": [
+      "box drawing and visible/count/identity auto-fill",
+      "localStorage persistence after reload",
+      "CSV export",
+      "clear followed by CSV import/resume",
+      "imported SVG overlay coordinates match the exported box"
+    ],
+    "artifact": {
+      "path": "research/qa/2026-10-09_gate1_annotator_roundtrip/smoke_not_human_rater_labels.csv",
+      "rows": 34,
+      "nonblank_synthetic_annotation_rows": 1,
+      "sha256": "62984ff39fd4e5b7dce10e248c7147da7358ad0ecd2f5cca80d5b13bb3404468"
+    },
+    "device": "MacBook Pro Apple M3",
+    "gpu_used": false,
+    "peak_vram_mb": null,
+    "model_inference": false,
+    "limitations": [
+      "agent-created synthetic smoke annotation, not a human rater submission",
+      "does not establish human usability or inter-rater reliability",
+      "does not establish generated-video observer accuracy or policy efficacy"
+    ]
+  },
+  "source": {
+    "kubric_fixture": "research/kubric_gate0_fixture_v1/{left,right}/frames; one paired mirror fixture",
+    "generated_sample_package_sha256": "af7ce93e7b6d339fba05b50649f708edfeebb59d2eccb45444d6978040771fa5"
+  },
+  "archives": [
+    {
+      "path": "generated_sample_observer_check/rater_01.zip",
+      "bytes": 3324877,
+      "sha256": "02f22d735a7fdab525dd569c6dac47b19f551053fb180a158899e324db60f733"
+    },
+    {
+      "path": "generated_sample_observer_check/rater_02.zip",
+      "bytes": 3324877,
+      "sha256": "cf9c2ce44a5a98b75f6f263b7950d0cf2c1f5960fe4fa793d8195d41ebeb7d8b"
+    },
+    {
+      "path": "synthetic_reliability/rater_01.zip",
+      "bytes": 359254,
+      "sha256": "2df5a09cd9b9693758e54d334cac3850f86fa743a34afb3298076196dac5a29a"
+    },
+    {
+      "path": "synthetic_reliability/rater_02.zip",
+      "bytes": 359249,
+      "sha256": "d9f6028a5f6414ff19b9be49a1ca8267edb674830351c9e22ebedcb7bed118e6"
+    }
+  ],
+  "label_fields_populated": 0,
+  "limitations": [
+    "Synthetic packet contains one left/right mirror pair, not the two seed blocks required by the full reliability gate.",
+    "At packet build time browser drawing and CSV round-trip were not tested; later synthetic UI QA is recorded under post_build_qa and is not human-label evidence."
+  ]
+}

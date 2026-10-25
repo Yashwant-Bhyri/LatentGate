@@ -1,0 +1,1032 @@
+{
+  "experiment_id": "EXP-DITRAJ-LATE-MASK-DOSE-MAP-001",
+  "status": "cpu_only_mask_input_geometry_audit",
+  "scope": "Late foreground/background mask action after the shared prefix; early RoPE and the first latent-time box remain fixed.",
+  "model_outcome_claim": "none; this report measures mask inputs only and contains no generated-video response",
+  "grid": {
+    "latent_spatial_grid_wh": [
+      52,
+      30
+    ],
+    "output_frame_wh": [
+      832,
+      480
+    ],
+    "nominal_output_pixels_per_cell_xy": [
+      16,
+      16
+    ],
+    "latent_time_rgb_frames": [
+      0,
+      4,
+      8,
+      12,
+      16
+    ],
+    "locked_slice_index": 0
+  },
+  "action_doses_horizontal_grid_cells": [
+    -2,
+    -1,
+    0,
+    1,
+    2
+  ],
+  "inputs_sha256": {
+    "research/path_counterfactual_spec_v1.json": "79cd228d0ac7fb8e59b95161626f6568eb22484519d906bf9ecfa5d2157e80b3",
+    "research/ditraj_feedback_adapter.py": "08fd6dd3d1b8acb11afec4432638211922da7f0e63ef745c96c1d7e3c4793d78"
+  },
+  "paths": {
+    "left": {
+      "target_boxes_xyxy_control_slices": [
+        [
+          0.43,
+          0.5,
+          0.57,
+          0.76
+        ],
+        [
+          0.38,
+          0.5,
+          0.52,
+          0.76
+        ],
+        [
+          0.33,
+          0.5,
+          0.47,
+          0.76
+        ],
+        [
+          0.28,
+          0.5,
+          0.42,
+          0.76
+        ],
+        [
+          0.23,
+          0.5,
+          0.37,
+          0.76
+        ]
+      ],
+      "base_occupied_tokens_per_slice": [
+        49,
+        56,
+        49,
+        49,
+        56
+      ],
+      "actions_by_horizontal_cell_shift": {
+        "-2": {
+          "changed_token_count_total": 112,
+          "whole_path_mask_iou": 0.6444444444444445,
+          "start_slice_unchanged": true,
+          "rasterized_box_sizes_wh_tokens": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          "per_latent_slice": [
+            {
+              "latent_frame": 0,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 1,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.6,
+              "center_shift_tokens_xy": [
+                -2.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 2,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.5555555555555556,
+              "center_shift_tokens_xy": [
+                -2.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 3,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.5555555555555556,
+              "center_shift_tokens_xy": [
+                -2.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 4,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.6,
+              "center_shift_tokens_xy": [
+                -2.0,
+                0.0
+              ]
+            }
+          ],
+          "requested_shift_cells_xy": [
+            -2,
+            0
+          ],
+          "future_slices_only": true,
+          "normalized_box_size_preserved": true
+        },
+        "-1": {
+          "changed_token_count_total": 56,
+          "whole_path_mask_iou": 0.8048780487804879,
+          "start_slice_unchanged": true,
+          "rasterized_box_sizes_wh_tokens": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          "per_latent_slice": [
+            {
+              "latent_frame": 0,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 1,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.7777777777777778,
+              "center_shift_tokens_xy": [
+                -1.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 2,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.75,
+              "center_shift_tokens_xy": [
+                -1.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 3,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.75,
+              "center_shift_tokens_xy": [
+                -1.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 4,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.7777777777777778,
+              "center_shift_tokens_xy": [
+                -1.0,
+                0.0
+              ]
+            }
+          ],
+          "requested_shift_cells_xy": [
+            -1,
+            0
+          ],
+          "future_slices_only": true,
+          "normalized_box_size_preserved": true
+        },
+        "0": {
+          "changed_token_count_total": 0,
+          "whole_path_mask_iou": 1.0,
+          "start_slice_unchanged": true,
+          "rasterized_box_sizes_wh_tokens": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          "per_latent_slice": [
+            {
+              "latent_frame": 0,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 1,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 2,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 3,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 4,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "requested_shift_cells_xy": [
+            0,
+            0
+          ],
+          "future_slices_only": true,
+          "normalized_box_size_preserved": true
+        },
+        "1": {
+          "changed_token_count_total": 56,
+          "whole_path_mask_iou": 0.8048780487804879,
+          "start_slice_unchanged": true,
+          "rasterized_box_sizes_wh_tokens": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          "per_latent_slice": [
+            {
+              "latent_frame": 0,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 1,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.7777777777777778,
+              "center_shift_tokens_xy": [
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 2,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.75,
+              "center_shift_tokens_xy": [
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 3,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.75,
+              "center_shift_tokens_xy": [
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 4,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.7777777777777778,
+              "center_shift_tokens_xy": [
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "requested_shift_cells_xy": [
+            1,
+            0
+          ],
+          "future_slices_only": true,
+          "normalized_box_size_preserved": true
+        },
+        "2": {
+          "changed_token_count_total": 112,
+          "whole_path_mask_iou": 0.6444444444444445,
+          "start_slice_unchanged": true,
+          "rasterized_box_sizes_wh_tokens": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          "per_latent_slice": [
+            {
+              "latent_frame": 0,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 1,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.6,
+              "center_shift_tokens_xy": [
+                2.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 2,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.5555555555555556,
+              "center_shift_tokens_xy": [
+                2.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 3,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.5555555555555556,
+              "center_shift_tokens_xy": [
+                2.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 4,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.6,
+              "center_shift_tokens_xy": [
+                2.0,
+                0.0
+              ]
+            }
+          ],
+          "requested_shift_cells_xy": [
+            2,
+            0
+          ],
+          "future_slices_only": true,
+          "normalized_box_size_preserved": true
+        }
+      }
+    },
+    "right": {
+      "target_boxes_xyxy_control_slices": [
+        [
+          0.43,
+          0.5,
+          0.57,
+          0.76
+        ],
+        [
+          0.48,
+          0.5,
+          0.62,
+          0.76
+        ],
+        [
+          0.53,
+          0.5,
+          0.6699999999999999,
+          0.76
+        ],
+        [
+          0.5800000000000001,
+          0.5,
+          0.72,
+          0.76
+        ],
+        [
+          0.63,
+          0.5,
+          0.77,
+          0.76
+        ]
+      ],
+      "base_occupied_tokens_per_slice": [
+        49,
+        56,
+        49,
+        49,
+        56
+      ],
+      "actions_by_horizontal_cell_shift": {
+        "-2": {
+          "changed_token_count_total": 112,
+          "whole_path_mask_iou": 0.6444444444444445,
+          "start_slice_unchanged": true,
+          "rasterized_box_sizes_wh_tokens": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          "per_latent_slice": [
+            {
+              "latent_frame": 0,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 1,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.6,
+              "center_shift_tokens_xy": [
+                -2.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 2,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.5555555555555556,
+              "center_shift_tokens_xy": [
+                -2.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 3,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.5555555555555556,
+              "center_shift_tokens_xy": [
+                -2.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 4,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.6,
+              "center_shift_tokens_xy": [
+                -2.0,
+                0.0
+              ]
+            }
+          ],
+          "requested_shift_cells_xy": [
+            -2,
+            0
+          ],
+          "future_slices_only": true,
+          "normalized_box_size_preserved": true
+        },
+        "-1": {
+          "changed_token_count_total": 56,
+          "whole_path_mask_iou": 0.8048780487804879,
+          "start_slice_unchanged": true,
+          "rasterized_box_sizes_wh_tokens": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          "per_latent_slice": [
+            {
+              "latent_frame": 0,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 1,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.7777777777777778,
+              "center_shift_tokens_xy": [
+                -1.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 2,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.75,
+              "center_shift_tokens_xy": [
+                -1.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 3,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.75,
+              "center_shift_tokens_xy": [
+                -1.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 4,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.7777777777777778,
+              "center_shift_tokens_xy": [
+                -1.0,
+                0.0
+              ]
+            }
+          ],
+          "requested_shift_cells_xy": [
+            -1,
+            0
+          ],
+          "future_slices_only": true,
+          "normalized_box_size_preserved": true
+        },
+        "0": {
+          "changed_token_count_total": 0,
+          "whole_path_mask_iou": 1.0,
+          "start_slice_unchanged": true,
+          "rasterized_box_sizes_wh_tokens": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          "per_latent_slice": [
+            {
+              "latent_frame": 0,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 1,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 2,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 3,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 4,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "requested_shift_cells_xy": [
+            0,
+            0
+          ],
+          "future_slices_only": true,
+          "normalized_box_size_preserved": true
+        },
+        "1": {
+          "changed_token_count_total": 56,
+          "whole_path_mask_iou": 0.8048780487804879,
+          "start_slice_unchanged": true,
+          "rasterized_box_sizes_wh_tokens": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          "per_latent_slice": [
+            {
+              "latent_frame": 0,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 1,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.7777777777777778,
+              "center_shift_tokens_xy": [
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 2,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.75,
+              "center_shift_tokens_xy": [
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 3,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.75,
+              "center_shift_tokens_xy": [
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 4,
+              "changed_token_count": 14,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.7777777777777778,
+              "center_shift_tokens_xy": [
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "requested_shift_cells_xy": [
+            1,
+            0
+          ],
+          "future_slices_only": true,
+          "normalized_box_size_preserved": true
+        },
+        "2": {
+          "changed_token_count_total": 112,
+          "whole_path_mask_iou": 0.6444444444444445,
+          "start_slice_unchanged": true,
+          "rasterized_box_sizes_wh_tokens": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          "per_latent_slice": [
+            {
+              "latent_frame": 0,
+              "changed_token_count": 0,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 1.0,
+              "center_shift_tokens_xy": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 1,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.6,
+              "center_shift_tokens_xy": [
+                2.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 2,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.5555555555555556,
+              "center_shift_tokens_xy": [
+                2.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 3,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 49,
+              "updated_occupied_tokens": 49,
+              "mask_iou": 0.5555555555555556,
+              "center_shift_tokens_xy": [
+                2.0,
+                0.0
+              ]
+            },
+            {
+              "latent_frame": 4,
+              "changed_token_count": 28,
+              "target_occupied_tokens": 56,
+              "updated_occupied_tokens": 56,
+              "mask_iou": 0.6,
+              "center_shift_tokens_xy": [
+                2.0,
+                0.0
+              ]
+            }
+          ],
+          "requested_shift_cells_xy": [
+            2,
+            0
+          ],
+          "future_slices_only": true,
+          "normalized_box_size_preserved": true
+        }
+      }
+    }
+  },
+  "interpretation": [
+    "Compare no-op and both signs at one- and two-cell doses before choosing an action scale for a model run.",
+    "A changed mask, cell-center shift, or IoU change establishes discrete input actuation only; object response requires matched generated clips and independent labels.",
+    "These late-mask doses do not test a full-run DiTraj path shift or the early STD-RoPE intervention."
+  ]
+}

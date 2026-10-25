@@ -1,0 +1,343 @@
+{
+  "audit_id": "EXP-COGVIDEOX2B-PILOT-30STEPS-ADJACENT-MOTION-001",
+  "status": "completed_cpu_saved_rgb_adjacent_motion_proxy",
+  "created_date": "2026-10-17",
+  "scope": "Image-only adjacent RGB-MAE and Farneback diagnostic on saved CogVideoX-2B pilot_30steps; clip-local only, no cross-step inference comparison.",
+  "source_run": "cogvideox_2b_pilot_30steps",
+  "run_conditions": {
+    "model": "zai-org/CogVideoX-2b",
+    "prompt": "A single bright red ball rolling slowly from left to right across a smooth white tabletop, fixed camera, soft daylight, simple clean background.",
+    "seed": 2026,
+    "width": 480,
+    "height": 320,
+    "guidance_scale": 6.0,
+    "denoising_steps": 30
+  },
+  "source_manifest": {
+    "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot_30steps/manifest.json",
+    "sha256": "5ba9d3735fe511b5c0dee48fb92b9b103148b41ba463a194a419540eac3864be"
+  },
+  "registered_input_map": {
+    "path": "research/cogvideox2b_stepsensitivity_inputs_v1.json",
+    "sha256": "b412f4f31d051d31f40060d17b34e47443ea5c8c23e857e996409cc7453dbcdd"
+  },
+  "sparse_readout_preregistration": {
+    "path": "research/cogvideox_2b_sparse_frame_preregistration_v1.json",
+    "sha256": "a684caf7b9cb0a3170cc8803c0119a720e3e45f7df0e015880f298239022f4fd",
+    "anchors": [
+      0,
+      2,
+      4,
+      6,
+      8
+    ]
+  },
+  "frame_count": 9,
+  "frame_size_px": [
+    480,
+    320
+  ],
+  "anchors": [
+    0,
+    2,
+    4,
+    6,
+    8
+  ],
+  "frame_sha256": [
+    {
+      "frame": 0,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot_30steps/frames/frame_00.png",
+      "sha256": "28f1730325bc89e4fd48c32dc0ba3ab7edb8e3c8464785bf6db069fde9bdbaff"
+    },
+    {
+      "frame": 1,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot_30steps/frames/frame_01.png",
+      "sha256": "314f1760e8523c01632e279b2cbcc1f0924695d5dd99d0c77d3a76845b900bce"
+    },
+    {
+      "frame": 2,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot_30steps/frames/frame_02.png",
+      "sha256": "63bd3a8243b13c58afb9cc34010a985039e2e3d6b784b8bb6b9fb96ab5ab6d5f"
+    },
+    {
+      "frame": 3,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot_30steps/frames/frame_03.png",
+      "sha256": "320c67d8675eefd3df17abf21a8a33ef152e23dc63a43ea612c4e6188cccbcc1"
+    },
+    {
+      "frame": 4,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot_30steps/frames/frame_04.png",
+      "sha256": "414d1b0f02e9c2719f6b6057f2886fe50c7b6f354fc1a94d44e8536b98ee197d"
+    },
+    {
+      "frame": 5,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot_30steps/frames/frame_05.png",
+      "sha256": "19f11a88d1c44929628bb16f9179ca1eed332a4acd2e39aaf8f85c73fdbde564"
+    },
+    {
+      "frame": 6,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot_30steps/frames/frame_06.png",
+      "sha256": "d213eb04bac55749862688e6443b056cfd2337bf04b205bc8eb1e4cfe37035a1"
+    },
+    {
+      "frame": 7,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot_30steps/frames/frame_07.png",
+      "sha256": "5cf218b50739640d980997c801b5bd46958306994dabc469a0d48524138cd713"
+    },
+    {
+      "frame": 8,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot_30steps/frames/frame_08.png",
+      "sha256": "e978ad4003581bd710f553336ce53090291a60dfdca55378901aeb6d78a1f627"
+    }
+  ],
+  "prior_fixed_red_mask_gate": {
+    "path": "research/cogvideox2b_stepsensitivity_rgb_v1.json",
+    "sha256": "4855a996bf9e3c908d4c7fa89a722e45449bf6f38ece8766bc70b11455607acc",
+    "result": "0/9 scoreable; maximum mask size 203 pixels in one frame, below the 300-pixel floor",
+    "threshold_grid_full_tracks": 0,
+    "recomputed_here": false
+  },
+  "prior_five_anchor_readout": {
+    "path": "research/cogvideox_2b_five_anchor_readout_v1.json",
+    "sha256": "4b73e15a6e0b1eb88f8543b121336f5796206217ebd80f93ca6ee155c994aee4",
+    "status": "stopped_proxy_coverage_failure_no_interpolation_metrics",
+    "note": "Previous mask coverage failure stopped its mask interpolation metrics; no adjacent RGB-MAE or Farneback values were registered there."
+  },
+  "method_reuse": {
+    "runner": "research/analyze_cogvideox2b_pilot_adjacent_motion.py",
+    "runner_sha256": "e04e6b9272cc8b8b70a2667b6b1d45b62add21c355a26df4620afdadb7fa8606",
+    "rgb_mae_definition": "mean(abs(uint8_RGB(frame_t)-uint8_RGB(frame_t+1)))/255 across all pixels/channels",
+    "farneback_parameters": {
+      "pyr_scale": 0.5,
+      "levels": 3,
+      "winsize": 15,
+      "iterations": 3,
+      "poly_n": 5,
+      "poly_sigma": 1.2,
+      "flags": 0
+    },
+    "farneback_method_reference": "research/cogvideox2b_chunk13_farneback_flow_v1.json",
+    "farneback_method_reference_sha256": "216656c47c99bea09f99c419b983225330db719c1df9f546894b2b6e1ca91f3d",
+    "rgb_mae_method_reference": "research/cogvideox2b_chunk13_anchor_motion_proxy_v1.json",
+    "rgb_mae_method_reference_sha256": "7f603bf5db6500ca862d1f003f9a870dfc29a1dc35e4efb32feee91739a6fbe3",
+    "opencv_version": "4.11.0",
+    "backend": "CPU; OpenCL disabled; one OpenCV thread; grayscale converted from RGB"
+  },
+  "normalization_and_path_definitions": {
+    "rgb_mae": "normalized by 255; whole-frame mean absolute RGB difference",
+    "flow": "source-image pixels; path sums independently estimated adjacent-pair mean magnitudes; not tracked pixel motion",
+    "endpoint": "direct estimate between each pair of registered anchor frames"
+  },
+  "adjacent_transitions": [
+    {
+      "from_frame": 0,
+      "to_frame": 1,
+      "normalized_rgb_mae": 0.0008375629765795207,
+      "rgb_mae_8bit_levels": 0.21357855902777778,
+      "farneback": {
+        "mean_magnitude_px": 0.18713317016635214,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 4.3964319047518075e-06,
+        "p99_magnitude_px": 3.906576966983266e-05,
+        "max_magnitude_px": 36.67910385131836
+      }
+    },
+    {
+      "from_frame": 1,
+      "to_frame": 2,
+      "normalized_rgb_mae": 3.398182189542484e-05,
+      "rgb_mae_8bit_levels": 0.008665364583333333,
+      "farneback": {
+        "mean_magnitude_px": 4.579638580206933e-06,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 4.019894731754903e-06,
+        "p99_magnitude_px": 2.495721128070727e-05,
+        "max_magnitude_px": 0.00234900857321918
+      }
+    },
+    {
+      "from_frame": 2,
+      "to_frame": 3,
+      "normalized_rgb_mae": 1.7335580065359477e-05,
+      "rgb_mae_8bit_levels": 0.004420572916666666,
+      "farneback": {
+        "mean_magnitude_px": 7.743673987532727e-07,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 4.267597432772163e-06,
+        "p99_magnitude_px": 1.6499641787959263e-05,
+        "max_magnitude_px": 0.00014657121209893376
+      }
+    },
+    {
+      "from_frame": 3,
+      "to_frame": 4,
+      "normalized_rgb_mae": 8.910334967320262e-06,
+      "rgb_mae_8bit_levels": 0.0022721354166666667,
+      "farneback": {
+        "mean_magnitude_px": 7.086448093597808e-07,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 3.0936155326344306e-06,
+        "p99_magnitude_px": 1.6205274732783437e-05,
+        "max_magnitude_px": 0.00013913234579376876
+      }
+    },
+    {
+      "from_frame": 4,
+      "to_frame": 5,
+      "normalized_rgb_mae": 2.5199142156862745e-05,
+      "rgb_mae_8bit_levels": 0.00642578125,
+      "farneback": {
+        "mean_magnitude_px": 6.421180946186903e-07,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 3.631225354183698e-06,
+        "p99_magnitude_px": 1.5575345969409682e-05,
+        "max_magnitude_px": 8.948329195845872e-05
+      }
+    },
+    {
+      "from_frame": 5,
+      "to_frame": 6,
+      "normalized_rgb_mae": 1.3829316448801742e-05,
+      "rgb_mae_8bit_levels": 0.0035264756944444445,
+      "farneback": {
+        "mean_magnitude_px": 7.508795827327317e-07,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 3.3350065677950624e-06,
+        "p99_magnitude_px": 1.9865905414917506e-05,
+        "max_magnitude_px": 0.00010236864181933925
+      }
+    },
+    {
+      "from_frame": 6,
+      "to_frame": 7,
+      "normalized_rgb_mae": 1.1863425925925927e-05,
+      "rgb_mae_8bit_levels": 0.0030251736111111113,
+      "farneback": {
+        "mean_magnitude_px": 5.599721016329834e-07,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 2.6164966584474314e-06,
+        "p99_magnitude_px": 1.4843752069282345e-05,
+        "max_magnitude_px": 9.499349107500166e-05
+      }
+    },
+    {
+      "from_frame": 7,
+      "to_frame": 8,
+      "normalized_rgb_mae": 5.855119825708061e-06,
+      "rgb_mae_8bit_levels": 0.0014930555555555556,
+      "farneback": {
+        "mean_magnitude_px": 3.948736761101588e-07,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 1.5872608400968602e-06,
+        "p99_magnitude_px": 1.0657006896508392e-05,
+        "max_magnitude_px": 9.345581929665059e-05
+      }
+    }
+  ],
+  "anchor_interval_comparison": [
+    {
+      "start_anchor": 0,
+      "end_anchor": 2,
+      "interval_frames": 2,
+      "rgb_mae_adjacent_path_normalized": 0.0008715447984749456,
+      "rgb_mae_direct_anchor_endpoint_normalized": 0.0008616217320261438,
+      "rgb_mae_path_minus_endpoint": 9.923066448801763e-06,
+      "rgb_mae_path_to_endpoint_ratio": 1.011516731855715,
+      "farneback_adjacent_path_mean_magnitude_px": 0.18713774980493234,
+      "farneback_direct_anchor_endpoint": {
+        "mean_magnitude_px": 0.19118943930234222,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 4.827033080800902e-06,
+        "p99_magnitude_px": 5.522685751202516e-05,
+        "max_magnitude_px": 37.4308967590332
+      },
+      "farneback_path_minus_endpoint_px": -0.004051689497409888,
+      "farneback_path_to_endpoint_ratio": 0.9788079848332907
+    },
+    {
+      "start_anchor": 2,
+      "end_anchor": 4,
+      "interval_frames": 2,
+      "rgb_mae_adjacent_path_normalized": 2.6245915032679737e-05,
+      "rgb_mae_direct_anchor_endpoint_normalized": 2.159926470588235e-05,
+      "rgb_mae_path_minus_endpoint": 4.646650326797387e-06,
+      "rgb_mae_path_to_endpoint_ratio": 1.2151300236406621,
+      "farneback_adjacent_path_mean_magnitude_px": 1.4830122081130535e-06,
+      "farneback_direct_anchor_endpoint": {
+        "mean_magnitude_px": 9.275682975068086e-07,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 3.847811967716552e-06,
+        "p99_magnitude_px": 1.6654423234285787e-05,
+        "max_magnitude_px": 0.0002031863114098087
+      },
+      "farneback_path_minus_endpoint_px": 5.554439106062449e-07,
+      "farneback_path_to_endpoint_ratio": 1.5988172645606917
+    },
+    {
+      "start_anchor": 4,
+      "end_anchor": 6,
+      "interval_frames": 2,
+      "rgb_mae_adjacent_path_normalized": 3.902845860566449e-05,
+      "rgb_mae_direct_anchor_endpoint_normalized": 2.990536492374728e-05,
+      "rgb_mae_path_minus_endpoint": 9.123093681917212e-06,
+      "rgb_mae_path_to_endpoint_ratio": 1.305065452475811,
+      "farneback_adjacent_path_mean_magnitude_px": 1.392997677351422e-06,
+      "farneback_direct_anchor_endpoint": {
+        "mean_magnitude_px": 7.042646131475534e-07,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 3.716763785632793e-06,
+        "p99_magnitude_px": 1.5753554180264473e-05,
+        "max_magnitude_px": 0.00012340374814812094
+      },
+      "farneback_path_minus_endpoint_px": 6.887330642038687e-07,
+      "farneback_path_to_endpoint_ratio": 1.9779464300012606
+    },
+    {
+      "start_anchor": 6,
+      "end_anchor": 8,
+      "interval_frames": 2,
+      "rgb_mae_adjacent_path_normalized": 1.7718545751633988e-05,
+      "rgb_mae_direct_anchor_endpoint_normalized": 1.5148420479302833e-05,
+      "rgb_mae_path_minus_endpoint": 2.5701252723311547e-06,
+      "rgb_mae_path_to_endpoint_ratio": 1.1696629213483145,
+      "farneback_adjacent_path_mean_magnitude_px": 9.548457777431423e-07,
+      "farneback_direct_anchor_endpoint": {
+        "mean_magnitude_px": 5.309031654563551e-07,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 2.5912174805853283e-06,
+        "p99_magnitude_px": 1.3156325621821452e-05,
+        "max_magnitude_px": 9.11478855414316e-05
+      },
+      "farneback_path_minus_endpoint_px": 4.239426122867872e-07,
+      "farneback_path_to_endpoint_ratio": 1.7985309560593288
+    }
+  ],
+  "summary": {
+    "adjacent_transition_count": 8,
+    "anchor_endpoint_interval_count": 4,
+    "rgb_mae_dense_adjacent_path_total_normalized": 0.0009545377178649237,
+    "rgb_mae_sum_of_anchor_endpoint_contrasts_normalized": 0.0009282747821350763,
+    "rgb_mae_dense_path_fraction_above_endpoints": 0.027513774718710374,
+    "farneback_dense_adjacent_path_total_px": 0.18714158066059555,
+    "farneback_sum_of_anchor_endpoint_magnitudes_px": 0.19119160203841834,
+    "farneback_dense_path_fraction_above_endpoints": -0.021641483221027203,
+    "largest_rgb_mae_transition": {
+      "from_frame": 0,
+      "to_frame": 1,
+      "normalized_rgb_mae": 0.0008375629765795207
+    },
+    "largest_farneback_transition": {
+      "from_frame": 0,
+      "to_frame": 1,
+      "mean_magnitude_px": 0.18713317016635214
+    }
+  },
+  "limitations": [
+    "Clip-local descriptive image-space metrics only; do not infer a denoising-step effect or cross-model comparison.",
+    "Whole-frame RGB-MAE and Farneback are not human labels or ground-truth object motion.",
+    "Path/endpoint differences do not establish event recall or sampling sufficiency.",
+    "The existing failed red-mask gate was referenced without recomputation or retuning."
+  ],
+  "runner_sha256": "0fb64ad4e375aad2d0c1231395ecb2e3b630767abd32f9d8bfbc1bdb9d5f025f"
+}

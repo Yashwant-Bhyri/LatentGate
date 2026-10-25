@@ -1,0 +1,48 @@
+{
+  "attention_limitation_or_failure": null,
+  "attention_summary_count": 18,
+  "attention_summary_expected": 18,
+  "attention_summary_status": "captured",
+  "hidden_state_shape_notes": {
+    "post_step_latent": {
+      "dtype": "torch.float32",
+      "shape": [
+        1,
+        16,
+        5,
+        60,
+        104
+      ]
+    }
+  },
+  "hidden_state_summary_count": 18,
+  "hidden_state_summary_expected": 18,
+  "post_step_latent_steps_captured": [
+    0,
+    4,
+    9,
+    14,
+    19,
+    24,
+    29
+  ],
+  "post_step_latent_steps_expected": [
+    0,
+    4,
+    9,
+    14,
+    19,
+    24,
+    29
+  ],
+  "predicted_clean_limitation_or_failure": "Predicted-clean estimate omitted: expected FlowMatchEulerDiscreteScheduler, found UniPCMultistepScheduler",
+  "predicted_clean_preview_count": 0,
+  "predicted_clean_preview_status": "no_predicted_clean_snapshots",
+  "predicted_clean_steps_captured": [],
+  "predicted_clean_steps_expected": [
+    4,
+    14,
+    24,
+    29
+  ]
+}

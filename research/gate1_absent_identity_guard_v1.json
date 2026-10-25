@@ -1,0 +1,25 @@
+{
+  "experiment_id": "EXP-LATENTGATE-GATE1-ABSENT-IDENTITY-SCORER-GUARD-001",
+  "checked_utc": "2026-10-11T12:31:07.400889+00:00",
+  "purpose": "CPU-only validation that explicit CSV fallback rows cannot label an absent target as same-identity/Yes. Inputs are synthetic and are not human annotations.",
+  "checks": [
+    {
+      "case": "absent_count0_identity_false_no_box",
+      "result": "accepted"
+    },
+    {
+      "case": "absent_count0_identity_true_no_box",
+      "result": "rejected",
+      "reason": "Absent target at ('clip_smoke', 0) must be marked identity No / uncertain"
+    }
+  ],
+  "duration_seconds": 0.0013365419581532478,
+  "device": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.3",
+    "gpu_used": false,
+    "peak_vram_mb": null
+  },
+  "scorer_sha256": "bf04d69ef524821c075058753568486f6ab3f2af94c4274f5250e6b9f2fe30df"
+}

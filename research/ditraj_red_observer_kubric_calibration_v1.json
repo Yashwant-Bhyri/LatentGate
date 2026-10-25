@@ -1,0 +1,1114 @@
+{
+  "experiment_id": "EXP-DITRAJ-RED-OBSERVER-KUBRIC-CALIBRATION-001",
+  "status": "known_truth_observer_calibration_cpu_only",
+  "created_at_utc": "2026-10-01T22:44:17.969184+00:00",
+  "fixture": {
+    "id": "EXP-LATENTGATE-KUBRIC-GATE0-RENDER-001",
+    "source_commit": "61f2422c84bab75006df33c6989e0b483db3ccfe",
+    "directions": [
+      "left",
+      "right"
+    ],
+    "frames": 34,
+    "frame_size_wh": [
+      160,
+      96
+    ],
+    "truth": "Kubric binary segmentation masks; observer receives RGB only",
+    "latent_control_grid_wh_for_relative_error": [
+      52,
+      30
+    ],
+    "relative_error_units": "continuous displacement scaled to the 52x30 control grid; not a quantized token error"
+  },
+  "observer": {
+    "family": "full-frame nine-threshold red centroid ensemble",
+    "thresholds_red_gt": [
+      130,
+      150,
+      170
+    ],
+    "thresholds_green_blue_lt": [
+      100,
+      125,
+      150
+    ],
+    "minimum_area": "300 pixels at 832x480, scaled by image area with an 8-pixel floor",
+    "center": "coordinate-wise median of scoreable threshold-specific centroids",
+    "stability": "threshold coverage times clipped 1 - median center spread / 0.02 frame diagonals; heuristic, not calibrated probability; 0.65 is an in-sample development cutoff, not a held-out pass gate"
+  },
+  "aggregate": {
+    "left": {
+      "frames": 17,
+      "scoreable_coverage": 1.0,
+      "mean_valid_center_error_frame_diagonals": 0.00926639912673367,
+      "p95_valid_center_error_frame_diagonals": 0.009782237393790468,
+      "maximum_valid_center_error_frame_diagonals": 0.009891498377518798,
+      "mean_missing_penalized_center_error_frame_diagonals": 0.00926639912673367,
+      "mean_valid_center_error_px": 1.729021681485457,
+      "p95_valid_center_error_px": 1.8252721813487707,
+      "first_frame_absolute_center_error_mean_px_missing_penalized": 1.7613287685906618,
+      "first_frame_absolute_center_error_p95_px_missing_penalized": 1.7613287685906618,
+      "stability_cutoff": 0.65,
+      "trusted_coverage": 0.9411764705882353,
+      "mean_trusted_center_error_frame_diagonals": 0.009235866437913376,
+      "mean_stability_heuristic": 0.7145905000255517,
+      "mean_valid_threshold_votes_out_of_9": 9,
+      "anchor_relative_trajectory_error_mean_abs_control_grid_units_xy": [
+        0.030769519169837847,
+        0.01916967743422975
+      ],
+      "anchor_relative_trajectory_error_p95_abs_control_grid_units_xy": [
+        0.06898327464788591,
+        0.04079356238273889
+      ],
+      "anchor_relative_trajectory_error_mean_l2_control_grid_units": 0.03886050371315209,
+      "controller_keyframe_count": 5,
+      "controller_keyframe_anchor_relative_mean_abs_control_grid_units_xy": [
+        0.02626538356351733,
+        0.01619446697977156
+      ],
+      "controller_keyframe_anchor_relative_p95_abs_control_grid_units_xy": [
+        0.05301274271844707,
+        0.04596650415312475
+      ],
+      "controller_keyframe_anchor_relative_mean_l2_control_grid_units": 0.03270587634183273
+    },
+    "right": {
+      "frames": 17,
+      "scoreable_coverage": 1.0,
+      "mean_valid_center_error_frame_diagonals": 0.009274088843827372,
+      "p95_valid_center_error_frame_diagonals": 0.010097902204096662,
+      "maximum_valid_center_error_frame_diagonals": 0.010124745399616372,
+      "mean_missing_penalized_center_error_frame_diagonals": 0.009274088843827372,
+      "mean_valid_center_error_px": 1.730456509340124,
+      "p95_valid_center_error_px": 1.8841722237100789,
+      "first_frame_absolute_center_error_mean_px_missing_penalized": 1.7613287685906618,
+      "first_frame_absolute_center_error_p95_px_missing_penalized": 1.7613287685906618,
+      "stability_cutoff": 0.65,
+      "trusted_coverage": 1.0,
+      "mean_trusted_center_error_frame_diagonals": 0.009274088843827372,
+      "mean_stability_heuristic": 0.7036123410258236,
+      "mean_valid_threshold_votes_out_of_9": 9,
+      "anchor_relative_trajectory_error_mean_abs_control_grid_units_xy": [
+        0.024748046953856937,
+        0.021252633826272287
+      ],
+      "anchor_relative_trajectory_error_p95_abs_control_grid_units_xy": [
+        0.08140302440640526,
+        0.05010574463899298
+      ],
+      "anchor_relative_trajectory_error_mean_l2_control_grid_units": 0.03702441036784015,
+      "controller_keyframe_count": 5,
+      "controller_keyframe_anchor_relative_mean_abs_control_grid_units_xy": [
+        0.003439900617780367,
+        0.014752436638218902
+      ],
+      "controller_keyframe_anchor_relative_p95_abs_control_grid_units_xy": [
+        0.0061090686274497315,
+        0.03759896347836033
+      ],
+      "controller_keyframe_anchor_relative_mean_l2_control_grid_units": 0.015964507397475815
+    },
+    "all": {
+      "frames": 34,
+      "scoreable_coverage": 1.0,
+      "mean_valid_center_error_frame_diagonals": 0.009270243985280521,
+      "p95_valid_center_error_frame_diagonals": 0.0100067550117426,
+      "maximum_valid_center_error_frame_diagonals": 0.010124745399616372,
+      "mean_missing_penalized_center_error_frame_diagonals": 0.009270243985280521,
+      "mean_valid_center_error_px": 1.7297390954127907,
+      "p95_valid_center_error_px": 1.8671650271031432,
+      "first_frame_absolute_center_error_mean_px_missing_penalized": 1.7613287685906618,
+      "first_frame_absolute_center_error_p95_px_missing_penalized": 1.7613287685906618,
+      "stability_cutoff": 0.65,
+      "trusted_coverage": 0.9705882352941176,
+      "mean_trusted_center_error_frame_diagonals": 0.009255556768232706,
+      "mean_stability_heuristic": 0.7091014205256876,
+      "mean_valid_threshold_votes_out_of_9": 9,
+      "anchor_relative_trajectory_error_mean_abs_control_grid_units_xy": [
+        0.027758783061847394,
+        0.02021115563025102
+      ],
+      "anchor_relative_trajectory_error_p95_abs_control_grid_units_xy": [
+        0.07842584714828088,
+        0.05025560077710031
+      ],
+      "anchor_relative_trajectory_error_mean_l2_control_grid_units": 0.03794245704049612,
+      "controller_keyframe_count": 10,
+      "controller_keyframe_anchor_relative_mean_abs_control_grid_units_xy": [
+        0.014852642090648849,
+        0.015473451808995231
+      ],
+      "controller_keyframe_anchor_relative_p95_abs_control_grid_units_xy": [
+        0.05091929611650479,
+        0.04836796663606531
+      ],
+      "controller_keyframe_anchor_relative_mean_l2_control_grid_units": 0.024335191869654268
+    }
+  },
+  "per_frame": [
+    {
+      "direction": "left",
+      "frame_index": 0,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7095348340250252,
+      "truth_mask_center_xy_normalized": [
+        0.496875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.5020132211538462,
+        0.4785657051282051
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009439543493252996,
+      "center_error_px_missing_penalized": 1.7613287685906618,
+      "center_error_components_px_xy": [
+        0.822115384615385,
+        -1.5576923076923102
+      ],
+      "anchor_relative_error_tokens_xy": [
+        0.0,
+        0.0
+      ],
+      "controller_keyframe": true
+    },
+    {
+      "direction": "left",
+      "frame_index": 1,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7413568788233176,
+      "truth_mask_center_xy_normalized": [
+        0.484375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.4889880952380953,
+        0.47951388888888885
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.008799583272783087,
+      "center_error_px_missing_penalized": 1.6419182962650738,
+      "center_error_components_px_xy": [
+        0.7380952380952444,
+        -1.4666666666666721
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.027306547619045718,
+        0.028445512820511887
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "left",
+      "frame_index": 2,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7257026057726175,
+      "truth_mask_center_xy_normalized": [
+        0.471875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.47656976744186047,
+        0.47911821705426355
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009012955117172577,
+      "center_error_px_missing_penalized": 1.6817314469962588,
+      "center_error_components_px_xy": [
+        0.751162790697677,
+        -1.5046511627907009
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.02305959302325511,
+        0.016575357781752897
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "left",
+      "frame_index": 3,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.6999081527792246,
+      "truth_mask_center_xy_normalized": [
+        0.459375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.4637319711538462,
+        0.4784655448717949
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009193124375498518,
+      "center_error_px_missing_penalized": 1.7153493118995715,
+      "center_error_components_px_xy": [
+        0.6971153846153921,
+        -1.5673076923076934
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.04062499999999769,
+        -0.0030048076923072653
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "left",
+      "frame_index": 4,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7677565737032586,
+      "truth_mask_center_xy_normalized": [
+        0.446875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.45112257281553403,
+        0.4783193779904306
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009224445653168609,
+      "center_error_px_missing_penalized": 1.7211935635277118,
+      "center_error_components_px_xy": [
+        0.679611650485441,
+        -1.5813397129186626
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.0463137135922318,
+        -0.00738981413323514
+      ],
+      "controller_keyframe": true
+    },
+    {
+      "direction": "left",
+      "frame_index": 5,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7159771553244285,
+      "truth_mask_center_xy_normalized": [
+        0.434375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.4379988262910798,
+        0.478335289514867
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009018957265538129,
+      "center_error_px_missing_penalized": 1.682851390624587,
+      "center_error_components_px_xy": [
+        0.5798122065727629,
+        -1.5798122065727718
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.0787485328638522,
+        -0.006912468400144256
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "left",
+      "frame_index": 6,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7076749985835675,
+      "truth_mask_center_xy_normalized": [
+        0.421875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.4267017326732673,
+        0.4798272357723577
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.008741115549002733,
+      "center_error_px_missing_penalized": 1.6310087767526147,
+      "center_error_components_px_xy": [
+        0.7722772277227641,
+        -1.436585365853663
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.016197400990101807,
+        0.03784591932457726
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "left",
+      "frame_index": 7,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.738124618783184,
+      "truth_mask_center_xy_normalized": [
+        0.409375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.4132335680751174,
+        0.47964669738863286
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.008465404579559263,
+      "center_error_px_missing_penalized": 1.5795637399620213,
+      "center_error_components_px_xy": [
+        0.617370892018787,
+        -1.4539170506912473
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.06654196009389435,
+        0.03242976781283213
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "left",
+      "frame_index": 8,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.705635372428885,
+      "truth_mask_center_xy_normalized": [
+        0.396875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.40234375,
+        0.4786157852564103
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009552660421933914,
+      "center_error_px_missing_penalized": 1.7824353084188567,
+      "center_error_components_px_xy": [
+        0.8750000000000036,
+        -1.5528846153846132
+      ],
+      "anchor_relative_error_tokens_xy": [
+        0.01718750000000102,
+        0.001502403846155298
+      ],
+      "controller_keyframe": true
+    },
+    {
+      "direction": "left",
+      "frame_index": 9,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7347092033826895,
+      "truth_mask_center_xy_normalized": [
+        0.384375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.38911830357142857,
+        0.4786729857819905
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009236723509395068,
+      "center_error_px_missing_penalized": 1.7234844943766179,
+      "center_error_components_px_xy": [
+        0.7589285714285676,
+        -1.5473933649289116
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.020535714285715656,
+        0.0032184196135620624
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "left",
+      "frame_index": 10,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.6380963935154782,
+      "truth_mask_center_xy_normalized": [
+        0.371875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.3763095238095238,
+        0.4773313492063492
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009754922147858386,
+      "center_error_px_missing_penalized": 1.8201754170279438,
+      "center_error_components_px_xy": [
+        0.7095238095238088,
+        -1.676190476190481
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.03659226190476228,
+        -0.03703067765567836
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "left",
+      "frame_index": 11,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7008346442296005,
+      "truth_mask_center_xy_normalized": [
+        0.359375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.36377369668246445,
+        0.47788309636650866
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009481888399293875,
+      "center_error_px_missing_penalized": 1.7692299241143774,
+      "center_error_components_px_xy": [
+        0.7037914691943126,
+        -1.62322274881517
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.03845527251184855,
+        -0.020478262850893714
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "left",
+      "frame_index": 12,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7222208623332121,
+      "truth_mask_center_xy_normalized": [
+        0.346875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.35096153846153844,
+        0.4768129006410256
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009891498377518798,
+      "center_error_px_missing_penalized": 1.8456592386320785,
+      "center_error_components_px_xy": [
+        0.6538461538461515,
+        -1.7259615384615437
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.05468750000000089,
+        -0.05258413461538547
+      ],
+      "controller_keyframe": true
+    },
+    {
+      "direction": "left",
+      "frame_index": 13,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.6578005322722802,
+      "truth_mask_center_xy_normalized": [
+        0.334375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.3394318181818182,
+        0.4788259345794392
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009288555043121472,
+      "center_error_px_missing_penalized": 1.7331557641300488,
+      "center_error_components_px_xy": [
+        0.8090909090909193,
+        -1.532710280373836
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.004232954545451362,
+        0.00780688353702319
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "left",
+      "frame_index": 14,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7244080191397543,
+      "truth_mask_center_xy_normalized": [
+        0.321875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.32630681818181817,
+        0.477586887835703
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.00963306963708369,
+      "center_error_px_missing_penalized": 1.797438900912956,
+      "center_error_components_px_xy": [
+        0.7090909090909037,
+        -1.6516587677725116
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.03673295454545644,
+        -0.029364518775062964
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "left",
+      "frame_index": 15,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.705721189695788,
+      "truth_mask_center_xy_normalized": [
+        0.309375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.3144607843137255,
+        0.4778390522875817
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009751546273641495,
+      "center_error_px_missing_penalized": 1.8195455111027683,
+      "center_error_components_px_xy": [
+        0.8137254901960755,
+        -1.6274509803921564
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.0027267156862755826,
+        -0.021799585218701956
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "left",
+      "frame_index": 16,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7525764656420669,
+      "truth_mask_center_xy_normalized": [
+        0.296875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.3017605633802817,
+        0.47921557120500785
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.00904279203864979,
+      "center_error_px_missing_penalized": 1.687298731918624,
+      "center_error_components_px_xy": [
+        0.7816901408450683,
+        -1.495305164319248
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.013138204225352945,
+        0.019495982304081894
+      ],
+      "controller_keyframe": true
+    },
+    {
+      "direction": "right",
+      "frame_index": 0,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7095348340250252,
+      "truth_mask_center_xy_normalized": [
+        0.496875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.5020132211538462,
+        0.4785657051282051
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009439543493252996,
+      "center_error_px_missing_penalized": 1.7613287685906618,
+      "center_error_components_px_xy": [
+        0.822115384615385,
+        -1.5576923076923102
+      ],
+      "anchor_relative_error_tokens_xy": [
+        0.0,
+        0.0
+      ],
+      "controller_keyframe": true
+    },
+    {
+      "direction": "right",
+      "frame_index": 1,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7773613904644783,
+      "truth_mask_center_xy_normalized": [
+        0.509375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.513888888888889,
+        0.4801311728395062
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.00847791340837503,
+      "center_error_px_missing_penalized": 1.5818977680927604,
+      "center_error_components_px_xy": [
+        0.7222222222222285,
+        -1.4074074074074083
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.03246527777777586,
+        0.04696403133903182
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "right",
+      "frame_index": 2,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.6754030589699789,
+      "truth_mask_center_xy_normalized": [
+        0.521875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.527191943127962,
+        0.4794135071090047
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.00913161481125385,
+      "center_error_px_missing_penalized": 1.7038722139736977,
+      "center_error_components_px_xy": [
+        0.8507109004739277,
+        -1.4763033175355496
+      ],
+      "anchor_relative_error_tokens_xy": [
+        0.009293542654026377,
+        0.025434059423987687
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "right",
+      "frame_index": 3,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7160506494420211,
+      "truth_mask_center_xy_normalized": [
+        0.534375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.5392945544554456,
+        0.47690217391304346
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.010124745399616372,
+      "center_error_px_missing_penalized": 1.8891809079270185,
+      "center_error_components_px_xy": [
+        0.78712871287129,
+        -1.7173913043478297
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.011370668316830868,
+        -0.049905936454849864
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "right",
+      "frame_index": 4,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.6774009799927323,
+      "truth_mask_center_xy_normalized": [
+        0.546875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.5519871794871796,
+        0.4771252093802345
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.010091191405216735,
+      "center_error_px_missing_penalized": 1.882920052655844,
+      "center_error_components_px_xy": [
+        0.817948717948731,
+        -1.6959798994974893
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.0013541666666625485,
+        -0.04321487243911848
+      ],
+      "controller_keyframe": true
+    },
+    {
+      "direction": "right",
+      "frame_index": 5,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7385458740783271,
+      "truth_mask_center_xy_normalized": [
+        0.559375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.5627053990610329,
+        0.478971048513302
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.008626083182511003,
+      "center_error_px_missing_penalized": 1.6095448345009828,
+      "center_error_components_px_xy": [
+        0.5328638497652705,
+        -1.5187793427230076
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.09400674882628723,
+        0.012160301552907038
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "right",
+      "frame_index": 6,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7026671926451975,
+      "truth_mask_center_xy_normalized": [
+        0.571875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.5770449308755761,
+        0.4788177830940989
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009337919592848958,
+      "center_error_px_missing_penalized": 1.742366718202742,
+      "center_error_components_px_xy": [
+        0.8271889400921673,
+        -1.5334928229665081
+      ],
+      "anchor_relative_error_tokens_xy": [
+        0.0016489055299542255,
+        0.007562338976813132
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "right",
+      "frame_index": 7,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.6626170121373872,
+      "truth_mask_center_xy_normalized": [
+        0.584375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.5886443661971831,
+        0.4781396713615023
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009316790222859491,
+      "center_error_px_missing_penalized": 1.7384241793234791,
+      "center_error_components_px_xy": [
+        0.683098591549296,
+        -1.5985915492957794
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.04518045774647894,
+        -0.01278101300108414
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "right",
+      "frame_index": 8,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.6743338305297055,
+      "truth_mask_center_xy_normalized": [
+        0.596875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.6019406392694064,
+        0.47901642628205127
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009205563236315654,
+      "center_error_px_missing_penalized": 1.717670284669216,
+      "center_error_components_px_xy": [
+        0.8105022831050235,
+        -1.5144230769230802
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.0037742579908675022,
+        0.01352163461538436
+      ],
+      "controller_keyframe": true
+    },
+    {
+      "direction": "right",
+      "frame_index": 9,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.6510130328115478,
+      "truth_mask_center_xy_normalized": [
+        0.609375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.6142772511848341,
+        0.47911729857819907
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009094235410307575,
+      "center_error_px_missing_penalized": 1.69689757433287,
+      "center_error_components_px_xy": [
+        0.7843601895734587,
+        -1.5047393364928912
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.01227043838862607,
+        0.016547803499818436
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "right",
+      "frame_index": 10,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7157114484959073,
+      "truth_mask_center_xy_normalized": [
+        0.621875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.6263574660633484,
+        0.47897376543209874
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009000272128934375,
+      "center_error_px_missing_penalized": 1.679364922378664,
+      "center_error_components_px_xy": [
+        0.7171945701357529,
+        -1.5185185185185226
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.03409926470588043,
+        0.01224180911680861
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "right",
+      "frame_index": 11,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.6857624461958536,
+      "truth_mask_center_xy_normalized": [
+        0.634375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.6380083732057417,
+        0.47787081339712917
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009246418224861925,
+      "center_error_px_missing_penalized": 1.7252934358013046,
+      "center_error_components_px_xy": [
+        0.5813397129186626,
+        -1.6244019138756016
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.07825209330143479,
+        -0.020846751932278584
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "right",
+      "frame_index": 12,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7293674599760658,
+      "truth_mask_center_xy_normalized": [
+        0.646875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.6518947963800905,
+        0.4790702160493827
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.00916263990029546,
+      "center_error_px_missing_penalized": 1.709661199629215,
+      "center_error_components_px_xy": [
+        0.8031674208144857,
+        -1.5092592592592613
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.006158088235292292,
+        0.015135327635327767
+      ],
+      "controller_keyframe": true
+    },
+    {
+      "direction": "right",
+      "frame_index": 13,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7144628490771807,
+      "truth_mask_center_xy_normalized": [
+        0.659375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.6640169902912622,
+        0.47852790880503143
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009266146836486876,
+      "center_error_px_missing_penalized": 1.728974606532094,
+      "center_error_components_px_xy": [
+        0.7427184466019376,
+        -1.5613207547169843
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.0258040048543704,
+        -0.0011338896952106658
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "right",
+      "frame_index": 14,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7232231713455315,
+      "truth_mask_center_xy_normalized": [
+        0.671875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.6766203703703704,
+        0.4796006944444444
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.008811513578178939,
+      "center_error_px_missing_penalized": 1.6441443774444027,
+      "center_error_components_px_xy": [
+        0.7592592592592595,
+        -1.4583333333333375
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.02042824074074079,
+        0.03104967948717896
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "right",
+      "frame_index": 15,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.6889277016488766,
+      "truth_mask_center_xy_normalized": [
+        0.684375,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.688769035532995,
+        0.4768688725490196
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009961289261410374,
+      "center_error_px_missing_penalized": 1.858681551805535,
+      "center_error_components_px_xy": [
+        0.7030456852792,
+        -1.7205882352941195
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.03869765228426014,
+        -0.05090497737556543
+      ],
+      "controller_keyframe": false
+    },
+    {
+      "direction": "right",
+      "frame_index": 16,
+      "scoreable": true,
+      "valid_threshold_count": 9,
+      "stability_heuristic": 0.7190268656031841,
+      "truth_mask_center_xy_normalized": [
+        0.696875,
+        0.4947916666666667
+      ],
+      "observed_center_xy_normalized": [
+        0.7018995098039216,
+        0.4786287167449139
+      ],
+      "center_error_frame_diagonals_missing_penalized": 0.009365630252339706,
+      "center_error_px_missing_penalized": 1.747537262921622,
+      "center_error_components_px_xy": [
+        0.8039215686274481,
+        -1.5516431924882657
+      ],
+      "anchor_relative_error_tokens_xy": [
+        -0.005912990196079493,
+        0.0018903485012639054
+      ],
+      "controller_keyframe": true
+    }
+  ],
+  "input_sha256": {
+    "kubric_gate0_fixture_v1/left/frames/frame_000.png": "d07ccdb3596697918d2d30ed944e854c97c85210d735ca360e56d2754431c3a1",
+    "kubric_gate0_fixture_v1/left/masks/mask_000.png": "ef0098f77440ece3bb05f8e6845abf58174fcb9af86b53426d6ad9997864fad0",
+    "kubric_gate0_fixture_v1/left/frames/frame_001.png": "26a5fc06331a70f7c9597f99ec4485e82773f8922e3824bbf5e984175ea8e1d8",
+    "kubric_gate0_fixture_v1/left/masks/mask_001.png": "80f8fe908a31786d3ebb7ece2a7ae6f650033e7d6b38623e040a3917c03e8d47",
+    "kubric_gate0_fixture_v1/left/frames/frame_002.png": "891a9745debdc476f93a2e385b1dd6aa5b271ca551f84ddec0231df486d95e8a",
+    "kubric_gate0_fixture_v1/left/masks/mask_002.png": "a11c3e40a1d3fd866305c2cbae0450f98a530031e1341d7dd0d6e5e15c87e4a1",
+    "kubric_gate0_fixture_v1/left/frames/frame_003.png": "7364511a0dee64ba5dc124037b3eb8fbb7a3794fa7fbee9b3b21edf0b2fe963d",
+    "kubric_gate0_fixture_v1/left/masks/mask_003.png": "f9d0df6d7d95dd17d14aa486636243d5138135caaf8c1935a8fc7bca8c4df037",
+    "kubric_gate0_fixture_v1/left/frames/frame_004.png": "47355df6e8cecbe49af0be67caf4511206b62f73000ee7ffa89f49931814ed68",
+    "kubric_gate0_fixture_v1/left/masks/mask_004.png": "d4ff0dd04b0e21474be0aef2a211dac7ea7951a991de3b22a1165e6e71194e04",
+    "kubric_gate0_fixture_v1/left/frames/frame_005.png": "5927c05fe27ded7ce6897a0b91ac0072b6404f73a2ffa74239498f76baf0a620",
+    "kubric_gate0_fixture_v1/left/masks/mask_005.png": "5a8e79d221296bb53d584edc838b39ef911547cde000cd2b21fa0707fd1db9a8",
+    "kubric_gate0_fixture_v1/left/frames/frame_006.png": "2da34810adeaf03e906a1fdde730e491cbf4ff955fcc8b5a5c56b1dc0c5611d6",
+    "kubric_gate0_fixture_v1/left/masks/mask_006.png": "5965bdc9caf4cf45b1023ce8782ca3edc442d6a0bcdb82d2daf79c2b654c481f",
+    "kubric_gate0_fixture_v1/left/frames/frame_007.png": "bb59bff4f290fd45b2da74b70df0b18116f7687fd2eee8dce58336f1dc935442",
+    "kubric_gate0_fixture_v1/left/masks/mask_007.png": "237d0afe26be1279846b80113adca576b76f001c072315ee9e02c97cbee47e62",
+    "kubric_gate0_fixture_v1/left/frames/frame_008.png": "b09232a676b949fe7bd9d8eeef70260476081fb1626413298781efc0a183ad06",
+    "kubric_gate0_fixture_v1/left/masks/mask_008.png": "f7a5d3ca6c716abe22070db4fc7c1ba0e0838ed0f61ae108b4ed1c2bfda432e8",
+    "kubric_gate0_fixture_v1/left/frames/frame_009.png": "212bf9e05729bd7e8d45fc8103ac1c7f88284a194568524f22a1d467443308f4",
+    "kubric_gate0_fixture_v1/left/masks/mask_009.png": "aaa9f48875105608fd7a7d848409d0281061480c6fd849886c71fd257ecd5ade",
+    "kubric_gate0_fixture_v1/left/frames/frame_010.png": "c975bf70583488912c4db6b5debc945e6075cb635f21167305c69484299129ab",
+    "kubric_gate0_fixture_v1/left/masks/mask_010.png": "3a78aef2261f25a6247c138d6f8c6c4ff3f178511579cc60fe2250ea225517fd",
+    "kubric_gate0_fixture_v1/left/frames/frame_011.png": "c97b58b37e638dea4fd4729229dfca30bdaa1cec9062cf430b36a4f59f824f3f",
+    "kubric_gate0_fixture_v1/left/masks/mask_011.png": "cfea83d8f987abb686b59e8f3066dda1f5927e0a85dc269b28c10de527f8824d",
+    "kubric_gate0_fixture_v1/left/frames/frame_012.png": "c24b1cd29621482d96d876b989cb7a1ad053c473cfb6df921de98bb5c57bbde5",
+    "kubric_gate0_fixture_v1/left/masks/mask_012.png": "3c42222704078f636060c21dbfca65609057993eb2c0f029fa1318d2a780d45c",
+    "kubric_gate0_fixture_v1/left/frames/frame_013.png": "96a3b688372a8bdb42125f361449a3d1f7f72279f235a885524daa5a315a33ce",
+    "kubric_gate0_fixture_v1/left/masks/mask_013.png": "a9bba7b4224d45745efa0adac0a8a378365c8a8b63378a9d30741ede6cb38acd",
+    "kubric_gate0_fixture_v1/left/frames/frame_014.png": "bccb2eb2c60f8592c5135b23310bd950c980fefaec09a98784f6f888d2b47ba0",
+    "kubric_gate0_fixture_v1/left/masks/mask_014.png": "d8347c74263f07fb412b46d5b2a521cde566d1e3f4bccb0155b5ab0ff27a8ffb",
+    "kubric_gate0_fixture_v1/left/frames/frame_015.png": "af4178a655246fc4e190d0051cb4020dfafc06416c8ced86eb53250a28fb9b6e",
+    "kubric_gate0_fixture_v1/left/masks/mask_015.png": "03b3f738dcc0f45696ebde62586619a8636eeef9ca9ce514459096d289472f99",
+    "kubric_gate0_fixture_v1/left/frames/frame_016.png": "9512d10da88179a97d6c4a18b0c79833a04dc9657929763ec6a92b3531eaa703",
+    "kubric_gate0_fixture_v1/left/masks/mask_016.png": "becd20c8695de954dc8ca5c964c12cd8f027b9feaa7bca510a4c8eaf809f0c0e",
+    "kubric_gate0_fixture_v1/right/frames/frame_000.png": "d07ccdb3596697918d2d30ed944e854c97c85210d735ca360e56d2754431c3a1",
+    "kubric_gate0_fixture_v1/right/masks/mask_000.png": "ef0098f77440ece3bb05f8e6845abf58174fcb9af86b53426d6ad9997864fad0",
+    "kubric_gate0_fixture_v1/right/frames/frame_001.png": "c0c037d15bd34693e851fbf1bfc6492df91b2bc97e6b441edd6bde1ef9918422",
+    "kubric_gate0_fixture_v1/right/masks/mask_001.png": "839d1d8f06cae56fc4d52599b8cac1be5e3b7419dc0d5e0ad2e90e10f23a5bcf",
+    "kubric_gate0_fixture_v1/right/frames/frame_002.png": "7c40cdc0bcdd85a7d6956b4db4d0bd04607faa33b6861d33198feede03a0d75f",
+    "kubric_gate0_fixture_v1/right/masks/mask_002.png": "54a9b52f4679dc9ddf8f7f969126d4dff411b728990158657610e59e2354721d",
+    "kubric_gate0_fixture_v1/right/frames/frame_003.png": "08026b91b45d42c0e26fd9b7d0427db7bfefd4ac381808b31cc2223ddc13d39b",
+    "kubric_gate0_fixture_v1/right/masks/mask_003.png": "8fb88cb2d529e89ff462cbefe66f745254b6160dd210d15b882dda35c2d0be21",
+    "kubric_gate0_fixture_v1/right/frames/frame_004.png": "f54a93b49bb14796dac0cf0bd9732c6fab9fb9f09f7d37d21e5963893b14d549",
+    "kubric_gate0_fixture_v1/right/masks/mask_004.png": "3a7a4d959a8f5d1cd45c8e58f791314b6a5ef1c4fe341f867e775b0f0c10b1c9",
+    "kubric_gate0_fixture_v1/right/frames/frame_005.png": "dfe321c1b4a2ea95bbd7b9304ac66a4235defe055e7df593f9b1b865437bbf40",
+    "kubric_gate0_fixture_v1/right/masks/mask_005.png": "ac28c8f9600d8cff13f9031346ceae90e9f55f4ad8e7279983f15a3db0087726",
+    "kubric_gate0_fixture_v1/right/frames/frame_006.png": "a06179f5dd2e41de05495ca0aeae746b654bbf5382ac14be6a3d11991b042c30",
+    "kubric_gate0_fixture_v1/right/masks/mask_006.png": "ed6330b9a8828ed98daff35826227c66719fa1069baad1d01d2cd82ac019daf3",
+    "kubric_gate0_fixture_v1/right/frames/frame_007.png": "4307e6797f74b10dd5c7e6c6da88dcb9500869009f65c043f163d05ece609c6d",
+    "kubric_gate0_fixture_v1/right/masks/mask_007.png": "972f3646be46db9b047f3c872db78b0bcf74a74c496095a1f73cb950c3fde9d0",
+    "kubric_gate0_fixture_v1/right/frames/frame_008.png": "4c137c07d94f9c863f1346ba8878d23d0fe7c0131c06fd64cd051ede253b4036",
+    "kubric_gate0_fixture_v1/right/masks/mask_008.png": "010069c178283c999b484186d1687e0b53c76fda58bb0aa684083cf7342e06af",
+    "kubric_gate0_fixture_v1/right/frames/frame_009.png": "308728007deef482b580577eeb9bbf3c23c20d95819d5e37932149f61f69bb1c",
+    "kubric_gate0_fixture_v1/right/masks/mask_009.png": "900c22337581bc6ee30fa600e73bce79cb14e80f990375acd2ea713d8af63e17",
+    "kubric_gate0_fixture_v1/right/frames/frame_010.png": "ed96e9839dc941d9517756b13463ed2cfff4bcd88c0f667a9abd3d67dbe57e6b",
+    "kubric_gate0_fixture_v1/right/masks/mask_010.png": "e95d899ee234602710db148d835b1ed927e9920c93720b23b6edeae2e89851c2",
+    "kubric_gate0_fixture_v1/right/frames/frame_011.png": "ff3e46b03a215ff01ed61e10bc0d7453d6e8d9af830d744d57e9b2363d3529af",
+    "kubric_gate0_fixture_v1/right/masks/mask_011.png": "08d48943878e797c5e15027c41de9f86c3d84c30728a383dfaf87f1f3be371b1",
+    "kubric_gate0_fixture_v1/right/frames/frame_012.png": "97bccb2818fd8a81828c735183d1e70945386c749f0c990beba9e12b62251151",
+    "kubric_gate0_fixture_v1/right/masks/mask_012.png": "7db88053c0ffad21c428290f2d38951c5fafe466783d97a0255cb64a492fb28c",
+    "kubric_gate0_fixture_v1/right/frames/frame_013.png": "0aac819d47f6502db55b11c2ecad1c387b749541d15af53673da68f9ccd71b63",
+    "kubric_gate0_fixture_v1/right/masks/mask_013.png": "74ef1654f75b2a599c8c04048a88b17b4a6c966d957de1f9acbbe4618982ce01",
+    "kubric_gate0_fixture_v1/right/frames/frame_014.png": "5c57c45aaaf9693d4560f3b912b8655dc186cf01f2052fb8c95bed6c72114377",
+    "kubric_gate0_fixture_v1/right/masks/mask_014.png": "5d7a3b08e83adc4eb77c5fc6a3249b78f01508d4f0882bbcec598cc574321b26",
+    "kubric_gate0_fixture_v1/right/frames/frame_015.png": "ad4d5812b91b34ff8303ff739269347d60d18c7a7b9d386fc7fb42dc5c04331b",
+    "kubric_gate0_fixture_v1/right/masks/mask_015.png": "055e4be239aa5cb2dd459f9637d2d136edf5795730b723e9411062b4e4838bd1",
+    "kubric_gate0_fixture_v1/right/frames/frame_016.png": "f7cb28a0207fa0e23104aef8bb945a82bad9a11e46f410799ae880f6dd01a657",
+    "kubric_gate0_fixture_v1/right/masks/mask_016.png": "2d7a897087299787892cf458c51daab3318312e2a40be11f0b8c1f4e598dd9e5"
+  },
+  "limitations": [
+    "This tests a red Kubric sphere on its controlled background, not generated Wan previews or other object classes.",
+    "Threshold agreement is not a calibrated identity probability; stability cutoff 0.65 is provisional and fixture-specific.",
+    "The 0.65 cutoff and its coverage were assessed on these same two development paths; no held-out path or generated preview validates it yet.",
+    "The first-frame anchor cancels a fixed observer offset for relative path measurements; absolute first-frame localization is reported separately because the start box is locked and cannot be corrected.",
+    "The 34 synthetic frames are correlated across two trajectories and do not replace held-out generated samples or human labels.",
+    "No controller was run against model output; this is observer localization evidence only."
+  ]
+}

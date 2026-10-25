@@ -1,0 +1,101 @@
+{
+  "checked_utc": "2026-10-11T12:24:00Z",
+  "versions": {
+    "v3": {
+      "packet_version": "gate1_manual_annotation_packets_v3",
+      "manifest_label_fields_populated": 0,
+      "status": "superseded_do_not_distribute",
+      "archives": [
+        {
+          "path": "generated_sample_observer_check/rater_01.zip",
+          "rows": 17,
+          "nonblank_annotation_rows": 0,
+          "sha256": "02f22d735a7fdab525dd569c6dac47b19f551053fb180a158899e324db60f733",
+          "manifest_hash_match": true,
+          "zip_integrity": "pass",
+          "private_key_in_archive": false,
+          "external_network_code_or_assets": "none_found"
+        },
+        {
+          "path": "generated_sample_observer_check/rater_02.zip",
+          "rows": 17,
+          "nonblank_annotation_rows": 0,
+          "sha256": "cf9c2ce44a5a98b75f6f263b7950d0cf2c1f5960fe4fa793d8195d41ebeb7d8b",
+          "manifest_hash_match": true,
+          "zip_integrity": "pass",
+          "private_key_in_archive": false,
+          "external_network_code_or_assets": "none_found"
+        },
+        {
+          "path": "synthetic_reliability/rater_01.zip",
+          "rows": 34,
+          "nonblank_annotation_rows": 0,
+          "sha256": "2df5a09cd9b9693758e54d334cac3850f86fa743a34afb3298076196dac5a29a",
+          "manifest_hash_match": true,
+          "zip_integrity": "pass",
+          "private_key_in_archive": false,
+          "external_network_code_or_assets": "none_found"
+        },
+        {
+          "path": "synthetic_reliability/rater_02.zip",
+          "rows": 34,
+          "nonblank_annotation_rows": 0,
+          "sha256": "d9f6028a5f6414ff19b9be49a1ca8267edb674830351c9e22ebedcb7bed118e6",
+          "manifest_hash_match": true,
+          "zip_integrity": "pass",
+          "private_key_in_archive": false,
+          "external_network_code_or_assets": "none_found"
+        }
+      ]
+    },
+    "v4": {
+      "packet_version": "gate1_manual_annotation_packets_v4",
+      "manifest_label_fields_populated": 0,
+      "status": "historical_unmarked",
+      "archives": [
+        {
+          "path": "generated_sample_observer_check/rater_01.zip",
+          "rows": 17,
+          "nonblank_annotation_rows": 0,
+          "sha256": "019a83031d56d80d2d8e8e4e9a77b33589ec5825a0167fcb0cf2253707cc05d6",
+          "manifest_hash_match": true,
+          "zip_integrity": "pass",
+          "private_key_in_archive": false,
+          "external_network_code_or_assets": "none_found"
+        },
+        {
+          "path": "generated_sample_observer_check/rater_02.zip",
+          "rows": 17,
+          "nonblank_annotation_rows": 0,
+          "sha256": "ef3b9a6a28034546eb727d0a441b28bdf137e4ee6e8e1fbd013ba93444282948",
+          "manifest_hash_match": true,
+          "zip_integrity": "pass",
+          "private_key_in_archive": false,
+          "external_network_code_or_assets": "none_found"
+        },
+        {
+          "path": "synthetic_reliability/rater_01.zip",
+          "rows": 34,
+          "nonblank_annotation_rows": 0,
+          "sha256": "b04a6ff2cd063d2812609885894eafc6fc376ec68c71df8664049909673bec6b",
+          "manifest_hash_match": true,
+          "zip_integrity": "pass",
+          "private_key_in_archive": false,
+          "external_network_code_or_assets": "none_found"
+        },
+        {
+          "path": "synthetic_reliability/rater_02.zip",
+          "rows": 34,
+          "nonblank_annotation_rows": 0,
+          "sha256": "647b1ca8d83c0e391757eb49b4de243e6f8a496709fa2cc609b7500fe727dbee",
+          "manifest_hash_match": true,
+          "zip_integrity": "pass",
+          "private_key_in_archive": false,
+          "external_network_code_or_assets": "none_found"
+        }
+      ]
+    }
+  },
+  "human_return_csv_candidates": [],
+  "scope": "local packet/CSV/HTML integrity audit; not a label-quality or policy experiment"
+}

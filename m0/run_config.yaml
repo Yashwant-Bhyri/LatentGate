@@ -1,0 +1,65 @@
+schema_version: 1
+experiment_id: M0_WAN21_T2V13B_T4_001
+status: complete
+
+model:
+  repo_id: Wan-AI/Wan2.1-T2V-1.3B-Diffusers
+  revision: 0fad780a534b6463e45facd96134c9f345acfa5b
+  pipeline_class: diffusers.WanPipeline
+  source_url: https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers
+  expected_transformer:
+    block_count: 30
+    num_attention_heads: 12
+    attention_head_dim: 128
+    patch_size: [1, 2, 2]
+
+runtime:
+  platform: Google Colab
+  accelerator: NVIDIA Tesla T4
+  compute_capability: "7.5"
+  python: 3.13.15
+  torch: 2.11.0+cu128
+  cuda: "12.8"
+  diffusers: 0.40.0
+  transformers: 5.16.1
+  accelerate: 1.14.0
+  huggingface_hub: 1.29.0
+  sentencepiece: 0.2.2
+  safetensors: 0.8.0
+  transformer_dtype: float16
+  vae_dtype: float32
+  offload: model_cpu_offload
+
+generation:
+  prompt: "A single bright red ball rolling slowly from left to right across a smooth white tabletop, fixed camera, soft daylight, simple clean background."
+  negative_prompt: "text, watermark, blurry image, JPEG artifacts"
+  seed: 2026
+  width: 832
+  height: 480
+  num_frames: 17
+  num_inference_steps: 30
+  guidance_scale: 5.0
+  scheduler: use_pretrained_config
+  deterministic_repeat: true
+  max_sequence_length: 226
+
+conditioning:
+  precompute_text_embeddings: true
+  text_encoder_dtype: float16
+  text_encoder_device_map: auto
+  # The frozen UMT5-XXL encoder is about 21 GiB in fp16. Reserve GPU headroom
+  # for its forward pass and keep its CPU shard below the Colab host limit.
+  text_encoder_max_memory:
+    0: 11.5GiB
+    cpu: 10GiB
+
+capture:
+  latent_steps_zero_based: [0, 4, 9, 14, 19, 24, 29]
+  predicted_clean_steps_zero_based: [4, 14, 24, 29]
+  transformer_blocks: [0, 15, 29]
+  transformer_steps_zero_based: [4, 14, 29]
+  transformer_summary: per_latent_frame_spatial_mean_and_std
+  attention_summary: sampled_query_bounded_self_attention
+  save_initial_noise: true
+  save_final_frames: true
+  save_generation_packet: true

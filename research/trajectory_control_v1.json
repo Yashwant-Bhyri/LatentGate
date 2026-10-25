@@ -1,0 +1,21 @@
+{
+  "experiment_id": "TC1_WAN13B_DITRAJ_RED_BALL",
+  "target": "A single bright red rigid sphere follows a prescribed left-to-right 2D path at fixed camera and apparent depth.",
+  "trajectory_format": "[frame_index, y_min, y_max, x_min, x_max], normalized to [0,1]",
+  "num_frames": 17,
+  "target_boxes_yxyx": [
+    [0, 0.50, 0.76, 0.18, 0.32],
+    [16, 0.50, 0.76, 0.58, 0.72]
+  ],
+  "mask_proxy": {
+    "name": "red_rgb_threshold",
+    "r_gt": 150,
+    "g_lt": 125,
+    "b_lt": 125,
+    "limitations": [
+      "This color mask is a screening proxy, not ground-truth segmentation.",
+      "Red reflections or unrelated red pixels can affect area and box measurements.",
+      "This fixed-depth, fixed-camera test does not establish metric 3D scale or physical dynamics."
+    ]
+  }
+}

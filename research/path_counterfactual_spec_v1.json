@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "status": "design_only_not_run",
+  "purpose": "Direction-balanced fixed-camera 2D path counterfactual for Wan2.1-T2V-1.3B",
+  "model": {
+    "id": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+    "revision": "0fad780a534b6463e45facd96134c9f345acfa5b",
+    "resolution_wh": [832, 480],
+    "frames": 17,
+    "denoising_steps": 30,
+    "seed_smoke": 2026,
+    "seed_confirmation": [2026, 2027, 2028, 2029, 2030]
+  },
+  "prompt": {
+    "positive": "A single glossy bright-red ball on a matte white tabletop, locked-off camera, soft even daylight. The ball moves smoothly and stays fully visible in frame.",
+    "foreground": "A single glossy bright-red ball moves smoothly and stays fully visible in frame.",
+    "background": "A locked-off camera, matte white tabletop, soft even daylight, simple clean background.",
+    "negative": "text, watermark, blurry image, JPEG artifacts",
+    "direction_words_allowed": false
+  },
+  "paired_paths": {
+    "coordinate_format": "[frame_index, y1_norm, y2_norm, x1_norm, x2_norm]",
+    "anchor_frames": [0, 16],
+    "shared_start_box": [0.43, 0.50, 0.57, 0.76],
+    "shared_start_center_xy_norm": [0.50, 0.63],
+    "box_size_wh_norm": [0.14, 0.26],
+    "right": {
+      "commanded_signed_dx_norm": 0.20,
+      "anchors_yxyx": [
+        [0, 0.50, 0.76, 0.43, 0.57],
+        [16, 0.50, 0.76, 0.63, 0.77]
+      ]
+    },
+    "left": {
+      "commanded_signed_dx_norm": -0.20,
+      "anchors_yxyx": [
+        [0, 0.50, 0.76, 0.43, 0.57],
+        [16, 0.50, 0.76, 0.23, 0.37]
+      ]
+    },
+    "latent_temporal_samples_from_17_frames": [0, 4, 8, 12, 16],
+    "same_initial_noise_within_seed_pair": true
+  },
+  "arms": [
+    "base_no_trajectory_control",
+    "foreground_background_path_control",
+    "full_ditraj_path_control"
+  ],
+  "annotation_schema": [
+    "blind_clip_id",
+    "frame_index",
+    "image_file",
+    "object_visible",
+    "instance_count",
+    "identity_consistent",
+    "bbox_x1_px",
+    "bbox_y1_px",
+    "bbox_x2_px",
+    "bbox_y2_px",
+    "notes"
+  ],
+  "annotation_center_definition": "Use the midpoint of the manually drawn tight object box for the primary center-path score; the scorer derives center from box coordinates. Keep box extent/IoU as a separate guardrail. Record identity ambiguity and visibility in their explicit fields, and use notes for occlusion or blur context.",
+  "scoring": {
+    "primary": "blinded_manual_box_midpoint_ADE_and_FDE_normalized_by_frame_diagonal",
+    "missing_detection_center_error_penalty": 1.0,
+    "also_report": [
+      "visibility_coverage",
+      "signed_endpoint_displacement_response",
+      "target_box_IoU",
+      "object_width_height_variation",
+      "identity_and_duplicate_count",
+      "background_motion_proxy"
+    ],
+    "monotonicity_rule": "Count only adjacent frame pairs where both are visible; report that denominator.",
+    "point_tracker_rule": "A tracked surface point on a rolling ball is not the projected object center; use only as a cross-check."
+  },
+  "pilot_gate": {
+    "runtime_smoke": "One seed; complete all three arms and verify path-to-latent mapping, shared-noise hashes, output frame count, peak VRAM, and wall time.",
+    "causal_smoke": "Same direction-neutral prompt and shared start/noise for left/right paths; the full control must produce the requested signed endpoint response and improve independent center error over both controls.",
+    "visibility_floor": 0.90,
+    "missing_detection_penalty_is_fixed_before_scoring": true,
+    "no_seed_sweep_before_smoke_and_evaluator_pass": true
+  },
+  "resource_gate": {
+    "colab": "GPU connection reported blocked by usage-limit message; no runtime started from this task.",
+    "kaggle": "Designated T4x2 runtime was reported off; freshly confirm quota/device before any launch.",
+    "gpu_run_authorized_now": false,
+    "estimated_m0_reference_only": {
+      "generation_seconds": 160.02,
+      "peak_allocated_gib": 7.91
+    },
+    "ditraj_t4_peak_memory_and_runtime": "unmeasured"
+  }
+}

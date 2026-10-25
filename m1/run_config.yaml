@@ -1,0 +1,65 @@
+schema_version: 1
+experiment_id: EXP-M1-COGVIDEOX5B-I2V-SMOKE-001
+status: planned_not_run
+
+model:
+  repo_id: zai-org/CogVideoX-5b-I2V
+  revision: a6f0f4858a8395e7429d82493864ce92bf73af11
+  revision_source: https://huggingface.co/api/models/zai-org/CogVideoX-5b-I2V
+  revision_resolved_date: 2026-10-02
+  pipeline_class: diffusers.CogVideoXImageToVideoPipeline
+
+runtime:
+  platform: Google Colab
+  accelerator: NVIDIA Tesla T4
+  billing_constraint: free_only_confirm_in_colab_ui
+  compute_capability: "7.5"
+  package_stack_id: m1-colab-t4-2026-10-15-cu130-v1
+  torch_dtype: float16
+  offload: sequential_cpu_offload
+  vae_slicing: true
+  vae_tiling: true
+  expected_packages:
+    torch: 2.11.0+cu130
+    torchvision: 0.26.0+cu130
+    diffusers: 0.40.0
+    transformers: 5.16.1
+    accelerate: 1.14.0
+    huggingface_hub: 1.29.0
+    safetensors: 0.8.0
+    sentencepiece: 0.2.2
+
+conditioning:
+  image_path: m1/assets/mug_holder_start_v1_720x480.png
+  image_sha256: 69cf5a5b1385ee0efdb525b4e164b35624c5d6d3db4d7a2da00fe2a5e27d69ea
+  video_prompt_source: m1/scene_fixture_v1.json
+  freeze_image_and_prompt: true
+
+generation:
+  seed: 2026
+  width: 720
+  height: 480
+  num_frames: 49
+  num_inference_steps: 50
+  guidance_scale: 6.0
+  scheduler: use_pretrained_config
+  use_dynamic_cfg: false
+  fps: 8
+  deterministic_repeat: true
+
+capture:
+  latent_steps_zero_based: [0, 9, 19, 29, 39, 49]
+  transformer_block_indices: discover_evenly_spaced
+  transformer_block_count: 6
+  hidden_summary: pooled_per_block_outputs_only
+  spatial_map_steps_zero_based: [0, 29, 49]
+  spatial_map_block_indices: discover_evenly_spaced
+  spatial_map_block_count: 3
+  spatial_map_size: [8, 12]
+  bounded_attention_summary: verify_support_before_enabling
+  predicted_clean_capture: true
+  predicted_clean_steps_zero_based: [0, 9, 19, 29, 39, 49]
+  predicted_clean_scheduler_class: CogVideoXDDIMScheduler
+  predicted_clean_prediction_type: v_prediction
+  generation_packet: true
+  output_dir: m1/runs/cogvideox_5b_i2v_t4_smoke

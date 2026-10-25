@@ -1,0 +1,12 @@
+{
+  "schema": "latentgate.ditraj_free_admission.v1",
+  "account": "bvyashwantkumar",
+  "checked_at_utc": "",
+  "notebook_sha256": "REPLACE_WITH_REVIEWED_LOCAL_NOTEBOOK_SHA256",
+  "runner_sha256": "REPLACE_WITH_EXACT_RUNNER_SHA256",
+  "intended_arm": "setup_only",
+  "free_t4_admission_confirmed": false,
+  "paid_prompt_seen": null,
+  "admission_provenance": "",
+  "evidence_sha256": ""
+}

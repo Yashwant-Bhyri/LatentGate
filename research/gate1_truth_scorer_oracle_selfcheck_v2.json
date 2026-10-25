@@ -1,0 +1,252 @@
+{
+  "experiment_id": "EXP-LATENTGATE-GATE1-TRUTH-SCORER-ORACLE-SELFCHECK-001",
+  "status": "synthetic_measurement_validation_only_no_human_labels",
+  "created_utc": "2026-10-15T08:09:27Z",
+  "method": "Construct temporary oracle CSV pairs from Kubric mask truth using disposable clip IDs and a synthetic temporary key. Score exact, shared +2 source-pixel x-bias, and rater-uncertain cases; separately mutate temporary truth records to mark one frame identity-uncertain and another duplicated, and require both to be excluded from path geometry. Finally submit a deliberately below-threshold pair with a nonexistent unblind-key path and require rejection before key access. The real packet key is never read; all temporary files are deleted on exit.",
+  "coordinate_contract": {
+    "source_wh": [
+      160,
+      96
+    ],
+    "target_wh": [
+      832,
+      480
+    ],
+    "grid_wh": [
+      52,
+      30
+    ]
+  },
+  "cases": {
+    "exact_oracle": {
+      "status": "diagnostic_only_not_human_gate_or_policy_efficacy",
+      "frames": 34,
+      "joint_categorical_accuracy": 1,
+      "identity_accuracy": 1,
+      "expected_visible_box_coverage": 1.0,
+      "unique_identity_consistent_box_coverage": 1.0,
+      "box_scoreable_frames": 34,
+      "center_distance_vs_mask_source_px": {
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "center_abs_dx_vs_mask_cells": {
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "signed_center_bias_vs_mask_source_px": {
+        "dx_mean": 0.0,
+        "dy_mean": 0.0
+      },
+      "bbox_iou_vs_mask": {
+        "mean": 1.0,
+        "p50": 1.0,
+        "p95": 1.0,
+        "max": 1.0
+      },
+      "mask_bbox_center_vs_projected_center_truth_gap": {
+        "mean": 1.6268561868106617e-06,
+        "p50": 1.9073486328125e-06,
+        "p95": 3.814697265625e-06,
+        "max": 3.814697265625e-06
+      },
+      "identical_inputs_give_identical_known_truth_metrics": true
+    },
+    "shared_plus_2px_x_bias": {
+      "status": "diagnostic_only_not_human_gate_or_policy_efficacy",
+      "frames": 34,
+      "joint_categorical_accuracy": 1,
+      "identity_accuracy": 1,
+      "expected_visible_box_coverage": 1.0,
+      "unique_identity_consistent_box_coverage": 1.0,
+      "box_scoreable_frames": 34,
+      "center_distance_vs_mask_source_px": {
+        "mean": 2.0,
+        "p50": 2.0,
+        "p95": 2.0,
+        "max": 2.0
+      },
+      "center_abs_dx_vs_mask_cells": {
+        "mean": 0.65,
+        "p50": 0.65,
+        "p95": 0.65,
+        "max": 0.65
+      },
+      "signed_center_bias_vs_mask_source_px": {
+        "dx_mean": 2.0,
+        "dy_mean": 0.0
+      },
+      "bbox_iou_vs_mask": {
+        "mean": 0.8181818181818182,
+        "p50": 0.8181818181818182,
+        "p95": 0.8181818181818183,
+        "max": 0.8181818181818182
+      },
+      "mask_bbox_center_vs_projected_center_truth_gap": {
+        "mean": 1.6268561868106617e-06,
+        "p50": 1.9073486328125e-06,
+        "p95": 3.814697265625e-06,
+        "max": 3.814697265625e-06
+      },
+      "identical_inputs_give_identical_known_truth_metrics": true
+    },
+    "one_identity_uncertain_frame": {
+      "status": "diagnostic_only_not_human_gate_or_policy_efficacy",
+      "frames": 34,
+      "joint_categorical_accuracy": 0.9705882352941176,
+      "identity_accuracy": 0.9705882352941176,
+      "expected_visible_box_coverage": 1.0,
+      "unique_identity_consistent_box_coverage": 0.9705882352941176,
+      "box_scoreable_frames": 33,
+      "center_distance_vs_mask_source_px": {
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "center_abs_dx_vs_mask_cells": {
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "signed_center_bias_vs_mask_source_px": {
+        "dx_mean": 0.0,
+        "dy_mean": 0.0
+      },
+      "bbox_iou_vs_mask": {
+        "mean": 1.0,
+        "p50": 1.0,
+        "p95": 1.0,
+        "max": 1.0
+      },
+      "mask_bbox_center_vs_projected_center_truth_gap": {
+        "mean": 1.6268561868106617e-06,
+        "p50": 1.9073486328125e-06,
+        "p95": 3.814697265625e-06,
+        "max": 3.814697265625e-06
+      },
+      "identical_inputs_give_identical_known_truth_metrics": true
+    },
+    "ground_truth_identity_uncertain_frame": {
+      "status": "diagnostic_only_not_human_gate_or_policy_efficacy",
+      "frames": 34,
+      "joint_categorical_accuracy": 0.9705882352941176,
+      "identity_accuracy": 0.9705882352941176,
+      "expected_visible_box_coverage": 1.0,
+      "unique_identity_consistent_box_coverage": 0.9705882352941176,
+      "box_scoreable_frames": 33,
+      "center_distance_vs_mask_source_px": {
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "center_abs_dx_vs_mask_cells": {
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "signed_center_bias_vs_mask_source_px": {
+        "dx_mean": 0.0,
+        "dy_mean": 0.0
+      },
+      "bbox_iou_vs_mask": {
+        "mean": 1.0,
+        "p50": 1.0,
+        "p95": 1.0,
+        "max": 1.0
+      },
+      "mask_bbox_center_vs_projected_center_truth_gap": {
+        "mean": 1.6268561868106617e-06,
+        "p50": 1.9073486328125e-06,
+        "p95": 3.814697265625e-06,
+        "max": 3.814697265625e-06
+      },
+      "identical_inputs_give_identical_known_truth_metrics": true
+    },
+    "ground_truth_duplicate_instance_frame": {
+      "status": "diagnostic_only_not_human_gate_or_policy_efficacy",
+      "frames": 34,
+      "joint_categorical_accuracy": 0.9705882352941176,
+      "identity_accuracy": 1,
+      "expected_visible_box_coverage": 1.0,
+      "unique_identity_consistent_box_coverage": 0.9705882352941176,
+      "box_scoreable_frames": 33,
+      "center_distance_vs_mask_source_px": {
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "center_abs_dx_vs_mask_cells": {
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "signed_center_bias_vs_mask_source_px": {
+        "dx_mean": 0.0,
+        "dy_mean": 0.0
+      },
+      "bbox_iou_vs_mask": {
+        "mean": 1.0,
+        "p50": 1.0,
+        "p95": 1.0,
+        "max": 1.0
+      },
+      "mask_bbox_center_vs_projected_center_truth_gap": {
+        "mean": 1.6268561868106617e-06,
+        "p50": 1.9073486328125e-06,
+        "p95": 3.814697265625e-06,
+        "max": 3.814697265625e-06
+      },
+      "identical_inputs_give_identical_known_truth_metrics": true
+    },
+    "below_threshold_pair_blocked_before_unblind": {
+      "process_exit_code": 1,
+      "expected_gate_error_seen": true,
+      "key_read_error_seen": false
+    }
+  },
+  "validation": {
+    "exact_oracle_zero_mask_center_error": true,
+    "known_shared_bias_detected_despite_identical_raters": true,
+    "identity_uncertain_box_excluded_from_path_error_but_retained_in_coverage": true,
+    "ground_truth_identity_uncertain_frame_excluded_from_path_error": true,
+    "ground_truth_duplicate_frame_excluded_from_path_error": true,
+    "below_threshold_pair_refused_before_unblinding": true,
+    "synthetic_temporary_key_passed_for_every_accepted_case": true,
+    "real_packet_key_read": false,
+    "expected_bias_in_target_grid_cells": 0.65,
+    "interpretation": "The diagnostic exposes common-mode box-center bias against known mask truth; this validates arithmetic only and says nothing about actual human labels or generated-video observer transfer."
+  },
+  "inputs": {
+    "scorer_sha256": "ed3f950e192f32c8908982555b2d344721414d1295b31b7aa11a8de65cfa22d4",
+    "synthetic_test_key_sha256": "84cf04eaad4e0f9cea557c4552cc9e9606810108d1db1097bacadd021ce740c7",
+    "ground_truth_sha256": "0dd6d5518de3c82d2e73d912c44fc712978d65dd93c38f8eb24d37500f8ad56b"
+  },
+  "compute": {
+    "runtime_seconds_including_six_scorer_processes": 0.334174,
+    "scorer_processes": 6,
+    "host": {
+      "system": "Darwin",
+      "machine": "arm64",
+      "python": "3.12.3"
+    },
+    "gpu_used": false,
+    "peak_vram_mb": null,
+    "model_inference": false
+  },
+  "limitations": [
+    "Synthetic fixture-derived inputs only; no human-return CSV was read or created outside the temporary directory.",
+    "This does not pass or replace inter-rater agreement, the second mirrored-seed reliability block, generated-Wan observer validation, or any policy-efficacy gate.",
+    "The injected shift is a measurement-path sanity case, not a proposed annotation threshold or an empirical rater bias estimate.",
+    "The identity-uncertain case validates scoring eligibility semantics only; it is not an actual occlusion or identity-switch sample."
+  ]
+}

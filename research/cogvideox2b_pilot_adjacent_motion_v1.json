@@ -1,0 +1,348 @@
+{
+  "audit_id": "EXP-COGVIDEOX2B-PILOT-ADJACENT-MOTION-001",
+  "status": "completed_cpu_saved_rgb_adjacent_motion_proxy",
+  "created_date": "2026-10-17",
+  "scope": "Image-only adjacent-pair RGB-MAE and Farneback diagnostic on the existing 8-step CogVideoX-2B pilot. No mask gate rerun; no model/latent access, inference, generation, GPU, or cloud.",
+  "source_run": "cogvideox_2b_pilot",
+  "run_conditions": {
+    "model": "zai-org/CogVideoX-2b",
+    "prompt": "A single bright red ball rolling slowly from left to right across a smooth white tabletop, fixed camera, soft daylight, simple clean background.",
+    "seed": 2026,
+    "width": 480,
+    "height": 320,
+    "guidance_scale": 6.0,
+    "denoising_steps": 8
+  },
+  "source_manifest": {
+    "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot/manifest.json",
+    "sha256": "08cb21bb8f69a725ed06dbcedf18a3db65af892356ae9f33520ed7d7ee104eb6"
+  },
+  "registered_input_map": {
+    "path": "research/cogvideox2b_stepsensitivity_inputs_v1.json",
+    "sha256": "b412f4f31d051d31f40060d17b34e47443ea5c8c23e857e996409cc7453dbcdd"
+  },
+  "sparse_readout_preregistration": {
+    "path": "research/cogvideox_2b_sparse_frame_preregistration_v1.json",
+    "sha256": "a684caf7b9cb0a3170cc8803c0119a720e3e45f7df0e015880f298239022f4fd",
+    "anchors": [
+      0,
+      2,
+      4,
+      6,
+      8
+    ]
+  },
+  "frame_count": 9,
+  "frame_size_px": [
+    480,
+    320
+  ],
+  "anchors": [
+    0,
+    2,
+    4,
+    6,
+    8
+  ],
+  "frame_sha256": [
+    {
+      "frame": 0,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot/frames/frame_00.png",
+      "sha256": "61eb6ba7ce411f7610a7c63915b6cef8aa7cafb43e38a5e57fc11381527e8872"
+    },
+    {
+      "frame": 1,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot/frames/frame_01.png",
+      "sha256": "5920cc64d730e3f0acd68aa66f42b19200b038b524bebd273a53962a1bee6587"
+    },
+    {
+      "frame": 2,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot/frames/frame_02.png",
+      "sha256": "5455571415df24321f11d6186e973e794ed1870c08289fdb9ecb12d6cabcec61"
+    },
+    {
+      "frame": 3,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot/frames/frame_03.png",
+      "sha256": "9991e91e785c071b6182f211bc8da9cd50ea66f8ad1ba75563a7a3d551b17931"
+    },
+    {
+      "frame": 4,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot/frames/frame_04.png",
+      "sha256": "7c289336edee46b7b66b73d7f0316a7eae64d9ee6c125e7d66ff378a2709280c"
+    },
+    {
+      "frame": 5,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot/frames/frame_05.png",
+      "sha256": "3710a50e2e4084f78373476932bbb8d77e3e66b368b03926128aa8e0e6eb4d57"
+    },
+    {
+      "frame": 6,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot/frames/frame_06.png",
+      "sha256": "bc042015810596d38092883320820c8b309191b7591a056224ab2523d77edee3"
+    },
+    {
+      "frame": 7,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot/frames/frame_07.png",
+      "sha256": "6b55b51d7378b5661c5112574bacc722dab703e6d2401b3fa94d6f05848ba713"
+    },
+    {
+      "frame": 8,
+      "path": "/Users/yash/Documents/Resume/video-diffusion-lab/run/cogvideox_2b_pilot/frames/frame_08.png",
+      "sha256": "5dcabd627b844a63b57d853a39be55a3f95f70e96d15b84cbb2bbb7936ea9ea7"
+    }
+  ],
+  "prior_fixed_red_mask_gate": {
+    "path": "research/cogvideox2b_stepsensitivity_rgb_v1.json",
+    "sha256": "4855a996bf9e3c908d4c7fa89a722e45449bf6f38ece8766bc70b11455607acc",
+    "baseline_result": "0/9 scoreable; maximum red-mask pixels 0 across the fixed threshold result",
+    "recomputed_here": false
+  },
+  "prior_five_anchor_readout": {
+    "path": "research/cogvideox_2b_five_anchor_readout_v1.json",
+    "sha256": "4b73e15a6e0b1eb88f8543b121336f5796206217ebd80f93ca6ee155c994aee4",
+    "status": "stopped_proxy_coverage_failure_no_interpolation_metrics",
+    "note": "The prior red-mask coverage failure stopped its mask interpolation metrics; it did not register pixelwise RGB-MAE or Farneback values."
+  },
+  "rgb_mae_method": {
+    "definition": "mean(abs(uint8_RGB(frame_t)-uint8_RGB(frame_t+1)))/255 across all pixels and channels",
+    "reference_method": "research/cogvideox2b_chunk13_anchor_motion_proxy_v1.json",
+    "reference_sha256": "7f603bf5db6500ca862d1f003f9a870dfc29a1dc35e4efb32feee91739a6fbe3"
+  },
+  "farneback_method": {
+    "library": "OpenCV Python",
+    "version": "4.11.0",
+    "function": "cv2.calcOpticalFlowFarneback",
+    "parameters": {
+      "pyr_scale": 0.5,
+      "levels": 3,
+      "winsize": 15,
+      "iterations": 3,
+      "poly_n": 5,
+      "poly_sigma": 1.2,
+      "flags": 0
+    },
+    "reference_method": "research/cogvideox2b_chunk13_farneback_flow_v1.json",
+    "reference_sha256": "216656c47c99bea09f99c419b983225330db719c1df9f546894b2b6e1ca91f3d",
+    "backend": "CPU; OpenCL disabled; one OpenCV thread; 8-bit grayscale converted from RGB",
+    "field_reduction": "mean, median, p95, p99, and max magnitude across the full frame"
+  },
+  "normalization_and_path_definitions": {
+    "rgb_mae": "normalized by 255; bounded whole-frame mean absolute RGB intensity difference",
+    "flow": "source-image pixel units; path is sum of independently estimated adjacent-frame mean magnitudes, not a tracked trajectory",
+    "endpoint": "direct metric from separately supplied anchor images; four intervals from registered anchors [0,2,4,6,8]"
+  },
+  "adjacent_transitions": [
+    {
+      "from_frame": 0,
+      "to_frame": 1,
+      "normalized_rgb_mae": 1.1488970588235293e-06,
+      "rgb_mae_8bit_levels": 0.00029296875,
+      "farneback": {
+        "mean_magnitude_px": 3.929749541531958e-09,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 2.419809899204427e-31,
+        "p99_magnitude_px": 2.132994099094173e-24,
+        "max_magnitude_px": 1.1690328392433003e-05
+      }
+    },
+    {
+      "from_frame": 1,
+      "to_frame": 2,
+      "normalized_rgb_mae": 5.787037037037037e-07,
+      "rgb_mae_8bit_levels": 0.00014756944444444445,
+      "farneback": {
+        "mean_magnitude_px": 4.9589241850388394e-09,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 2.3503986034804622e-31,
+        "p99_magnitude_px": 1.238534813707602e-23,
+        "max_magnitude_px": 1.4844833458482753e-05
+      }
+    },
+    {
+      "from_frame": 2,
+      "to_frame": 3,
+      "normalized_rgb_mae": 5.276416122004357e-07,
+      "rgb_mae_8bit_levels": 0.0001345486111111111,
+      "farneback": {
+        "mean_magnitude_px": 6.377479333243415e-09,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 1.3588806384065008e-31,
+        "p99_magnitude_px": 7.152297011785137e-23,
+        "max_magnitude_px": 1.741844243952073e-05
+      }
+    },
+    {
+      "from_frame": 3,
+      "to_frame": 4,
+      "normalized_rgb_mae": 1.6169662309368193e-07,
+      "rgb_mae_8bit_levels": 4.123263888888889e-05,
+      "farneback": {
+        "mean_magnitude_px": 7.2664371562116465e-09,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 1.3211603177323995e-31,
+        "p99_magnitude_px": 2.862450819923648e-24,
+        "max_magnitude_px": 1.9947403416153975e-05
+      }
+    },
+    {
+      "from_frame": 4,
+      "to_frame": 5,
+      "normalized_rgb_mae": 1.3105936819172112e-06,
+      "rgb_mae_8bit_levels": 0.00033420138888888887,
+      "farneback": {
+        "mean_magnitude_px": 7.54008139126205e-09,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 2.1218776527664124e-32,
+        "p99_magnitude_px": 1.3873538374212619e-18,
+        "max_magnitude_px": 2.020194733631797e-05
+      }
+    },
+    {
+      "from_frame": 5,
+      "to_frame": 6,
+      "normalized_rgb_mae": 6.382761437908496e-07,
+      "rgb_mae_8bit_levels": 0.00016276041666666666,
+      "farneback": {
+        "mean_magnitude_px": 7.731199076119592e-09,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 1.6950472198108727e-31,
+        "p99_magnitude_px": 5.202127462261858e-24,
+        "max_magnitude_px": 2.0647215933422558e-05
+      }
+    },
+    {
+      "from_frame": 6,
+      "to_frame": 7,
+      "normalized_rgb_mae": 4.2551742919389977e-07,
+      "rgb_mae_8bit_levels": 0.00010850694444444444,
+      "farneback": {
+        "mean_magnitude_px": 6.8828242172663064e-09,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 2.13504944900304e-31,
+        "p99_magnitude_px": 6.815863928470842e-24,
+        "max_magnitude_px": 1.814177267078776e-05
+      }
+    },
+    {
+      "from_frame": 7,
+      "to_frame": 8,
+      "normalized_rgb_mae": 2.1275871459694989e-07,
+      "rgb_mae_8bit_levels": 5.425347222222222e-05,
+      "farneback": {
+        "mean_magnitude_px": 8.106741699649272e-09,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 1.9591153254052999e-31,
+        "p99_magnitude_px": 2.3013904615946658e-24,
+        "max_magnitude_px": 2.10968228202546e-05
+      }
+    }
+  ],
+  "anchor_interval_comparison": [
+    {
+      "start_anchor": 0,
+      "end_anchor": 2,
+      "interval_frames": 2,
+      "rgb_mae_adjacent_path_normalized": 1.727600762527233e-06,
+      "rgb_mae_direct_anchor_endpoint_normalized": 1.6424972766884531e-06,
+      "rgb_mae_path_minus_endpoint": 8.510348583877975e-08,
+      "rgb_mae_path_to_endpoint_ratio": 1.0518134715025906,
+      "farneback_adjacent_path_mean_magnitude_px": 8.888673726570798e-09,
+      "farneback_direct_anchor_endpoint": {
+        "mean_magnitude_px": 4.568367322210838e-09,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 2.5672173609952823e-31,
+        "p99_magnitude_px": 1.956678775329281e-21,
+        "max_magnitude_px": 1.3194531675253529e-05
+      },
+      "farneback_path_minus_endpoint_px": 4.32030640435996e-09,
+      "farneback_path_to_endpoint_ratio": 1.9457003125285401
+    },
+    {
+      "start_anchor": 2,
+      "end_anchor": 4,
+      "interval_frames": 2,
+      "rgb_mae_adjacent_path_normalized": 6.893382352941177e-07,
+      "rgb_mae_direct_anchor_endpoint_normalized": 6.552968409586056e-07,
+      "rgb_mae_path_minus_endpoint": 3.404139433551211e-08,
+      "rgb_mae_path_to_endpoint_ratio": 1.0519480519480522,
+      "farneback_adjacent_path_mean_magnitude_px": 1.3643916489455061e-08,
+      "farneback_direct_anchor_endpoint": {
+        "mean_magnitude_px": 6.385670069736516e-09,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 1.8637799123671704e-31,
+        "p99_magnitude_px": 2.3078881510987902e-23,
+        "max_magnitude_px": 1.7536734958412126e-05
+      },
+      "farneback_path_minus_endpoint_px": 7.258246419718545e-09,
+      "farneback_path_to_endpoint_ratio": 2.136646012157348
+    },
+    {
+      "start_anchor": 4,
+      "end_anchor": 6,
+      "interval_frames": 2,
+      "rgb_mae_adjacent_path_normalized": 1.948869825708061e-06,
+      "rgb_mae_direct_anchor_endpoint_normalized": 1.4382489106753811e-06,
+      "rgb_mae_path_minus_endpoint": 5.106209150326798e-07,
+      "rgb_mae_path_to_endpoint_ratio": 1.3550295857988166,
+      "farneback_adjacent_path_mean_magnitude_px": 1.5271280467381645e-08,
+      "farneback_direct_anchor_endpoint": {
+        "mean_magnitude_px": 7.500900803524503e-09,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 2.1101565047207757e-32,
+        "p99_magnitude_px": 8.801184804386407e-23,
+        "max_magnitude_px": 1.9554421669454314e-05
+      },
+      "farneback_path_minus_endpoint_px": 7.770379663857142e-09,
+      "farneback_path_to_endpoint_ratio": 2.0359261997180416
+    },
+    {
+      "start_anchor": 6,
+      "end_anchor": 8,
+      "interval_frames": 2,
+      "rgb_mae_adjacent_path_normalized": 6.382761437908496e-07,
+      "rgb_mae_direct_anchor_endpoint_normalized": 5.191312636165578e-07,
+      "rgb_mae_path_minus_endpoint": 1.1914488017429187e-07,
+      "rgb_mae_path_to_endpoint_ratio": 1.2295081967213113,
+      "farneback_adjacent_path_mean_magnitude_px": 1.4989565916915578e-08,
+      "farneback_direct_anchor_endpoint": {
+        "mean_magnitude_px": 7.136080330639602e-09,
+        "median_magnitude_px": 0.0,
+        "p95_magnitude_px": 3.4840740374756364e-31,
+        "p99_magnitude_px": 8.211193209016715e-24,
+        "max_magnitude_px": 1.704392343526706e-05
+      },
+      "farneback_path_minus_endpoint_px": 7.853485586275975e-09,
+      "farneback_path_to_endpoint_ratio": 2.100532116007174
+    }
+  ],
+  "summary": {
+    "adjacent_transition_count": 8,
+    "anchor_endpoint_interval_count": 4,
+    "rgb_mae_dense_adjacent_path_total_normalized": 5.004084967320261e-06,
+    "rgb_mae_sum_of_anchor_endpoint_contrasts_normalized": 4.255174291938997e-06,
+    "rgb_mae_dense_path_minus_endpoint_total": 7.489106753812635e-07,
+    "rgb_mae_dense_path_to_endpoint_total_ratio": 1.176,
+    "rgb_mae_signed_path_excess_fraction": 0.14965986394557823,
+    "farneback_dense_adjacent_path_total_px": 5.279343660032308e-08,
+    "farneback_sum_of_anchor_endpoint_magnitudes_px": 2.559101852611146e-08,
+    "farneback_dense_path_minus_endpoint_total_px": 2.7202418074211622e-08,
+    "farneback_dense_path_to_endpoint_total_ratio": 2.062967386251391,
+    "farneback_signed_path_excess_fraction": 0.5152613625089364,
+    "largest_rgb_mae_transition": {
+      "from_frame": 4,
+      "to_frame": 5,
+      "normalized_rgb_mae": 1.3105936819172112e-06
+    },
+    "largest_farneback_transition": {
+      "from_frame": 7,
+      "to_frame": 8,
+      "mean_magnitude_px": 8.106741699649272e-09
+    }
+  },
+  "limitations": [
+    "Clip-local descriptive metrics only; do not infer a cross-model or denoising-step effect.",
+    "Whole-frame RGB MAE and Farneback are image-space proxies, not human labels or object motion ground truth.",
+    "Anchor path/endpoint differences do not establish sampling sufficiency or event recall.",
+    "The previously registered 0/9 red-mask gate failure was preserved and not recomputed or retuned."
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "experiment_id": "EXP-LATENTGATE-GATE0-SCORER-VALIDATION-001",
+  "status": "kubric_rendered_truth_scored_annotation_reliability_pending",
+  "fixture": "deterministic PIL scorer fixtures plus paired 17-frame Kubric/Blender left/right mask-grounded path renders when the Kubric fixture report is present",
+  "cpu_only": true,
+  "checks": {
+    "exact_right_path_zero_error": true,
+    "exact_left_path_zero_error": true,
+    "signed_left_right_endpoint_displacement": true,
+    "target_path_interpolation": true,
+    "missing_frame_penalty_and_coverage": true,
+    "missing_frame_adjacent_pair_denominator": true,
+    "missing_final_frame_fde_penalty": true,
+    "duplicate_instance_detection": true,
+    "duplicate_instances_hard_fail_and_are_excluded_from_path_centers": true,
+    "identity_switch_penalty": true,
+    "frame_diagonal_normalization_resolution_invariant": true,
+    "blinded_annotation_package_schema_and_key_separation": true,
+    "annotation_box_midpoint_and_edge_coordinate_contract": true,
+    "filled_annotation_csv_roundtrip": true,
+    "counterfactual_spec_matches_scorer_annotation_schema": true,
+    "two_blind_kubric_reliability_packages_ready": true,
+    "kubric_rendered_masks_match_projected_left_right_truth": true,
+    "kubric_scores_recomputed_from_source_masks_and_cache_checked": true
+  },
+  "scored_cases": {
+    "right_exact": {
+      "mean_center_error_frame_diagonals_missing_penalized": 0.0,
+      "fde_frame_diagonals_missing_penalized": 0.0,
+      "scoreable_identity_coverage": 1.0,
+      "mean_bbox_iou_all_frames_missing_as_zero": 1.0,
+      "target_direction_sign_x": 1,
+      "endpoint_delta_x_frame_diagonals": 0.17888543819998318,
+      "target_aligned_endpoint_progress_frame_diagonals": 0.17888543819998318,
+      "center_x_monotonic_step_fraction_target_direction": 1.0,
+      "center_x_monotonic_valid_adjacent_pair_count": 16,
+      "missing_or_identity_ambiguous_frames": [],
+      "identity_failure_frames": [],
+      "duplicate_instance_frames": [],
+      "hard_fail": false,
+      "hard_fail_reasons": []
+    },
+    "left_exact": {
+      "mean_center_error_frame_diagonals_missing_penalized": 0.0,
+      "fde_frame_diagonals_missing_penalized": 0.0,
+      "scoreable_identity_coverage": 1.0,
+      "mean_bbox_iou_all_frames_missing_as_zero": 1.0,
+      "target_direction_sign_x": -1,
+      "endpoint_delta_x_frame_diagonals": -0.17888543819998318,
+      "target_aligned_endpoint_progress_frame_diagonals": 0.17888543819998318,
+      "center_x_monotonic_step_fraction_target_direction": 1.0,
+      "center_x_monotonic_valid_adjacent_pair_count": 16,
+      "missing_or_identity_ambiguous_frames": [],
+      "identity_failure_frames": [],
+      "duplicate_instance_frames": [],
+      "hard_fail": false,
+      "hard_fail_reasons": []
+    },
+    "middle_missing": {
+      "mean_center_error_frame_diagonals_missing_penalized": 0.058823529411764705,
+      "fde_frame_diagonals_missing_penalized": 0.0,
+      "scoreable_identity_coverage": 0.9411764705882353,
+      "mean_bbox_iou_all_frames_missing_as_zero": 0.9411764705882353,
+      "target_direction_sign_x": 1,
+      "endpoint_delta_x_frame_diagonals": 0.17888543819998318,
+      "target_aligned_endpoint_progress_frame_diagonals": 0.17888543819998318,
+      "center_x_monotonic_step_fraction_target_direction": 1.0,
+      "center_x_monotonic_valid_adjacent_pair_count": 14,
+      "missing_or_identity_ambiguous_frames": [
+        8
+      ],
+      "identity_failure_frames": [],
+      "duplicate_instance_frames": [],
+      "hard_fail": false,
+      "hard_fail_reasons": []
+    },
+    "final_missing": {
+      "scoreable_identity_coverage": 0.9411764705882353,
+      "fde_frame_diagonals_missing_penalized": 1.0,
+      "missing_or_identity_ambiguous_frames": [
+        16
+      ]
+    },
+    "duplicate_at_5": {
+      "duplicate_instance_frames": [
+        5
+      ],
+      "duplicate_frame_rate": 0.058823529411764705,
+      "hard_fail": true,
+      "hard_fail_reasons": [
+        "duplicate_instances"
+      ],
+      "scoreable_identity_coverage": 0.9411764705882353,
+      "mean_center_error_frame_diagonals_valid_only": 0.0,
+      "mean_center_error_frame_diagonals_missing_penalized": 0.058823529411764705
+    },
+    "identity_switch_at_6": {
+      "identity_failure_frames": [
+        6
+      ],
+      "scoreable_identity_coverage": 0.9411764705882353,
+      "mean_center_error_frame_diagonals_missing_penalized": 0.058823529411764705
+    },
+    "normalization_probe": {
+      "200x100_error": 0.044721359549995794,
+      "400x200_error": 0.044721359549995794
+    }
+  },
+  "kubric_fixture": {
+    "report": "research/kubric_gate0_fixture_v1/fixture_report.json",
+    "score_source": "binary mask PNGs plus projected centers in ground_truth.json",
+    "target_box_size_px": [
+      20.0,
+      20.0
+    ],
+    "metric_scope": {
+      "path_metric": "center error and signed path response",
+      "extent_metric": "bbox IoU is valid for the size-matched 20x20 fixture box",
+      "duplicate_policy": "hard failure; ambiguous duplicate-frame centers are unscoreable"
+    },
+    "kubric_source_commit_sha": "61f2422c84bab75006df33c6989e0b483db3ccfe",
+    "python": "3.11.14",
+    "blender_python": "4.3.0",
+    "runtime_packages": {
+      "bpy": "4.3.0",
+      "tensorflow": "2.16.2",
+      "pybullet-arm64": "3.2.8",
+      "numpy": "1.26.4",
+      "pillow": "12.3.0"
+    },
+    "total_rendered_frames": 34,
+    "path_scores_recomputed_from_masks": {
+      "right": {
+        "mean_center_error_frame_diagonals_missing_penalized": 1.1424713687713242e-08,
+        "fde_frame_diagonals_missing_penalized": 1.0222112246901323e-08,
+        "scoreable_identity_coverage": 1.0,
+        "mean_bbox_iou_all_frames_missing_as_zero": 0.9999997868257742,
+        "target_direction_sign_x": 1,
+        "endpoint_delta_x_frame_diagonals": 0.17149858514250882,
+        "target_aligned_endpoint_progress_frame_diagonals": 0.17149858514250882,
+        "center_x_monotonic_step_fraction_target_direction": 1.0,
+        "center_x_monotonic_valid_adjacent_pair_count": 16,
+        "missing_or_identity_ambiguous_frames": [],
+        "identity_failure_frames": [],
+        "duplicate_instance_frames": [],
+        "hard_fail": false,
+        "hard_fail_reasons": []
+      },
+      "left": {
+        "mean_center_error_frame_diagonals_missing_penalized": 6.013007204059602e-09,
+        "fde_frame_diagonals_missing_penalized": 1.0222112246901323e-08,
+        "scoreable_identity_coverage": 1.0,
+        "mean_bbox_iou_all_frames_missing_as_zero": 0.9999998878030307,
+        "target_direction_sign_x": -1,
+        "endpoint_delta_x_frame_diagonals": -0.17149858514250882,
+        "target_aligned_endpoint_progress_frame_diagonals": 0.17149858514250882,
+        "center_x_monotonic_step_fraction_target_direction": 1.0,
+        "center_x_monotonic_valid_adjacent_pair_count": 16,
+        "missing_or_identity_ambiguous_frames": [],
+        "identity_failure_frames": [],
+        "duplicate_instance_frames": [],
+        "hard_fail": false,
+        "hard_fail_reasons": []
+      }
+    }
+  },
+  "annotation_reliability_packages": {
+    "manifest": "research/kubric_gate0_annotation_reliability/package_manifest.json",
+    "status": "awaiting_two_independent_annotators",
+    "independent_copies": 2,
+    "frames_per_copy": 17,
+    "unblind_keys_external": true
+  },
+  "blinding_package": {
+    "zip_entry_count": 36,
+    "clips": 2,
+    "annotation_rows": 34,
+    "structured_columns": [
+      "blind_clip_id",
+      "frame_index",
+      "image_file",
+      "object_visible",
+      "instance_count",
+      "identity_consistent",
+      "bbox_x1_px",
+      "bbox_y1_px",
+      "bbox_x2_px",
+      "bbox_y2_px",
+      "notes"
+    ],
+    "key_outside_zip": true,
+    "arm_labels_absent_from_zip_and_template": true,
+    "completed_csv_roundtrip_zero_error": true
+  },
+  "environment": {
+    "kubric_in_default_python": false,
+    "blender_cli": false,
+    "kubric_fixture_renderer": "4.3.0",
+    "docker_cli": true
+  },
+  "remaining_gate0_requirements": [
+    "Double-label a small random frame subset to estimate human annotation noise before using the template on generated clips."
+  ],
+  "limits": [
+    "The procedural PIL fixture verifies score math and blinding mechanics; the Kubric fixture recomputes its center and size-matched box scores from binary source masks plus projected ground-truth centers, but does not measure human annotation reliability.",
+    "No Wan or DiTraj inference was run, and no GPU/cloud compute was used."
+  ]
+}

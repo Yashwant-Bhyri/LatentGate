@@ -1,0 +1,51 @@
+{
+  "status": "awaiting_two_independent_annotators",
+  "source_fixture": "research/kubric_gate0_fixture_v1/right",
+  "frame_count": 17,
+  "frame_size_wh": [
+    160,
+    96
+  ],
+  "annotation_schema": [
+    "blind_clip_id",
+    "frame_index",
+    "image_file",
+    "object_visible",
+    "instance_count",
+    "identity_consistent",
+    "bbox_x1_px",
+    "bbox_y1_px",
+    "bbox_x2_px",
+    "bbox_y2_px",
+    "notes"
+  ],
+  "packages": [
+    {
+      "package": "research/kubric_gate0_annotation_reliability/review_copy_01_v2/blinded_annotation_package.zip",
+      "private_unblind_key": "research/kubric_gate0_annotation_reliability/review_copy_01_v2/PRIVATE_UNBLIND_KEY.json"
+    },
+    {
+      "package": "research/kubric_gate0_annotation_reliability/review_copy_02_v2/blinded_annotation_package.zip",
+      "private_unblind_key": "research/kubric_gate0_annotation_reliability/review_copy_02_v2/PRIVATE_UNBLIND_KEY.json"
+    }
+  ],
+  "distribution_note": "Send each v2 ZIP separately to an independent annotator. Keep both v2 private_unblind_key files until annotations are returned; superseded packages were not labeled.",
+  "planned_agreement_metrics": [
+    "visible/instance-count agreement per frame",
+    "identity-consistency agreement across the clip",
+    "per-frame bbox IoU",
+    "per-frame center disagreement normalized by frame diagonal"
+  ],
+  "annotation_contract_revision": "box_midpoint_v2",
+  "superseded_unlabeled_packages": [
+    {
+      "package": "research/kubric_gate0_annotation_reliability/review_copy_01/blinded_annotation_package.zip",
+      "private_unblind_key": "research/kubric_gate0_annotation_reliability/review_copy_01/PRIVATE_UNBLIND_KEY.json"
+    },
+    {
+      "package": "research/kubric_gate0_annotation_reliability/review_copy_02/blinded_annotation_package.zip",
+      "private_unblind_key": "research/kubric_gate0_annotation_reliability/review_copy_02/PRIVATE_UNBLIND_KEY.json"
+    }
+  ],
+  "annotation_center_definition": "For this round object, score center as the midpoint of the tight box; boxes use continuous pixel-edge coordinates and exclusive right/bottom edges."
+}
